@@ -1,0 +1,288 @@
+Rules: idk man just fuck my shit up and make it as funny and dating sim-like as possible
+The game will have alot of routes and i want everyone (as the guy who’ll put everything in the engine) to write (and also edit if necessary) the game and choices you’ll take that lead to other routes
+There’ll also be confession cross examinations and make them like confessions where a character tells the {anon’s () abode} player or another character their confession on why they hate them but they’re all a lie because they love them :flushed:
+make sure you do "[character name]: [something something]" to make it obvious who's talking
+Currently the characters are: protagonist, Quercus Alba, obama, Deid Mann and L’Belle (there’ll be more when you guys suggest and agree on them)
+Also if you want to make it obvious that characters will be having speech bubbles just say things like for example [X character’s objection] and stuff like that
+
+Anyways, let’s begin now
+
+--preparations--
+{aliasbg theatrum theatrum_neutralis}
+{aliasbg garden rose_garden}
+{aliasbgm obama zheng_fa}
+{evi badge “Allebahst Academy Badge” “Proof that you study here.”}
+--------------game begins now start doing the script also don’t do anything to the above--------------
+
+#author: mohammadbu50
+
+{shortcut start}
+{bg theatrum left}
+{fadein}
+“Protagonist: oh man i am SO late for school my teachers definitely gonna decimate me today...”
+
+{fadeout}
+{bg garden right}
+{fadein}
+“Protagonist: {shake}ah! I accidentally hit someone!” 👊
+
+
+{music querco}
+“???: {shake}Bah! You {shake}fiend! You dare hit someone as might as me, The {shake}ultimate ambassador Quercus {shake}Alba!?!”
+
+{char querco}
+“Protagonist: w-woah… sorry there i was running really fast”
+
+
+“Protagonist: (oh my god… he looks so hot)”
+
+“Quercus Alba: Anyways, It’s time for me to catch my plane. Goodbye”
+
+“Protagonist: w-{shake}wait!”
+
+
+“Protagonist: (i just accidentally opened my mouth, without knowing what i was gonna)”
+
+“Quercus Alba: What?”
+
+“Protagonist: (This is it… my final chance, {shake}to take up Quercus Alba!~)”
+
+“Protagonist: (I can’t mess up this chance I’ve been given!)”
+
+“Protagonist: I WANT TO {shake}FUCK YOU!“
+
+{pose querco flushed}
+“Quercus Alba: You {shake}WHAAAAAAAAAT”
+
+{fadeout}
+-------small prologue ends here-------
+
+#author: Cynical Toast
+
+“Protagonist: (It was the autumn of 2009, I had just been accepted into the esteemed Allebahst Academy. I was studying to be a podiatrist, on the surface, but my real goal was to meet cute boys.)”
+
+“Protagonist: (I expected to at least go a few days before finding my mate, but at the beginning I had already found him: Quercus Alba-san.)”
+
+{fadein}
+“Protagonist: I said I want to {shake}FUCK YOU!”
+
+{pose querco normal}
+“Quercus Alba: You insolent {shake}fool! You cannot simply earn the love of the great Ambassador Alba, {shake}baka!”
+
+“Protagonist: (Everything about him- from his grizzled features, to his soft beard, to his cold stare- it all made me swoon with the intensity of {shake}a thousand suns!)”
+
+“Protagonist: Please… Mr Alba-san, please just stay a little longer. I promise I won’t interfere with your-”
+
+{hubjeckshun querco}
+{pose querco hand}
+“Quercus Alba: {shake}Hubjeckshun! I have no time for the likes of you, now scurry along on your way as I board my plane!”
+
+{music none}
+{objection obama}
+“???: Uhhh, actually, I’m afraid you simply cannot do that.”
+
+{pose querco normal}
+{side left}
+“Protagonist: (I looked over my shoulder, searching for the source of that mysterious voice, only to feel my heart try and burst out of my chest.)”
+
+{pose obama hand}
+{char_left obama}
+{music obama}
+“Obama: Let me be clear, Mr Alba, you cannot leave these, uhh, school premises without a valid reason.”
+
+“Quercus Alba: Bah, a teacher's pet as always, Barack! Fine, I’ll stay in this wretched academy for a little bit longer, but I shall partake in {shake}no activities with *protagonist*!”
+
+#author: lulucart
+
+{fadeout}
+“Protagonist: (A-{shake}ah… I can’t take this...)”
+
+“Protagonist: (First I meet the legendary Ambassador Quercus Alba-senpai-san himself… And he’s {shake}so tall, tan and handsome…!)”
+
+“Protagonist: (T-Then, Obama-san shows up too… Like he wants to {shake}steal Quercus for himself…!!! I won’t let that happen! {shake}Ever…!)”
+{char obama}
+{pose obama normal}
+“Protagonist: (.........)”
+
+“Protagonist: (! Protagonist, {shake}wake up!)”
+{fadein}
+
+“Protagonist: !
+A-{shake}Alba-san!? Where did he {shake}go!?“
+
+“Obama: He went, uhh, on another walk around the, uh, academy just now. Uhhh, he said he’d ‘rather spend time being miserable than’, uh, ‘with this rabid fan around‘...“
+
+“Protagonist: ‘Rabid fan‘, eh… You baka Alba-san...“
+
+“Protagonist: (Oh, that’s right… I had decided to skip class because I saw Alba-san’s plane from above and I thought I could meet him, but since he’s not going there… I’ll just have to chase after him!)”
+
+“Protagonist: Where did he head to?“
+
+“Obama: He went through, uh, that door over there.”
+
+“Protagonist: ...Obama-{shake}san! Don’t try anything funny with Alba-{shake}san! You’ll never steal him from {shake}me!!”
+
+{pose obama flushed}
+“Obama: What are you uhh, talking about...?“
+
+{music none}
+{side right}
+“Protagonist: (I broke into a run… I’m going to find Alba-baka-san, {shake}no matter what!)”
+
+“Protagonist: (...{shake}Oww!)”
+
+“Protagonist: (Dammit!! I slammed into the door, but it’s locked!)”
+
+{side left}
+{pose obama normal}
+“Obama: Um, you can’t go, uh, in there anymore for now.”
+
+“Protagonist: A-ah… (I can't go to where he is… guess I’ll just go to class.)”
+
+{fadeout}
+{shortcut foot_class}
+{bg querco_office right}
+{char deid}
+{music reminiscing}
+{fadein}
+
+“Deid Mann: Welcome to foot class. Two patients have, since we have started school, been assigned to podiatry. One of them is a very beautiful lady. She lives in a small village in Panchayat Taluka in Chhattisgarh.”
+“Deid Mann: She is 25 years old and started attending a temple in Tihar Colony, Kanpur. The lady's physical appearance is more feminine than that of her female friends who attend the temple.”
+“Deid Mann: She has very good posture, and on her daily visit to the temple she”
+# h ow do i even write foot class (nvm ^)
+# dont forget to use the commands, ask me for documentation if you want
+# deid is professor rn but he will die and we will at some point find out who did it ig
+
+“Protagonist: (This class is so boring…)“
+{fadeout}
+“Protagonist: (I’m not that interested in podiatry, even if I am studying it...)“
+“Protagonist: (Ha, someone even went out just now…)”
+“Protagonist: (…...)“
+“Protagonist: (............)”
+
+#author: Nateyobb
+
+{music none}
+{char colias}
+{pose colias normal}
+“???: Hello…? Are you awake?”
+
+“Protagonist: (........what? Who is that….?)”
+
+“Protagonist: (Whatever……)”
+
+“???: Yo bruv, {shake}wake up!”
+
+“Protagonist: (...W-{shake}aah!)”
+
+{fadein}
+“Protagonist: (...Who is this? Another student?)”
+
+{pose colias happy}
+“???: You were out pretty good, huh? Glad I noticed, wouldn’t want you snoozing through to the professor’s class!”
+
+“Protagonist: ...I’m sorry, do I know you?”
+
+“Protagonist: (Something seems off about this guy. Plus he’s not even close to as hot as Alba, so I’d rather get this over with quick)”
+
+{music embassy}
+{pose colias normal}
+“Colias: Oh sorry about that bruv. My name’s Colias Palaeno, but I guess people tend to just call me Colias.”
+
+{pose colias grin}
+“Colias: Again, sorry for not introducing myself sooner. I know, why don’t you take a coupon as an apology?”
+
+“Protagonist: Oh… thanks?”
+
+“Protagonist: (What is this even a coupon for? It says Babahl merchandise… {shake}isn’t that a rival school?)”
+
+{pose colias normal}
+“Protagonist: Hey, dumb question but are you a student here? These are for the Babahl school store...”
+
+{pose colias happy}
+“Colias: Oh you shouldn’t worry about that. Sure I used to go to Babahl Academy, but I left a while ago. On my way out I nabbed a whole stack of coupons they had lying out and about.”
+
+{pose colias normal}
+“Protagonist: (So you’re trying to get rid of them by giving them to me, huh? Well at least that probably means he’s a student here.)”
+
+“Protagonist: (Wait, what am I doing paying this guy any mind?! I should be searching for Alba, It has to have been over an hour by now, maybe he’s moved to somewhere I can actually go!)”
+
+“Protagonist: Well, it’s been nice talking with you Colias, but I have more important things to do.”
+
+{pose colias happy}
+“Colias: Ah, of course, of course. Naturally, I also have lots and lots of classes to attend, just like you, as I am a student here.”
+
+“Protagonist: …”
+
+{pose colias normal}
+“Colias: Yes, well, off to class!”
+
+{char none}
+{music none}
+“Protagonist: (Kind of odd, but I really need to get going.)”
+
+
+“Protagonist: (Huh, that weirdo didn’t go for the door… Whatever.)”
+{side left}
+{fadeout}
+#author: lulucart
+Scene: F Where In The World Is Quercolino Alibaba O Here
+{alias theatrum theatrum_neutralis}
+{alias garden rose_garden}
+
+“Protagonist: Alba-san!!!“
+{bg theatrum left}
+{fadein}
+
+“Protagonist: (I shouted while going through the door, but I don’t really know if he’s here-)”
+
+{char querco}
+{pose querco sweat}
+“Quercus Alba: {shake}BAH!”
+
+{char none}
+“Protagonist: {shake}Wait! Alba-san!”
+
+{char querco}
+"Quercus Alba: What do thou want!?"
+
+"Protagonist: I already said what I want: to {shake}FUCK YOU!"
+
+----- CONFRONTATION: EXTRATERRITORIAL RIGHTS -----
+
+{sfx rebuttal}
+{vs querco}
+":-- Extraterritorial Rights --"
+{music moderato}
+{rebuttal}
+
+{statement start}
+{pose querco hand}
+"Quercus Alba: Do you know who I am!?"
+"Protagonist: You're the legendary General Ambassador Quercus Alba-san!"
+"Quercus Alba: Exactly."
+
+{statement end}
+{pose querco hand}
+"Quercus Alba: You can't do that to me, {shake}baka! Now go away!"
+"Protagonist: Why not!? I really want to fuck you!"
+{hubjeckshun querco}
+"Quercus Alba: {shake} Hubjeckshun! You see, you don't have the privilege to do that."
+{pose querco smug}
+"Quercus Alba: For, I'm not just a regular citizen here."
+"Protagonist: Wha…?"
+“Quercus Alba: That’s {shake}right! You can’t ‘touch’ me, because I have {shake}extraterritorial rights in {shake}Allebahst Academy!”
+“Protagonist: N-{shake}No! That can’t {shake}be…!”
+“Quercus Alba: {shake}Baka! {shake}Give up! You’re not going to touch me, {shake}whatever you do!”
+“Protagonist: (…)”
+{fadeout}
+{music none}
+“Protagonist: (He has extraterritorial rights in this academy… Therefore, I can’t touch him.)”
+“Protagonist: (But is that really important…?)”
+{fadein}
+{music moderato}
+
+{end_of_rebuttal}
+{destroy c_*}
+{music none}
+

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/presto.ogg-0c0ba4097fc394b8f616fa67533f37bf.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/presto.ogg"
+dest_files=[ "res://.import/presto.ogg-0c0ba4097fc394b8f616fa67533f37bf.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

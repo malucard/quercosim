@@ -1,0 +1,235 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/querco/hand/canvas.png" type="Texture" id=1]
+[ext_resource path="res://sprites/querco/hand/anim.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "anim"
+length = 1.26
+tracks/0/type = "value"
+tracks/0/path = NodePath("Eyes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.11, 1.26 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 0, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Beard:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Eyes3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Eyes4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:region_rect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 0, 0, 740, 768 ), Rect2( 0, 1024, 874, 768 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Eyes:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Beard:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( -134, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Eyes6:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Eyes5:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("AnimationPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 1.26 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "blink", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 1.26 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "end"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "blink"
+length = 3.37
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Eyes:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 3.11, 3.26, 3.37 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 0, 1, 0, 2 ]
+}
+
+[node name="canvas" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -134, 1 )
+region_enabled = true
+region_rect = Rect2( 0, 1024, 874, 768 )
+script = ExtResource( 2 )
+
+[node name="Eyes" type="Sprite" parent="."]
+position = Vector2( 288, 128 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 3
+frame = 2
+region_enabled = true
+region_rect = Rect2( 0, 800, 128, 192 )
+
+[node name="Beard" type="Sprite" parent="."]
+position = Vector2( 320, 224 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 2
+frame = 1
+region_enabled = true
+region_rect = Rect2( 768, 512, 64, 128 )
+
+[node name="Eyes3" type="Sprite" parent="."]
+visible = false
+position = Vector2( -49, 256 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 783, 0, 241, 512 )
+
+[node name="Eyes4" type="Sprite" parent="."]
+visible = false
+position = Vector2( 192, 224 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 864, 512, 160, 512 )
+
+[node name="Eyes5" type="Sprite" parent="."]
+visible = false
+position = Vector2( -134, 178 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 1861, 193, 512 )
+
+[node name="Eyes6" type="Sprite" parent="."]
+position = Vector2( -85, 32 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 875, 1024, 160, 512 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "anim"
+anims/anim = SubResource( 1 )
+anims/blink = SubResource( 2 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/moderato0.ogg-0439f23e9d0ef67bcfe134b988a1e5d0.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/moderato0.ogg"
+dest_files=[ "res://.import/moderato0.ogg-0439f23e9d0ef67bcfe134b988a1e5d0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

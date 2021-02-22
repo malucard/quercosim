@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/phoenix.ogg-575161e5a88354e365b9d339f3992545.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/phoenix.ogg"
+dest_files=[ "res://.import/phoenix.ogg-575161e5a88354e365b9d339f3992545.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

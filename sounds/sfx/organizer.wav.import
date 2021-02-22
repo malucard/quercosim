@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/organizer.wav-c86e32a70e69441b78a2a250232928f2.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/organizer.wav"
+dest_files=[ "res://.import/organizer.wav-c86e32a70e69441b78a2a250232928f2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

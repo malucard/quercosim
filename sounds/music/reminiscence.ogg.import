@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/reminiscence.ogg-00bd32d050af2739482f58e6e3db377f.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/reminiscence.ogg"
+dest_files=[ "res://.import/reminiscence.ogg-00bd32d050af2739482f58e6e3db377f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/allegro.ogg-14cb02e17f4e8b3433cd3fee6a6b0643.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/allegro.ogg"
+dest_files=[ "res://.import/allegro.ogg-14cb02e17f4e8b3433cd3fee6a6b0643.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

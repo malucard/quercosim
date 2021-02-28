@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://sounds/blipm.wav" type="AudioStream" id=1]
 [ext_resource path="res://sprites/querco/normal/tex.png" type="Texture" id=2]
@@ -37,6 +37,8 @@
 [ext_resource path="res://gui/buttons/back.png" type="Texture" id=35]
 [ext_resource path="res://evidence/badge.png" type="Texture" id=36]
 [ext_resource path="res://gui/organizer/desc.png" type="Texture" id=37]
+[ext_resource path="res://gui/sysbtn00-resources.assets-2401.png" type="Texture" id=38]
+[ext_resource path="res://gui/confrontation/health.png" type="Texture" id=39]
 
 [sub_resource type="Animation" id=1]
 resource_name = "blink"
@@ -324,7 +326,97 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 416, 96, 194, 96 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 610, 96, 194, 96 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -38 ), Vector2( 0, 540 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Back:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 513 ), Vector2( 0, 600 ), Vector2( 0, 600 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 540 ), Vector2( 0, -38 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Back:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, 600 ), Vector2( 0, 513 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=14]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:modulate")
@@ -339,7 +431,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("TextureRect/RichTextLabel")
+tracks/1/path = NodePath("TextureRect/RunScript")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -356,7 +448,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=15]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:modulate")
@@ -371,7 +463,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("TextureRect/RichTextLabel")
+tracks/1/path = NodePath("TextureRect/RunScript")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -388,7 +480,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=16]
 length = 1.25
 step = 0.05
 tracks/0/type = "value"
@@ -418,7 +510,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("TextureRect/RichTextLabel")
+tracks/2/path = NodePath("TextureRect/RunScript")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -435,8 +527,96 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "vs"
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 96, 0, 64, 64 )
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 160, 0, 64, 64 )
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 224, 0, 64, 64 )
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 288, 0, 64, 64 )
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 352, 0, 64, 64 )
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 416, 0, 64, 64 )
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 480, 0, 64, 64 )
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 544, 0, 64, 64 )
+filter_clip = true
+
+[sub_resource type="Animation" id=29]
+resource_name = "penalty"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gauge/Boom:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Gauge/Boom:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gauge:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=17]
 length = 2.5
 step = 0.05
 tracks/0/type = "value"
@@ -464,7 +644,7 @@ tracks/1/keys = {
 "values": [ Vector2( -1024, 12 ), Vector2( -1024, 12 ), Vector2( 0, 12 ) ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath("TextureRect/RichTextLabel")
+tracks/2/path = NodePath("TextureRect/RunScript")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -541,7 +721,17 @@ tracks/7/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=18]
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 630, 8, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 39 )
+region = Rect2( 66, 6, 28, 32 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -642,7 +832,6 @@ __meta__ = {
 }
 
 [node name="Battleface" type="TextureRect" parent="Control"]
-visible = false
 anchor_right = 1.0
 margin_top = 324.0
 margin_bottom = 492.0
@@ -656,8 +845,8 @@ __meta__ = {
 }
 
 [node name="Sprite" type="TextureRect" parent="Control/Battleface"]
-anchor_left = 1.0
-anchor_right = 1.0
+anchor_left = 2.0
+anchor_right = 2.0
 anchor_bottom = 1.0
 margin_top = 12.0
 grow_horizontal = 0
@@ -685,7 +874,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
+[node name="RunScript" type="RichTextLabel" parent="TextureRect"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -820,7 +1009,8 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Organizer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -38.0
+margin_top = 540.0
+margin_bottom = 578.0
 custom_constants/separation = 0
 alignment = 1
 __meta__ = {
@@ -828,15 +1018,15 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Organizer/VBoxContainer"]
-margin_top = 89.0
+margin_top = 88.0
 margin_right = 1024.0
-margin_bottom = 127.0
+margin_bottom = 126.0
 texture = ExtResource( 30 )
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="Organizer/VBoxContainer"]
-margin_top = 127.0
+margin_top = 126.0
 margin_right = 1024.0
-margin_bottom = 197.0
+margin_bottom = 196.0
 rect_min_size = Vector2( 0, 70 )
 texture = ExtResource( 29 )
 patch_margin_left = 140
@@ -849,7 +1039,6 @@ axis_stretch_vertical = 1
 [node name="Label" type="Label" parent="Organizer/VBoxContainer/NinePatchRect2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = "Allebahst Academy Badge"
 align = 1
 valign = 1
 __meta__ = {
@@ -857,9 +1046,9 @@ __meta__ = {
 }
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Organizer/VBoxContainer"]
-margin_top = 197.0
+margin_top = 196.0
 margin_right = 1024.0
-margin_bottom = 549.0
+margin_bottom = 548.0
 rect_min_size = Vector2( 0, 352 )
 texture = ExtResource( 31 )
 patch_margin_left = 120
@@ -1029,19 +1218,37 @@ __meta__ = {
 [node name="Back" type="TextureButton" parent="Organizer"]
 anchor_top = 1.0
 anchor_bottom = 1.0
+margin_right = 104.0
+margin_bottom = 87.0
 grow_vertical = 0
 focus_mode = 0
 enabled_focus_mode = 0
 texture_normal = ExtResource( 35 )
 texture_pressed = ExtResource( 34 )
 texture_hover = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Present" type="TextureButton" parent="Organizer"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+texture_normal = SubResource( 10 )
+texture_pressed = SubResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Organizer"]
+anims/hide = SubResource( 12 )
+anims/show = SubResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fadein"
-anims/fadein = SubResource( 10 )
-anims/fadeout = SubResource( 11 )
-anims/objection = SubResource( 12 )
-anims/vs = SubResource( 13 )
+anims/fadein = SubResource( 14 )
+anims/fadeout = SubResource( 15 )
+anims/objection = SubResource( 16 )
+anims/penalty = SubResource( 29 )
+anims/vs = SubResource( 17 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
@@ -1061,9 +1268,53 @@ __meta__ = {
 stream = ExtResource( 8 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/shake = SubResource( 14 )
+anims/shake = SubResource( 18 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
+
+[node name="Gauge" type="NinePatchRect" parent="."]
+visible = false
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 248.0
+margin_bottom = 48.0
+texture = SubResource( 19 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bar" type="TextureProgress" parent="Gauge"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 235.0
+margin_bottom = 32.0
+max_value = 10.0
+value = 10.0
+texture_progress = SubResource( 20 )
+tint_progress = Color( 0.247059, 1, 0.247059, 1 )
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Boom" type="TextureRect" parent="Gauge"]
+visible = false
+margin_top = -8.0
+margin_right = 64.0
+margin_bottom = 56.0
+texture = SubResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Present" to="Organizer" method="_open_present"]
 [connection signal="pressed" from="TextureButton2" to="Organizer" method="_open"]
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton1" to="Organizer" method="_select" binds= [ 0 ]]
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton2" to="Organizer" method="_select" binds= [ 1 ]]
@@ -1074,3 +1325,5 @@ anims/shake = SubResource( 14 )
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton7" to="Organizer" method="_select" binds= [ 6 ]]
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton8" to="Organizer" method="_select" binds= [ 7 ]]
 [connection signal="pressed" from="Organizer/Back" to="Organizer" method="_back"]
+[connection signal="pressed" from="Organizer/Present" to="Organizer" method="_present_pressed"]
+[connection signal="animation_finished" from="Organizer/AnimationPlayer" to="Organizer" method="_anim_finished"]

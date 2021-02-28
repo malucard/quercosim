@@ -27,6 +27,7 @@ char_deid="*res://sprites/deid/deid.gd"
 char_colias="*res://sprites/colias/colias.gd"
 state="*res://script/state.gd"
 char_lbelle="*res://sprites/lbelle/lbelle.gd"
+char_sherlock="*res://sprites/sherlock/sherlock.gd"
 
 [display]
 

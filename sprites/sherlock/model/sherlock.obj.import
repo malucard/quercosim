@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/sherlock.obj-81a32c2996f8c8f2bc9e672525b66cf3.mesh"
+
+[deps]
+
+files=[ "res://.import/sherlock.obj-81a32c2996f8c8f2bc9e672525b66cf3.mesh" ]
+
+source_file="res://sprites/sherlock/model/sherlock.obj"
+dest_files=[ "res://.import/sherlock.obj-81a32c2996f8c8f2bc9e672525b66cf3.mesh", "res://.import/sherlock.obj-81a32c2996f8c8f2bc9e672525b66cf3.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

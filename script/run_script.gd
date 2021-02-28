@@ -26,6 +26,7 @@ func _ready():
 	state.anim = $"../../AnimationPlayer"
 	state.objec_player = $"../../ObjectionPlayer"
 	state.bgm = $"../../BGM"
+	$"../../Gauge".visible = false
 	while pos < gscript.length():
 		if pos > 0 and gscript[pos - 1] == '\n':
 			if gscript[pos] == '"':
@@ -49,6 +50,12 @@ func _ready():
 					0:
 						if state.in_confrontation:
 							pos = gscript.find("{statement", pos)
+							if gscript.substr(pos, 16) == "{statement start":
+								state.first_statement = true
+								state.last_statement = false
+							else:
+								state.first_statement = false
+								state.last_statement = true
 					1:
 						pos = gscript.rfind("{statement", pos) - 1
 						pos = gscript.rfind("{statement", pos)
@@ -62,6 +69,12 @@ func _ready():
 						state.run_command("holdit")
 						state.in_confrontation = false
 						state.last_statement = false
+						$"../../Gauge".visible = false
+					[3, var x]:
+						state.run_command("present " + x)
+						state.in_confrontation = false
+						state.last_statement = false
+						$"../../Gauge".visible = false
 				state.play_sfx("next")
 				state.green_text = false
 			elif gscript[pos] == '{':
@@ -76,7 +89,7 @@ func _ready():
 			pos += 1
 
 func go_to(to: int):
-	pos = to - 1
+	pos = to
 
 func lint_char(c, t: float):
 	return "[color=#%02xffffff]" % min(t * 255, 255) + c + "[/color]"
@@ -182,6 +195,8 @@ func _process(delta: float):
 	$"../Back".visible = state.in_confrontation
 	$"../../Press".visible = state.in_confrontation
 	$"../../Present".visible = state.in_confrontation
+	if state.in_confrontation:
+		$"../../Gauge".visible = true
 	if !stopped_talking:
 		if paused > 0:
 			paused = max(paused - delta, 0)

@@ -13,7 +13,9 @@ onready var chars = {
 	palaeno = char_colias,
 	lbelle = char_lbelle,
 	"l'belle": char_lbelle,
-	florent = char_lbelle
+	florent = char_lbelle,
+	sherlock = char_sherlock,
+	holmes = char_sherlock
 }
 
 const music_querco = preload("res://sounds/music/querco.ogg")
@@ -77,6 +79,7 @@ var all_evidence = load_all("res://evidence")
 var all_profiles = load_all("res://profiles")
 var evidence = []
 var profiles = []
+var health = 10
 
 var rsprite: Sprite
 var lsprite: Sprite
@@ -92,13 +95,14 @@ var in_confrontation = false
 var first_statement = false
 var last_statement = false
 var green_text = false
+var call_stack = []
 
 func get_speaker():
 	return speaker_map.get(speaker_name)
 
 func object(char_name, type):
 	shaking_start = OS.get_ticks_usec()
-	if char_name and type in chars[char_name]:
+	if char_name and char_name in chars and type in chars[char_name]:
 		objec_player.stream = chars[char_name].objection
 	else:
 		objec_player.stream = preload("res://sounds/objection.wav")
@@ -126,6 +130,9 @@ func _process(delta):
 	else:
 		parser.get_parent().get_parent().rect_position = Vector2()
 	bgm.volume_db = linear2db(min((now - music_start) / 500000.0, 1))
+
+func push_call_stack():
+	call_stack.push_back([parser.pos, in_confrontation])
 
 var vars = {}
 func run_command(text: String):
@@ -220,9 +227,9 @@ func run_command(text: String):
 					if parts[1] == "if":
 						if !vars.get(parts[2]):
 							if last_statement:
-								parser.go_to(parser.script.rfind("{statement start", parser.pos))
+								parser.go_to(parser.gscript.rfind("{statement start", parser.pos))
 							else:
-								parser.go_to(parser.script.find("{statement", parser.pos))
+								parser.go_to(parser.gscript.find("{statement", parser.pos))
 			"set":
 				vars[parts[1]] = (int(parts[2]) if parts[2].is_valid_integer() else int(vars.get(parts[2]))) if parts.size() > 2 else 1
 			"destroy":
@@ -237,10 +244,12 @@ func run_command(text: String):
 				in_confrontation = true
 			"end_rebuttal":
 				in_confrontation = false
-				parser.go_to(parser.script.find("{end_of_rebuttal", parser.pos))
+				parser.go_to(parser.gscript.find("{end_of_rebuttal", parser.pos))
 			"end_of_rebuttal":
 				if in_confrontation:
-					parser.go_to(parser.script.rfind("{statement start", parser.pos))
+					parser.go_to(parser.gscript.rfind("{statement start", parser.pos))
+				else:
+					anim.get_node("../Gauge").visible = false
 			"sfx":
 				play_sfx(parts[1])
 			"vs":
@@ -250,15 +259,44 @@ func run_command(text: String):
 				green_text = true
 			"goto":
 				if parts[1][0] == "<":
-					parser.go_to(parser.script.rfind("{label " + parts[1].substr(1)))
+					parser.go_to(parser.gscript.rfind("{label " + parts[1].substr(1), parser.pos))
 				else:
-					parser.go_to(parser.script.find("{label " + parts[1]))
+					parser.go_to(parser.gscript.find("{label " + parts[1], parser.pos))
+			"call":
+				push_call_stack()
+				if parts[1][0] == "<":
+					parser.go_to(parser.gscript.rfind("{label " + parts[1].substr(1), parser.pos))
+				else:
+					parser.go_to(parser.gscript.find("{label " + parts[1], parser.pos))
+			"present":
+				object("protagonist", "objection")
+				in_confrontation = true
+				parser.go_to(parser.gscript.rfind("{statement", parser.pos))
+				push_call_stack()
+				in_confrontation = false
+				anim.get_node("../Gauge").visible = false
+				var i = parser.gscript.find("{on_present " + parts[1], parser.pos)
+				if i == -1 or i > parser.gscript.find("{end_of_rebuttal}", parser.pos):
+					parser.go_to(parser.gscript.find("{on_present}", parser.pos))
+				else:
+					parser.go_to(i)
 			"gotoif":
 				if !vars.get(parts[1].substr(1)) if parts[1][0] == "!" else vars.get(parts[1]):
 					if parts[2][0] == "<":
-						parser.go_to(parser.script.rfind("{label " + parts[2].substr(1)))
+						parser.go_to(parser.gscript.rfind("{label " + parts[2].substr(1), parser.pos))
 					else:
-						parser.go_to(parser.script.find("{label " + parts[2]))
+						parser.go_to(parser.gscript.find("{label " + parts[2], parser.pos))
+			"callif":
+				if !vars.get(parts[1].substr(1)) if parts[1][0] == "!" else vars.get(parts[1]):
+					push_call_stack()
+					if parts[2][0] == "<":
+						parser.go_to(parser.gscript.rfind("{label " + parts[2].substr(1), parser.pos))
+					else:
+						parser.go_to(parser.gscript.find("{label " + parts[2], parser.pos))
+			"return":
+				var ret = call_stack.pop_back()
+				in_confrontation = ret[1]
+				parser.pos = ret[0]
 			"exp":
 				var v1
 				var v2
@@ -310,6 +348,7 @@ func run_command(text: String):
 						return
 				evidence.append({
 					texture = evi,
+					id = parts[1],
 					name = parts[2],
 					desc = parts[3]
 				})
@@ -341,3 +380,11 @@ func run_command(text: String):
 						found = 1
 						break
 				vars[parts[2] if parts.size() > 2 else "_"] = found
+			"penalty":
+				anim.get_node("../Gauge/Boom").rect_position.x = 5 + 23 * health - 32
+				health -= 1
+				anim.get_node("../Gauge/Bar").value = health
+				anim.play("penalty")
+			"restore_health":
+				health = 10
+				anim.get_node("../Gauge/Bar").value = health

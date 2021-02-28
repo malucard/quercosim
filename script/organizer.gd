@@ -3,10 +3,29 @@ extends TextureRect
 var detail = false
 var selected
 
+func _ready():
+	visible = false
+
 func _open():
-	visible = true
-	state.parser.stop_talking()
-	state.play_sfx("organizer")
+	if !state.parser.stopped_talking:
+		$Present.visible = false
+		state.parser.stop_talking()
+		state.play_sfx("organizer")
+		$AnimationPlayer.play("show")
+
+func _open_present():
+	if !state.parser.stopped_talking:
+		$Present.visible = true
+		state.parser.stop_talking()
+		state.play_sfx("organizer")
+		$AnimationPlayer.play("show")
+
+func _present_pressed():
+	if selected:
+		visible = false
+		detail = false
+		state.parser.resume_talking()
+		$"../TextureRect/RunScript".emit_signal("next", [3, selected.id])
 
 func _process(delta: float):
 	if detail:
@@ -27,7 +46,7 @@ func _back():
 	if detail:
 		detail = false
 	else:
-		visible = false
+		$AnimationPlayer.play("hide")
 		state.parser.resume_talking()
 	state.play_sfx("back")
 

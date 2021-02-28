@@ -12,6 +12,7 @@ Anyways, let’s begin now
 {aliasbg garden rose_garden}
 {aliasbgm obama zheng_fa}
 {evi badge “Allebahst Academy Badge” “Proof that you study here.”}
+{evi key “My car keys” “Need them to go places”}
 --------------game begins now start doing the script also don’t do anything to the above--------------
 
 #author: mohammadbu50
@@ -280,9 +281,14 @@ Scene: F Where In The World Is Quercolino Alibaba O Here
 “Protagonist: (He has extraterritorial rights in this academy… Therefore, I can’t touch him.)”
 “Protagonist: (But is that really important…?)”
 {fadein}
-{music moderato}
+{end_rebuttal}
+
+{on_present}
+"Quercus Alba: What are you doing!? That {shake}isn't going to convince me!"
+{penalty}
+“Protagonist: (A-ahh, no, Alba-san…)”
+{return}
 
 {end_of_rebuttal}
 {destroy c_*}
 {music none}
-

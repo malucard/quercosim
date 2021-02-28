@@ -20,37 +20,6 @@ Anyways, let’s begin now
 {shortcut start}
 {bg theatrum left}
 {fadein}
-{sfx rebuttal}
-{vs querco}
-":-- Rebuttal Title --"
-{music moderato}
-{rebuttal}
-
-{statement start}
-{pose querco flushed}
-"Quercus Alba: This is the first statement."
-"Quercus Alba: This shows up when you Press."
-
-{statement}
-"Quercus Alba: Let's say this statement contradicts with your car keys"
-{on_present key}
-"Quercus Alba: What!?"
-{end_rebuttal}
-
-{statement end}
-{pose querco hand}
-"Quercus Alba: The first and last statement, only those, need to be marked with 'start' and 'end', like that"
-
-{on_present}
-"Quercus Alba: This shows when you present anything else, in any statement. {shake}Baka! That isn't going to convince me!"
-{penalty}
-“Protagonist: (A-ahh, sorry, Alba-san…)”
-{return}
-
-{end_of_rebuttal}
-{destroy c_*}
-{music none}
-"Quercus Alba: When you present your car keys on the second statement, the 'end_rebuttal' will end the thing and send you here."
 “Protagonist: oh man i am SO late for school my teachers definitely gonna decimate me today...”
 
 {fadeout}
@@ -323,3 +292,4 @@ Scene: F Where In The World Is Quercolino Alibaba O Here
 {end_of_rebuttal}
 {destroy c_*}
 {music none}
+

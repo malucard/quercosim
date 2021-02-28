@@ -206,7 +206,7 @@ func _process(delta: float):
 				button_anim = "next"
 		if (Input.is_action_just_pressed("back") or $"../Back/Button".pressed) and next_text.length() == 0 and !state.first_statement:
 			emit_signal("next", 1)
-		elif Input.is_action_pressed("skip_fast") or (Input.is_action_pressed("skip") and try_skip()) or ((Input.is_action_just_pressed("next") or $"../../Control/Next".pressed) and next_text.length() == 0) and !state.last_statement:
+		elif (Input.is_action_pressed("skip_fast") or (Input.is_action_pressed("skip") and try_skip()) or ((Input.is_action_just_pressed("next") or $"../../Control/Next".pressed)) and next_text.length() == 0) and !state.last_statement:
 			emit_signal("next", 0)
 		elif $"../../Press".pressed:
 			emit_signal("next", 2)

@@ -276,10 +276,10 @@ func run_command(text: String):
 				in_confrontation = false
 				anim.get_node("../Gauge").visible = false
 				var i = parser.gscript.find("{on_present " + parts[1], parser.pos)
-				if i == -1 or i > parser.gscript.find("{end_of_rebuttal}", parser.pos):
-					parser.go_to(parser.gscript.find("{on_present}", parser.pos))
+				if i == -1 or i > parser.gscript.find("{statement", parser.pos + 1) or i > parser.gscript.find("{end_of_rebuttal}", parser.pos):
+					parser.go_to(parser.gscript.find("\n", parser.gscript.find("{on_present}", parser.pos)))
 				else:
-					parser.go_to(i)
+					parser.go_to(parser.gscript.find("\n", i))
 			"gotoif":
 				if !vars.get(parts[1].substr(1)) if parts[1][0] == "!" else vars.get(parts[1]):
 					if parts[2][0] == "<":
@@ -388,3 +388,5 @@ func run_command(text: String):
 			"restore_health":
 				health = 10
 				anim.get_node("../Gauge/Bar").value = health
+			"on_present":
+				parser.go_to(parser.gscript.rfind("{statement", parser.pos))

@@ -20,7 +20,7 @@ onready var chars = {
 
 const music_querco = preload("res://sounds/music/querco.ogg")
 const music_embassy = preload("res://sounds/music/embassy.ogg")
-const music_reminiscence = preload("res://sounds/music/reminiscence.ogg")
+const music_reminiscing = preload("res://sounds/music/reminiscence.ogg")
 const music_solution = preload("res://sounds/music/solution.ogg")
 const music_phoenix = preload("res://sounds/music/phoenix.ogg")
 const music = {
@@ -29,12 +29,15 @@ const music = {
 	quercus = music_querco,
 	alba = music_querco,
 	surpass = music_querco,
-	reminiscence = music_reminiscence,
+	reminiscing = music_reminiscing,
+	reminiscence = music_reminiscing,
 	embassy = music_embassy,
 	obama = music_phoenix,
+	phoenix = music_phoenix,
 	moderato = preload("res://sounds/music/moderato.ogg"),
 	allegro = preload("res://sounds/music/allegro.ogg"),
-	presto = preload("res://sounds/music/presto.ogg")
+	presto = preload("res://sounds/music/presto.ogg"),
+	solution = music_solution
 }
 
 const speaker_map = {
@@ -53,7 +56,10 @@ const speaker_map = {
 	"colias palaeno": char_colias,
 	"l'belle": char_lbelle,
 	"florent": char_lbelle,
-	"florent l'belle": char_lbelle
+	"florent l'belle": char_lbelle,
+	"sherlock": char_sherlock,
+	"holmes": char_sherlock,
+	"sherlock holmes": char_sherlock
 }
 
 const bubbles = {

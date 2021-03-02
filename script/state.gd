@@ -1,4 +1,5 @@
 extends Node
+class_name State
 
 onready var chars = {
 	querco = char_querco,
@@ -87,13 +88,18 @@ var evidence = []
 var profiles = []
 var health = 10
 
+var to_load = 0
+var to_load_side = 0
+var to_load_bg
+var to_load_bgm
+var to_load_modulate
 var rsprite: Sprite
 var lsprite: Sprite
 var anim: AnimationPlayer
 var objec_player: AudioStreamPlayer
 var bg: TextureRect
 var bgm: AudioStreamPlayer
-var parser
+var parser: Parser
 var rchar
 var lchar
 var speaker_name = ""
@@ -102,6 +108,26 @@ var first_statement = false
 var last_statement = false
 var green_text = false
 var call_stack = []
+var vars = {}
+
+func reset():
+	green_text = false
+	in_confrontation = false
+	first_statement = false
+	last_statement = false
+	call_stack = []
+	speaker_name = ""
+	evidence = []
+	profiles = []
+	health = 10
+	vars = {}
+	lchar = null
+	rchar = null
+	if bg:
+		bg.texture = null
+	if bgm:
+		bgm.stream = null
+		bgm.stop()
 
 func get_speaker():
 	return speaker_map.get(speaker_name)
@@ -129,18 +155,20 @@ func play_sfx(sfx_name: String):
 var music_start = 0
 var shaking_start = 0
 var last_shake = 0
-func _process(delta):
+func _process(_delta):
+	if get_tree().current_scene and get_tree().current_scene.name != "main":
+		return
 	var now = OS.get_ticks_usec()
 	if now <= shaking_start + 500000 and parser and now >= last_shake + 100000:
 		parser.get_parent().get_parent().rect_position = Vector2(rand_range(-2, 2), rand_range(-2, 2))
 	else:
 		parser.get_parent().get_parent().rect_position = Vector2()
-	bgm.volume_db = linear2db(min((now - music_start) / 500000.0, 1))
+	if bgm:
+		bgm.volume_db = linear2db(min((now - music_start) / 500000.0, 1))
 
 func push_call_stack():
 	call_stack.push_back([parser.pos, in_confrontation])
 
-var vars = {}
 func run_command(text: String):
 	vars._msecs = OS.get_ticks_msec()
 	var parts_ = text.split(" ", false)
@@ -155,7 +183,10 @@ func run_command(text: String):
 			else:
 				quote += " " + p
 		elif p.begins_with('"'):
-			quote = p.substr(1)
+			if p.ends_with('"'):
+				parts.append(p.substr(1, p.length() - 2))
+			else:
+				quote = p.substr(1)
 		else:
 			parts.append(p)
 	if parts.size() != 0:
@@ -303,6 +334,15 @@ func run_command(text: String):
 				var ret = call_stack.pop_back()
 				in_confrontation = ret[1]
 				parser.pos = ret[0]
+			"set":
+				var v
+				if parts[2][0] == "!":
+					v = !vars.get(parts[2].substr(1))
+				elif parts[2].is_valid_integer():
+					v = int(parts[2])
+				else:
+					v = vars.get(parts[2])
+				vars[parts[1]] = v
 			"exp":
 				var v1
 				var v2
@@ -320,7 +360,7 @@ func run_command(text: String):
 					v2 = vars.get(parts[3])
 				var res = 0
 				match parts[2]:
-					"=":
+					"==":
 						res = v1 == v2
 					"!=":
 						res = v1 != v2
@@ -342,18 +382,15 @@ func run_command(text: String):
 						res = v1 / v2
 					"%":
 						res = v1 % v2
-				print(int(res))
-				print(parts[4] if parts.size() > 4 else "_")
 				vars[parts[4] if parts.size() > 4 else "_"] = int(res)
 			"evidence", "evi":
 				var evi = all_evidence[parts[1]]
 				for e in evidence:
-					if e.texture == evi:
+					if all_evidence[e.id] == evi:
 						e.name = parts[2]
 						e.desc = parts[3]
 						return
 				evidence.append({
-					texture = evi,
 					id = parts[1],
 					name = parts[2],
 					desc = parts[3]
@@ -362,19 +399,19 @@ func run_command(text: String):
 				var evi = all_evidence[parts[1]]
 				var found = 0
 				for e in evidence:
-					if e.texture == evi:
+					if all_evidence[e.id] == evi:
 						found = 1
 						break
 				vars[parts[2] if parts.size() > 2 else "_"] = found
 			"profile", "prof":
 				var prof = all_profiles[parts[1]]
 				for p in profiles:
-					if p.texture == prof:
+					if all_profiles[p.id] == prof:
 						p.name = parts[2]
 						p.desc = parts[3]
 						return
 				profiles.append({
-					texture = prof,
+					id = parts[1],
 					name = parts[2],
 					desc = parts[3]
 				})
@@ -382,7 +419,7 @@ func run_command(text: String):
 				var prof = all_profiles[parts[1]]
 				var found = 0
 				for p in profiles:
-					if p.texture == prof:
+					if all_profiles[p.id] == prof:
 						found = 1
 						break
 				vars[parts[2] if parts.size() > 2 else "_"] = found
@@ -396,3 +433,5 @@ func run_command(text: String):
 				anim.get_node("../Gauge/Bar").value = health
 			"on_present":
 				parser.go_to(parser.gscript.rfind("{statement", parser.pos))
+			"choice":
+				anim.get_node("../Choices").show_choices(parts)

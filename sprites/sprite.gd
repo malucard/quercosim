@@ -8,7 +8,7 @@ func _ready():
 	else:
 		state.lsprite = self
 
-func _process(delta):
+func _process(_delta):
 	var c = state.rchar if right else state.lchar
 	if c:
 		visible = true
@@ -19,6 +19,8 @@ func _process(delta):
 var last_pose
 var custom = false
 func draw(pose):
+	if !state.parser:
+		return
 	if pose != last_pose:
 		last_pose = pose
 		if has_node("canvas"):
@@ -34,7 +36,7 @@ func draw(pose):
 			custom = true
 		else:
 			custom = false
-	var s = get_viewport_rect().size.y / 820.0 if !pose.has("unscaled") else 1
+	var s = get_viewport_rect().size.y / 820.0 if !pose.has("unscaled") else 1.0
 	scale = Vector2(s, s)
 	texture = pose.get("texture")
 	if pose.has("eyes"):

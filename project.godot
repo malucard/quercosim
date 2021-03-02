@@ -8,15 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "RichTextLabel",
+"class": "Parser",
+"language": "GDScript",
+"path": "res://script/parser.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://script/state.gd"
+} ]
 _global_script_class_icons={
-
+"Parser": "",
+"State": ""
 }
 
 [application]
 
 config/name="quercos"
-run/main_scene="res://main.tscn"
+run/main_scene="res://title_screen.tscn"
 config/icon="res://item3051_l-resources.assets-482.png"
 
 [autoload]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/font.png-f411504eb4b8349b57abd30a08db9a10.stex"
+path="res://.import/choice.png-ec57f40d88cd84193bcdba9b4326fdfe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/font.png"
-dest_files=[ "res://.import/font.png-f411504eb4b8349b57abd30a08db9a10.stex" ]
+source_file="res://gui/buttons/choice.png"
+dest_files=[ "res://.import/choice.png-ec57f40d88cd84193bcdba9b4326fdfe.stex" ]
 
 [params]
 

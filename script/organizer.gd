@@ -1,4 +1,4 @@
-extends TextureRect
+extends Control
 
 var detail = false
 var selected
@@ -27,11 +27,11 @@ func _present_pressed():
 		state.parser.resume_talking()
 		$"../TextureRect/RunScript".emit_signal("next", [3, selected.id])
 
-func _process(delta: float):
+func _process(_delta: float):
 	if detail:
 		$VBoxContainer/NinePatchRect2/Label.text = selected.name
 		$VBoxContainer/NinePatchRect/DescBg/Desc.bbcode_text = selected.desc
-		$VBoxContainer/NinePatchRect/Detail.texture = selected.texture
+		$VBoxContainer/NinePatchRect/Detail.texture = state.all_evidence[selected.id]
 		$VBoxContainer/NinePatchRect/GridContainer.visible = false
 		$VBoxContainer/NinePatchRect/Detail.visible = true
 		$VBoxContainer/NinePatchRect/DescBg.visible = true
@@ -40,7 +40,7 @@ func _process(delta: float):
 		$VBoxContainer/NinePatchRect/DescBg.visible = false
 		$VBoxContainer/NinePatchRect/GridContainer.visible = true
 		for i in range(min(state.evidence.size(), 8)):
-			$VBoxContainer/NinePatchRect/GridContainer.get_node("TextureButton" + str(i + 1)).texture_normal = state.evidence[i].texture
+			$VBoxContainer/NinePatchRect/GridContainer.get_node("TextureButton" + str(i + 1)).texture_normal = state.all_evidence[state.evidence[i].id]
 
 func _back():
 	if detail:

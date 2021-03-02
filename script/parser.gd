@@ -1,4 +1,5 @@
 extends RichTextLabel
+class_name Parser
 
 func load_text_file(path):
 	var p2 = OS.get_executable_path().get_base_dir() + "/script.txt"
@@ -13,20 +14,34 @@ func load_text_file(path):
 	f.close()
 	return text
 
-var gscript = load_text_file("res://script/script.txt").replace('“', '"').replace('”', '"').replace("…", "...")
-
+var gscript = load_text_file("res://script/script.txt").replace('“', '"').replace('”', '"').replace('‘', '\'').replace('’', '\'').replace("…", "...")
 var pos = 0
 var char_progress = 0
 var paused = 0
 var all_text = ""
 var cur_text = ""
 var next_text = ""
+
 func _ready():
 	state.parser = self
 	state.anim = $"../../AnimationPlayer"
 	state.objec_player = $"../../ObjectionPlayer"
 	state.bgm = $"../../BGM"
 	$"../../Gauge".visible = false
+	if state.to_load:
+		var i = 0
+		while i < state.to_load:
+			var npos = gscript.find("\n", pos)
+			var trimmed = gscript.substr(npos + 1).dedent()
+			if trimmed[0] == '"' or trimmed[0] == '{':
+				i += 1
+			pos = npos + 1
+	if state.to_load_bgm:
+		$"../../BGM".stream = state.music[state.to_load_bgm]
+		$"../../BGM".play()
+		state.music_start = OS.get_ticks_usec()
+	if state.to_load_modulate != null:
+		$"../../Control".modulate = state.to_load_modulate
 	while pos < gscript.length():
 		if pos > 0 and gscript[pos - 1] == '\n':
 			if gscript[pos] == '"':
@@ -88,6 +103,18 @@ func _ready():
 		else:
 			pos += 1
 
+func get_save_pos():
+	var n = 0
+	var spos = 0
+	while spos < pos:
+		var npos = gscript.find("\n", spos)
+		if npos < pos:
+			var trimmed = gscript.substr(npos + 1).dedent()
+			if trimmed[0] == '"' or trimmed[0] == '{':
+				n += 1
+		spos = npos + 1
+	return n
+
 func go_to(to: int):
 	pos = to
 
@@ -138,10 +165,13 @@ func update_text():
 					paused = 0.2
 				elif next_text[0] == '{':
 					var cmd = next_text.substr(1, next_text.find('}') - 1)
-					state.run_command(cmd)
 					next_text = next_text.substr(cmd.length() + 2)
-					if stopped_talking:
-						yield(self, "resume_talking")
+					if cmd.begins_with("var "):
+						next_text = str(state.vars[cmd.substr(4)]) + next_text
+					else:
+						state.run_command(cmd)
+						if stopped_talking:
+							yield(self, "resume_talking")
 					return
 				cur_text += next_text[0]
 				blip_if(next_text[0])

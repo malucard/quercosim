@@ -40,6 +40,10 @@ state="*res://script/state.gd"
 char_lbelle="*res://sprites/lbelle/lbelle.gd"
 char_sherlock="*res://sprites/sherlock/sherlock.gd"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/stretch/aspect="expand"
@@ -105,4 +109,5 @@ skip_fast={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

@@ -78,8 +78,8 @@ func load_all(path):
 		var file = dir.get_next()
 		if file == "":
 			return res
-		if !file.ends_with(".import"):
-			res[file.get_basename()] = load(path + "/" + file)
+		if file.ends_with(".import"):
+			res[file.get_basename().get_basename()] = load(path + "/" + file.trim_suffix(".import"))
 
 var sfx = load_all("res://sounds/sfx")
 var all_evidence = load_all("res://evidence")
@@ -140,6 +140,7 @@ func object(char_name, type):
 		objec_player.stream = preload("res://sounds/objection.wav")
 	anim.get_node("../Objection").texture = bubbles[type]
 	anim.play("objection")
+	parser.stop_talking()
 
 func _sfx_done(player: AudioStreamPlayer):
 	player.queue_free()
@@ -156,7 +157,7 @@ var music_start = 0
 var shaking_start = 0
 var last_shake = 0
 func _process(_delta):
-	if get_tree().current_scene and get_tree().current_scene.name != "main":
+	if !get_tree().current_scene or get_tree().current_scene.name != "Main":
 		return
 	var now = OS.get_ticks_usec()
 	if now <= shaking_start + 500000 and parser and now >= last_shake + 100000:
@@ -192,10 +193,12 @@ func run_command(text: String):
 	if parts.size() != 0:
 		match parts[0].to_lower():
 			"fadeout":
+				parser.stop_talking()
 				if anim.is_playing():
 					yield(anim, "animation_finished")
 				anim.play("fadeout")
 			"fadein":
+				parser.stop_talking()
 				if anim.is_playing():
 					yield(anim, "animation_finished")
 				anim.play("fadein")
@@ -216,7 +219,7 @@ func run_command(text: String):
 				var c = chars[parts[1]]
 				c.pose = c.poses[parts[2]]
 			"shake", "s":
-				shaking_start = OS.get_ticks_usec()#shake()
+				shaking_start = OS.get_ticks_usec()
 			"side":
 				match parts[1]:
 					"left":
@@ -291,6 +294,7 @@ func run_command(text: String):
 				play_sfx(parts[1])
 			"vs":
 				anim.get_node("../Control/Battleface/Sprite").texture = chars.get(parts[1]).get("battleface") if parts.size() > 1 else null
+				parser.stop_talking()
 				anim.play("vs")
 				play_sfx("rebuttal")
 				green_text = true
@@ -428,6 +432,7 @@ func run_command(text: String):
 				health -= 1
 				anim.get_node("../Gauge/Bar").value = health
 				anim.play("penalty")
+				parser.stop_talking()
 			"restore_health":
 				health = 10
 				anim.get_node("../Gauge/Bar").value = health

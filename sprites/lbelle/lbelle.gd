@@ -2,6 +2,13 @@ extends Node
 
 var poses = {
 	normal = {
+		anim = "normal",
+		scene = preload("scene.tscn"),
+		size = Vector2(700, 820),
+		unscaled = true
+	},
+	note = {
+		anim = "note",
 		scene = preload("scene.tscn"),
 		size = Vector2(700, 820),
 		unscaled = true

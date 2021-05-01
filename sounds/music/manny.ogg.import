@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/manny.ogg-9189dafd637b8806575c7d3b7c7e2bbd.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/manny.ogg"
+dest_files=[ "res://.import/manny.ogg-9189dafd637b8806575c7d3b7c7e2bbd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

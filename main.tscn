@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://sounds/blipm.wav" type="AudioStream" id=1]
 [ext_resource path="res://sprites/querco/normal/tex.png" type="Texture" id=2]
@@ -680,6 +680,50 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=33]
+resource_name = "lcharfadeout"
+length = 0.2
+tracks/0/type = "method"
+tracks/0/path = NodePath("TextureRect/RunScript")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "resume_talking"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/LSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Control/LSprite")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "remove"
+} ]
+}
+
+[sub_resource type="Animation" id=34]
 length = 1.25
 step = 0.05
 tracks/0/type = "value"
@@ -723,55 +767,55 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=35]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 96, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=36]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 160, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=36]
+[sub_resource type="AtlasTexture" id=37]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 224, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=37]
+[sub_resource type="AtlasTexture" id=38]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 288, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=38]
+[sub_resource type="AtlasTexture" id=39]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 352, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=39]
+[sub_resource type="AtlasTexture" id=40]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 416, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=40]
+[sub_resource type="AtlasTexture" id=41]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 480, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=41]
+[sub_resource type="AtlasTexture" id=42]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 544, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=43]
 length = 0.8
 step = 0.05
 tracks/0/type = "value"
@@ -784,7 +828,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ) ]
+"values": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Gauge/Boom:visible")
@@ -825,7 +869,51 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=43]
+[sub_resource type="Animation" id=44]
+resource_name = "rcharfadeout"
+length = 0.2
+tracks/0/type = "method"
+tracks/0/path = NodePath("TextureRect/RunScript")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "resume_talking"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/RSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Control/RSprite")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "remove"
+} ]
+}
+
+[sub_resource type="Animation" id=45]
 length = 2.5
 step = 0.05
 tracks/0/type = "value"
@@ -927,14 +1015,14 @@ tracks/7/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=44]
+[sub_resource type="Animation" id=46]
 
-[sub_resource type="AtlasTexture" id=45]
+[sub_resource type="AtlasTexture" id=47]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 630, 8, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=46]
+[sub_resource type="AtlasTexture" id=48]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 66, 6, 28, 32 )
@@ -967,12 +1055,14 @@ __meta__ = {
 }
 
 [node name="RSprite" type="Sprite" parent="Control"]
+visible = false
 texture = ExtResource( 27 )
 centered = false
 script = ExtResource( 4 )
 right = true
 
 [node name="Eyes" type="Sprite" parent="Control/RSprite"]
+visible = false
 texture = ExtResource( 26 )
 centered = false
 offset = Vector2( 185, 96 )
@@ -1035,6 +1125,7 @@ anims/speak_colias_grin = ExtResource( 18 )
 self_modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1233,9 +1324,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SaveMenu"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.5
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.5
 grow_horizontal = 2
 grow_vertical = 2
 custom_constants/separation = 0
@@ -1581,6 +1672,7 @@ __meta__ = {
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_right = 104.0
+margin_bottom = 87.0
 grow_vertical = 0
 focus_mode = 0
 enabled_focus_mode = 0
@@ -1856,9 +1948,11 @@ anims/show = SubResource( 30 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fadein = SubResource( 31 )
 anims/fadeout = SubResource( 32 )
-anims/objection = SubResource( 33 )
-anims/penalty = SubResource( 42 )
-anims/vs = SubResource( 43 )
+anims/lcharfadeout = SubResource( 33 )
+anims/objection = SubResource( 34 )
+anims/penalty = SubResource( 43 )
+anims/rcharfadeout = SubResource( 44 )
+anims/vs = SubResource( 45 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
@@ -1878,7 +1972,7 @@ __meta__ = {
 stream = ExtResource( 8 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/shake = SubResource( 44 )
+anims/shake = SubResource( 46 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 
@@ -1887,7 +1981,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 248.0
 margin_bottom = 48.0
-texture = SubResource( 45 )
+texture = SubResource( 47 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -1903,7 +1997,7 @@ margin_right = 235.0
 margin_bottom = 32.0
 max_value = 10.0
 value = 10.0
-texture_progress = SubResource( 46 )
+texture_progress = SubResource( 48 )
 tint_progress = Color( 0.247059, 1, 0.247059, 1 )
 nine_patch_stretch = true
 stretch_margin_left = 8
@@ -1919,7 +2013,7 @@ visible = false
 margin_top = -8.0
 margin_right = 64.0
 margin_bottom = 56.0
-texture = SubResource( 34 )
+texture = SubResource( 35 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

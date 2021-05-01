@@ -40,9 +40,10 @@ func _ready():
 	$VBoxContainer/TextureRect/Overwrite.visible = false
 
 func _open():
-	update_icons()
-	$AnimationPlayer.play("show")
-	state.play_sfx("organizer")
+	if !state.parser.stopped_talking:
+		update_icons()
+		$AnimationPlayer.play("show")
+		state.play_sfx("organizer")
 
 func _back():
 	$AnimationPlayer.play("hide")

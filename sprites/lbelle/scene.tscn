@@ -19,7 +19,6 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="."]
-own_world = true
 transparent_bg = true
 msaa = 4
 

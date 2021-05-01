@@ -16,12 +16,15 @@ onready var chars = {
 	"l'belle": char_lbelle,
 	florent = char_lbelle,
 	sherlock = char_sherlock,
-	holmes = char_sherlock
+	holmes = char_sherlock,
+	mila = char_mila,
+	nate = char_nate
 }
 
 const music_querco = preload("res://sounds/music/querco.ogg")
 const music_embassy = preload("res://sounds/music/embassy.ogg")
-const music_reminiscing = preload("res://sounds/music/reminiscence.ogg")
+const music_reminiscence_torn = preload("res://sounds/music/reminiscence_torn.ogg")
+const music_reminiscence_academy = preload("res://sounds/music/reminiscence_academy.ogg")
 const music_solution = preload("res://sounds/music/solution.ogg")
 const music_phoenix = preload("res://sounds/music/phoenix.ogg")
 const music = {
@@ -30,15 +33,19 @@ const music = {
 	quercus = music_querco,
 	alba = music_querco,
 	surpass = music_querco,
-	reminiscing = music_reminiscing,
-	reminiscence = music_reminiscing,
+	reminiscence_torn = music_reminiscence_torn,
+	reminiscence_academy = music_reminiscence_academy,
+	bad_end = preload("res://sounds/music/bad_end.ogg"),
+	manny = preload("res://sounds/music/manny.ogg"),
+	deid = music_reminiscence_torn,
 	embassy = music_embassy,
 	obama = music_phoenix,
 	phoenix = music_phoenix,
 	moderato = preload("res://sounds/music/moderato.ogg"),
 	allegro = preload("res://sounds/music/allegro.ogg"),
 	presto = preload("res://sounds/music/presto.ogg"),
-	solution = music_solution
+	solution = music_solution,
+	lbelle = preload("res://sounds/music/lbelle.ogg")
 }
 
 const speaker_map = {
@@ -60,7 +67,11 @@ const speaker_map = {
 	"florent l'belle": char_lbelle,
 	"sherlock": char_sherlock,
 	"holmes": char_sherlock,
-	"sherlock holmes": char_sherlock
+	"sherlock holmes": char_sherlock,
+	"mila": char_mila,
+	"malucart": char_mila,
+	"nate": char_nate,
+	"nateyobb": char_nate
 }
 
 const bubbles = {
@@ -88,6 +99,7 @@ var evidence = []
 var profiles = []
 var health = 10
 
+var do_animate = false
 var to_load = 0
 var to_load_side = 0
 var to_load_bg
@@ -136,6 +148,8 @@ func object(char_name, type):
 	shaking_start = OS.get_ticks_usec()
 	if char_name and char_name in chars and type in chars[char_name]:
 		objec_player.stream = chars[char_name].objection
+	elif char_name == "protagonist":
+		objec_player.stream = preload("res://sounds/protag_objection.wav")
 	else:
 		objec_player.stream = preload("res://sounds/objection.wav")
 	anim.get_node("../Objection").texture = bubbles[type]
@@ -157,6 +171,8 @@ var music_start = 0
 var shaking_start = 0
 var last_shake = 0
 func _process(_delta):
+	if Input.is_action_just_pressed("fullscreen"):
+		OS.window_fullscreen = !OS.window_fullscreen
 	if !get_tree().current_scene or get_tree().current_scene.name != "Main":
 		return
 	var now = OS.get_ticks_usec()
@@ -192,6 +208,16 @@ func run_command(text: String):
 			parts.append(p)
 	if parts.size() != 0:
 		match parts[0].to_lower():
+			"lcharfadeout":
+				parser.stop_talking()
+				if anim.is_playing():
+					yield(anim, "animation_finished")
+				anim.play("lcharfadeout")
+			"rcharfadeout":
+				parser.stop_talking()
+				if anim.is_playing():
+					yield(anim, "animation_finished")
+				anim.play("rcharfadeout")
 			"fadeout":
 				parser.stop_talking()
 				if anim.is_playing():
@@ -204,11 +230,32 @@ func run_command(text: String):
 				anim.play("fadein")
 			"char":
 				lchar = null
-				rchar = chars.get(parts[1])
+				if parts[1] == "none":
+					if rchar:
+						parser.stop_talking()
+						if anim.is_playing():
+							yield(anim, "animation_finished")
+						anim.play("rcharfadeout")
+				else:
+					rchar = chars.get(parts[1])
 			"rchar", "char_right":
-				rchar = chars.get(parts[1])
+				if parts[1] == "none":
+					if rchar:
+						parser.stop_talking()
+						if anim.is_playing():
+							yield(anim, "animation_finished")
+						anim.play("rcharfadeout")
+				else:
+					rchar = chars.get(parts[1])
 			"lchar", "char_left":
-				lchar = chars.get(parts[1])
+				if parts[1] == "none":
+					if lchar:
+						parser.stop_talking()
+						if anim.is_playing():
+							yield(anim, "animation_finished")
+						anim.play("lcharfadeout")
+				else:
+					lchar = chars.get(parts[1])
 			"objection", "objeckshun", "hubjection", "hubjeckshun", "igiari":
 				object(null if parts.size() == 1 else parts[1], "objection")
 			"holdit", "matta":
@@ -229,15 +276,23 @@ func run_command(text: String):
 					null:
 						bg.side = 0 if bg.side else 1
 			"bg":
-				bg.texture = bg.bgs[parts[1]]
-				match parts[2]:
-					"left":
+				if parts[1] == "none":
+					bg.texture = null
+				else:
+					bg.texture = bg.bgs[parts[1]]
+					if parts.size() > 2:
+						match parts[2]:
+							"left":
+								bg.t = 1
+								bg.side = 0
+							"right":
+								bg.t = 0
+								bg.side = 1
+					else:
 						bg.t = 1
 						bg.side = 0
-					"right":
-						bg.t = 0
-						bg.side = 1
 			"music", "bgm":
+				bgm.stop()
 				bgm.stream = music.get(parts[1])
 				bgm.play()
 				music_start = OS.get_ticks_usec()
@@ -312,14 +367,17 @@ func run_command(text: String):
 			"present":
 				object("protagonist", "objection")
 				in_confrontation = true
-				parser.go_to(parser.gscript.rfind("{statement", parser.pos))
-				push_call_stack()
-				in_confrontation = false
-				anim.get_node("../Gauge").visible = false
 				var i = parser.gscript.find("{on_present " + parts[1], parser.pos)
-				if i == -1 or i > parser.gscript.find("{statement", parser.pos + 1) or i > parser.gscript.find("{end_of_rebuttal}", parser.pos):
+				var next_stmt = parser.gscript.find("{statement", parser.pos + 1)
+				if i == -1 or (next_stmt != -1 and i > next_stmt) or i > parser.gscript.find("{end_of_rebuttal}", parser.pos):
+					parser.go_to(parser.gscript.rfind("{statement", parser.pos))
+					push_call_stack()
+					in_confrontation = false
+					anim.get_node("../Gauge").visible = false
 					parser.go_to(parser.gscript.find("\n", parser.gscript.find("{on_present}", parser.pos)))
 				else:
+					in_confrontation = false
+					anim.get_node("../Gauge").visible = false
 					parser.go_to(parser.gscript.find("\n", i))
 			"gotoif":
 				if !vars.get(parts[1].substr(1)) if parts[1][0] == "!" else vars.get(parts[1]):
@@ -429,10 +487,34 @@ func run_command(text: String):
 				vars[parts[2] if parts.size() > 2 else "_"] = found
 			"penalty":
 				anim.get_node("../Gauge/Boom").rect_position.x = 5 + 23 * health - 32
-				health -= 1
+				health = max(health - 2, 0)
+				if health == 0:
+					parser.go_to(parser.gscript.find("{on_bad_end}", parser.pos))
 				anim.get_node("../Gauge/Bar").value = health
 				anim.play("penalty")
 				parser.stop_talking()
+			"bad_end":
+				parser.stop_talking()
+				if anim.is_playing():
+					yield(anim, "animation_finished")
+				anim.get_node("../TextureRect").visible = false
+				anim.get_node("../HBoxContainer").visible = false
+				bg.get_parent().modulate = Color.transparent
+				bg.texture = bg.bgs["bad_end"]
+				bg.t = 0
+				bg.side = 1
+				anim.play("fadein")
+				yield(anim, "animation_finished")
+				parser.stop_talking()
+				var t = OS.get_ticks_msec()
+				while OS.get_ticks_msec() < t + 4000:
+					yield(anim.get_tree(), "idle_frame")
+				if anim.is_playing():
+					yield(anim, "animation_finished")
+				anim.play("fadeout")
+				yield(anim, "animation_finished")
+				reset()
+				anim.get_tree().change_scene("res://title_screen.tscn")
 			"restore_health":
 				health = 10
 				anim.get_node("../Gauge/Bar").value = health
@@ -440,3 +522,7 @@ func run_command(text: String):
 				parser.go_to(parser.gscript.rfind("{statement", parser.pos))
 			"choice":
 				anim.get_node("../Choices").show_choices(parts)
+			"amogus":
+				var amogus = preload("res://amogus/amogus.tscn").instance()
+				$"/root".add_child(amogus)
+				get_tree().paused = true

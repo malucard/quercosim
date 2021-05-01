@@ -110,7 +110,7 @@ func get_save_pos():
 		var npos = gscript.find("\n", spos)
 		if npos < pos:
 			var trimmed = gscript.substr(npos + 1).dedent()
-			if trimmed[0] == '"' or trimmed[0] == '{':
+			if trimmed.length() > 0 and (trimmed[0] == '"' or trimmed[0] == '{'):
 				n += 1
 		spos = npos + 1
 	return n
@@ -221,12 +221,22 @@ func try_skip():
 		return true
 	return false
 
+var prev_next_pressed = false
+var next_just_pressed = false
+var next_pressed_start = 0
+
 func _process(delta: float):
 	blipped = false
 	var button_anim = "speaking"
 	$"../Back".visible = state.in_confrontation
 	$"../../Press".visible = state.in_confrontation
 	$"../../Present".visible = state.in_confrontation
+	var next_pressed = $"../../Control/Next".pressed
+	next_just_pressed = !prev_next_pressed and next_pressed
+	if next_just_pressed:
+		next_pressed_start = OS.get_ticks_msec()
+	prev_next_pressed = next_pressed
+	var mobile_skipping = next_pressed and OS.get_ticks_msec() - next_pressed_start >= 1000
 	if state.in_confrontation:
 		$"../../Gauge".visible = true
 	if !stopped_talking:
@@ -237,15 +247,16 @@ func _process(delta: float):
 			if next_text.length() == 0:
 				button_anim = "next"
 		if (Input.is_action_just_pressed("back") or $"../Back/Button".pressed
-			) and next_text.length() == 0 and !state.first_statement:
+			) and next_text.length() == 0 and state.in_confrontation and !state.first_statement:
 			emit_signal("next", 1)
-		elif (Input.is_action_pressed("skip_fast") or (Input.is_action_pressed("skip") and try_skip())
-				or Input.is_action_just_pressed("next") or $"../../Control/Next".pressed
+		elif (Input.is_action_pressed("skip_fast") or ((Input.is_action_pressed("skip") or mobile_skipping) and try_skip())
+			or Input.is_action_just_pressed("next") or next_just_pressed
 			) and next_text.length() == 0 and !state.last_statement:
 			emit_signal("next", 0)
+			next_just_pressed = false
 		elif $"../../Press".pressed and next_text.length() == 0:
 			emit_signal("next", 2)
-		if next_text.length() != 0 and (Input.is_action_pressed("skip_cur") or Input.is_action_pressed("skip") or Input.is_action_pressed("skip_fast")):
+		if next_text.length() != 0 and ((Input.is_action_pressed("skip_cur") or next_just_pressed) or mobile_skipping or Input.is_action_pressed("skip") or Input.is_action_pressed("skip_fast")):
 			paused = 0
 			bbcode_text = ""
 			var txt = all_text

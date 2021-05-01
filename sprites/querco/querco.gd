@@ -21,9 +21,17 @@ var poses = {
 	},
 	sweat = {
 		texture = preload("flushed.png")
+	},
+	buff = {
+		texture = preload("buff.png")
+	},
+	think = {
+		texture = preload("think/canvas.png"),
+		mouth = [preload("think/mouth.png"), 292, 160, "speak_colias_grin", 3]
 	}
 }
 
+const flip = true
 const objection = preload("sounds/objeckshun.wav")
 const battleface = preload("battleface.png")
 

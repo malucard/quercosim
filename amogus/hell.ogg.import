@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hell.ogg-20f526ab8d6e2fdf14336690452a8e9a.oggstr"
+
+[deps]
+
+source_file="res://amogus/hell.ogg"
+dest_files=[ "res://.import/hell.ogg-20f526ab8d6e2fdf14336690452a8e9a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

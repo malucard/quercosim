@@ -79,7 +79,7 @@ func _load_from(n: int):
 		state.to_load_side = save.side
 		if save.lchar:
 			state.lchar = state.chars[save.lchar.id]
-			state.lchar.pose = state.lchar.poses[save.rchar.pose]
+			state.lchar.pose = state.lchar.poses[save.lchar.pose]
 		else:
 			state.lchar = null
 		if save.rchar:

@@ -1,0 +1,316 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://amogus/amogus.glb" type="PackedScene" id=1]
+[ext_resource path="res://amogus/amogus.gd" type="Script" id=2]
+[ext_resource path="res://amogus/amogus_ship/amogus_ship.glb" type="PackedScene" id=3]
+[ext_resource path="res://amogus/ai_amogus.gd" type="Script" id=4]
+[ext_resource path="res://amogus/barbie/barbieb1.png" type="Texture" id=5]
+[ext_resource path="res://amogus/barbie/barbieb2.png" type="Texture" id=6]
+[ext_resource path="res://amogus/barbie/barbieb5.png" type="Texture" id=7]
+[ext_resource path="res://amogus/barbie/barbieb3.png" type="Texture" id=8]
+[ext_resource path="res://amogus/barbie/barbieb4.png" type="Texture" id=9]
+[ext_resource path="res://amogus/barbie/special_barbie_ending.png" type="Texture" id=10]
+[ext_resource path="res://amogus/hell.ogg" type="AudioStream" id=11]
+[ext_resource path="res://amogus/face_of_hell.png" type="Texture" id=12]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_sky = SubResource( 1 )
+ambient_light_color = Color( 0.18, 0.18, 0.18, 1 )
+ambient_light_energy = 0.5
+fog_enabled = true
+fog_color = Color( 0.1872, 0.222387, 0.26, 1 )
+fog_sun_color = Color( 0.698039, 0.65098, 1, 1 )
+glow_enabled = true
+
+[sub_resource type="CylinderShape" id=3]
+radius = 0.5
+
+[sub_resource type="Animation" id=4]
+resource_name = "spoopy"
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 10.7065, 7.90033, 8.99766 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "special_barbie_ending"
+length = 17.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1.6, 4.8, 6, 9.2, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1.6, 2.6, 3.8, 4.8, 6, 7, 8.2, 9.2, 11.5, 12.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Panel/TextureRect2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 1.6, 2.6, 3.8, 4.8, 6, 7, 8.2, 9.2, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Panel/TextureRect:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.8, 8.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 7 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Panel/TextureRect2:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ), ExtResource( 9 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Panel/TextureRect3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 13.2, 14.1, 16, 17 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 17 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop_it_already_aaaaaaaaaaaaa"
+} ]
+}
+
+[node name="ViewportContainer" type="ViewportContainer"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="."]
+arvr = true
+size = Vector2( 320, 240 )
+size_override_stretch = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Spatial" type="Spatial" parent="Viewport"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="amogus" type="KinematicBody" parent="Viewport/Spatial"]
+pause_mode = 2
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42, 20, 20.7136 )
+
+[node name="amogus" parent="Viewport/Spatial/amogus" instance=ExtResource( 1 )]
+
+[node name="Camera" type="Spatial" parent="Viewport/Spatial/amogus"]
+
+[node name="Camera" type="Camera" parent="Viewport/Spatial/amogus/Camera"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 8, 0 )
+environment = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Spatial/amogus"]
+shape = SubResource( 3 )
+
+[node name="amogus2" type="KinematicBody" parent="Viewport/Spatial"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -42.5295, 20, 35.2551 )
+script = ExtResource( 4 )
+
+[node name="amogus" parent="Viewport/Spatial/amogus2" instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Spatial/amogus2"]
+shape = SubResource( 3 )
+
+[node name="amogus3" type="KinematicBody" parent="Viewport/Spatial"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -37.6116, 20, 33.8444 )
+script = ExtResource( 4 )
+
+[node name="amogus" parent="Viewport/Spatial/amogus3" instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Spatial/amogus3"]
+shape = SubResource( 3 )
+
+[node name="amogus4" type="KinematicBody" parent="Viewport/Spatial"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -34.1636, 20, 36.5048 )
+script = ExtResource( 4 )
+
+[node name="amogus" parent="Viewport/Spatial/amogus4" instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Spatial/amogus4"]
+shape = SubResource( 3 )
+
+[node name="amogus5" type="KinematicBody" parent="Viewport/Spatial"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -43.5276, 20, 25.8901 )
+script = ExtResource( 4 )
+
+[node name="amogus" parent="Viewport/Spatial/amogus5" instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Spatial/amogus5"]
+shape = SubResource( 3 )
+
+[node name="amogus6" type="KinematicBody" parent="Viewport/Spatial"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -31.8901, 20, 19.8424 )
+script = ExtResource( 4 )
+
+[node name="amogus" parent="Viewport/Spatial/amogus6" instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Spatial/amogus6"]
+shape = SubResource( 3 )
+
+[node name="amogus7" type="KinematicBody" parent="Viewport/Spatial"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -39.863, 20, 41.4574 )
+script = ExtResource( 4 )
+
+[node name="amogus" parent="Viewport/Spatial/amogus7" instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Spatial/amogus7"]
+shape = SubResource( 3 )
+
+[node name="amogus8" type="KinematicBody" parent="Viewport/Spatial"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -45.7741, 20, 39.6954 )
+script = ExtResource( 4 )
+
+[node name="amogus" parent="Viewport/Spatial/amogus8" instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Spatial/amogus8"]
+shape = SubResource( 3 )
+
+[node name="amogus9" type="KinematicBody" parent="Viewport/Spatial"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -32.6386, 20, 29.3789 )
+script = ExtResource( 4 )
+
+[node name="amogus" parent="Viewport/Spatial/amogus9" instance=ExtResource( 1 )]
+
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Spatial/amogus9"]
+shape = SubResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Viewport/Spatial"]
+transform = Transform( -0.969078, 0.228784, -0.0924479, -0.129755, -0.153792, 0.979547, 0.209887, 0.961252, 0.178722, 3.8, 30, 11.9 )
+light_color = Color( 0.513726, 0.411765, 1, 1 )
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="amogus_ship" parent="Viewport/Spatial" instance=ExtResource( 3 )]
+
+[node name="OmniLight" type="OmniLight" parent="Viewport/Spatial/amogus_ship"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.53507, 6.11453, -9.34961 )
+light_specular = 0.01
+shadow_enabled = true
+shadow_bias = 0.5
+omni_range = 25.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Viewport/Spatial"]
+anims/spoopy = SubResource( 4 )
+
+[node name="Label" type="Label" parent="Viewport/Spatial"]
+margin_right = 212.0
+margin_bottom = 28.0
+text = "Unspecified army"
+
+[node name="Panel" type="Panel" parent="Viewport/Spatial"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Viewport/Spatial/Panel"]
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.9
+size_flags_horizontal = 3
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Viewport/Spatial/Panel"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.9
+texture = ExtResource( 6 )
+expand = true
+
+[node name="TextureRect3" type="TextureRect" parent="Viewport/Spatial/Panel"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="Area" type="Area" parent="Viewport/Spatial"]
+pause_mode = 2
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2999, 0, -2.29108 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Viewport/Spatial/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.12465 )
+shape = SubResource( 5 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Viewport/Spatial"]
+anims/special_barbie_ending = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Viewport/Spatial"]
+stream = ExtResource( 11 )
+autoplay = true
+
+[node name="TextureRect" type="TextureButton" parent="Viewport/Spatial/AudioStreamPlayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_normal = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="Viewport/Spatial/Area" to="Viewport/Spatial" method="_on_Area_body_entered"]
+[connection signal="pressed" from="Viewport/Spatial/AudioStreamPlayer/TextureRect" to="Viewport/Spatial" method="_on_TextureRect_pressed"]

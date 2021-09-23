@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/investigation_epic.wav-56f7bf8b0d3fb0e4c6cd8c259c4aeffe.sample"
+
+[deps]
+
+source_file="res://sounds/music/investigation_epic.wav"
+dest_files=[ "res://.import/investigation_epic.wav-56f7bf8b0d3fb0e4c6cd8c259c4aeffe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

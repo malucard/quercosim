@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pollution.mp3-7a2a6f91ab3505a33b31ee2f466bc558.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/pollution.mp3"
+dest_files=[ "res://.import/pollution.mp3-7a2a6f91ab3505a33b31ee2f466bc558.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

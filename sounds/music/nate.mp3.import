@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/nate.mp3-8376b0fb08a431e84b59986b1d677f42.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/nate.mp3"
+dest_files=[ "res://.import/nate.mp3-8376b0fb08a431e84b59986b1d677f42.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

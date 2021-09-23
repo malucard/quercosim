@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gimmick.ogg-139fbeece4d9ea6db1b8d927245b4c16.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/gimmick.ogg"
+dest_files=[ "res://.import/gimmick.ogg-139fbeece4d9ea6db1b8d927245b4c16.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

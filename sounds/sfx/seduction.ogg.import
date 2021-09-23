@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/seduction.ogg-f6a8b147a5de4e75a76aca832dab5490.oggstr"
+
+[deps]
+
+source_file="res://sounds/sfx/seduction.ogg"
+dest_files=[ "res://.import/seduction.ogg-f6a8b147a5de4e75a76aca832dab5490.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

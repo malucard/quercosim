@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/logic_chess.mp3-4912116410228fb4abee02b5f922da50.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/logic_chess.mp3"
+dest_files=[ "res://.import/logic_chess.mp3-4912116410228fb4abee02b5f922da50.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

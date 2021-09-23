@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/seduction_maybe.mp3-298e66004178a0dffd0d564cb38b6ea5.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/seduction_maybe.mp3"
+dest_files=[ "res://.import/seduction_maybe.mp3-298e66004178a0dffd0d564cb38b6ea5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

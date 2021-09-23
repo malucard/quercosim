@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/truth.ogg-badbb191a4bddb406f458fe4a1f4444c.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/truth.ogg"
+dest_files=[ "res://.import/truth.ogg-badbb191a4bddb406f458fe4a1f4444c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

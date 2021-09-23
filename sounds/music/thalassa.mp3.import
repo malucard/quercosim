@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/thalassa.mp3-4e24953113b29cf5844af0e23a964967.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/thalassa.mp3"
+dest_files=[ "res://.import/thalassa.mp3-4e24953113b29cf5844af0e23a964967.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

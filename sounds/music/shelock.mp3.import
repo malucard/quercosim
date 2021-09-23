@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/shelock.mp3-7cfb4001c17352c2ed060ec360a58ec3.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/shelock.mp3"
+dest_files=[ "res://.import/shelock.mp3-7cfb4001c17352c2ed060ec360a58ec3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

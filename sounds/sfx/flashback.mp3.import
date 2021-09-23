@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/flashback.mp3-f87703132cd57d281b73c10976bcf226.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/flashback.mp3"
+dest_files=[ "res://.import/flashback.mp3-f87703132cd57d281b73c10976bcf226.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

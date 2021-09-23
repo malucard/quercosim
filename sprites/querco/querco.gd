@@ -1,39 +1,45 @@
-extends Node
+extends Character
 
 var poses = {
 	normal = {
-		texture = preload("normal/tex.png"),
-		eyes = [preload("normal/eyes.png"), 160, 96],
-		mouth = [preload("normal/mouth.png"), 128, 192],
+		texture = "normal/tex.png",
+		eyes = ["normal/eyes.png", 160, 96],
+		mouth = ["normal/mouth.png", 128, 192],
 	},
 	hand = {
 		scene = preload("hand/anim.tscn"),
-		mouth = [preload("hand/mouth.png"), 320, 192],
+		mouth = ["hand/mouth.png", 320, 192],
 		size = Vector2(740, 768)
 	},
 	smug = {
-		texture = preload("smug/canvas.png"),
-		eyes = [preload("smug/eyes.png"), 185, 96],
-		mouth = [preload("smug/mouth.png"), 153, 160, "speak_colias_grin", 3],
+		texture = "smug/canvas.png",
+		eyes = ["smug/eyes.png", 185, 96],
+		mouth = ["smug/mouth.png", 153, 160, "speak_colias_grin", 3],
 	},
 	flushed = {
-		texture = preload("flushed.png")
+		texture = "flushed.png"
 	},
 	sweat = {
-		texture = preload("flushed.png")
+		texture = "flushed.png"
 	},
 	buff = {
-		texture = preload("buff.png")
+		texture = "buff.png"
 	},
 	think = {
-		texture = preload("think/canvas.png"),
-		mouth = [preload("think/mouth.png"), 292, 160, "speak_colias_grin", 3]
+		texture = "think/canvas.png",
+		mouth = ["think/mouth.png", 292, 160, "speak_colias_grin", 3]
+	},
+	mobile = {
+		texture = "mobile/mobile.png"
+	},
+	mobile_manny = {
+		texture = "mobile/mobile_manny.png"
 	}
 }
 
 const flip = true
-const objection = preload("sounds/objeckshun.wav")
-const battleface = preload("battleface.png")
+const objection = "sounds/objeckshun.wav"
+const battleface = "battleface.png"
 
 var pose = poses.normal
 

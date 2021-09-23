@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/drip4.mp3-6f3c418aa418040eca5a709420069a8e.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/drip4.mp3"
+dest_files=[ "res://.import/drip4.mp3-6f3c418aa418040eca5a709420069a8e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,22 @@
+sh hi
+label shelock
+char dhar normal
+dh hihihihihihihihiohiohihiohiojio
+char dhar sad
+dh hihihihihihihihiohiohihiohiojio
+char colias dramatic
+cp kslclkasdjfclakjcflkwejlkcjwealckjlweajcrklajwelckjraklwejcrklajweclrjalwkecjrl
+cp kslclkasdjfclakjcflkwejlkcjwealckjlweajcrklajwelckjraklwejcrklajweclrjalwkecjrl
+char shelock flushed
+sh strangestrangestrangestrangestrangestrangestrangestrangestrangestrange
+pose shelock polish
+sh i am disguised as a citizen of poland
+pose shelock side
+sh fuck fronts
+pose shelock sweat
+sh bullets
+pose shelock normal
+sh strangestrangestrangestrangestrangestrangestrangestrangestrangestrange
+pose shelock shock
+sh hasjkscalkd
+goto <shelock

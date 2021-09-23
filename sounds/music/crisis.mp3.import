@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/crisis.mp3-2cc6b8c7c241c2c637b221eb33038d1d.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/crisis.mp3"
+dest_files=[ "res://.import/crisis.mp3-2cc6b8c7c241c2c637b221eb33038d1d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

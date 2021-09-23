@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/crazycolias.ogg-214d350b044a1b3bc511750c5e928ce5.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/crazycolias.ogg"
+dest_files=[ "res://.import/crazycolias.ogg-214d350b044a1b3bc511750c5e928ce5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

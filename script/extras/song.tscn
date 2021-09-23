@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://script/extras/song.gd" type="Script" id=1]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+margin_right = 1168.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 96 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+song = "querco"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 96.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 96, 96 )
+expand = true
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="."]
+self_modulate = Color( 1, 1, 1, 0.498039 )
+margin_left = 100.0
+margin_right = 104.0
+margin_bottom = 96.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 108.0
+margin_right = 1168.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 1060.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 28 )
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "Quercus Alba ~ God"
+text = "Quercus Alba ~ God"
+scroll_active = false
+
+[node name="Info" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 32.0
+margin_right = 1060.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[table=4]
+[cell][color=#777]Composer [/color][/cell]
+[cell]Noriyuki Iwadare[/cell]
+[cell][/cell][cell][/cell]
+[cell][color=#777]Company [/color][/cell]
+[cell]Capcom[/cell]
+[cell][color=#777]Work [/color][/cell]
+[cell]Ace Attorney Investigations: Miles Edgeworth[/cell]"
+text = "Composer Noriyuki IwadareCompany CapcomWork Ace Attorney Investigations: Miles Edgeworth"
+scroll_active = false

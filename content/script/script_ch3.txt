@@ -1,0 +1,4 @@
+fadein
+char obama
+ob Did you know the White House is uhh, 21 meters tall? It's true.
+fadeout

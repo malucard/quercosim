@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/blaise.mp3-e108178f31dbe759cdbe51f3402f2942.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/blaise.mp3"
+dest_files=[ "res://.import/blaise.mp3-e108178f31dbe759cdbe51f3402f2942.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

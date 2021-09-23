@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/twililght_sad.mp3-17170db861924740720a61c4589b8ba2.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/twililght_sad.mp3"
+dest_files=[ "res://.import/twililght_sad.mp3-17170db861924740720a61c4589b8ba2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,4 +1,4 @@
-extends Node
+extends Character
 
 var poses = {
 	normal = {

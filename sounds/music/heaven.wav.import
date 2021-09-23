@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/heaven.wav-a78e36d6b3b8ecb9b58649139f03b7dd.sample"
+
+[deps]
+
+source_file="res://sounds/music/heaven.wav"
+dest_files=[ "res://.import/heaven.wav-a78e36d6b3b8ecb9b58649139f03b7dd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/suspense.mp3-694ab149d2d47fee568ac475af9800b9.mp3str"
+
+[deps]
+
+source_file="res://sounds/music/suspense.mp3"
+dest_files=[ "res://.import/suspense.mp3-694ab149d2d47fee568ac475af9800b9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

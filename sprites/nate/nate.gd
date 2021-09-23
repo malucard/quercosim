@@ -1,9 +1,18 @@
-extends Node
+extends Character
 
 var poses = {
 	normal = {
-		texture = preload("normal.png")
-	}
+		texture = "normal.png"
+	},
+	question = {
+		texture = "question.png"
+	},
+	answer = {
+		texture = "answer.png"
+	},
+	mag = {
+		texture = "mag.png"
+	},
 }
 
 const flip = true

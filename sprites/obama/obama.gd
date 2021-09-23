@@ -1,22 +1,26 @@
-extends Node
+extends Character
 
 var poses = {
 	normal = {
-		texture = preload("normal.png")
+		texture = "normal.png"
 	},
 	flushed = {
-		texture = preload("flushed.png")
+		texture = "flushed.png"
+	},
+	cry = {
+		texture = "cry.png"
 	},
 	hand = {
-		texture = preload("hand.png")
+		texture = "hand.png"
 	},
 	pan = {
-		texture = preload("pan.webp")
+		texture = "pan.webp",
+		scale = 2
 	}
 }
 
 var pose = poses.normal
-const objection = preload("sounds/objection.ogg")
+const objection = "sounds/objection.ogg"
 
 func get_pose():
 	return pose

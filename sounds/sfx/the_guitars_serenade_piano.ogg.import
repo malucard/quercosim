@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/the_guitars_serenade_piano.ogg-50164829fc87ee5520ec27dd1c0053b2.oggstr"
+
+[deps]
+
+source_file="res://sounds/sfx/the_guitars_serenade_piano.ogg"
+dest_files=[ "res://.import/the_guitars_serenade_piano.ogg-50164829fc87ee5520ec27dd1c0053b2.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

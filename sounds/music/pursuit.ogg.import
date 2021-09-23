@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pursuit.ogg-26c9a466a50caad19d851e854d883d5a.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/pursuit.ogg"
+dest_files=[ "res://.import/pursuit.ogg-26c9a466a50caad19d851e854d883d5a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

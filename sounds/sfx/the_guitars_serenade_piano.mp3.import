@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/the_guitars_serenade_piano.mp3-74e541bffab002bc5f8af88012cbd94d.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/the_guitars_serenade_piano.mp3"
+dest_files=[ "res://.import/the_guitars_serenade_piano.mp3-74e541bffab002bc5f8af88012cbd94d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

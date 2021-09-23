@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/moving_rubble.ogg-b09d390cfa8bb2f79fa68d339a2ed4c4.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/moving_rubble.ogg"
+dest_files=[ "res://.import/moving_rubble.ogg-b09d390cfa8bb2f79fa68d339a2ed4c4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

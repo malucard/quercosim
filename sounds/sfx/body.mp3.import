@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/body.mp3-5795b0a185d3741338fe7454f2f3248e.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/body.mp3"
+dest_files=[ "res://.import/body.mp3-5795b0a185d3741338fe7454f2f3248e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

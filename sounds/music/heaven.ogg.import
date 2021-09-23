@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/heaven.ogg-6ead3fd802331e05ca87ff42cc8aaacd.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/heaven.ogg"
+dest_files=[ "res://.import/heaven.ogg-6ead3fd802331e05ca87ff42cc8aaacd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

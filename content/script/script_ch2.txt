@@ -1,0 +1,1557 @@
+chapter 2 "Lost Footing"
+amogus
+
+evi badge “Allebahst Academy Student Badge” “Proof that I study here.”
+evi key “My car keys” “Need them to go places”
+evi coupon "Babahl Merchandise Coupon" "Received from Colias Palaeno. It says Babahl merchandise."
+evi lbelle “Vous êtes L'Belle Coupon” “Received from Florent L'Belle. It says '99.8% discount on any Vous êtes L'Belle beauty product'.”
+evi coupon2 "Another Babahl Merchandise Coupon" "Received from Colias Palaeno. It says Babahl merchandise."
+
+char nate
+fadein
+music nate
+nt Are
+wait 2
+fadeout
+bg protagonist left
+music none
+pr GAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHH
+pr WHAT THE HELL
+pr ...just... a nightmare again. ugh
+pr (And so, I start a day like any other.)
+pr [url]https://www.youtube.com/watch?v=I8ZIClNqCt0[/url]
+fadein
+g [center]my house[/center]
+g [center]4:21 am[/center]
+pr :preview:
+pr (my alarm hasn't even rung yet. it's early... but not enough to sleep more... and i'd like to forget that just now... i should go get ready for school.)
+investigation ch2_start
+	area "Home" bg protagonist
+			music protagonist
+			open_move 2
+		examinable x 0.86042 y 0.261058 w 0.519134 h 0.233517
+			pr my bed. the embedded keyboard is pretty fire
+		examinable x 0 y 0.403742 w 0.675319 h 0.425034
+			pr thank god i live in the middle of nowhere so I can blast these {s}humongous {s}hungolomghononoloughongous speakers.
+		examinable x 1.561148 y 0 w 0.438852 h 0.573917
+			pr a collection of my favorite instrument. guitars are just so cool to be honest. i hope i don't find a hater.
+	area "Allebahst Academy" bg hallway_forklift
+			music deid
+			char none
+			exit_investigation
+	area "Living Room" bg living_room
+			open_move 1
+		examinable x 0.235981 y 0.233645 w 0.247196 h 0.45514
+			pr the p  for protagonist really just gets cooler every day
+endinv
+pr (school... quercus won't be here, though... that's really stripped all the energy and confidence from me today.)
+pr (no, if I keep thinking about that, i won't be able to make it through the day.)
+pr (on the bright side, today i have music class. according to my bedroom, i love music.)
+char lbelle normal
+music lbelle
+fl Ah ha ha ha ha! It is you, little foot student!
+pr ...what's with you?
+fl I am simply getting an education. Perhaps my unbounded grace is making my every step sound even MORE grandiose?
+pr what do you study here, anyway
+fl Well, it should be obvious!
+pose lbelle note
+fl I study BEAUTY. It's not something many could hope to understand.
+fl ...Though. you... you have quite a handle on it already, I can't lie...
+pr (great. so i don't have to see him in class nearly ever.)
+pr you're sure you study beauty?
+fl Of course! It is the CORE of all high-class riddles! It is the SCIENCE of beauty!
+pr ok, so you know you're stupid, yeah?
+fl It is enough to be a student here. In my little corner, there is NOTHING else to think about. There are no peers to taunt me, there is no mother to shame me... NOTHING! All I have is my studies.
+fl I am not forced to die of starvation, nor is my body forced to cave in. All I have is the knowledge that I am more beautiful than everyone around me, and that is enough.
+pr fucking boring, i didnt ask for your tragic life story anyway
+fl Nothing is boring when you consider it in the WORST of conditions. I can recite your vocabulary backwards, and recite my feelings for you forward. The flower of a flower is boring to the gardener. The bee that collects nectar from it is boring to the beekeeper. But to the flower, this boring existence is the BEST LIFE on earth!
+pr i'm off
+pose lbelle normal
+fl W-Wait! Don't LEAVE!
+pr i have class jfc leave me alone
+fl Well, it's just, uh... ah, uh... um... em... aah... oh, uhm, mm, ahhhh..... uhh.... umm, uhh... h, ahh...
+pr (weirdo)
+fadeout
+music colias
+bg art_room
+char colias
+pose colias happy
+fadein
+cp Hey bro what's good
+pr hey colias, this is the room for music class right?
+pose colias grin
+cp Yeah. You're here a bit early though. We're the only ones here.
+pr yeah, i kinda had a nightmare and decided to come early...
+pose colias serious
+cp Dude, you're early by two hours
+pr y yeah uh it was uh a really bad nightmare.
+pose colias normal
+pr so... this room is kind of a mess, huh
+cp Yeah, the professor's class is pretty practical.
+pr (i wonder who it is. i guess the manufactured suspense means i'll find out soon.)
+pr aren't there any guitars? come on...
+music suspense
+pose colias serious
+cp Did you just say gu*tars
+pr yeah but with an i instead of the *
+cp BRO we hate those here sorry
+pr ? guitars are literally cool
+cp No the strings are stuupid
+pr literally don't talk here
+pr i think you should just change your opinion
+pose colias normal
+cp We can disagree, this isn't the internet (web version players dni)
+pr no, your stupid until you have the exact same opinion as mine
+pr (i was thinking about being friendly to this guy?)
+music none
+pose colias normal
+cp ...Tell you what, they are pretty cool...
+cp We should start a revolution so people start liking guitars
+music protagonist
+pr 💪
+pr but how can we convince the world guitars arent stuupid?
+cp Maybe you should have a concert since you like guitars so much.
+cp I'd go
+pr ja... guitars are just. so coool. maybe i will...
+pose colias grin
+cp Did you just say 'ja'?
+pr ja... sorry i just cant help it when im near a klavier, i become german little by ltitle, and it's been a bit
+pose colias normal
+cp So, it seems music is a hobby of yours... but what about foot?
+pr foot is kind of boring, i told you
+cp But... You're going to college for it.
+pr (well, maybe foot will become what my life revolves around, in the end. i don't know.)
+pr well, uh...
+pr (but my real goal, since the start, was to meet cute boys. foot was just a cover.)
+pr that's not why I'm here...
+pr (but after meeting Alba-san, i'm not really interested in anyone else. did i forget to consider something...?)
+cp You had another reason?
+pr (But, I still want to stay here. I can't quite put my finger on it, but, just... something about this...)
+cp What's that, then?
+pr (...I can't tell him. I'm not confident enough in that anymore...)
+pr Well... let's talk about that another time.
+pr (Let's see...)
+bg piano_protagonist_colias
+cp Oh, you're gonna play something?
+music none
+pr I'll... improvise, I don't know. I'm just bored. You shouldn't be excited for something like that.
+cp Either way, it's cool. I can't do much myself.
+pr ...
+sfx the_guitars_serenade_piano
+wait_sfx
+bg piano_protagonist_colias_2
+cp Cracked
+pr (That's good, actually. I'll write it down.)
+evi song "Song" "The song I improvised before music class."
+g [center]Song transcribed in Organizer.[/center]
+? Protagonist, right? That was impressive.
+pr Oh, are you the professor?
+bg art_room
+music thalassa
+lchar thalassa normal
+th Yeah. I'm Thalassa Gramarye, nice to meet you.
+rchar protagonist normal
+pr Ah, you too, Professor.
+th Well, this is surprising. Usually only Colias is already here.
+th In fact, I've never *not* seen Colias here... He must be very good at avoiding the weather.
+th CALCULATE NUMBER OF STORMS|COUNTSTORM; CALCULATE NUMBER OF SUNS IN THE SKY|SUN; CALCULATE NUMBER OF STARS IN THE SKY|SUN; Something like that.
+pr I can see that he's dedicated.
+pr (the notes on foot he showed me yesterday were kind of insane. it's like a fax store, just for the subject of yesterday. colias may be a new baseline for foot wisdom)
+fadeout
+rchar none
+pr (Soon, other students arrive, as the time paints near.)
+fadein
+th Welcome to music class. My name is Thalassa Gramarye and today, we'll be learning about strings.
+th Yesterday, we were the monkeys with the tomatoes on our heads. Today, the strings.
+th You can tell where this is going, right? One question we have to answer to determine which one is a string and which one is a tube is, "What does this do?" Another important question is, "Is it a string?"
+th A complicated equation is solved by passing the ends of the string between our lips. Now we have to pull. One hand on the string, the other hand on the body of the instrument
+pr (she spittin. im staying up for this)
+th Pull harder. We're going to get them down today, don't you worry about it. First, the monkey with the string.
+pr (Professor Gramarye starts with a voice, then hands it off to Sydney, who sings a little opera with the monkey.)
+th You've gotta be good to be a good monkey.
+rchar sydney normal
+"Sydney: What? Like this?"
+th Who wants to be the banana?
+lchar sydney normal
+rchar protagonist point
+pr Me. You guys go for it.
+fadeout
+pr (Professor Mann is a genius, but Professor Gramarye's class is much more fun. What she says actually makes sense.)
+pr (Probably helps that it's music and not something stupid like foot. Maybe I am just foot averse)
+pr (An unspecified amount of tens of minutes later, it ends.)
+lchar colias grin
+rchar protagonist serious
+music colias
+fadein
+cp Yo, banana.
+pr Hm?
+cp We're not having foot class today.
+pr Huh? was?
+cp Classroom is literally trashed
+pose colias normal
+cp Also, I, uh... I heard Shelock Holmes is in the building right now.
+pr Wait, {s}THE Shelock Holmes? the world famous police detective?
+cp Shelock Holmes E (math symbol) establishment
+pr What is he here for? I would like to harrass him to get some sweet gameplay goin
+cp No idea, he's just over in the foot classroom though
+pr I see
+char none
+bg hallway_forklift_rain
+#char thalassa
+#lchar sydney
+#th Ah, yes, Sydney.
+#"Sydney:
+#char none
+music rain
+pr (It started raining, huh. I guess that's what Professor Gramarye meant by the weather.)
+pr (Since it is the 21st of September, 2009, 16°C passing clouds no wind 1026mbar 16 km 83% humid, it is super humid and rainy)
+investigation ch2_meet_shelock
+	area "Hallway" bg hallway_forklift_rain
+			char none
+			music rain
+			open_move 1
+		examinable x 1.117301 y 0.436782 w 0.131859 h 0.301681
+			pr Maybe one day I will perform at one of these.
+		examinable x 0.862385 y 0.426606 w 0.214679 h 0.219266
+			pr Huh... Why is this here?
+	area "Foot Classroom" bg classroom_forklift
+			music rubble
+			char none
+		examinable x 1.008403 y 0.186975 w 0.982353 h 0.595798
+			exit_investigation
+endinv
+pr (The wall that Professor Coachen broke yesterday.)
+pr (But there seems to be an organized group of workers employed in manual labour of the physical construction of the built environment and its infrastructure)
+pr (Wait, I recognize th--)
+pr {s}THE Shelock Holmes?!?
+sh {s}Ahaha! Well now, I've been found out!
+sh Without further ado, let me fulfil what should be the first duty of any gentleman... ...and introduce myself.
+music shelock
+char shelock normal
+sh The name is Holmes... {s}Shelock Holmes! ...THE Ace Detective.
+sh However, it appears I have been caught on my side job... as a forklift operator. I am here to repair a wall.
+pr What the fuck
+pr Stop being british
+pr That's a fork elevator
+pose shelock sweat
+sh Lifts forks either way, does it not?
+pr Elevates*
+pr Don't do this.
+sh Hrhgrh...
+evi forklift "Fork Elevator" "This machine was being used by Shelock Holmes in the foot classroom, for the repair of the wall."
+g [center]Fork Elevator added in Organizer.[/center]
+pr You're literally british. I'm leaving
+bg hallway_rain
+music rain
+pr (I'm disappointed there was no dead body. I'm going back to Colias for now.)
+bg art_room
+music colias
+pr Hey Colias. I had no idea you were a gamer...
+pr (He's gaming)
+char colias grin
+cp Yep. I love The Sims 2 (PSP) gaming
+char colias normal
+cp Actually, wanna make a sim in my The Sims 2 (PSP) game? Would be sick
+pr Sure
+pr (This hair...)
+music querco
+pr (This beard...)
+pr [img=128]res://embed/qats2.png[/img]
+cp Interesting ideas. Did you base him on someone (QADS)?
+pr (Alba-san... how are you...?)
+flashback
+bg the_place_where_wars_are_fought
+char querco think
+fadein
+qa Grahh...
+qa Blaise, respond!
+bg command_center
+char blaise normal
+bl [img=128]res://embed/literallyjustanimageofblaise.png[/img]
+fadeout
+#music colias
+#pr (I search my backpack for my DS.)
+#fadein
+#pr Oh... These coupons... How do I use them, Colias?
+#pose colias grin
+#cp There's a vending machine in front of the Babahl Academy door. These give you free stuff entirely.
+#fadeout
+music none
+pr (We perform more gaming on popular new titles for a bit.)
+bg hallway
+fadein
+pr (I lost all our matches of Apollo Justice: Ace Attorney. I'm tired.)
+pr (They should make a sequel to this that deals with Bullying and Politics)
+music obama
+char obama normal
+pr Obama-san?
+ob Oh, hey, Mr. Protagonist. I just, uhh, just got here.
+ob Well, uh, see you later.
+char none
+music deid
+#pr (Oh, I should try to use Colias's coupons.)
+#bg theatrum left
+#side right
+#pr (Hmm... I'll get these rolls.)
+#evi rolls "Traditional Babahlese Food" "Sliced curls of chocolate invented in Sweden"
+#rmevi coupon2
+#side left
+#bg hallway_forklift
+pr (Today's weird... Everything just comes and goes. Nothing is interesting.)
+pr (Or maybe it's just me...)
+pr (This is in Alba-san's embassy, so he's inevitably going to come back soon, but... the wait is murdering me.)
+music panic
+char colias serious
+cp {s}Duude! Where's Shelock Holmes??
+pr wh-
+pr (Colias bursts out of the foot classroom. I look around for Holmes-san, but he's not here.)
+cp Aah...
+pr what happened man just be clear? i'll do what i can
+pr (Colias looks like he's been spooked by a ghost. he's probably roleplaying the the sims 2 (psp) protagonist.)
+#pr this is what was on your report card every year. you ragequit fnaf 6
+cp ...Come here.
+bg classroom_forklift
+pr ...
+fadeout
+pr (I couldn't believe my eyes.)
+music none
+sfx pollution
+wait 4
+bg deid_mann_dead
+fadein
+wait 5
+pr (What...?)
+sh What!?
+pr (Oh- Holmes!)
+sh ...He's dead.
+char shelock sweat
+sh Gentlemen, out of the room. Leave this to me and the off-screen "people"
+cp Ok
+music crisis
+bg hallway
+char colias serious
+pr I can't believe Professor Deid Mann is dead
+cp Yeah...
+pr (i'm never going to pass foot at this rate)
+bg speaker
+g Please evacuate the building immediately. Please ev-
+pr I'm gonna pretend I didn't hear that
+bg hallway
+char colias serious
+pr (I would love to harrass Holmes-san, but for now, the police needs some time.)
+pr (But... I still have to move the plot forward.)
+pr Colias. Let's investigate what we can out here.
+cp Why would we do that? We have a world-respected detective right there.
+pr I'm Protagonist, and you're in my party.
+cp Oh true
+music none
+fadeout
+pr (If I help find out what happened... in Alba-san's embassy... He'd be impressed, right?)
+bg querco_office
+char querco think
+music walk
+fadein
+qa Nghh...! You... You idiot solved everything while I was away!?
+pose querco flushed
+qa B-Baka... I, was wrong about you...
+pr Alba-san...!
+pr (we got married...)
+fadeout
+pr (...)
+music none
+bg hallway
+char colias serious
+music inv
+fadein
+cp ...
+pr o-oh, right...
+pr (that may have been a bit much,,,i have to actually investigate...)
+pr (well, i will have to truly do my best.)
+investigation ch2_deid_2_hallway
+	area "Hallway" bg hallway
+			music inv
+			char none
+		examinable x 0.775229 y 0.557339 w 0.086238 h 0.120642
+			pr A vent in the hallway. It implies the existence of an air duct system.
+			pr Somehow, it looked like the Professor came out of the one in the foot classroom.
+			gotoif i_stain done
+
+			pr Colias, do people usually come out of vents in this place?
+			char colias grin
+			cp N-Not that I know of...
+			pose colias normal
+			cp They look kind of spacious, though. It, might be possible for someone to get inside.
+			pr But why would he be up in the ducts?
+			cp I-I don't know...
+			pose colias grin
+			cp Knowing him, maybe it had to do with foot.
+			pr Hmm...
+			char none
+			returnif i_vent
+			evi vent "Hallway Vent" "Ventilation opening in the hallway."
+			g [center]Hallway Vent note written in Organizer.[/center]
+			set i_vent 1
+			label done
+			returnif !i_stain
+			returnif !i_incinerator
+			exit_investigation
+		examinable x 0.894495 y 0.392202 w 0.22156 h 0.214679
+			pr A door I haven't gone through yet.
+			char colias normal
+			cp That's the maintenance area. It's pretty far from the incident, though.
+			pr We should go have a look, just in case there's something.
+			char none
+			open_move 1
+	area "Maintenance Area" bg maintenance_area_stained
+			open_move 0
+			music inv
+			char none
+		examinable x 0.541284 y 0.848624 w 0.347706 h 0.090826
+			bg forklift_stain
+			pr What even is this?
+			char colias serious
+			cp What? Gross
+			cp Leave it to, like, forensics bro
+			gotoif i_stain done
+
+			evi rainbow_stain "Colorful Stain" "Some weird substance found in the Maintenance Area."
+			g [center]Colorful Stain pictured in Organizer.[/center]
+			set i_stain 1
+			bg maintenance_area_stained
+			char obama
+			ob Ah, thank you for, uhh, reporting the incident, Mr. Protagonist, Mr. Palaeno.
+			ob It is truly an unfortunate incident. Professor Mann won't be forgotten.
+			char none
+			pr Ah, Obama-san...
+			pr (He went in before we could say anything.)
+			pr Obama-san has been weird today, hasn't he, Colias?
+			pr (I hope he's not plotting something.)
+			char colias nervous
+			cp How would I know
+			pr isn't he here kinda all the time?
+			cp Ah, uh, I guess he is... Anyway.
+			char none
+			label done
+			bg maintenance_area_stained
+			returnif !i_vent
+			returnif !i_incinerator
+			exit_investigation
+		examinable x 1.386628 y 0.295893 w 0.152245 h 0.452149
+			pr That's an incinerator.
+			char colias grin
+			cp True
+			gotoif i_incinerator done
+			pose colias normal
+			cp It's still hot. Must have been used recently. Not sure if that's so suspicious though.
+			pr Well, it's used to destroy things, right? It's possible that it was used to destroy evidence.
+			pr We should note it down just in case.
+			evi incinerator "Incinerator" "The incinerator in Allebahst Academy. Looks like it was used around the time of the incident, but it could just be normal trash."
+			g [center]Incinerator organized in Organizer.[/center]
+			cp You always say that.
+			char none
+			set i_incinerator 1
+			label done
+			returnif !i_vent
+			returnif !i_stain
+			exit_investigation
+endinv
+bg hallway
+lchar colias serious
+pr I don't see much of anything suspicious. This really is just the school.
+cp There's not much evidence, huh.
+music gimmick
+rchar protagonist normal
+pr No... I don't think this is the end of it.
+cp What do you mean?
+pr We know for a fact, a murder was committed. And you saw the body, right?
+cp What about the body?
+pr The body tells us all we need to know to continue the investigation.
+cp Are you trying to say something or just bluffing
+pose protagonist point
+g I believe there is somewhere else we should look.
+request_present vent look_vent
+	cp What are you on about?
+	penalty
+	pr (I guess that doesn't make much sense...)
+	return
+game_over
+	music bad_end
+	rchar none
+	cp Dude... get a grip.
+	fadeout
+	pr (Hrgh... How will I impress Alba-senpai-san, when I can't even finish this simple train of thought...?)
+	pr (It's like I went out of my way to be stupid.)
+	pr (Goodbye, Alba-san... This is it for me. The end.)
+	pr (I've lost everything...)
+	bad_end
+endrq
+cp The... vent?
+pr Yeah. The professor seemed like he came out of the vent in the foot classroom, right?
+pose protagonist normal
+pr So, there must be more clues inside the air ducts.
+cp ...You want to get in there? Really?
+pr We have to try.
+#music none
+#cp Wait. If we do, Shelock Holmes might catch us.
+#music shelock
+#pr (Didn't even have to try...)
+#char shelock normal
+#pr Oh... Maybe we should talk to him beforehand, and get permission from him? Could that work?
+#cp I don't think he has any reason to give us any sort of permission.
+#pr True. I'm Protagonist though. We have to try.
+#bg classroom
+#music shelock
+#char shelock normal
+#lchar obama normal
+#ob Oh, Mr. Protagonist.
+#pr Shelock Holmes-san.
+#sh Oh, you two! I am investigating the murder.
+#sh ...Zvarri! The truth has once again been elegantly revealed to me! What we have here is... two podiatry students, the Allebahstian Ambassador, and the President of the United States. One of them a protagonist! ...Am I wrong?
+#pr (Oh right we didn't introduce ourselves...)
+#pr The name's Protagonist. Protagonist... ...Ace Protagonist.
+#pr This is my friend, Colias Palaeno.
+#pr Could you tell us what you've found out?
+music vent
+bg duct
+pr (It's kind of tight, but not as much as I expected...)
+pr (The foot classroom should be, uh, on this turn. Huh, it looks really spacious over there...)
+bg duct_big
+rchar protagonist normal
+echar 2 colias serious
+music shelock
+lchar shelock polish
+echar 0 obama normal
+pr (Ah. Of course Holmes-san would come here to investigate too. And I guess Obama-san was with him.)
+sh Oh, you two! I am investigating the murder.
+sh ...Zvarri! The truth has once again been elegantly revealed to me! What we have here is... two podiatry students, the Cohdopian Ambassador, and the President of the United States. One of them a protagonist! ...Am I wrong?
+pr (Oh right we didn't introduce ourselves...)
+pr The name's Protagonist. Protagonist... ...Ace Protagonist.
+pr This is my friend, Colias Palaeno.
+music none
+pose protagonist serious
+pr (Wait, did he say...)
+music querco
+echar 1 querco think
+qa ...
+bg querco_return
+pr ALBA-SAAN!!!!!!
+pr Alba-san, I'm so happy... Welcome back...
+objection querco
+qa Silence, {s}fool! I have been contacted due to the incident. Don't you {s}dare interfere!
+pr (I'm so happy to see him here. It felt like he was gone forever...)
+pr (Now, I can finally be at peace...)
+qa Get off me at once, you {s}moth! The investigation is urgent!
+pr Is it really...? Come on, Alba-san...
+qa [h]Investigate[/h] like you're supposed to, or I'll {s}punt you across the globe!
+pr (Right... The investigation.)
+bg duct_big
+pr Wait... Alba-san?
+char querco think
+qa Ugh. What?
+pr You're really giving me permission to investigate?
+qa ...
+qa You moth have seen it fit to impose yourself into the investigation.
+qa You are a student and a witness, and we are short on staff, anyway. Your cooperation may be helpful.
+pr ...I'm... really honored to be of service, sir.
+pose querco hand
+qa Don't get it to your head.
+pr Oh, Alba-san, you also have to allow Colias! He's my co cancel or whatever you call it.
+lchar colias nervous
+cp Protagonist...
+qa I was... trying to give him permission, before you interrupted us. Your idiotic brain wouldn't last a Planck time in a real investigation. It would be... beneficial to have a hair of competency.
+pose colias grin
+cp ...Thank you, sir. I'll help however I can.
+music colias
+char colias normal
+pr Hey, Colias.
+pr You're my cock damsel now. we're the main duo
+pr we need to be entertaining
+music crazy_colias
+pose colias grin
+cp yeah sure i can do that (transforms into funny)
+pr based
+music invmid
+char shelock normal
+pr Shelock Holmes-san, could you tell us what you've found out?
+sh But of course. After all, I always say there should be no secrets between "aces".
+sh And an Ace Protagonist, at that!
+pr (I don't know why I said that. I'm not "ace".)
+sh Prioritarily, we ought to clarify the facts of the crime scene. Follow me.
+investigation ch2_deid_1_body
+	area "Hallway" bg deid_mann_dead
+			music invmid
+			char none
+		examinable x 0 y 0.123853 w 0.175688 h 0.338532
+			pr A vent opening. Looks like he came out of here somehow.
+			returnif i_vent
+			evi bloody_vent "Bloody Vent" "Ventilation opening. It seems Professor Mann came out of it. Indicative of a ventilation system."
+			g [center]Bloody Vent noted in Organizer.[/center]
+			pr There's a blood trail connecting it and the Professor. Clearly, he crawled out of the vent, while bleeding out.
+			char shelock normal
+			sh True! Died, too!
+			char none
+			set i_vent 1
+			returnif !i_foot
+			returnif !i_wound
+			returnif !i_essay
+			exit_investigation
+		examinable x 0.866973 y 0.575688 w 0.425688 h 0.262844
+			pr Professor Deid Mann. He's dead
+			returnif i_wound
+			evi deid_wound "Gunshot Wound" "Bullet wound on Professor Mann. It appears he was shot in the chest."
+			g [center]Gunshot Wound noted in Organizer.[/center]
+			char shelock sweat
+			sh You stupid
+			sh That's a stab wound, there wasn't even any gunshot
+			pr Well *sorry* I didn't want to stare directly into a fatal wound.
+			evi deid_wound "Stab Wound" "Blade wound on Professor Mann. It appears he was stabbed from the back."
+			g [center]Stab Wound corrected in Organizer. goodbye Gunshot Wound 😔[/center]
+			sh Unfortunately, in criminal investigative work, you just have to have a strong stomach sometimes.
+			pr You guys are just built different or something
+			pr Anyway, this means he was killed with a blade. Didn't see any pointy objects though
+			pose shelock normal
+			sh Right. It doesn't seem to be around here. So the culprit must have taken it or disposed of it.
+			set i_wound 1
+			returnif !i_foot
+			returnif !i_vent
+			returnif !i_essay
+			exit_investigation
+		examinable x 0.600918 y 0.488532 w 0.166514 h 0.173395
+			pr He's... missing his right foot.
+			returnif i_foot
+			evi missing_foot "Missing Foot" "Professor Mann is missing his right foot. How did this happen?"
+			g [center]Missing Foot noted in Organizer.[/center]
+			pr Colias, do people usually go footless around here?
+			char colias nervous
+			cp Of all people, I don't think Professor Mann would go around without a foot by choice...
+			cp It would be painful, too. I mean, look at all the blood.
+			pr Oh true
+			pr Did the culprit slice his foot off then? Huh.
+			pr This is wild. What the hell happened here?
+			char none
+			set i_foot 1
+			returnif !i_wound
+			returnif !i_vent
+			returnif !i_essay
+			exit_investigation
+		examinable x 1.140342 y 0.872785 w 0.13159 h 0.101186
+			pr There's pieces of paper near his hand. He was probably holding this before he died.
+			evi essay "Foot Essay" "Professor Mann's latest essay on foot. It seems like he had finished it:\nWell the first spot anyone gets is what foot is to decide which walk is going to take the `` greatest '' walk. And the major bottom is the bottom that is strapped onto the panel while the other walk is permitted to go freely. This reason why one foot is not strapped onto this panel is because it permits you to stay able to push/kick yourself in thin surfaces. When somebody utilizes their left-hand foot as their lead walk, it is named `` normal s'', and if somebody utilizes their good foot as their lead walk, it is called `` goofy ''. Then how do you decide if you are regular or silly? Well there are really a two methods of defining the idea.\nFirstly, strap or tie up the wakeboard bindings then they suit you snugly and make sure you are comfortable with whichever walk you’re putting forth. Standing with the right foot forward is a normal attitude, while holding the left foot ahead is called a silly attitude. If you are uncomfortable with this position that bindings are putting you in, unfasten and adjust them before proceeding. Place yourself in some point from the boat, but not up to now that the circle is already drawn directly. Let the wakeboard lie sideways, half submerged under water, and go into the squat position with your knees just about the chest. Rest the arms flat before you on either side of the knees and grip the hold of the tow circle.\nIn Havana, this response to man obama’s gambit is mixed. Cuba’s administration, which saw the wet walk, dry foot policy as an insult and the case of the destructive brain drain, is happy. Some common people believe that difference is warranted. Wet walk, dry walk was only 'another way to use the blockade', told a well-dressed woman who could not say her family. Barbara Izquierdo, a wife whose friend got to the United States 15 years ago, acknowledges that most Cubans make for business reasons, not political things.  (the Economist., Jan. 2017)"
+			g [center]Essay copied in Organizer.[/center]
+			g Foot paper by Professor Deid Mann
+			g Well the first spot anyone gets is what foot is to decide which walk is going to take the `` greatest '' walk. And the major bottom is the bottom that is strapped onto the panel while the other walk is permitted to go freely.
+			g This reason why one foot is not strapped onto this panel is because it permits you to stay able to push/kick yourself in thin surfaces.
+			g When somebody utilizes their left-hand foot as their lead walk, it is named `` normal s'', and if somebody utilizes their good foot as their lead walk, it is called `` goofy ''. Then how do you decide if you are regular or silly?
+			g Well there are really a two methods of defining the idea. Firstly, strap or tie up the wakeboard bindings then they suit you snugly and make sure you are comfortable with whichever walk you’re putting forth.
+			g Standing with the right foot forward is a normal attitude, while holding the left foot ahead is called a silly attitude. If you are uncomfortable with this position that bindings are putting you in, unfasten and adjust them before proceeding.
+			g Place yourself in some point from the boat, but not up to now that the circle is already drawn directly. Let the wakeboard lie sideways, half submerged under water, and go into squat position with your knees just about the chest.
+			g Rest the arms flat before you on either side of the knees and grip the hold of the tow circle.
+			g In Havana, this response to man obama’s gambit is mixed. Cuba’s administration, which saw the wet walk, dry foot policy as an insult and the case of the destructive brain drain, is happy.
+			g Some common people believe that difference is warranted. Wet walk, dry walk was only 'another way to use the blockade', told a well-dressed woman who could not say her family.
+			g Barbara Izquierdo, a wife whose friend got to the United States 15 years ago, acknowledges that most Cubans make for business reasons, not political things.  (the Economist., Jan. 2017)
+			char querco think
+			qa Well said, Professor... though...
+			qa Huh? Is that really what he was researching?
+			lchar obama normal
+			ob He truly was, uhh, innovating in the field, wasn't he.
+			echar 0 colias grin
+			cp his classes were awesome. i hope he comes back to life or something
+			char none
+			set i_essay 1
+			returnif !i_foot
+			returnif !i_wound
+			returnif !i_vent
+			exit_investigation
+endinv
+music none
+pr Well how does that work? This is a really weird arrangement.
+char shelock polish
+sh How so? Dead body, blood trail. Seems like a pretty straightforward sequence of events. In fact...
+pose shelock normal
+music shelock
+sh {s}Zvarri! Hahahah...! The truth is cleear to me now!
+pr deadass?
+sh Hah, Sir Protagonist! You're about to witness one of Shelock Holmes's {s}[h]ace seductions[/h]!
+pr A-Ace... seductions?
+pose shelock side
+sh Look. As per Ambassador Alba, you are currently to aid in the investigation.
+sh However... you are still very much unproven. But if you can one-up my reasoning, I will have no choice but to accept you as a true rival.
+pr (I see... Holmes-san is asking me to seduce him with logic. as expected from the Ace Detective)
+pose shelock normal
+sh Come along now! Shall we embark together upon a journey of seduction?
+enter_seduction snap
+music logic_chess
+char shelock normal
+sh Since this is your first time in the Dance of Seduction, would you fancy a tutorial?
+label repeat
+pose shelock polish
+sh The bar to the top left shows your [h]dominance[/h]. You can increase it by flirting or being smart.
+sh If you fill it, it'll stay full for eternity, and you'll have time to think! But make sure to not let it empty, and to not make a mistake.
+sh Doing nothing isn't hot. Wait enough time without acting, and you might just get overseduced and lose. But don't feel too pressured! There is ample time, as you may realize.
+sh However, this is an [u]ace[/u] seduction. Our goal is to reach the truth.
+sh Do you understand my explanation?
+choice "i literally did this yesterday" no <repeat
+pose shelock normal
+sh Excellent!
+pr stop acting like you invented it :/ real apple shit
+music none
+vs shelock shelock_initial_truth
+g [center]-- What Happened to Sir Foot --[/center]
+music logic_chess
+stmt
+	pose shelock side
+	sh Firstly! Somehow, our foot friend was led into the ducts.
+	pr How? Literally how, you just skipped that entirely
+	sh Who knows! But we know for a fact he was in there, so let's focus on what happened after.
+
+stmt
+correct_present deid_wound
+	pose shelock polish
+	sh Then, he met the culprit, and there, his foot was stolen, and to make sure he wouldn't survive, he was stabbed!
+	sh Hold what, exactly? The weapon?
+	pr Uh, well, yeah.
+	pose shelock normal
+	sh The weapon was most likely some type of knife, and was definitely taken or disposed of by the culprit.
+	pr Is there no way for us to find it?
+	sh Once we understand what happened in the first place, we may be able to trace what happened to the knife.
+	sh However, currently, I have no clue.
+
+stmt
+	pose shelock side
+	sh Finally, after the murderer escaped, Deid Mann crawled into the foot classroom using his last breath. There, he succumbed, his very life force having been stolen. A rather tragic truth, isn't it?
+	pr You sure about all that?
+	sh Quite! The proof is right here.
+	pr (This whole train of logic is rather fishy.)
+	pr (No, actually, there's a rather obvious [h]contradiction[/h].)
+	pr (I need to find where he's wrong, and show it to him.)
+	sh My seductive reasoning skills are top tier!
+	choice "That's so true" "I'll prove you wrong" unappealing
+	pr Oh... I've heard of you, you're so smart, Holmes-san! (lying)
+	pose shelock polish
+	sh Heh. All for the truth.
+	restore_seduction
+	goto end
+	label unappealing
+	pr No you stupid. I'll prove just how wrong you are.
+	sh Hmph.
+	label end
+
+wrong_present
+	pose shelock sweat
+	sh Whatever does that mean, Sir Protagonist? I am disappointed.
+	penalty_seduction
+	pr Ah, no, uh… I mean...
+	pr (not epic, protagonist...)
+	return
+
+seduction_success
+	pose shelock flushed
+	sh Ah, Protagonist...! I didn't know you were so smart...!
+	g Shelock Holmes-san is seduced! The seductiometer is going to stay full!
+	return
+
+game_over
+	music bad_end
+	bgkeep none
+	char shelock sweat
+	sh You... You were appointed by the Ambassador for the investigation.
+	sh But you couldn't prove you have even a single neuron.
+	lchar querco think
+	pr Ah, uh... No, I... Aah-
+	qa ...I can't say this is the most unexpected turn of events. You're utterly incapable of exercising logic like a person.
+	fadeout
+	pr ...Alba... san...?
+	qa Begone. You're expelled.
+	pr No... Alba-san... Alba... san...
+	pr (Alba-san- No, everything I've ever cared about... I've...)
+	pr (lost... everything.)
+	pr (I... can't face them anymore...)
+	pr (...)
+	bg hell
+	fadein
+	pr (Whatever happened after that, that day, I blocked out of my mind.)
+	pr (I dropped out of college. Moved to hell. Working at Subway. I don't know what else. Nothing matters anymore.)
+	pr (I might as well just... quit.)
+	bad_end
+
+endvs
+pr Shelock Holmes-san. This makes no sense!
+lchar shelock shock
+sh wtf
+exit_seduction zvarri
+bgkeep deid_mann_dead
+pr At first, I also thought he got stabbed, and came out of the vents while dying.
+pr Then, Colias entered the classroom, noticed the body, reported it, and called me.
+pr But that doesn't really add up. You're missing a piece of the puzzle.
+music guilty_love
+rchar protagonist point
+pr There's no way he was stabbed in the ducts! That happened right here, in the classroom!
+#label repeat
+#choice "He was stabbed in the classroom" "The knife stayed" might
+echar 0 colias normal
+cp if i may.
+cp Professor Mann himself talked about this once. If your foot is entirely cut off, you could die anywhere within 21 minutes. not instantly, though.
+pose protagonist normal
+pr :preview:
+cp His missing foot could be the cause of death, couldn't it?
+pr OH it's all starting to make sense
+pr The Professor had his foot taken, and fell unconscious. He desperately crawled out as his time was running out, and died in this spot, then for some reason, he was stabbed while dead.
+pr Besides, how can you survive being {s}stabbed long enough for this?? Unfortunately, a dead man [h]can't crawl[/h]!
+pr {s}There's no other way this can make sense!
+sh ...
+music none
+pose shelock normal
+sh Ah... Haha. Well played, Sir Protagonist, Sir Butterfly! It is clear now that my logic was... incomplete.
+sh However, that does raise more questions. Namely, how could the killer have escaped?
+cp Maybe theyre a ghost
+pr True
+pose shelock side
+sh Pathetic conclusion. A ghost couldn't hold the weapon.
+cp Oh
+pose shelock normal
+sh Well, we need to have a look in the {s}ducts! They're clearly important to this.
+sh We went in earlier, but quickly came back out. We need to examine them properly.
+pose colias nervous
+pr Oh true
+fadeout
+pr (We enter through the off-screen second vent opening in the classroom that we came through before.)
+music vent
+bg duct
+fadein
+pr (It's kind of tight, but workable...)
+pr (The foot classroom should be, uh, on this turn. Huh, it looks really spacious over there...)
+bg duct_big
+rchar protagonist normal
+echar 0 shelock normal
+echar 1 querco think
+lchar obama normal
+echar 2 colias nervous
+sh This is where we were before, but the trail of blood goes farther in.
+bg duct_house_blood
+rchar protagonist normal
+pr ...What the hell?
+echar 0 shelock sweat
+sh Whatever is this place?
+lchar obama normal
+ob Who, uhh, put this here?
+echar 1 querco think
+echar 2 colias nervous
+qa What in the world...!?
+char shelock normal
+music shelock
+sh ...Ahah...!
+sh Zvarri! The truth has once again been elegantly revealed to me!
+sh Or well, it will be soon. Let's revise the facts, shan't we? Hit (on) me with the truth!
+pr (This time, Shelock Holmes-san's seductions are going to be even more refined. I need to be attentive.)
+label shelock_duct_house_truth
+enter_seduction snap
+char shelock normal
+vs shelock shelock_duct_house_truth
+g [center]-- Fancy a Cup of... [h]Logic[/h]? --[/center]
+music logic_chess
+stmt
+	pose shelock side
+	sh Firstly, the killer committed the murder.
+	pr no shit Shelock
+	lchar colias normal
+	cp Why exactly do you think that?
+	sh What else would a killer do? Let live? Lmao
+	sh Either way, it doesn't matter how they did it. We now have a way to identify them.
+	lchar none
+
+stmt
+	pose shelock normal
+	gotoif has_no_vent choice2
+	sh Afterwards! The killer left through the vents, to the outside of the college, and disposed of the weapon! That way, they didn't have to be seen by anyone. Isn't this logic splendid?
+	choice "That's so clever!" "get off your high horse" horse
+	goto clever
+
+	label choice2
+	sh Afterwards! Sir Butterfly left through the vents, to the outside of the college, and disposed of the weapon! That way, he didn't have to be seen by anyone. Isn't this logic splendid?
+	choice "That's so clever!" "get off your high horse" horse "♟️ There is no vent opening outside." theres_no_vent
+
+	label clever
+	pr That's so clever, Holmes-san! I wish I could be as awesome and popular as you... (manipulative)
+	pose shelock polish
+	sh Heh. A brain is necessary to be a successful detective like me.
+	restore_seduction
+	goto end
+
+	label horse
+	pr get off your high horse you dont even know if thats true
+	sh Hmph. I bet you couldn't come up with any of that on your own.
+	goto end
+
+	label theres_no_vent
+	objection protagonist
+	exit_vs
+	label end
+
+stmt if !has_no_vent
+correct_present coupon
+	pose shelock side
+	sh However, this unknown culprit would then need to be very experienced with the ventilation system. In fact, it seems they have installed housing inside it.
+	pr Is there a way for us to find out who it is?
+	sh Well, there's plenty of things here. It should be trivial to link someone to this place.
+	sh We just need to actually have the evidence.
+	pr Hmm...
+	pr (Do I have anything that could connect someone to this weird place?)
+
+stmt if has_no_vent
+	pose shelock side
+	sh Indeed, it seems Sir Butterfly is very experienced with the ventilation system. After all, he has been living here for 8 years.
+	pr That's... true. Colias might be able to navigate it well enough for this.
+	lchar colias nervous
+	cp Protagonist...
+	lchar none
+
+wrong_present
+	pose shelock sweat
+	sh Sir Protagonist. What? Make sense.
+	penalty_seduction
+	pr Ah, no, uh… I mean...
+	pr (not epic, protagonist...)
+	return
+
+seduction_success
+	char shelock flushed
+	sh Ah, Protagonist...! You're sharp, I'm surprised...!
+	g Shelock Holmes-san is seduced! The seductiometer is going to stay full!
+	return
+
+game_over
+	goto game_over_2
+
+endvs
+gotoif has_no_vent after_no_vent
+pr ...
+pr (insane.)
+char protagonist serious
+pr ...I believe I know who owns these things.
+pr See that stack of coupons, next to the couch?
+music suspense
+pr ...Colias gave me some of those yesterday.
+pr (There really are a lot.)
+lchar colias dramatic
+cp ...
+pr Could it be...? Colias, is this it?
+pr You've been awfully silent ever since we got in the vents.
+pose protagonist point_frustrated
+pr ...Have you been habitating the {s}Academy's ventilation system!?
+cp ...
+echar 0 obama normal
+ob Mr. Palaeno? Uhh, mind explaining what this is all about?
+echar 1 querco hand
+qa {s}Colias Palaeno! What have you been doing in the {s}Academy's vents!?
+pr SUSpense 2007
+bgvideo sus
+music truth
+char colias dramatic
+cp It's... {s}true.
+cp I... live here.
+cp This is my vent house
+pr Colias... You don't have a house?
+cp No...
+bgkeep babahl
+cp Eight years ago, I enrolled for podiatry... in Babahl Academy.
+pr (-!?)
+pr Babahl Academy? Eight years ago?
+pose colias serious
+cp Yeah... I got my degree four years ago.
+pr (Dr... Palaeno?)
+pr But... you're still studying it.
+bgkeep classroom
+cp Right. Foot is an interesting topic. And the research the professors have been making? It's incredible.
+pr Incredible enough to do four more years of it?
+cp Yeah. They've discovered a whole new area of podiatry. Foot really does have unbounded spiritual power
+pr goddamn
+pr But why are you living in the vents? I don't see the connection.
+cp Eight years ago... in September 2001...
+pr Isn't that a little late to start college?
+cp what? i wouldn't know, this is the first time i started college
+pr (ah yeah. unlike me, colias is still on his first degree, just extended.)
+cp Anyway, there was an incident in Babahl Academy.
+pose colias dramatic
+cp Scared, I escaped through the vents, and survived. But at the time... I didn't know my way around them well.
+cp I tried to find the exit. I made a map, tried to work out how to leave.
+cp Eventually, I figured out... There is [h]no exit[/h] from the vents to outside the university.
+set has_no_vent 1
+cp But it was too late. Days had passed, I had been living here, installed some furniture, and I didn't have a way to go back without being conspicuous.
+cp Since I had equal access to both academies, I began studying in Allebahst Academy, to expand my horizons.
+cp But you... You're the only one that...
+pose colias serious
+cp Nevermind.
+pr (Huh?)
+pr I see...
+music shelock
+lchar shelock crazy
+sh SHHH! SILENCE! ...Hee hee hee hee hee hee... HAAAAAHH...
+sh Now I see! It's all becoming cleeeeeeeeear!
+sh What seemed unexplainable just a second ago... Ahhh hahahahaaaa
+sh My apologies, but this "Ace Friend" of yours... is a murderer.
+pose shelock side
+sh So, there's another explanation entirely. This is how Sir Butterfly made his escape!
+pose shelock normal
+sh The killer walked out of the room to go from inside it to outside it
+sh Then did that again but going inside instead (with Sir Protagonist)
+sh That way, he could act like he had just discovered the body!
+rchar protagonist serious
+pr Thinking of it, I know for a fact Colias didn't go out to the hallway beforehand. He was in the music classroom, then in the foot classroom. He vented...
+pr Also, only a gamer would play such a silly sound effect.
+pr (Colias... You didn't actually... kill the Professor, did you...?)
+echar 0 colias dramatic
+cp ...
+cp I didn't do it.
+pose colias serious
+cp I saw the trail of blood, and went through the other vent to investigate.
+cp Before that, I was gaming
+cp In fact, Protagonist saw me. I was in the music classroom right before this. There's no way I could have done anything in that time.
+sh Let us try again, shall we?
+#cp I... couldn't find the exit.
+#pr Isn't that illegal or some shit
+#pr this ratio is insane
+#cp this ratio is insane
+#cp You just started college, Protagonist, but college has some higher level shit.
+pr (I suppose he is going to change his statements to reflect what we just discovered.)
+pr (Right now, everything is stacked against Colias. I want to believe in him, but then, I need to find a contradiction...)
+pr (Shelock Holmes may just want to solve the case for the clout.)
+pr (But for Alba-san's sake, Colias's sake, the Professor's sake. I have to win over him and find the truth.)
+bg duct_house_blood
+goto <shelock_duct_house_truth
+
+label after_no_vent
+destroy has_no_vent
+pr {s}Shelock Holmes-san!
+pr In reality, I think we just proved the opposite.
+music guilty_love
+pr Colias [h]could not[/h] have been the {s}culprit!
+exit_seduction zvarri
+lchar shelock shock
+sh q.p;xp4ç
+rchar protagonist point
+pr As he told us earlier, there is {s}no vent that leads outside!
+pr He had no way to exit and dispose of the weapon, since I know he didn't go out through the hallway either. He also has no {s}motive!
+pr If we assume he is the culprit, nothing makes sense at all!
+echar 0 colias happy
+cp Protagonist...!
+echar 0 none
+sh Then who could it be??? How the fuck does this mystery work??
+pose protagonist serious
+pr I don't know.
+pr Therefore! I propose that we are still missing a large part of the picture.
+pr ...
+pr (I can say protagonist-like things, but how do I continue?)
+music colias
+lchar colias grin
+cp Hey, Protagonist.
+cp Let's think about this from the beginning.
+pose colias normal
+cp We know for a fact the killer brought *something* away from the scene.
+cp We also know they did it in a way that [h]didn't look sus[/h]
+cp Do you know of a way for someone to do that?
+cp Anything. Any explanation. We looked all around the place, so there could be something, right?
+pr (Proud to have Colias as my cold parcel, everything he says is so true)
+pr (Do I have anything that could... present an opportunity, for the culprit to bring something outside at all, without looking too sus?)
+request_present forklift
+	cp Hmm...
+	pr See, it's here, and there, uh, there's a way...
+	cp What? No, I don't see it.
+	penalty
+	pr (grh...)
+	return
+game_over
+	music bad_end
+	rchar none
+	cp Dude... get a grip.
+	fadeout
+	pr (Hrgh... How will I impress Alba-senpai-san, when I can't even finish this simple train of thought...?)
+	pr (It's like I went out of my way to be stupid.)
+	pr (Goodbye, Alba-san... This is it for me. The end.)
+	pr (I've lost everything...)
+	bad_end
+endrq
+music none
+pr (...)
+pr (i can't... believe it)
+pr Shelock Holmes-san.
+char shelock normal
+sh Yes? Thought of something?
+music guilty_love
+pr ...This the only thing I can think of!
+pose shelock sweat
+sh ...
+sh What?
+lchar colias serious
+cp I don't really follow.
+pr Today, Holmes-san came here to repair a wall, on his side job as a fork elevator operator.
+flashback
+bg classroom_forklift
+char shelock polish
+fadein
+pr I saw him, in this very room, operating it.
+fadeout
+bg hallway_forklift_rain
+fadein
+pr And... I saw it in the hallway, as well.
+fadeout
+bg classroom
+lchar shelock sweat
+echar 0 colias serious
+fadein
+pr It is currently not in this room, and not in the hallway. Perhaps it is outside?
+pr If Shelock Holmes were seen driving it outside, he would not look suspicious. He would be doing what's expected of him.
+rchar protagonist point
+pr I propose that... this is how the weapon was brought away from the scene- using the ample space in the fork elevator to hide a knife!
+sh ...
+sh That's... impossible...
+cp Mr. Holmes. Can you explain this?
+sh Grrrhhh...
+music querco
+echar 1 querco hand
+qa Shelock Holmes. You understand that you're under suspicion, yes?
+qa ...Until you are proven innocent, you may not be fit to be fully in charge of the investigation.
+lchar querco normal
+qa Protagonist and Colias Palaeno. From now on... you may lead the investigation.
+pose protagonist normal
+pr ...!
+echar 0 colias normal
+cp ...!
+qa You have been very valuable. In fact, based on his earlier conclusions, without your help, Shelock Holmes might not have been able to figure out anything at all.
+qa Therefore... Now, I feel confident in laying this on your hands.
+echar 2 obama normal
+ob That might be, uhh, for the best. Their work has been uh, spectacular.
+pose colias grin
+cp Thank you, Ambassador. We will do what we can.
+rchar protagonist blush
+pr (Alba-san...!)
+bg querco_return
+pr Alba-san!!! Thank you...! Thank you, thank you, thank you...
+qa Go outside
+bg classroom
+char colias normal
+cp Yeah, if the fork elevator was taken outside, there might be clues there, right? Let's go investigate.
+music none
+bg hallway
+pr (man i hate mysteries. shouldve chosen a better series to protagon. i wish we could go back to slice of life)
+music manny
+char manny normal
+mc Oh, hey. Quite a gang you've got.
+lchar querco normal
+pr Professor Coachen?
+mc Correct.
+qa Ah, Manny. What brings you here?
+pose manny serious
+mc ...
+mc Professor Mann... was someone important to me.
+#mc His foot was stolen, was it not? I suspect this murder had something related to foot.
+#qa It might have.
+mc Please. Find the killer.
+qa We were planning to do that.
+music deid
+rchar dhar normal
+dh What's up guys, I'm Dhar.
+dh I'm Deid's brother.
+pose dhar sad
+dh Is he really dead?
+pose querco think
+qa ...It is unfortunate...
+dh ...
+pose dhar normal
+dh Well, it's alright. Letting go of these things not only allows us to live a happier life, but a longer one too.
+dh A recent study but the University of Oregon found that people who obsess over little nuancess tend to live a shorter life then those that let go of things quicker.
+dh Recognize stressing doesn't create change. Practice forgiveness. Change your focus. Set a time limit. Be more grateful.
+dh So it's better to cut my losses and move on so I can focus on things that actually make me happier.
+rchar none
+pr What a guy
+#qa Hmm. Sure.
+#music blaise
+#char blaise normal
+#bl (Literally just an image of blaise)
+music lbelle
+bg shelock_holmes
+fl Shelock holmes
+fl Big fan
+bg hallway
+char lbelle normal
+lchar shelock polish
+sh Hah. My presence truly extends globally...
+pr (Why are you proud that French people like you)
+lchar none
+fl Ah, Protagonist...!
+pr what do you want
+fl You've been investigating with Shelock holmes, right? So cool...
+fl You really are the COOLEST, SMARTEST person alive..........
+fl And the most.... BEAUTIFUL...........
+pr (is he horny for me or smoething)
+fl Protagonist sit on my face and break my neck challenge
+pr man fuck off L'Belle
+fl [img=80]res://embed/WHATTHEWHATTHEWHATTHEWHATTHEWHAT.png[/img]
+pr who asked
+pr (just gonna continue investigating.)
+#marker figuring_out_forklift
+bg maintenance_area_stained
+music none
+char shelock sweat
+sh What...?
+pr Where is it, Holmes-san?
+sh ...
+sh I left it here. Where did it go...?
+pr wha
+lchar colias normal
+cp He could be lying.
+music gimmick
+pr True. But still, somehow, [h]the vehicle itself[/h] has been disposed of.
+echar 0 obama normal
+ob There's no exit from here. You'd have to go through the front door.
+cp If they really couldn't leave, the fork elevator must still be in here.
+cp There's a problem with that, though... If it's really here, it could easily be found. So it's obviously not here.
+cp President, is there really no way they left through the door?
+ob I already asked the uh, off-screen people that work at the door. They all agreed that, uhh, no fork elevator or Shelock Holmes has left yet.
+pr It would be really hard to miss either of those, wouldn't it?
+ob It would, and uhh, it's their job. They're probably right.
+pr Mmm. How could they have left?
+char protagonist serious
+lchar colias normal
+cp Can you think of anything, Protagonist? Was there any way for a fork elevator to be ejected from the school grounds?
+pr how the hell man
+pr this whole thing keeps getting more complicated what the fuck do i even do
+cp We're really grasping at straws here, I know. But it's all we have, and we know there [u]has[/u] to be an answer. Yet again, more likely than not, we can connect [h]things we've already found[/h] to find an answer.
+pr (I'm really running out of options here. But, as Colias said... I need to come up with something.)
+
+label choice
+pose protagonist snap
+pr I know... To take the fork elevator outside, the culprit--
+penalty_choice "incinerated it" "elevated it across the fence" elevated "dated it" dated "stabbed it" stabbed "covered it" covered
+
+cp But, a vehicle of that size...? That... might not be possible.
+cp It would take a looooong time to incinerate everything. Plus, there's plastic and rubber and fuel and shit, it would be nasty, to say the least. Could kill people.
+pr Maybe they did it anyway. Y'know, just risk it, they would hate to get caught, right? So.
+pr Who cares if a few more people die. In fact, if the culprit isn't Holmes-san, it might actually help them get away.
+pose colias grin
+cp ...Look, if it were anything like that at all, we *really* would know, unless we died. It would be full and incinerating right now, too, but we know it isn't even running. also it's too small
+penalty
+pr (...Dammit. I need to think of something that holds up better.)
+goto <choice
+
+label elevated
+pr The culprit used a fork elevator to elevate the fork elevator and bring it across the fence!
+cp ...That... doesn't explain anything.
+pose colias grin
+cp Even if something like that happened, how did they take the other one outside?
+pr They uh, used the one that's outside to take the one that's inside outside!
+pose protagonist serious
+pr That's totally possible, right?? Look at those holey fences!
+pose colias normal
+cp No, that's not physically possible. They can't reach either low or high enough. Come on
+penalty
+pr (Ugh...)
+goto <choice
+
+label dated
+pr The culprit took the fork elevator out on a date!
+pr Together, they romantically escaped by jumping the fence to live a happy life, and were never seen again!
+cp Sorry Protagonist, this is real life, you have to make a little bit of sense
+pose protagonist point
+pr that's BORING
+echar 0 obama normal
+ob I have to agree, that's uhh, a rather romantic solution.
+echar 0 querco normal
+qa Hmm... That's definitely appealing.
+echar 0 shelock sweat
+sh With my... forklift...!?
+echar 0 none
+pr FUCKIN SEE
+pose protagonist snap
+pr With help from the fork elevator itself, that way, they wouldn't need to be suspicious at all!
+pr They wouldn't even need to hide among us, thus completely eluding us!
+set among_us 1
+cp ...Protagonist. calm down
+pose protagonist serious
+pr (...)
+cp Look. The fork elevator cannot speak, is not human-shaped, and cannot climb a fence. Sorry, that's not possible.
+pr (...Thinking about it... Yeah... sure.)
+penalty
+pr (I should think of something else.)
+goto <choice
+
+label covered
+pr Maybe it's here, but covered with something so we can't see it.
+cp ...Where could that be?
+pose protagonist serious
+pr Well, uh...
+pr (I glance around. I don't know what I was thinking. There's no place to put it.)
+pr ...sorry...
+penalty
+pr (Let's try that again...)
+goto <choice
+
+label stabbed
+pr The culprit stabbed the fork elevator with the murderous knife so it would go away!
+cp ...What?
+pr Uh... See...
+pr Don't penalize me. There's definitely a way for them to do this.
+cp Then. How exactly did they do this?
+pr There was a way they could have stabbed it and completed their plan.
+
+label choice
+pr To get the fork elevator to go away, they stabbed...
+penalty_choice "the wheel" "the pedal" pedal "the tank" tank
+
+pr If the culprit stabbed the wheel, it would be able to drive itself or something!
+cp Oh? What about the pedal?
+cp Well I mean, even if you taped it down or something, it would just crash on a wall, so idk
+pr (That... doesn't solve it, I guess. Dammit.)
+penalty
+pr (Surely there's a more complete solution.)
+goto <choice
+
+label pedal
+pr If the culprit stabbed the pedal, it would be able to accelerate itself at maximum velocity, thus sending it forward fast and crashing anywhere without a human driver to care about!
+pr Maybe it could go so fast that it went flying over the fence, eliminating that problem!
+cp ...It can't go that fast, unfortunately, it's just a fork elevator. Not even cars can do that.
+pr (Dammit, so close...)
+penalty
+pr (I need to come up with something better.)
+goto <choice
+
+label tank
+music none
+lchar none
+bgkeep none
+pose protagonist serious
+pr (...insane.)
+pr (It has all been leading up to this moment. This... may be the key.)
+bgkeep maintenance_area_stained
+lchar colias normal
+pose protagonist point
+music pursuit
+pr The culprit [h]stabbed the gas tank[/h] of the fork elevator!
+pose colias nervous
+cp What...? What are you suggesting?
+pr Earlier today, it was intermittently raining, and pretty heavily- and the culprit took advantage of this!
+pr No matter what kind of fuel it uses, gasoline, diesel, propane... Those all [h]float on water[/h]!
+flashback
+bg forklift_flying
+fadein
+pr The culprit stabbed the tank, and the fuel violently leaked out, covering parts of the vehicle in fuel, and sending it {s}[h]across the sky[/h]!
+pr The knife stayed stuck to the vehicle, thus they could throw the evidence away {s}forever!
+pr (This is it... This is fucking it)
+pr Hell, I have {s}proof! I have evidence that this is what happened!
+request_present rainbow_stain
+	sh doesn't prove shit
+	penalty
+	pr (and in my best moment, too...)
+	pr (Let me try that again. I'm sure I can prove it to everyone.)
+	return
+endrq
+pr There's a rainbow stain on the floor- this is clearly the {s}oil used in the fork elevator!
+char querco think
+qa qi,rwxjh,r
+char colias nervous
+cp oq,xweóp
+char shelock shock
+sh WHAT
+char obama normal
+ob ...\.
+char none
+cp that's insane.
+pr I see no other explanation for the stain, or anything else. This has to be true.
+bg maintenance_area_stained
+char shelock sweat
+lchar colias normal
+sh But where did it go, Protagonist? You claim it flew across the sky, but then, how can we find it?
+pr ...Maybe there's just no way. Unless someone reports that they found it, it could be anywhere in the world.
+music none
+pr ...There's... a lot of sea in the world, too. It could be lost forever...
+music baroque
+pose colias grin
+cp No... Protagonist. Hear me out here.
+cp I have an idea. I think I've figured this one out.
+pr Hm?
+cp Look at the shape of the stain.
+bg forklift_stain
+pr What about it? It's kinda random.
+cp Yeah, but something about it tells us where it went.
+bg forklift_stain
+cp There's an unaffected area. Clearly, this is from the fork elevator. Maybe one of the wheels or something.
+cp This... tells us the exact position that it was in when it was still on the floor and leaking. It also tells us how much of the oil leaked to what directions.
+cp Knowing the principle that the rain lifts the vehicle more where there's more oil...
+cp By using it to plot a line...
+bg forklift_stain_arrow
+cp ...We can determine the [h]exact direction[/h] it went.
+cp Sadly we can't determine how far it went, since it doesn't depend on the leak.
+bg maintenance_area_stained
+char protagonist snap
+lchar colias normal
+pr This shit so true.
+fadeout
+pr (We wait as Colias uses his phone to measure and calculate the exact direction.)
+bg earth_embassy
+fadein
+cp Right... So, this is where we are. If we define a line in that direction... it looks like this.
+pr (Well, this may be a slight problem.)
+pr Obama-san, you must know the country well. Is there anything notable in this line?
+ob Hm. Well, uh, how about here-?
+bg earth_embassy_markiplier
+pr Huh? What's there?
+cp Markiplier
+pr True
+ob Yeah.
+pr Anything else?
+ob Hmmm... Oh, I see, there's, uh, definitely something relevant in this line.
+bg earth_embassy_embassy
+cp The embassy
+pr Huh. Could that be their goal?
+bg maintenance_area_stained
+char colias normal
+cp But in that case, they wouldn't be really getting away, would they? Also, it would either be too close or too far for the rain to take it flying.
+char obama normal
+ob Wait, uhh, I noticed something else.
+bg earth_embassy
+ob Try zooming into uh, New York, perhaps.
+bg earth_federal_hall
+ob ...Oh my. It goes right through Federal Hall.
+ob Could that be their goal?
+bg maintenance_area_stained
+char obama normal
+music none
+pr What does Federal Hall have to do with anything?
+ob I don't know. Pretty, uhh, important though.
+pr Throwing a fork elevator in a city center might not be a great idea.
+pr Maybe it's a red herring.
+video federal_hall_querco
+char querco hand
+music querco
+qa What I'm laughing at? Why, it's simple.
+qa Zoom out.
+bg earth_cohdopia left
+pr ...
+pr ...The line goes through the Principality of Cohdopia itself, doesn't it!?
+side right
+qa Indeed!
+qa From the embassy, through Federal Hall, and into Cohdopia...
+bg maintenance_area_stained left
+char querco think
+pr That's another potential goal.
+pr Alba-san... You can fast travel between Cohdopia and the embassy, right?
+pr Can you take us to Cohdopia by plane?
+pose querco hand
+qa You're plain enough as it is.
+pr ...pretty please...
+qa ...
+pose querco think
+qa It... will aid the investigation... Alright. Tomorrow.
+qa I just arrived, after all.
+pr Alba-san...! Thank you... but...
+pr can we make it a... date?
+pose querco flushed
+qa B-{s}Baka! What do you mean, a {s}date!? This is strictly {s}business!
+pr Who {s}cares about business!????? Please, Alba-san-
+qa ...I...
+pr Pleeaseee!
+pr I... just want to get to know you better.
+qa We... uh...
+qa After seeing your work today... p-perhaps...
+pr -!!
+pose querco hand
+qa Tomorrow, we will need to meet to discuss our course of action.
+lchar obama normal
+ob Why don't you all, uhh, come over to the White House tomorrow then?
+qa Great.
+char shelock sweat
+sh ...What about me!? Am I not the detective in the investigation??
+lchar querco think
+qa Hmm. Not as much as before, but you're still under suspicion.
+pose querco hand
+qa Stay in the city. We'll need you here.
+qa Protagonist is perfectly capable of moving all this forward, and is also a licensed investigator.
+sh Damn...
+music none
+fadeout
+bg hallway
+fadein
+music solution
+pr (And so... For the day, our investigation comes to a close.)
+char colias normal
+pr Hey... Colias.
+cp what up
+pr So... About the whole vent house thing...
+cp hm?
+pr Your secret's out. But that's good for you, isn't it?
+cp ...i guess it could be...
+pr Do you have a job?
+pose colias grin
+cp part-time... you can visit me later!
+lchar querco hand
+qa Unfortunately, we cannot allow someone to live in our ventilation system.
+qa However, you can live in the dorms. I will personally arrange a room for you. Free
+pose colias happy
+cp oomygod thankyou somuch Ambassador Quercus Alba.
+qa You could have reached out sooner to someone.
+cp i don't know... it would be embarrassing.
+pr (I'm so glad for Colias.)
+rchar none
+pr Alba-san is always so kind and cool...
+pose querco flushed
+qa B-{s}Baka! Don't go hitting on me now!
+pr I will hit on you until the end of time, Alba-senpai-!
+pose querco hand
+qa You {s}moth...!!
+fadeout
+char colias normal
+fadein
+pr Hey, Colias. You're my assistant now, so what about you work with me? I have a whole cool office.
+pr I could maliciously reduce your salary and exploit you despite your hard work until you can't afford a healthy meal each day, but I promise I won't.
+pr You're over 21, and I believe foot has all the necessary qualifications.
+pose colias normal
+cp really...? that's-
+cp that's kind of you...
+cp Hm... myabe... we can try.
+lchar querco hand
+qa Colias Palaeno. Let's go.
+cp Right. Sir.
+music none
+fadeout
+cp (And so, we each went our ways, sights set for tomorrow. But, the next day...)
+music suspense
+bg mysterious_dead
+flashback
+fadein
+wait 2
+cp (...{s}Dammit... Why...?)
+cp (Why did it have to go like this?)
+wait 2
+fadeout
+wait 1
+music none
+chapter_end 2 "Lost Footing"
+title_screen
+
+game_over
+label game_over_2
+	music bad_end
+	bgkeep none
+	char colias nervous
+	cp Um... Protagonist? What are you doing?
+	pr Ah, I, uh...
+	char shelock sweat
+	sh You... You were appointed by the Ambassador for the investigation.
+	sh But it seems that you don't have even a single neuron, after all.
+	lchar querco think
+	pr Ah, uh... No, I... Aah-
+	qa ...I can't say this is the most unexpected turn of events. You're utterly incapable of exercising logic like a person.
+	fadeout
+	pr ...Alba... san...?
+	qa Go away. And don't set foot here again.
+	pr No... Alba-san... Alba... san...
+	pr (Alba-san- No, everything, everyone I've ever cared about... I've...)
+	pr (lost... them.)
+	pr (I... can't face them anymore...)
+	pr (...)
+	bg hell
+	fadein
+	pr (Whatever happened after that, that day, I blocked out of my mind.)
+	pr (It didn't matter that I proved myself to Holmes-san. I disappointed him, I disappointed Alba-san, I disappointed Colias.)
+	pr (I dropped out of college. Moved to hell. Working at Subway. I didn't come close to anyone ever again. I don't know what else. Nothing matters anymore.)
+	pr (I might as well just... quit.)
+	bad_end

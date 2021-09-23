@@ -1,0 +1,38 @@
+investigation ch2_deid_2_hallway
+	area "Hallway" bg hallway
+			music inv
+			char none
+		examinable x 0.775229 y 0.557339 w 0.086238 h 0.120642
+			pr A vent. Looks like he came out of here somehow.
+			returnif i_vent
+			evi vent "Hallway Vent" "Ventilation opening in the hallway."
+			g [center]Hallway Vent note written in Organizer.[/center]
+			set i_vent 1
+			returnif !i_stain
+			end_investigation
+		examinable x 0.894495 y 0.392202 w 0.22156 h 0.214679
+			pr The maintenance area. We should go have a look.
+			open_move 1
+	area "Maintenance Area" bg maintenance_area_stained
+			open_move 0
+			music inv
+			char none
+		examinable x 0.541284 y 0.848624 w 0.347706 h 0.090826
+			bg forklift_stain
+			pr What even is this?
+			gotoif i_stain done
+			
+			evi rainbow_stain "Colorful Stain" "Some weird substance found in the Maintenance Area."
+			g [center]Colorful Stain pictured in Organizer.[/center]
+			set i_stain 1
+			bg maintenance_area_stained
+			char obama
+			ob Ah, thank you for, uhh, reporting the incident, Mr. Protagonist, Mr. Palaeno.
+			char none
+			pr (He went in before we could say anything.)
+			
+			label done
+			bg maintenance_area_stained
+			returnif !i_vent
+			end_investigation
+endinv

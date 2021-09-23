@@ -133,9 +133,7 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="."]
-arvr = true
-size = Vector2( 320, 240 )
-size_override_stretch = true
+size = Vector2( 1024, 600 )
 handle_input_locally = false
 render_target_update_mode = 3
 
@@ -312,5 +310,6 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="body_entered" from="Viewport/Spatial/Area" to="Viewport/Spatial" method="_on_Area_body_entered"]
 [connection signal="pressed" from="Viewport/Spatial/AudioStreamPlayer/TextureRect" to="Viewport/Spatial" method="_on_TextureRect_pressed"]

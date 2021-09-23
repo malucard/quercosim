@@ -1,0 +1,15 @@
+investigation ch2_meet_shelock
+	area "Hallway" bg hallway_forklift_rain
+			char none
+			music rain
+			open_move 1
+		examinable x 1.117301 y 0.436782 w 0.131859 h 0.301681
+			pr Maybe one day I will perform at one of these.
+		examinable x 0.862385 y 0.426606 w 0.214679 h 0.219266
+			pr Huh... Why is this here?
+	area "Foot Classroom" bg classroom_forklift
+			music rubble
+			char none
+		examinable x 1.008403 y 0.186975 w 0.982353 h 0.595798
+			end_investigation
+endinv

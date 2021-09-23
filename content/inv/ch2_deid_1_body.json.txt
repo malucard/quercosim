@@ -1,0 +1,32 @@
+investigation ch2_deid_1_body
+	area "Hallway" bg deid_mann_dead
+			music inv
+			char none
+		examinable x 0 y 0.123853 w 0.175688 h 0.338532
+			pr A vent. Looks like he came out of here somehow.
+			returnif i_vent
+			evi bloody_vent "Bloody Vent" "Ventilation opening. It seems Professor Mann came out of it. Indicative of a ventilation system."
+			g [center]Bloody Vent noted in Organizer.[/center]
+			set i_vent 1
+			returnif !i_foot
+			returnif !i_wound
+			end_investigation
+		examinable x 0.866973 y 0.575688 w 0.425688 h 0.262844
+			pr Professor Deid Mann. He's dead
+			returnif i_wound
+			evi deid_wound "Gunshot Wound" "Bullet wound on Professor Mann. It appears he was shot in the heart."
+			g [center]Gunshot Wound noted in Organizer.[/center]
+			set i_wound 1
+			returnif !i_foot
+			returnif !i_vent
+			end_investigation
+		examinable x 0.600918 y 0.488532 w 0.166514 h 0.173395
+			pr He's... missing his right foot.
+			returnif i_foot
+			evi missing_foot "Missing Foot" "Professor Mann is missing his right foot. How did this happen?"
+			g [center]Missing Foot noted in Organizer.[/center]
+			set i_foot 1
+			returnif !i_wound
+			returnif !i_vent
+			end_investigation
+endinv

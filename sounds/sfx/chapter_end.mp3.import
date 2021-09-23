@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/chapter_end.mp3-935e044e6f2fa43fe0a55bc545a80c38.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/chapter_end.mp3"
+dest_files=[ "res://.import/chapter_end.mp3-935e044e6f2fa43fe0a55bc545a80c38.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

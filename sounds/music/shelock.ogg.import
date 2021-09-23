@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/shelock.ogg-d28d37810580d064a76ca1fb043b9f2b.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/shelock.ogg"
+dest_files=[ "res://.import/shelock.ogg-d28d37810580d064a76ca1fb043b9f2b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

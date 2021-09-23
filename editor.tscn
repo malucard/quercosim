@@ -1,0 +1,452 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://script/editor.gd" type="Script" id=2]
+[ext_resource path="res://gui/buttons/choiceselected.png" type="Texture" id=3]
+[ext_resource path="res://gui/buttons/choice.png" type="Texture" id=4]
+[ext_resource path="res://gui/fonts/default_20.tres" type="DynamicFont" id=5]
+
+[node name="Control" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 924.0
+margin_bottom = 666.0
+size_flags_horizontal = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HBoxContainer/VBoxContainer"]
+margin_right = 924.0
+margin_bottom = 494.0
+rect_min_size = Vector2( 0, 384 )
+size_flags_vertical = 3
+ratio = 1.778
+
+[node name="ViewportContainer" type="ViewportContainer" parent="HBoxContainer/VBoxContainer/AspectRatioContainer"]
+margin_left = 22.834
+margin_right = 901.166
+margin_bottom = 494.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="HBoxContainer/VBoxContainer/AspectRatioContainer/ViewportContainer"]
+size = Vector2( 878, 494 )
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 498.0
+margin_right = 924.0
+margin_bottom = 666.0
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
+margin_right = 924.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 36 )
+custom_fonts/font = ExtResource( 5 )
+text = "Hello"
+wrap_enabled = true
+
+[node name="WholeScript" type="TextEdit" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 924.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 5 )
+text = "Hello"
+readonly = true
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+fold_gutter = true
+highlight_all_occurrences = true
+minimap_draw = true
+minimap_width = 40
+caret_blink = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 928.0
+margin_right = 1184.0
+margin_bottom = 666.0
+rect_min_size = Vector2( 256, 0 )
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_right = 256.0
+margin_bottom = 28.0
+text = "Script Debugger"
+align = 1
+autowrap = true
+
+[node name="Switch2" type="Button" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 28.0
+margin_right = 256.0
+margin_bottom = 62.0
+text = "Close"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator5" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 62.0
+margin_right = 256.0
+margin_bottom = 66.0
+size_flags_vertical = 0
+
+[node name="File" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 66.0
+margin_right = 256.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 5 )
+text = "script.txt"
+align = 1
+autowrap = true
+
+[node name="Switch" type="Button" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 86.0
+margin_right = 256.0
+margin_bottom = 120.0
+text = "Switch"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reload" type="Button" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 120.0
+margin_right = 256.0
+margin_bottom = 154.0
+text = "Reload"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="Button" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+margin_top = 54.0
+margin_right = 256.0
+margin_bottom = 88.0
+text = "Save"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 154.0
+margin_right = 256.0
+margin_bottom = 158.0
+size_flags_vertical = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 158.0
+margin_right = 256.0
+margin_bottom = 499.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/ScrollContainer"]
+
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 499.0
+margin_right = 256.0
+margin_bottom = 503.0
+size_flags_vertical = 8
+
+[node name="Test" type="ToolButton" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 503.0
+margin_right = 256.0
+margin_bottom = 542.0
+rect_min_size = Vector2( 0, 39 )
+custom_fonts/font = ExtResource( 5 )
+text = "Test"
+
+[node name="Stepping" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 542.0
+margin_right = 256.0
+margin_bottom = 666.0
+
+[node name="Stepping" type="Label" parent="HBoxContainer/VBoxContainer2/Stepping"]
+margin_right = 256.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+text = "Running"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2/Stepping"]
+margin_left = 3.0
+margin_top = 32.0
+margin_right = 253.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 250, 0 )
+size_flags_horizontal = 4
+custom_constants/separation = 0
+
+[node name="StepBack" type="ToolButton" parent="HBoxContainer/VBoxContainer2/Stepping/HBoxContainer2"]
+margin_right = 125.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "Step Back"
+
+[node name="StepOne" type="ToolButton" parent="HBoxContainer/VBoxContainer2/Stepping/HBoxContainer2"]
+margin_left = 125.0
+margin_right = 250.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
+text = "Step One"
+
+[node name="Resume" type="ToolButton" parent="HBoxContainer/VBoxContainer2/Stepping"]
+margin_top = 64.0
+margin_right = 256.0
+margin_bottom = 92.0
+custom_fonts/font = ExtResource( 5 )
+text = "Resume"
+
+[node name="Stop" type="ToolButton" parent="HBoxContainer/VBoxContainer2/Stepping"]
+margin_top = 96.0
+margin_right = 256.0
+margin_bottom = 124.0
+custom_fonts/font = ExtResource( 5 )
+text = "Stop"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+margin_top = 596.0
+margin_right = 256.0
+margin_bottom = 600.0
+size_flags_vertical = 8
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+margin_top = 572.0
+margin_right = 256.0
+margin_bottom = 600.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+text = "Insert"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+margin_top = 561.0
+margin_right = 256.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 0, 39 )
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+text = "Message"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+margin_left = 3.0
+margin_top = 561.0
+margin_right = 253.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 250, 0 )
+size_flags_horizontal = 4
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+margin_right = 125.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 0, 39 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/HBoxContainer/TextureButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+text = "Character"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+margin_left = 125.0
+margin_right = 250.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 0, 39 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/HBoxContainer/TextureButton3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+text = "Pose"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+margin_top = 561.0
+margin_right = 256.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 0, 39 )
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/TextureButton4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+text = "Other..."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+margin_top = 557.0
+margin_right = 256.0
+margin_bottom = 561.0
+size_flags_vertical = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton5" type="TextureButton" parent="HBoxContainer/VBoxContainer2"]
+visible = false
+margin_top = 561.0
+margin_right = 256.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 0, 39 )
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/TextureButton5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+text = "Remove Command"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddCmdPopup" type="PopupMenu" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = -492.0
+margin_bottom = -252.0
+allow_search = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharPopup" type="PopupDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = -492.0
+margin_bottom = -252.0
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 62.0
+margin_right = 962.0
+margin_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 900, 600 )
+popup_exclusive = true
+window_title = "Open a File"
+mode = 0
+access = 1
+show_hidden_files = true
+current_dir = "user://home/malucart/querco/quercos"
+current_file = "script.txt"
+current_path = "user://home/malucart/querco/quercos/script.txt"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Switch2" to="." method="_close"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Switch" to="." method="_switch_script"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Reload" to="." method="_reload_script"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Save" to="." method="_save_script"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Test" to="." method="_test"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Stepping/HBoxContainer2/StepBack" to="." method="_step_back"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Stepping/HBoxContainer2/StepOne" to="." method="_step_one"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Stepping/Resume" to="." method="_resume"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Stepping/Stop" to="." method="_stop"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/TextureButton" to="." method="_add_command"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/TextureButton2" to="." method="_add_command"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/TextureButton3" to="." method="_add_command"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/TextureButton4" to="." method="_add_command"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/TextureButton5" to="." method="_add_command"]
+[connection signal="file_selected" from="FileDialog" to="." method="_select_script"]

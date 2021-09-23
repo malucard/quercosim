@@ -1,0 +1,19 @@
+investigation ch2_start
+	area "Home"
+			music protagonist
+			open_move 2
+		examinable x 0.86042 y 0.261058 w 0.519134 h 0.233517
+			pr My bed. The embedded keyboard is pretty fire. No need to get up if I suddenly have an idea.
+		examinable x 0 y 0.403742 w 0.675319 h 0.425034
+			pr thank god I live in the middle of nowhere so I can blast these {s}humongous {s}hungolomghononoloughongous speakers.
+		examinable x 1.561148 y 0 w 0.438852 h 0.573917
+			pr A collection of my favorite instrument. Guitars are just so cool to be honest.
+	area "Allebahst Academy"
+			music deid
+			char none
+			end_investigation
+	area "Living Room"
+			open_move 1
+		examinable x 0.235981 y 0.233645 w 0.247196 h 0.45514
+			pr The P for Protagonist really just gets cooler every day.
+endinv

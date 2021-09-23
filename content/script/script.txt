@@ -1,0 +1,671 @@
+chapter 1 "Prologue"
+
+evi badge “Allebahst Academy Student Badge” “Proof that I study here.”
+evi key “My car keys” “Need them to go places”
+
+#author: mohammadbu50
+
+bg theatrum left
+fadein
+pr oh man i am SO late for school my teachers definitely gonna decimate me today...
+fadeout
+bg hallway right
+fadein
+pr {s}ah! I accidentally hit someone! 👊
+music querco
+? {s}Bah! You {s}fiend! You dare hit someone as might as me, The {s}ultimate ambassador Quercus {s}Alba!?!
+char querco normal
+pr w-woah… sorry there i was running really fast
+pr (oh my god… he looks so hot)
+qa Anyways, it’s time for me to catch my plane. Goodbye.
+pr w-{s}wait!
+pr (i just accidentally opened my mouth, without knowing what i was gonna)
+qa What?
+pr (This is it… my final chance, {s}to take up Quercus Alba!~)
+pr (I can’t mess up this chance I’ve been given!)
+pr I WANT TO {s}FUCK YOU!
+pose querco flushed
+qa You {s}WHAAAAAAAAAT
+fadeout
+
+#author: Cynical Toast
+
+pr (It was the autumn of 2009, I had just been accepted into the esteemed Allebahst Academy. I was studying to be a podiatrist, on the surface, but my real goal was to meet cute boys.)
+pr (I expected to at least go a few days before finding my mate, but at the beginning I had already found him: Quercus Alba-san.)
+fadein
+pr I said I want to {s}FUCK YOU!
+pose querco normal
+qa You insolent {s}fool! You cannot simply earn the love of the great Ambassador Alba, {s}baka!
+pr (Everything about him- from his grizzled features, to his soft beard, to his cold stare- it all made me swoon with the intensity of {s}a thousand suns!)
+pr Please… Mr Alba-san, please just stay a little longer. I promise I won’t interfere with your-
+hubjeckshun querco
+pose querco hand
+qa {s}Hubjeckshun! I have no time for the likes of you, now scurry along on your way as I board my plane!
+music none
+objection obama
+? Uhhh, actually, I’m afraid you simply cannot do that.
+pose querco normal
+side left
+pr (I looked over my shoulder, searching for the source of that mysterious voice, only to feel my heart try and burst out of my chest.)
+lchar obama hand
+music obama
+ob Let me be clear, Mr Alba, you cannot leave these, uhh, school premises without a valid reason.
+qa Bah, a teacher's pet as always, Barack! Fine, I’ll stay in this wretched academy for a little bit longer, but I shall partake in {s}no activities with *protagonist*!
+
+#author: malucart
+fadeout
+pr (A-{s}ah… I can’t take this...)
+pr (First I meet the legendary Ambassador Quercus Alba-senpai-san himself… And he’s {s}so tall, tan and handsome…!)
+pr (T-Then, Obama-san shows up too… Like he wants to {s}steal Quercus for himself…!!! I won’t let that happen! {s}Ever…!)
+char obama normal
+pr (.........)
+pr (! Protagonist, {s}wake up!)
+fadein
+pr ! A-{s}Alba-san!? Where did he {s}go!?
+ob He went, uhh, on another walk around the, uh, academy just now. Uhhh, he said he’d ‘rather spend time being miserable than’, uh, ‘with this rabid fan around‘...
+pr ‘Rabid fan‘, eh… You baka Alba-san...
+pr (Oh, that’s right… I had decided to skip class because I saw Alba-san’s plane from above and I thought I could meet him, but since he’s not going there… I’ll just have to chase after him!)
+pr Where did he head to?
+ob He went through, uh, that door over there.
+pr ...Obama-{s}san! Don’t try anything funny with Alba-{s}san! You’ll never steal him from {s}me!!
+pose obama flushed
+ob What are you uhh, [fade length=17]talking about...?[/fade]
+
+music none
+side right
+pr (I broke into a run… I’m going to find Alba-baka-san, {s}no matter what!)
+pr (...{s}Oww!)
+pr (Dammit!! I slammed into the door, but it’s locked!)
+
+side left
+pose obama normal
+ob Um, you can’t go, uh, in there anymore for now.
+
+pr A-ah… (I can't go to where he is… guess I’ll just go to class.)
+
+fadeout
+shortcut foot_class
+bg classroom right
+char deid
+music deid
+fadein
+
+dm Welcome to foot class. My name is Deid Mann and welcome to this convenient and informative course on all things Podiatry.
+lchar obama normal
+ob We're really excited to welcome you today, Professor Mann. Please come in now to begin your Podiatric Lesson.
+lchar none
+dm Right now we're going to look at the hip; we're going to look at the knee and we're going to look at the acetabulum and we're going to look at the e5 fracture, right where the ball is missing in the hip.
+#Now, you're probably thinking...
+#dm ‘But wait, Professor, you were wearing no splint or boot or cleat or any of that.’ Obviously we're a little ahead of ourselves. But if you were doing anything wrong, not wearing a cartilage protector... It's not often broken into three, guys.
+dm Now let's look at not the proximal phalanx, not the little finger (and we're not going to start there), but the greater short. This is really quite simple.
+dm So we're going to take the femur
+
+pr (This class is so boring…)
+fadeout
+pr (I’m not that interested in podiatry, even if I am studying it...)
+pr (Ha, someone even went out just now…)
+pr (…...)
+pr (............)
+
+#author: Nateyobb
+
+music none
+char colias normal
+? Hello…? Are you awake?
+pr (........what? Who is that….?)
+pr (Whatever……)
+? Yo bruv, {s}wake up!
+pr (...W-{s}aah!)
+fadein
+pr (...Who is this? Another student?)
+pose colias happy
+? You were out pretty good, huh? Glad I noticed, wouldn’t want you snoozing through to the professor’s class!
+pr ...I’m sorry, do I know you?
+pr (Something seems off about this guy. Plus he’s not even close to as hot as Alba, so I’d rather get this over with quick)
+music embassy
+pose colias normal
+cp Oh sorry about that bruv. My name’s Colias Palaeno, but I guess people tend to just call me Colias.
+pose colias grin
+cp Again, sorry for not introducing myself sooner. I know, why don’t you take a coupon as an apology?
+pr Oh… thanks?
+evi coupon "Babahl Merchandise Coupon" "Received from Colias Palaeno. It says Babahl merchandise."
+g [center]Babahl Merchandise Coupon stored in Organizer.[/center]
+pr (What is this even a coupon for? It says Babahl merchandise… {s}isn’t that a rival school?)
+pose colias normal
+pr Hey, dumb question but are you a student here? These are for the Babahl school store...
+cp Oh you shouldn’t worry about that. Sure I used to go to Babahl Academy, but I left a while ago. On my way out I nabbed a whole stack of coupons they had lying out and about.
+pr (So he’s trying to get rid of them by giving them to me, huh? Well at least that probably means he’s a student here.)
+pr (Wait, what am I doing paying this guy any mind?! I should be searching for Alba, it has to have been over an hour by now, maybe he’s moved to somewhere I can actually go!)
+pr Well, it’s been nice talking with you Colias, but I have more important things to do.
+pose colias happy
+cp Ah, of course, of course. Naturally, I also have lots and lots of classes to attend, just like you, as I am a student here.
+pr …
+pose colias normal
+cp Yes, well, off to class!
+char none
+music none
+pr (Kind of odd, but I really need to get going.)
+
+
+pr (Huh, that weirdo didn’t go for the door… Whatever.)
+side left
+fadeout
+#author: malucart
+#Scene: F Where In The World Is Quercolino Alibaba O Here
+
+pr Alba-san!!!
+bg theatrum left
+fadein
+
+pr (I shouted while going through the door, but I don’t really know if he’s here-)
+
+char querco flushed
+qa {s}BAH!
+
+char none
+pr {s}Wait! Alba-san!
+
+char querco flushed
+qa What do thou want!?
+
+pr I already said what I want: to {s}FUCK YOU!
+
+----- CONFRONTATION: EXTRATERRITORIAL RIGHTS -----
+
+enter_seduction
+pr (This isn't working. If I want Alba-san to take me seriously, I'll need to [h]seduce[/h] him.)
+pr (Sometimes, [h]pressing[/h] can give me the answer, sometimes I need to [h]present evidence[/h] as well, or even both.)
+pr (I can stall for time by pressing him on things, but if I take too long, he won't care about me. I have to be confident and {s}fight!)
+vs querco extraterritorial_rights
+g [center]-- Extraterritorial Rights --[/center]
+music logic_chess
+
+stmt
+	pose querco hand
+	qa Do you know who I am!?
+	pr You're the legendary General Ambassador Quercus Alba-san!
+	pose querco smug
+	qa Hmph. So true.
+	restore_seduction
+
+stmt
+	pose querco hand
+	qa You can't do that to me, {s}baka! Now go away!
+	pr Why not!? I really want to fuck you!
+	hubjeckshun querco
+	qa {s} Hubjeckshun! You see, you don't have the privilege to do that.
+	pose querco smug
+	qa For, I'm not just a regular citizen here.
+	pr Wha…?
+	qa That’s {s}right! You can’t ‘touch’ me, because I have {s}extraterritorial rights in {s}Allebahst Academy!
+	pr N-{s}No! That can’t {s}be…!
+	qa {s}Baka! {s}Give up! You’re not going to touch me, {s}whatever you do!
+	pr (…)
+	fadeout
+	pr (He has extraterritorial rights in this academy… Therefore, I can’t touch him.)
+	pr (But is that really important…?)
+	fadein
+	set c_rights 1
+
+stmt if c_rights
+correct_present badge
+	pose querco smug
+	qa That’s {s}right! I have extraterritorial rights, but you don’t even have {s}rights. Now, I will be on my way.
+	pr I-{s}I don’t have rights!? That can’t be right.
+	pose querco normal
+	qa It is quite right, fool.
+
+wrong_present
+	pose querco hand
+	qa What are you doing!? That {s}isn't going to convince me!
+	penalty_seduction
+	pr (A-ahh, no, Alba-san…)
+	return
+
+seduction_success
+    pose querco flushed
+	qa Grrh...! Baka Protagonist...!
+	g Alba-san is seduced! The seductiometer is going to stay full!
+	return
+
+game_over
+	music bad_end
+	pose querco hand
+	bgkeep none
+	qa Quit it, you absolute {s}dumblefoon!
+	qa You will never have a chance at school, or with {s}me!
+	qa I hereby {s}disown you as a student of the Academy!
+	pr N-No… Alba-san… I’m so sorry… for disappointing you…
+	rcharfadeout
+	pr Alba-san… Alba-san… Alba-san… Please, don’t go...
+	pr ...Alba-san…
+	pr (This is it for me… The end. I’ve lost everything I’ve ever wanted…)
+	pr (I’ve lost everything…)
+	bad_end
+
+endvs
+
+pr {s}See!? I do have rights! After all, I am a student here, in the {s}illustrious Allebahst Academy!
+pose querco normal
+qa ...What...?
+exit_seduction
+qa ...It seems I have somewhat misjudged you. Very well, you do have some amount of rights, since you study here.
+music querco
+pose querco hand
+qa {s}However! You will NOT be tolerated to {s}involve yourself with me that easily, {s}baka!
+pose querco normal
+qa But I may grant you a short walk around the facilities.
+fadeout
+pr (...Yes… Finally! He acknowledged me...!)
+pr (I can’t believe it… A walk… With Alba-senpai-san, the legendary…)
+pr (However short it is, it doesn’t matter! I get to be with him! Hahaha...)
+qa Wake up, {fadein}{s}baka! Don’t squander my precious time!
+pose querco hand
+qa And thereafter, thou shalt go mind your own business, or be disowned as a student of the {s}Academy!
+pr That is quite fine, my lord… Anything to be with you, under any conditions.
+pose querco think
+qa Hmph. Let’s go.
+fadeout
+music none
+bg hallway right
+lchar deid normal
+rchar querco think
+fadein
+
+music deid
+dm Ah, hello Ambassador Alba and Protagonist, yes, I am the Foot Professor Deid Mann.
+pose querco normal
+qa Ah, fine afternoon, Professor Mann. In fact, we have here a manuscript from the late Robert Parkman. It's very interesting.
+dm Hmm. Is it?
+pose querco think
+qa I'll read it to you. ‘According to the Encyclopedia Britannica, the foot is the longest, strongest part of the human body.’
+qa ‘The strongest structures of the foot are the tarsals, the ankle bones, and the toes. The foot's most important function is to help you move: to stand on it, to walk, to run, to jump.’
+dm Well, that's a very interesting thing. It's certainly true.
+pose querco hand
+qa It's not the fact that it's accurate, Professor Deid Mann, but the sheer force of what he said about the foot.
+dm It is true. It is, then, no wonder that I set out, as others before me, to investigate its secret. And the secret of the foot -- the foot that defines us -- is an ability to grasp the secrets of the universe. It's the most incredible thing.
+dm Because the foot has the capacity for phenomenal power, as well as emotional depth. It is a mysterious, mysterious place. A place of power, and with every day that goes by, the power of the foot increases. It is inside us, always.
+dm Now, I must be on my way, sirs. I have a ways to go in writing my essay.
+pose querco think
+qa Yes, Professor, another time.
+music none
+lcharfadeout
+pr You’re so smart, Alba-san… I could never keep up with the Professor’s wisdom like that.
+music querco
+pose querco hand
+qa Bah, get used to it, {s}fool! You are his student - you must step up your foot game, or your future will be just as bright as your {s}wit!
+pr What should I do?
+pose querco think
+qa This is a place of tough love - you must choose. One day you will enter the world outside of the classroom, and you will make your own choices. Have you considered what you will choose to be? Would you be happy with only one shoe?
+pr I would. Because if I only have one shoe, that means I gave you the other. And, if I only have one foot, that means I was faithful. So, I’ll only have one shoe on - just one...
+pose querco flushed
+qa B-{s}Baka!! As if I would ever give you the other shoe, you {s}idiotic {s}fool!
+pr {s}Please, Mr Alba-senpai-san! Give me your other shoe, we can be happy {s}forever!!
+music lbelle
+???: Ah ha ha ha! {s}HELLO there, Ambassador.
+lchar lbelle normal
+pose querco think
+qa Oh? And who might you be, mortal?
+fl You don't {s}know me...? That is {s}INCONCEIVABLE. In fact, EVERYONE should know who I am.
+pose lbelle note
+fl For, I am the one and only, {s}Florent L'Belle. In fact, I should be all over all of the {s}NEWS! I have recently LAUNCHED a {s}NEW 'Vous êtes L'Belle' product!
+pr What's that?
+fl Pffft, little foot student! Allow me, the one beautiful individual, to enlighten you. 'Vous êtes L'Belle' is my OWN brand of beauty products.
+fl For only $10500 per bottle, 'Couleur Vous L'Belle!' hair dye is the only way to even HOPE to approach the BEAUTY of my hair!
+fl But for you... I have a gift for you. How about it?
+g [center]Coupon - 99.8% discount on any Vous êtes L'Belle beauty product[/center]
+evi lbelle “Vous êtes L'Belle Coupon” “Received from Florent L'Belle. It says '99.8% discount on any Vous êtes L'Belle beauty product'.”
+g [center]Vous êtes L'Belle Coupon filed in Organizer.[/center]
+objection querco
+pose querco hand
+qa Silence, insolent {s}mortal! You have no authority to boss other students around!
+pose lbelle normal
+fl Oh, of course, Mr. {s}AMBASSADOR Alba-senpai-san. My DEEPEST apologies. Say, I am a very BUSY man, so I have to go handle very important {s}MATTERS now. Ha ha ha ha!
+lchar none
+music none
+qa Bah! That fool...
+pose querco normal
+qa Very well, Protagonist, I have things to take care of. Go mind your own business!
+pr (I promised, so… As much as it aches me to let him go, if I broke my promise with Querco-senpai-chan, I would never have a chance with him.)
+pr Alright… I hope we can meet again later.
+qa {s}Mmmph.
+rcharfadeout
+music none
+fadeout
+pr (Quercus…)
+pr (Hmm, perhaps I should go study a bit, like he said.)
+pr (Oh, I think I forgot my things in the classroom, when I rushed to find Alba-senpai…)
+bg classroom left
+char colias grin
+music embassy
+fadein
+cp Yoo! How’s it goin’ bruv!
+pr Hey… It’s you.
+cp Yep. Ah, I noticed you left your stuff in the classroom, so I kept it safe. {s}Here!
+pr Oh… More Babahl coupons, too… Thanks.
+evi coupon2 "Another Babahl Merchandise Coupon" "Received from Colias Palaeno. It says Babahl merchandise."
+g [center]Another Babahl Merchandise Coupon inserted in Organizer.[/center]
+pose colias unused
+cp You’re welcome!
+pose colias serious
+cp Also, there’s something you’ve gotta know. Some coach fella has been going around the school, but he’s all scary. He’s from Babahl Academy. Don’t get on his bad side, or it’ll look bad for the school, get it?
+pr (To be honest, I’m new here, and Colias has been nothing but helpful to me. I should probably try to be more friendly with him.)
+pr Sure, gotcha, I’ll keep it in mind.
+pr By the way, um, can you help me with the subject? I heard Professor Mann taking the femur, but I was so distracted that I fell asleep.
+pose colias happy
+cp Oh, damn, you slept through all that? Well, sure! I made notes, so here, you can read through them.
+fadeout
+pr I see, so this is a little extra stuff about the occipitoflexion, and about the perfect endoprosthesis, and about the preknee. But really it's about more than technique and diagnosing injuries.
+cp You got it, bro. Seems the professor is focusing on that aspect of it right now, so pay attention to that.
+pr (...And so we study, for a good while...)
+pr (Colias is actually oddly good at this. He’s been a big help.)
+fadein
+cp ...But really the subject's entire range of motion is just stretchy cute, with a good deal of noise and very high heel action.
+pr Yeah… Hey, with how much you know about foot, you could be Professor Mann’s apprentice.
+pose colias unused
+cp You think? Nah, I’m just a student like any other...
+music none
+sfx smash
+wait_sfx
+pose colias serious
+cp Wh-
+char none
+bg classroom_broken_wall
+pr What?
+bg classroom_manny
+investigation ch1_manny
+	area "Classroom" bg classroom_manny
+			char colias
+			open_talk "Who's that?"
+		examinable x 0.993507 y 0.165584 w 0.6 h 0.551299
+			exit_investigation
+		talk "Who's that?"
+			set asked_colias 1
+			char colias
+			pr Who's that?
+			pose colias serious
+			cp That's the guy I told you about... Coach something....
+			pr Oh... What do I do?
+			pose colias normal
+			cp Go up to him and see what he wants. Just make a good impression bro
+endinv
+char none
+gotoif asked_colias know
+
+pr Who are you?
+bg classroom_broken_wall
+char manny normal
+music manny
+mc I'm Manny Coachen. I'm a professor in Babahl Academy, just visiting here. You are?
+pr (Oh shit, isn't that the guy Colias was talking about? I gotta be careful and make a good impression.)
+goto end
+
+label know
+pr Hey... Mr. Coach, right?
+bg classroom_broken_wall
+char manny normal
+music manny
+mc It's Manny Coachen. I'm a professor in Babahl Academy, just visiting here. You are?
+
+label end
+destroy asked_colias
+pr My name is Protagonist. It's, nice to meet you.
+pr And [fade length=13]this is my...[/fade]
+pr (...Colias...? He was here just now. Where did he go?)
+mc This is your...?
+pr Uh, th, this is my classroom!
+mc Haha, right. You study 🦶?
+pr Yeah. Professor Mann is a real genius on all foot-related matters. Meeting him outside class, I can't understand anything he ever says.
+mc [img=80]res://embed/mannytrue.webp[/img]
+pose manny serious
+mc I know him as well as you can know someone that only talks about foot.
+pr You're friends with his foot?
+mc Let's just say that.
+pose manny normal
+mc Anyway, would you happen to know where Quercus is?
+pr No...
+mc Alright. Bye.
+
+char none
+music none
+pr (That wasn't so bad. He's really just a guy. Why was Colias so scared?)
+pr (I've already been here for hours even though class is over. Colias is gone, so I guess I should go home.)
+investigation ch1_after_class
+	area "Foot Classroom" bg classroom_broken_wall
+			music deid
+			reset_move
+			open_move 1
+		examinable x 0.920561 y 0.07243 w 0.742523 h 0.614019
+			pr Professor Coachen broke through here. What a guy
+		examinable x 0.408879 y 0.28972 w 0.275234 h 0.268224
+			pr That's the door to the hallway. I should go through it.
+	area "Hallway" bg hallway
+			reset_move
+			open_move 0
+			open_move 3
+
+			gotoif i_got_to_hallway end
+
+			set i_got_to_hallway 1
+			char quercus normal
+			lchar manny normal
+			music manny
+			mc Oh, Quercus! I've been looking all over for you, man.
+			qa Manny?
+			mc Indeed. I was just wondering if you could sign my paper.
+			pose querco think
+			qa Hmm. Sure, give it to me.
+			qa "Applications of the laws of podidynamics for purposes of practical quantum manipulation", huh? That's interesting. Quantum podidynamics has usually been considered a mystery.
+			mc Indeed. I believe we are making huge strides in this area. Isn't it great to see foot research gain this much traction?
+			qa And you're partly to thank for that, clearly...
+			qa Right. I'll take a look over this.
+			mc Perfect, thanks.
+			mc Alright, I'm going back. See ya.
+			lchar none
+			music none
+			qa I should get going too, or I'll be late.
+			char none
+			objection protagonist
+			char querco think
+			pr Alba-san!!
+			music querco
+			pose quercus hand
+			qa Stay back, {s}fool! I have a flight to catch!
+			pr A flight!? Alba-san, you can't go away! Please, stay with me!!!
+			qa {s}No! And you have no right to insist, you {s}idiotic buffleton!
+			pr N-No... But... Why? Why do you have to leave, Alba-san?
+			pose quercus smug
+			qa I am the Ambassador. And the General. I am going to Allebahst. I have matters to attend.
+			qa Matters that you have nothing to do with.
+			char none
+			music none
+			pr (Dammit!)
+			music blaise
+			wait 0.5
+			char blaise normal
+			bl [img=96]res://embed/literallyjustanimageofblaise.png[/img]
+			char none
+			music none
+
+			label end
+			char none
+			music deid
+		examinable x 1.071429 y 0.431818 w 0.194156 h 0.314285
+			pr Live concert. I hope I can do one of those someday...
+	area "Living Room" bg living_room
+			char none
+			music protagonist
+			reset_move
+			open_move 3
+			gotoif !i_ate havent_eaten
+			open_move 4
+			label havent_eaten
+
+			returnif i_got_home
+			set i_got_home 1
+			pr Here I am... Home.
+			pr (What a long day, really... And with such a depressing conclusion. I feel... lost...)
+			pr Kinda hungry...
+		examinable x 0.950935 y 0.640187 w 0.319626 h 0.20514
+			open_move 4
+			gotoif i_ate_twice ate_twice
+			gotoif i_ate ate
+
+			set i_ate 1
+			pr chm crch glup slzrp
+			return
+
+			label ate
+			set i_ate_twice 1
+			pr again? aight sure im not too full
+			pr shrt cxurt rup xrulb
+			return
+
+			label ate_twice
+			pr I already ate twice and used improper onomatopoeia. That is quite enough.
+		examinable x 0.247664 y 0.228972 w 0.282243 h 0.501869
+			pr The custom-made door to my house. It says P for Protagonist. it's pretty fire actually
+	area "Theatrum Neutralis" bg theatrum
+			gotoif i_got_to_entrance end
+			music querco
+			char obama normal
+			lchar querco think
+			ob Mr. Alba? I was, uhh, pretty clear about this.
+			pose querco smug
+			qa You don't understand, Barack. I have important official matters to attend to in Allebahst. Let me go now.
+			qa You know, you've been pestering me for a while now, and it seems that that baka Protagonist decided to show his face again.
+			qa I really don't need any more of any of this, anyway.
+			pose obama flushed
+			ob But... Mr. Alba! You can't... uh... leave!
+			objection querco
+			pose querco buff
+			qa {s}Hubjeckshun! I invoke my [tornado radius=20 freq=4]extraterritorial rights[/tornado]! You cannot hold me now, Barack. I am {s}invincible!
+			music obama
+			objection obama
+			pose obama hand
+			ob I think you're, uhh, forgetting something, Mr, Alba.
+			ob I have, uh... intraterritorial rights. I am the President of the United States. I still have, uhh, power over you.
+			objection querco
+			qa This is Allebahst Academy, {s}fool! Perorate what you want, even you {s}cannot touch me!
+			objection obama
+			ob No... You just stepped [u]out[/u] of Allebahst Academy, Mr. {s}Alba! This is the United States. You have no extraterritorial rights. You are {s}mine.
+			pose querco think
+			qa What!?
+			ob Let me be clear, Mr. Alba. Any time you could have had extraterritorial rights, you gave them up by going out.
+			ob And you can't get out of it without going into the United States, so really, you need my permission, Mr. Alba!
+			objection protagonist
+			rchar protagonist point_frustrated
+			pr Obama-san is right, Alba-san! You can't leave! {s}Please!!!!!!
+			pr (I can't believe it. I'm on Obama-san's side, even though he's my arch-nemesis...)
+			qa Hrgh... No... Have I been bested by these numbskulls...? This just can't be...
+			music none
+			qa But... is that not a valid reason, Barack? Is my job as Ambassador General not a valid reason to leave the premises?
+			qa It's an emergency, you know. The country could very well be in danger.
+			qa You understand that, right?
+			rchar obama normal
+			ob Oh... Uh... I suppose that is right.
+			ob I mean, I wouldn't want our official relations to, uh, get any rockier...
+			ob It has all been pretty bad, uh, really. From what I know.
+			pose querco buff
+			objection querco
+			qa {s}One more word and I {s}throw you across the room! I am leaving.
+			lchar none
+			pr (Dammit... was it really all for nothing?)
+			music obama
+			pose obama cry
+			ob Uh, damn...
+			ob Ah... hello, uhh, Mr. Protagonist. How... goes it?
+			pr (I can see a tinge of sadness in his eyes. But I don't feel sorry for him.)
+			pr (This is [u]war[/u]. I cannot let him have Alba-san, no matter what.)
+			pr (Seeing him fly away... Honestly, it's still better than him ending up with Mr. Obama and not me.)
+			lchar none
+
+			label end
+			set i_got_to_entrance 1
+			char obama cry
+			music obama
+			open_talk "What do you want with Alba-san?"
+			open_talk "Why are you still here?"
+			open_move 1
+		talk "What do you want with Alba-san?"
+			char obama normal
+			pr What do you want with Alba-san?
+			pose obama flushed
+			ob None of, uhh, your business.
+			pr Why yes, it is exactly my business. Alba-san is mine. I do not want you near him.
+			pose obama cry
+			ob ugh...
+			pr You were the reason he stayed so long, right?
+			pose obama normal
+			ob Actually, uhh, I just happened to find him for the second time now. He must have, uh, gotten busy again after before.
+			ob I guess I was a bit, uh... irrational back there. Mr. Alba had to go to his country for, uh, important reasons.
+			ob On instinct, I tried to keep him, using my position. But that's... cruel.
+			ob Letting him go... uhh, that might have been the right decision, in the end.
+			pr (He's weak. This might not be such a difficult war after all.)
+			pr (Although... If we ended up hurting Alba-san's feelings...)
+			pr (...Why is this so difficult to think about...?)
+			pr Why do you want him, anyway?
+			ob He's... uh... hot.
+			pr Only I can say that so back the hell off.
+			pr 📠 tho
+			pose obama cry
+
+			set i_whatyouwant 1
+			returnif !i_whyyouhere
+			pr (I've already asked all that I wanted to ask. I should go home now.)
+			open_move 2
+		talk "Why are you still here?"
+			char obama normal
+			pr Obama-san, you're the President of the United States, yeah? Why are you still here at Allebahst Academy? Weren't you just visiting?
+			ob Well, have you thought about, uhh, the diplomatic purpose of this institution?
+			pr Diplomatic purpose?
+			ob I mean, come on, it's, uhh... a college institution situated in an embassy, and it's owned by Allebahst. And we, uh, also have Babahl Academy over there, owned by Babahl. And all of that is in, uh, the United States of America.
+			ob You know what that means, right?
+			pr It means... Alba-san is here sometimes.
+			ob It's not, uh, a regular college at all. The three countries use the building to keep, uh, diplomatic relations between each other.
+			ob In fact, I oversaw the construction of this place myself.
+			ob I had, uhh, official meetings here, and so did Mr. Alba.
+			ob However, as I am the President, I have to stay here, uh, for much longer. I am needed for many occasions.
+			pr Don't you have the rest of the country to take care of?
+			ob I, uh... I do, but you underestimate the importance of this building. I have handled, uh, several different matters today.
+			pr (It was kinda busy today, now that I think of it.)
+			ob Also, uh, the White House is right nearby, so it's really not much of an issue for me.
+			ob Mr. Alba, however, uhh, he works here at the embassy, but I heard something's happening in his country. I guess it makes sense that he, uh, had to go to Allebahst, even though he has to fly, uh, so far.
+			pr I see.
+			pose obama cry
+
+			set i_whyyouhere 1
+			returnif !i_whatyouwant
+			pr (I've already asked all that I wanted to ask. I should go home now.)
+			open_move 2
+	area "Bedroom" bg protagonist
+			char none
+			music protagonist
+			pr (I should go to sleep.)
+			open_move 2
+		examinable x 0.838785 y 0.232734 w 0.602337 h 0.314953
+			exit_investigation
+		examinable x 0 y 0.378505 w 0.686449 h 0.46215
+			pr thank god I live in the middle of nowhere so I can blast these {s}humongous {s}hungolomghononoloughongous speakers.
+		examinable x 1.528505 y 0 w 0.471495 h 0.597664
+			pr A collection of my favorite instrument. Guitars are just so cool to be honest. I hope I don't find a hater.
+endinv
+pr My bed.
+fadeout
+#pr (...No... Am I just going to let it end like that?)
+#pr (If I don't pursue Alba-san further, can I even call myself Protagonist?)
+#pr (There's no telling that I'm going to be able to let him. If there's even a chance, how will I let myself?)
+#bg none
+#char querco mobile
+#qa vroom neow
+#pr (As he sets off, I follow him through the street.)
+#bg
+#? (show don't tell, fuck, hold on)
+
+#pr I am riding the fucking Albile
+pr (And as such, my hopes and dreams have been cut short. With my life's only source of light overseas for a section of a day, I don't know how I will lead my life...)
+pr (I don't have any other plans. I will just have to power through the day, and... live through whatever happens until he's back.)
+music none
+pr yawn...
+chapter_end 1 "Prologue"
+file script_ch2

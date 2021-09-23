@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://sprites/querco/hand/canvas.png" type="Texture" id=1]
-[ext_resource path="res://sprites/querco/hand/anim.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "anim"
@@ -178,7 +177,6 @@ centered = false
 offset = Vector2( -134, 1 )
 region_enabled = true
 region_rect = Rect2( 0, 1024, 874, 768 )
-script = ExtResource( 2 )
 
 [node name="Eyes" type="Sprite" parent="."]
 position = Vector2( 288, 128 )

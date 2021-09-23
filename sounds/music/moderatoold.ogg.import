@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/moderatoold.ogg-b9a9e3fb8b2b9cc34eb7503ca9685237.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/moderatoold.ogg"
+dest_files=[ "res://.import/moderatoold.ogg-b9a9e3fb8b2b9cc34eb7503ca9685237.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

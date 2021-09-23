@@ -1,0 +1,228 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://script/examinable_tool.gd" type="Script" id=1]
+[ext_resource path="res://gui/fonts/default_20.tres" type="DynamicFont" id=2]
+
+[node name="Control" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 988.0
+margin_bottom = 666.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="AspectRatioContainer" parent="HBoxContainer/VBoxContainer"]
+margin_right = 988.0
+margin_bottom = 633.0
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/CenterContainer"]
+margin_right = 633.0
+margin_bottom = 633.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Editing" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+self_modulate = Color( 0.5, 0.5, 0.5, 1 )
+margin_top = 637.0
+margin_right = 988.0
+margin_bottom = 666.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "examinable x 0.0 y 0.0 w 0.0 h 0.0"
+fit_content_height = true
+selection_enabled = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 992.0
+margin_right = 1184.0
+margin_bottom = 666.0
+rect_min_size = Vector2( 192, 0 )
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_right = 192.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 2 )
+text = "Examinable Tool"
+align = 1
+
+[node name="Close" type="ToolButton" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 24.0
+margin_right = 192.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 2 )
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 56.0
+margin_right = 192.0
+margin_bottom = 56.0
+
+[node name="HSeparator5" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 60.0
+margin_right = 192.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 68.0
+margin_right = 192.0
+margin_bottom = 68.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 72.0
+margin_right = 192.0
+margin_bottom = 100.0
+
+[node name="SetBackgroun" type="ToolButton" parent="HBoxContainer/VBoxContainer2/HBoxContainer4"]
+margin_right = 192.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Set BG"
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 104.0
+margin_right = 192.0
+margin_bottom = 626.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Copy" type="ToolButton" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 630.0
+margin_right = 192.0
+margin_bottom = 666.0
+text = "Copy"
+
+[node name="SetBgPopup" type="PopupMenu" parent="."]
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="MovePopup" type="PopupMenu" parent="."]
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="NewAreaPopup" type="PopupPanel" parent="."]
+margin_right = 8.0
+margin_bottom = 8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NewAreaPopup"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 260.0
+margin_bottom = 82.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="LineEdit" parent="NewAreaPopup/VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 256, 0 )
+text = "Area"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ok" type="ToolButton" parent="NewAreaPopup/VBoxContainer"]
+margin_top = 42.0
+margin_right = 256.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+text = "OK"
+
+[node name="RenameTalkPopup" type="PopupPanel" parent="."]
+margin_right = 8.0
+margin_bottom = 8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RenameTalkPopup"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 260.0
+margin_bottom = 82.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="LineEdit" parent="RenameTalkPopup/VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 256, 0 )
+text = "Area"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ok" type="ToolButton" parent="RenameTalkPopup/VBoxContainer"]
+margin_top = 42.0
+margin_right = 256.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+text = "OK"
+
+[node name="SaveDialog" type="FileDialog" parent="."]
+margin_right = 479.0
+margin_bottom = 186.0
+rect_min_size = Vector2( 800, 600 )
+rect_scale = Vector2( 0.75, 0.75 )
+window_title = "Save Investigation"
+access = 1
+show_hidden_files = true
+current_dir = "user://home/malucart/querco/quercos"
+current_file = "inv.json"
+current_path = "user://home/malucart/querco/quercos/inv.json"
+
+[node name="OpenDialog" type="FileDialog" parent="."]
+margin_right = 479.0
+margin_bottom = 186.0
+rect_min_size = Vector2( 800, 600 )
+rect_scale = Vector2( 0.75, 0.75 )
+window_title = "Open a File"
+mode = 0
+access = 1
+show_hidden_files = true
+current_dir = "user://home/malucart/querco/quercos"
+current_path = "user://home/malucart/querco/quercos/"
+
+[connection signal="draw" from="HBoxContainer/VBoxContainer/CenterContainer/TextureRect" to="." method="_bg_draw"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Close" to="." method="_close"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer4/SetBackgroun" to="." method="_set_bg"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/Copy" to="." method="_copy_examinable"]
+[connection signal="id_pressed" from="SetBgPopup" to="." method="_set_bg_selected"]
+[connection signal="id_pressed" from="MovePopup" to="." method="_move_selected"]
+[connection signal="pressed" from="NewAreaPopup/VBoxContainer/Ok" to="." method="_add_area_ok"]
+[connection signal="pressed" from="RenameTalkPopup/VBoxContainer/Ok" to="." method="_rename_talk_ok"]
+[connection signal="file_selected" from="SaveDialog" to="." method="_save_selected"]
+[connection signal="file_selected" from="OpenDialog" to="." method="_open_selected"]

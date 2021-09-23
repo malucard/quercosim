@@ -1,0 +1,9 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://gui/fonts/default_data.tres" type="DynamicFontData" id=1]
+
+[resource]
+size = 20
+outline_color = Color( 0, 0, 0, 0.498039 )
+use_filter = true
+font_data = ExtResource( 1 )

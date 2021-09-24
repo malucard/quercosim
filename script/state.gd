@@ -485,7 +485,19 @@ func run_command(text: String):
 			"bgvideo":
 				parser.stop_talking()
 				$BGVideoPlayer.visible = true
-				$BGVideoPlayer.stream = load("res://videos/" + parts[1] + ".ogv")
+				var f = File.new()
+				var stream
+				if f.file_exists("user://content/videos/" + parts[1] + ".ogv"):
+					stream = VideoStreamTheora.new()
+					stream.set_file("user://content/videos/" + parts[1] + ".ogv")
+				elif f.file_exists("user://content/videos/" + parts[1] + ".webm"):
+					stream = VideoStreamWebm.new()
+					stream.set_file("user://content/videos/" + parts[1] + ".webm")
+				elif f.file_exists("res://videos/" + parts[1] + ".ogv"):
+					stream = load("res://videos/" + parts[1] + ".ogv")
+				elif f.file_exists("res://videos/" + parts[1] + ".webm"):
+					stream = load("res://videos/" + parts[1] + ".webm")
+				$BGVideoPlayer.stream = stream
 				$BGVideoPlayer.play()
 				yield($BGVideoPlayer, "finished")
 				$BGVideoPlayer.stream = null
@@ -494,7 +506,22 @@ func run_command(text: String):
 			"video":
 				parser.stop_talking()
 				$FGVideoPlayer.visible = true
-				$FGVideoPlayer.stream = load("res://videos/" + parts[1] + ".ogv")
+				var f = File.new()
+				var stream
+				if f.file_exists("user://content/videos/" + parts[1] + ".ogv"):
+					stream = VideoStreamTheora.new()
+					stream.set_file("user://content/videos/" + parts[1] + ".ogv")
+				elif f.file_exists("user://content/videos/" + parts[1] + ".webm"):
+					stream = VideoStreamWebm.new()
+					stream.set_file("user://content/videos/" + parts[1] + ".webm")
+				elif f.file_exists("res://videos/" + parts[1] + ".ogv"):
+					stream = load("res://videos/" + parts[1] + ".ogv")
+				elif f.file_exists("res://videos/" + parts[1] + ".webm"):
+					stream = load("res://videos/" + parts[1] + ".webm")
+				else:
+					parser.resume_talking(true)
+					return
+				$FGVideoPlayer.stream = stream
 				$FGVideoPlayer.play()
 				yield($FGVideoPlayer, "finished")
 				$FGVideoPlayer.stream = null

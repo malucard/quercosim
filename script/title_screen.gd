@@ -125,7 +125,7 @@ func get_all_content_files():
 	var fn = d.get_next()
 	while fn != "":
 		if d.current_is_dir():
-			if fn == "evidence" or fn == "profiles" or fn == "bg" or fn == "embed" or fn == "sfx" or fn == "music":
+			if fn == "evidence" or fn == "profiles" or fn == "bg" or fn == "embed" or fn == "sfx" or fn == "music" or fn == "videos":
 				files.push_back([fn, get_all_files_in("user://content/" + fn)])
 			elif fn == "char":
 				var arr = []

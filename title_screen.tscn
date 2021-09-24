@@ -1234,6 +1234,7 @@ window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
+filters = PoolStringArray( "*.querco" )
 show_hidden_files = true
 current_dir = "/home/malucart/querco/quercos"
 current_path = "/home/malucart/querco/quercos/"

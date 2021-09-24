@@ -288,6 +288,12 @@ func _ready():
 		while file != "":
 			bgs[file.get_basename()] = load_img_ext("user://content/bg/" + file)
 			file = dir.get_next()
+	if dir.open("user://content/evidence") == OK:
+		dir.list_dir_begin(true)
+		var file = dir.get_next()
+		while file != "":
+			all_evidence[file.get_basename()] = load_img_ext("user://content/evidence/" + file)
+			file = dir.get_next()
 	for s in sfx:
 		if sfx[s] is AudioStreamMP3 or sfx[s] is AudioStreamOGGVorbis:
 			sfx[s].loop = false

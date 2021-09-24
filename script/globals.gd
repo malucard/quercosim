@@ -311,8 +311,11 @@ func _ready():
 		var file = dir.get_next()
 		while file != "":
 			var s = load_snd_ext("user://content/music/" + file)
+			if s is AudioStreamMP3 or s is AudioStreamOGGVorbis:
+				s.loop = true
 			if s is AudioStreamSample:
 				s.loop_mode = s.LOOP_FORWARD
+			print(str(s))
 			music[file.get_basename()] = s
 			file = dir.get_next()
 	if dir.open("user://content/char") == OK:

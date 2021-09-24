@@ -497,6 +497,9 @@ func run_command(text: String):
 					stream = load("res://videos/" + parts[1] + ".ogv")
 				elif f.file_exists("res://videos/" + parts[1] + ".webm"):
 					stream = load("res://videos/" + parts[1] + ".webm")
+				else:
+					parser.resume_talking(true)
+					return
 				$BGVideoPlayer.stream = stream
 				$BGVideoPlayer.play()
 				yield($BGVideoPlayer, "finished")

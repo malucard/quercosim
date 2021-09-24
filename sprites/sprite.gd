@@ -207,7 +207,7 @@ func draw(pose, mychar):
 		var i = get_idx(mychar)
 		var vwfull = get_viewport_rect().size.x
 		var vw = min(vwfull, get_viewport_rect().size.y * 16 / 9)
-		var sw = vw / count
+		var sw = vw / (count if count != 0 else 1)
 		var sx = vw - sw * (i + 1)
 		if vw < vwfull:
 			sx += (vwfull - vw) / 2

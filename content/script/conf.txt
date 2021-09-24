@@ -1,6 +1,5 @@
 aliasbg theatrum theatrum_neutralis
 aliasbg garden rose_garden
-aliasbgm obama zheng_fa
 eviclone lbelle coupon
 eviclone coupon2 coupon
 eviclone song paper

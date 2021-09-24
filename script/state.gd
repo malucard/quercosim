@@ -87,6 +87,9 @@ var call_stack = []
 var vars = {}
 var speaker_aliases = {}
 
+func _ready():
+	speaker_aliases["?"] = "???"
+
 func reset():
 	call_stack = []
 	speaker_name = ""
@@ -528,7 +531,7 @@ func run_command(text: String):
 						yield(bg, "transition_done")
 						parser.resume_talking(true)
 				else:
-					var b = bg.bgs[parts[1]]
+					var b = globals.bgs[parts[1]]
 					if bg.cur != b:
 						bg.cur = b
 						if parts.size() > 2:
@@ -907,7 +910,7 @@ func run_command(text: String):
 				$HBoxContainer.visible = false
 				state = STATE_BAD_END
 				bg.get_parent().modulate = Color.transparent
-				bg.cur = bg.bgs["bad_end"]
+				bg.cur = globals.bgs["bad_end"]
 				bg.t = 0
 				bg.side = 1
 				anim.play("fadein")
@@ -951,6 +954,10 @@ func run_command(text: String):
 				$Choices.show_choices(parts)
 			"speaker":
 				speaker_aliases[parts[1]] = parts[2]
+			"bgmvol":
+				globals.music_volume[parts[1]] = float(parts[2]) / 100.0
+			"sfxvol":
+				globals.sfx_volumes[parts[1]] = float(parts[2]) / 400.0
 			"amogus":
 				var amogus = load("res://amogus/amogus.tscn").instance()
 				$"/root".add_child(amogus)
@@ -1057,7 +1064,7 @@ func load_inv(id: String):
 	inv.talked = []
 	inv.open_move = []
 	inv.open_talk = []
-	bg.cur = bg.bgs[inv.areas[0].bg]
+	bg.cur = globals.bgs[inv.areas[0].bg]
 
 func load_inv_new(id: String):
 	var area = find_command_ahead("area", parser.pos - 1)
@@ -1108,7 +1115,7 @@ func load_inv_new(id: String):
 	inv.talked = []
 	inv.open_move = []
 	inv.open_talk = []
-	bg.cur = bg.bgs[inv.areas[0].bg]
+	bg.cur = globals.bgs[inv.areas[0].bg]
 	state = STATE_DIALOGUE
 	parser.go_to(find_command_ahead("", find_command_ahead("", find_command_ahead("endinv"))))
 	push_call_stack()
@@ -1135,7 +1142,7 @@ func _inv_back():
 func _move_to(i):
 	inv.area = i
 	globals.play_sfx("click")
-	bg.cur = bg.bgs[inv.areas[i].bg]
+	bg.cur = globals.bgs[inv.areas[i].bg]
 	state = STATE_INVESTIGATION
 	push_call_stack()
 	parser.go_to(inv.areas[i].script)

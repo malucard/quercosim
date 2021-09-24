@@ -112,7 +112,7 @@ func _input(ev):
 			grabbing = false
 
 func _ready():
-	for n in Bg.bgs:
+	for n in globals.bgs:
 		$SetBgPopup.add_item(n)
 
 func _process(delta):
@@ -130,7 +130,7 @@ func _process(delta):
 	$HBoxContainer/VBoxContainer2/Area.visible = !areas.empty()
 	$HBoxContainer/VBoxContainer2/File.text = file_path if file_path else "[none]"
 	$HBoxContainer/VBoxContainer2/Save/Save.visible = true if file_path else false
-	bg_control.texture = load(Bg.bgs[areas[area].bg]) if !areas.empty() else null
+	bg_control.texture = load(globals.bgs[areas[area].bg]) if !areas.empty() else null
 	update_talks()
 	if bg_control.texture:
 		var ts = bg_control.texture.get_size()
@@ -243,7 +243,7 @@ func _set_bg():
 
 func _set_bg_selected(id):
 	var i = 0
-	for n in Bg.bgs:
+	for n in globals.bgs:
 		if i == id:
 			areas[area].bg = n
 			break

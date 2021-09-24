@@ -93,14 +93,14 @@ func _input(ev):
 			grabbing = false
 
 func _ready():
-	for n in Bg.bgs:
+	for n in globals.bgs:
 		$SetBgPopup.add_item(n)
 
 func _process(delta):
 	var ex_text = "examinable x " + str(e.x) + " y " + str(e.y) + " w " + str(e.w) + " h " + str(e.h)
 	if ex_text != $HBoxContainer/VBoxContainer/Editing.bbcode_text:
 		$HBoxContainer/VBoxContainer/Editing.bbcode_text = ex_text
-	bg_control.texture = load(Bg.bgs[bg])
+	bg_control.texture = load(globals.bgs[bg])
 	if bg_control.texture:
 		var ts = bg_control.texture.get_size()
 		$HBoxContainer/VBoxContainer/CenterContainer.ratio = ts.x / ts.y
@@ -173,7 +173,7 @@ func _set_bg():
 func _set_bg_selected(id):
 	e = {x = 0.4, y = 0.4, w = 0.2, h = 0.2}
 	var i = 0
-	for n in Bg.bgs:
+	for n in globals.bgs:
 		if i == id:
 			bg = n
 			break

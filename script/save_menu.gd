@@ -82,8 +82,8 @@ func create_save():
 	var bgm
 	# find the ids of the textures
 	if state.bg.cur:
-		for id in state.bg.bgs:
-			if state.bg.bgs[id] == state.bg.cur:
+		for id in globals.bgs:
+			if globals.bgs[id] == globals.cur:
 				bg = id
 				break
 	if state.bgm.stream:

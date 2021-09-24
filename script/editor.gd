@@ -20,8 +20,8 @@ func create_snapshot():
 	var bgm
 	# find the ids of the textures
 	if state.bg.cur:
-		for id in state.bg.bgs:
-			if state.bg.bgs[id] == state.bg.cur:
+		for id in globals.bgs:
+			if globals.bgs[id] == state.bg.cur:
 				bg = id
 				break
 	if state.lchar:
@@ -76,7 +76,7 @@ func load_snapshot(snap):
 	state.call_stack = snap.call_stack
 	state.state = snap.state
 	state.parser.get_node("../../Control").modulate = snap.modulate
-	state.bg.cur = state.bg.bgs[snap.bg] if snap.bg else null
+	state.bg.cur = globals.bgs[snap.bg] if snap.bg else null
 	state.bg.side = snap.side
 	state.bg.t = 0 if state.bg.side else 1
 	if snap.lchar:

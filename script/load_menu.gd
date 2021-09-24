@@ -101,7 +101,7 @@ func load_save(save):
 		marker = save.loc_marker
 	parser.go_to_save_pos(save.loc + 1, marker)
 	if save.bg:
-		new_main.bg.cur = new_main.bg.bgs[save.bg]
+		new_main.bg.cur = globals.bgs[save.bg]
 	new_main.bg.side = save.side
 	new_main.bg.t = 0 if save.side else 1
 	if save.lchar:

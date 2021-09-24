@@ -153,19 +153,6 @@ func get_all_content_files():
 				d2.list_dir_end()
 				if !arr.empty():
 					files.push_back(["script", arr])
-			elif fn == "inv":
-				var arr = []
-				var d2 = Directory.new()
-				d2.open("user://content/inv")
-				d2.list_dir_begin(true)
-				var fn2 = d2.get_next()
-				while fn2 != "":
-					if !d2.current_is_dir() and fn2.ends_with(".json"):
-						arr.push_back(fn2)
-					fn2 = d2.get_next()
-				d2.list_dir_end()
-				if !arr.empty():
-					files.push_back(["inv", arr])
 		fn = d.get_next()
 	d.list_dir_end()
 	return files

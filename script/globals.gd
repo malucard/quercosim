@@ -1,5 +1,56 @@
 extends Node
 
+var bgs = {
+	theatrum = "res://bg/theatrum.png",
+	querco_office = "res://bg/alba_office.png",
+	garden = "res://bg/garden.png",
+	bad_end = "res://bg/bad_end.png",
+	hallway = "res://bg/hallway.png",
+	classroom = "res://bg/classroom.png",
+	art_room = "res://bg/art_room.png",
+	maintenance_area = "res://bg/maintenance_area.png",
+	protagonist = "res://bg/protagonist.png",
+	living_room = "res://bg/living_room.png",
+	sky = "res://bg/sky.png",
+	heaven_gate = "res://bg/heaven_gate.png",
+	heaven_castle = "res://bg/heaven_castle.png",
+	classroom_broken_wall = "res://bg/classroom_broken_wall.png",
+	duct = "res://bg/duct.png",
+	duct_big = "res://bg/duct_big.jpg",
+	duct_house = "res://bg/duct_house.png",
+	duct_house_blood = "res://bg/ch2/duct_house_blood.png",
+	deid_mann_dead = "res://bg/ch2/deid_dead.png",
+	classroom_forklift = "res://bg/ch2/classroom_forklift.png",
+	classroom_manny = "res://bg/ch1/classroom_manny.png",
+	piano_protagonist_colias = "res://bg/ch2/piano_protagonist_colias.png",
+	piano_protagonist_colias_2 = "res://bg/ch2/piano_protagonist_colias_2.png",
+	hallway_forklift = "res://bg/ch2/hallway_forklift.png",
+	hallway_forklift_rain = "res://bg/ch2/hallway_forklift_rain.png",
+	hallway_rain = "res://bg/hallway_rain.png",
+	maintenance_area_stained = "res://bg/ch2/maintenance_area_stained.png",
+	forklift_stain = "res://bg/ch2/forklift_stain.png",
+	forklift_stain_arrow = "res://bg/ch2/forklift_stain_arrow.png",
+	forklift_flying = "res://bg/ch2/forklift_flying.png",
+	querco_return = "res://bg/ch2/querco_return.png",
+	querco_return_vent = "res://bg/ch2/querco_return_vent.png",
+	command_center = "res://bg/command_center.png",
+	train_in = "res://bg/train_in.png",
+	train_out = "res://bg/train_out.png",
+	the_place_where_wars_are_fought = "res://bg/the_place_where_wars_are_fought.png",
+	warehouse = "res://bg/warehouse.png",
+	speaker = "res://bg/speaker.png",
+	hell = "res://bg/hell.webp",
+	babahl = "res://bg/Babaru.webp",
+	hallway_babahl = "res://bg/hallway_babahl.webp",
+	earth_embassy = "res://bg/ch2/earth_embassy.png",
+	earth_embassy_markiplier = "res://bg/ch2/earth_embassy_markiplier.png",
+	earth_embassy_embassy = "res://bg/ch2/earth_embassy_embassy.png",
+	earth_federal_hall = "res://bg/ch2/earth_federal_hall.png",
+	earth_cohdopia = "res://bg/ch2/earth_cohdopia.png",
+	shelock_holmes = "res://bg/ch2/shelock_holmes.png",
+	mysterious_dead = "res://bg/ch2/mysterious_dead.png"
+}
+
 onready var chars = {
 	querco = char_querco,
 	quercos = char_querco,
@@ -27,7 +78,7 @@ onready var chars = {
 	pichuis = char_pichuis,
 	blaise = char_blaise,
 	dhar = char_dhar,
-	mack = char_mack,
+	mack = char_mack
 }
 
 const music_querco = preload("res://sounds/music/querco.ogg")
@@ -155,7 +206,7 @@ var sfx = load_all("res://sounds/sfx", {})
 var all_evidence = load_all("user://content/evidence", load_all("res://evidence"))
 var all_profiles = load_all("user://content/profiles", load_all("res://profiles"))
 
-const sfx_volumes = {
+var sfx_volumes = {
 	seduction = 2.0,
 	flashback = 5.0
 }
@@ -178,6 +229,43 @@ func update_prefs():
 	pref.store_string(to_json(preferences))
 	pref.close()
 
+func load_img_ext(path: String):
+	var h = File.new()
+	h.open(path, File.READ)
+	var bytes = h.get_buffer(h.get_len())
+	var img = Image.new()
+	var data
+	if path.ends_with(".png"):
+		data = img.load_png_from_buffer(bytes)
+	elif path.ends_with(".webp"):
+		data = img.load_webp_from_buffer(bytes)
+	elif path.ends_with(".jpg") or path.ends_with(".jpeg"):
+		data = img.load_jpg_from_buffer(bytes)
+	elif path.ends_with(".tga"):
+		data = img.load_tga_from_buffer(bytes)
+	elif path.ends_with(".bmp"):
+		data = img.load_bmp_from_buffer(bytes)
+	var imgtex = ImageTexture.new()
+	imgtex.create_from_image(img)
+	h.close()
+	return imgtex
+
+func load_snd_ext(path: String):
+	var h = File.new()
+	h.open(path, File.READ)
+	var bytes = h.get_buffer(h.get_len())
+	var stream
+	if path.ends_with(".ogg"):
+		stream = AudioStreamOGGVorbis.new()
+	elif path.ends_with(".mp3"):
+		stream = AudioStreamMP3.new()
+	elif path.ends_with(".wav"):
+		stream = AudioStreamSample.new()
+		stream.format = stream.FORMAT_16_BITS
+	stream.data = bytes
+	h.close()
+	return stream
+
 func _ready():
 	var pref = File.new()
 	if pref.file_exists("user://preferences.json"):
@@ -198,7 +286,7 @@ func _ready():
 		dir.list_dir_begin(true)
 		var file = dir.get_next()
 		while file != "":
-			Bg.bgs[file.get_basename()] = load("user://content/bg/" + file)
+			bgs[file.get_basename()] = load_img_ext("user://content/bg/" + file)
 			file = dir.get_next()
 	for s in sfx:
 		if sfx[s] is AudioStreamMP3 or sfx[s] is AudioStreamOGGVorbis:
@@ -207,7 +295,7 @@ func _ready():
 		dir.list_dir_begin(true)
 		var file = dir.get_next()
 		while file != "":
-			var s = load("user://content/sfx/" + file)
+			var s = load_snd_ext("user://content/sfx/" + file)
 			if s is AudioStreamMP3 or s is AudioStreamOGGVorbis:
 				s.loop = false
 			sfx[file.get_basename()] = s
@@ -216,7 +304,10 @@ func _ready():
 		dir.list_dir_begin(true)
 		var file = dir.get_next()
 		while file != "":
-			music[file.get_basename()] = load("user://content/music/" + file)
+			var s = load_snd_ext("user://content/music/" + file)
+			if s is AudioStreamSample:
+				s.loop_mode = s.LOOP_FORWARD
+			music[file.get_basename()] = s
 			file = dir.get_next()
 	if dir.open("user://content/char") == OK:
 		dir.list_dir_begin(true)

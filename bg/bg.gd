@@ -1,57 +1,6 @@
 extends TextureRect
 class_name Bg
 
-const bgs = {
-	theatrum = "res://bg/theatrum.png",
-	querco_office = "res://bg/alba_office.png",
-	garden = "res://bg/garden.png",
-	bad_end = "res://bg/bad_end.png",
-	hallway = "res://bg/hallway.png",
-	classroom = "res://bg/classroom.png",
-	art_room = "res://bg/art_room.png",
-	maintenance_area = "res://bg/maintenance_area.png",
-	protagonist = "res://bg/protagonist.png",
-	living_room = "res://bg/living_room.png",
-	sky = "res://bg/sky.png",
-	heaven_gate = "res://bg/heaven_gate.png",
-	heaven_castle = "res://bg/heaven_castle.png",
-	classroom_broken_wall = "res://bg/classroom_broken_wall.png",
-	duct = "res://bg/duct.png",
-	duct_big = "res://bg/duct_big.jpg",
-	duct_house = "res://bg/duct_house.png",
-	duct_house_blood = "res://bg/ch2/duct_house_blood.png",
-	deid_mann_dead = "res://bg/ch2/deid_dead.png",
-	classroom_forklift = "res://bg/ch2/classroom_forklift.png",
-	classroom_manny = "res://bg/ch1/classroom_manny.png",
-	piano_protagonist_colias = "res://bg/ch2/piano_protagonist_colias.png",
-	piano_protagonist_colias_2 = "res://bg/ch2/piano_protagonist_colias_2.png",
-	hallway_forklift = "res://bg/ch2/hallway_forklift.png",
-	hallway_forklift_rain = "res://bg/ch2/hallway_forklift_rain.png",
-	hallway_rain = "res://bg/hallway_rain.png",
-	maintenance_area_stained = "res://bg/ch2/maintenance_area_stained.png",
-	forklift_stain = "res://bg/ch2/forklift_stain.png",
-	forklift_stain_arrow = "res://bg/ch2/forklift_stain_arrow.png",
-	forklift_flying = "res://bg/ch2/forklift_flying.png",
-	querco_return = "res://bg/ch2/querco_return.png",
-	querco_return_vent = "res://bg/ch2/querco_return_vent.png",
-	command_center = "res://bg/command_center.png",
-	train_in = "res://bg/train_in.png",
-	train_out = "res://bg/train_out.png",
-	the_place_where_wars_are_fought = "res://bg/the_place_where_wars_are_fought.png",
-	warehouse = "res://bg/warehouse.png",
-	speaker = "res://bg/speaker.png",
-	hell = "res://bg/hell.webp",
-	babahl = "res://bg/Babaru.webp",
-	hallway_babahl = "res://bg/hallway_babahl.webp",
-	earth_embassy = "res://bg/ch2/earth_embassy.png",
-	earth_embassy_markiplier = "res://bg/ch2/earth_embassy_markiplier.png",
-	earth_embassy_embassy = "res://bg/ch2/earth_embassy_embassy.png",
-	earth_federal_hall = "res://bg/ch2/earth_federal_hall.png",
-	earth_cohdopia = "res://bg/ch2/earth_cohdopia.png",
-	shelock_holmes = "res://bg/ch2/shelock_holmes.png",
-	mysterious_dead = "res://bg/ch2/mysterious_dead.png"
-}
-
 onready var state = $"../.."
 var prev = null
 var cur = null
@@ -72,7 +21,7 @@ func _exit_tree():
 
 func _process(delta: float):
 	if state.has_tag("investigation") and !$"../../Organizer".visible and !$"../../SaveMenu".visible:
-		cur = bgs[state.inv.areas[state.inv.area].bg]
+		cur = globals.bgs[state.inv.areas[state.inv.area].bg]
 		$"../../Investigation/SideRight".visible = side == 0
 		$"../../Investigation/SideLeft".visible = side == 1
 	if prev != cur:
@@ -81,10 +30,10 @@ func _process(delta: float):
 			prevbg.texture = texture
 			prevbg.rect_position.x = rect_position.x
 			fade_in_since = OS.get_ticks_usec()
-			texture = load(cur) if cur else null
+			texture = load(cur) if typeof(cur) == TYPE_STRING else (cur if cur else null)
 		else:
 			prevbg.texture = null
-			texture = load(cur) if cur else null
+			texture = load(cur) if typeof(cur) == TYPE_STRING else (cur if cur else null)
 			emit_signal("transition_done")
 	if texture:
 		var tw = texture.get_width()

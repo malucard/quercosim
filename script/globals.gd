@@ -203,8 +203,8 @@ func load_all(path, res = {}):
 
 var mobile = OS.has_feature("mobile")
 var sfx = load_all("res://sounds/sfx", {})
-var all_evidence = load_all("user://content/evidence", load_all("res://evidence"))
-var all_profiles = load_all("user://content/profiles", load_all("res://profiles"))
+onready var all_evidence = load_all(globals.user_dir + "content/evidence", load_all("res://evidence"))
+onready var all_profiles = load_all(globals.user_dir + "content/profiles", load_all("res://profiles"))
 
 var sfx_volumes = {
 	seduction = 2.0,
@@ -225,7 +225,7 @@ func update_prefs():
 	#else:
 	#	preferences.window_mode = "windowed"
 	var pref = File.new()
-	pref.open("user://preferences.json", File.WRITE)
+	pref.open(globals.user_dir + "preferences.json", File.WRITE)
 	pref.store_string(to_json(preferences))
 	pref.close()
 
@@ -266,10 +266,17 @@ func load_snd_ext(path: String):
 	h.close()
 	return stream
 
+var user_dir = (OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP, false) + "/") if OS.get_name() == "Android" else "user://"
+var controller = OS.has_feature("controller")
+
 func _ready():
+	OS.request_permissions()
+	if !OS.has_feature("mobile"):
+		ProjectSettings.set_setting("display/window/stretch/mode", "2d")
+	ProjectSettings.set_setting("display/window/stretch/mode", "2d")
 	var pref = File.new()
-	if pref.file_exists("user://preferences.json"):
-		pref.open("user://preferences.json", File.READ)
+	if pref.file_exists(globals.user_dir + "preferences.json"):
+		pref.open(globals.user_dir + "preferences.json", File.READ)
 		preferences = parse_json(pref.get_as_text())
 		pref.close()
 		match preferences.window_mode:
@@ -282,35 +289,35 @@ func _ready():
 		OS.window_fullscreen = false
 		OS.window_maximized = true
 	var dir = Directory.new()
-	if dir.open("user://content/bg") == OK:
+	if dir.open(globals.user_dir + "content/bg") == OK:
 		dir.list_dir_begin(true)
 		var file = dir.get_next()
 		while file != "":
-			bgs[file.get_basename()] = load_img_ext("user://content/bg/" + file)
+			bgs[file.get_basename()] = load_img_ext(globals.user_dir + "content/bg/" + file)
 			file = dir.get_next()
-	if dir.open("user://content/evidence") == OK:
+	if dir.open(globals.user_dir + "content/evidence") == OK:
 		dir.list_dir_begin(true)
 		var file = dir.get_next()
 		while file != "":
-			all_evidence[file.get_basename()] = load_img_ext("user://content/evidence/" + file)
+			all_evidence[file.get_basename()] = load_img_ext(globals.user_dir + "content/evidence/" + file)
 			file = dir.get_next()
 	for s in sfx:
 		if sfx[s] is AudioStreamMP3 or sfx[s] is AudioStreamOGGVorbis:
 			sfx[s].loop = false
-	if dir.open("user://content/sfx") == OK:
+	if dir.open(globals.user_dir + "content/sfx") == OK:
 		dir.list_dir_begin(true)
 		var file = dir.get_next()
 		while file != "":
-			var s = load_snd_ext("user://content/sfx/" + file)
+			var s = load_snd_ext(globals.user_dir + "content/sfx/" + file)
 			if s is AudioStreamMP3 or s is AudioStreamOGGVorbis:
 				s.loop = false
 			sfx[file.get_basename()] = s
 			file = dir.get_next()
-	if dir.open("user://content/music") == OK:
+	if dir.open(globals.user_dir + "content/music") == OK:
 		dir.list_dir_begin(true)
 		var file = dir.get_next()
 		while file != "":
-			var s = load_snd_ext("user://content/music/" + file)
+			var s = load_snd_ext(globals.user_dir + "content/music/" + file)
 			if s is AudioStreamMP3 or s is AudioStreamOGGVorbis:
 				s.loop = true
 			if s is AudioStreamSample:
@@ -318,11 +325,11 @@ func _ready():
 			print(str(s))
 			music[file.get_basename()] = s
 			file = dir.get_next()
-	if dir.open("user://content/char") == OK:
+	if dir.open(globals.user_dir + "content/char") == OK:
 		dir.list_dir_begin(true)
 		var file = dir.get_next()
 		while file != "":
-			var sc = "user://content/char/" + file + "/" + file + ".gd"
+			var sc = globals.user_dir + "content/char/" + file + "/" + file + ".gd"
 			if File.new().file_exists(sc):
 				var c = load(sc).new()
 				if "speaker_name" in c:

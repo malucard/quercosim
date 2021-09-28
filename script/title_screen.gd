@@ -1,7 +1,212 @@
 extends Control
 
-#func _ready():
-	#$VBoxContainer/HBoxContainer/NewGame.grab_focus()
+const version = "0.2.3-dev"
+
+# future proofing just in case
+const server_links = [
+	"https://raw.githubusercontent.com/malucard/quercosim/main/server/version.json",
+	"https://raw.githubusercontent.com/quercosim/quercosim/main/server/version.json",
+	"https://raw.githubusercontent.com/quercosim/quercosim_server/main/server/version.json"
+]
+
+func _ready():
+	if globals.controller:
+		$Buttons/NewGame.grab_focus()
+	$ImportDialog.current_dir = OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS)
+	$ExportDialog.current_dir = OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS)
+	assert(cmp_semver("1.0.0", "1.0.0-pre2") == 1)
+	assert(cmp_semver("1.0.0-pre2", "1.0.0-pre1") == 1)
+	assert(cmp_semver("1.3.0-pre4", "1.4.0-alpha") == -1)
+	assert(cmp_semver("1.3.0-pre4", "1.3.0-alpha5") == 1)
+	assert(cmp_semver("1.0.0-pre1", "1.0.0-pre") == 0)
+	assert(cmp_semver("0.7.1-pre1", "0.7.1") == -1)
+	assert(cmp_semver("0.7.1-pre1", "0.7.1-rc4") == -1)
+	assert(cmp_semver("0.7.1-rc1", "0.7.1-pre4") == 1)
+	print(OS.get_name())
+	var req = HTTPRequest.new()
+	add_child(req)
+	link_node = null
+	trying_server = 0
+	req.connect("request_completed", self, "_req_done", [req])
+	next_server(req)
+	#_req_done(0,0,0, """""".to_utf8())
+	$Version/Label.bbcode_text = "[right]v" + version
+
+const order = ["alpha", "beta", "pre", "rc", ""]
+func find_num(s: String):
+	for i in range(0, len(s)):
+		if s[i].is_valid_integer():
+			return [s.substr(0, i), int(s.substr(i))]
+	return [s, 1]
+
+func cmp_semver(v1: String, v2: String):
+	var hi1 = v1.find("-")
+	var h1 = ""
+	var hv1 = 1
+	if hi1 != -1:
+		h1 = v1.substr(hi1 + 1)
+		v1 = v1.substr(0, hi1)
+		hv1 = find_num(h1)
+		h1 = hv1[0]
+		hv1 = hv1[1]
+	var hi2 = v2.find("-")
+	var h2 = ""
+	var hv2 = 1
+	if hi2 != -1:
+		h2 = v2.substr(hi2 + 1)
+		v2 = v2.substr(0, hi2)
+		hv2 = find_num(h2)
+		h2 = hv2[0]
+		hv2 = hv2[1]
+	var a1 = v1.split(".")
+	var a2 = v2.split(".")
+	for i in range(0, min(len(a1), len(a2))):
+		var a = int(a1[i])
+		var b = int(a2[i])
+		if a > b:
+			return 1
+		if b > a:
+			return -1
+	if len(a1) > len(a2):
+		for i in range(len(a2), len(a1)):
+			if int(a1[i]) > 0:
+				return 1
+	elif len(a2) > len(a1):
+		for i in range(len(a1), len(a2)):
+			if int(a2[i]) > 0:
+				return -1
+	if h1 == h2:
+		return 1 if hv1 > hv2 else (-1 if hv2 > hv1 else 0)
+	if h2 != "" and (h1 == "" or h1.ord_at(0) > h2.ord_at(0)):
+		return 1
+	if h2 == "" or h2.ord_at(0) > h1.ord_at(0):
+		return -1
+	return 0
+
+var link_node = null
+var trying_server = 0
+func next_server(req: HTTPRequest, err = null):
+	while err != OK:
+		if trying_server >= len(server_links) - 1:
+			push_error("error checking version online")
+			return
+		trying_server += 1
+		err = req.request(server_links[trying_server])
+		if err == OK:
+			print(server_links[trying_server])
+
+func _req_done(res, res_code, headers, body, req):
+	var response = parse_json(body.get_string_from_utf8())
+	if typeof(response) != TYPE_DICTIONARY:
+		print("failed")
+		next_server(req)
+		return
+	var os = OS.get_name().to_lower()
+	if "redirect" in response:
+		next_server(req.request(response.redirect))
+	else:
+		var newver = response.latest[os] if os in response.latest else response.latest.all
+		var links = newver.links if "links" in newver else []
+		newver = newver.name
+		$Version/HBoxContainer/Label.bbcode_text = "[right]Latest: v" + newver
+		if cmp_semver(newver, version) != 1:
+			return
+		#print(response.headers["User-Agent"])
+		if !links.empty():
+			$Version/HBoxContainer/Label.bbcode_text += " ("
+			for title in links:
+				var link = response.links[title]
+				if os in link:
+					link = link[os]
+				elif "all" in link:
+					link = link.all
+				else:
+					continue
+				var l = LinkButton.new()
+				if link_node:
+					var comma = Label.new()
+					comma.text = ", "
+					$Version/HBoxContainer.add_child(comma)
+				else:
+					link_node = l
+				var i = title.find("#")
+				if i != -1:
+					l.text = title.substr(0, i)
+				else:
+					l.text = title
+				l.focus_mode = FOCUS_ALL
+				l.connect("pressed", OS, "shell_open", [link])
+				$Version/HBoxContainer.add_child(l)
+				#links_str += "[url=" + link + "]" + title + "[/url]"
+			if link_node:
+				var l = Label.new()
+				l.text = ")"
+				$Version/HBoxContainer.add_child(l)
+		#$HTTPRequest.queue_free()
+
+func _process(delta):
+	if globals.mobile:
+		$ImportDialog.rect_scale = Vector2(1.5, 1.5)
+		$ImportDialog.anchor_right = 2.0 / 3.0
+		$ImportDialog.anchor_bottom = 2.0 / 3.0
+		$ExportDialog.rect_scale = Vector2(1.5, 1.5)
+		$ExportDialog.anchor_right = 2.0 / 3.0
+		$ExportDialog.anchor_bottom = 2.0 / 3.0
+	else:
+		$ImportDialog.rect_scale = Vector2(1, 1)
+		$ImportDialog.anchor_right = 1.0
+		$ImportDialog.anchor_bottom = 1.0
+		$ExportDialog.rect_scale = Vector2(1, 1)
+		$ExportDialog.anchor_right = 1.0
+		$ExportDialog.anchor_bottom = 1.0
+	$Version/HBoxContainer/Xbox.visible = globals.controller and $Version/HBoxContainer.get_child_count() > 2
+	if $LoadMenu.visible:
+		if !$LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon.has_focus() \
+			and !$LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon2.has_focus() \
+			and !$LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon3.has_focus() \
+			and !$LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon4.has_focus():
+			if Input.is_action_just_pressed("ui_down"):
+				$LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon.grab_focus()
+			elif Input.is_action_just_pressed("ui_up"):
+				$LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon4.grab_focus()
+		else:
+			if Input.is_action_just_pressed("ui_left"):
+				$LoadMenu._prev_page()
+			elif Input.is_action_just_pressed("ui_right"):
+				$LoadMenu._next_page()
+	elif !$Buttons/NewGame.has_focus() \
+		and !$Buttons/Continue.has_focus() \
+		and !$Buttons/Shortcut.has_focus() \
+		and !$Buttons/Extras.has_focus() \
+		and !$Version.is_a_parent_of(get_focus_owner()) \
+		and (globals.controller or Input.is_action_just_pressed("ui_down")):
+		$Buttons/NewGame.grab_focus()
+	if $LoadMenu.visible or $Extras.visible or $Shortcut.visible:
+		$Buttons/NewGame.release_focus()
+		$Buttons/Continue.release_focus()
+		$Buttons/Shortcut.release_focus()
+		$Buttons/Extras.release_focus()
+		if Input.is_action_just_pressed("ui_cancel"):
+			if $LoadMenu.visible:
+				$LoadMenu._back()
+			if $Extras.visible:
+				_close_extras()
+			if $Shortcut.visible:
+				_close_shortcut()
+	else:
+		if link_node and Input.is_action_just_pressed("download_update"):
+			if $Version/HBoxContainer.is_a_parent_of(get_focus_owner()):
+				$Buttons/NewGame.grab_focus()
+			else:
+				link_node.grab_focus()
+	$ImportDialog.margin_left = 0
+	$ImportDialog.margin_top = 0
+	$ImportDialog.margin_right = 0
+	$ImportDialog.margin_bottom = 0
+	$ExportDialog.margin_left = 0
+	$ExportDialog.margin_top = 0
+	$ExportDialog.margin_right = 0
+	$ExportDialog.margin_bottom = 0
 
 func _new_game():
 	globals.play_sfx("save_load")
@@ -79,29 +284,32 @@ func import_file(f: File, path):
 				return false
 	return true
 
+var albasig = PoolByteArray(['A'.ord_at(0), 'L'.ord_at(0), 'B'.ord_at(0), 'A'.ord_at(0), 0, 0, 0, 0])
+
 func _import_ok(path):
 	$BlackScreen.visible = true
 	$BlackScreen/Label.text = "Importing"
 	var d = Directory.new()
-	if d.open("user://content") != OK:
-		d.make_dir("user://content")
+	if d.open(globals.user_dir + "content") != OK:
+		d.make_dir(globals.user_dir + "content")
 	var f = File.new()
 	if f.open_compressed(path, File.READ, File.COMPRESSION_ZSTD) != OK:
-		printerr("failed to open file")
-		$BlackScreen.visible = false
-		return
-	if f.get_buffer(8) != "ALBA\u0000\u0000\u0000\u0000".to_ascii():
-		printerr("unsupported file")
-		f.close()
-		$BlackScreen.visible = false
-		return
-	yield(get_tree(), "idle_frame")
-	while import_file(f, "user://content/"):
-		pass
-	$BlackScreen/Label.text = "Imported\nPlease restart the game to load changes."
+		$BlackScreen/Label.text = "failed to open file\n" + path
+		printerr("failed to open file " + path)
+	else:
+		var sig = f.get_buffer(8)
+		if sig != albasig:
+			$BlackScreen/Label.text = "unsupported file\n" + path + "\nsignature: " + sig.hex_encode()
+			printerr("unsupported file " + path + " sig " + sig.hex_encode())
+			f.close()
+		else:
+			yield(get_tree(), "idle_frame")
+			while import_file(f, globals.user_dir + "content/"):
+				pass
+			f.close()
+			$BlackScreen/Label.text = "Imported\nPlease restart the game to load changes."
 	yield(get_tree().create_timer(2.0), "timeout")
 	$BlackScreen.visible = false
-	f.close()
 
 func get_all_files_in(dir):
 	var d = Directory.new()
@@ -120,22 +328,22 @@ func get_all_files_in(dir):
 func get_all_content_files():
 	var files = []
 	var d = Directory.new()
-	d.open("user://content")
+	d.open(globals.user_dir + "content")
 	d.list_dir_begin(true)
 	var fn = d.get_next()
 	while fn != "":
 		if d.current_is_dir():
 			if fn == "evidence" or fn == "profiles" or fn == "bg" or fn == "embed" or fn == "sfx" or fn == "music" or fn == "videos":
-				files.push_back([fn, get_all_files_in("user://content/" + fn)])
+				files.push_back([fn, get_all_files_in(globals.user_dir + "content/" + fn)])
 			elif fn == "char":
 				var arr = []
 				var d2 = Directory.new()
-				d2.open("user://content/char")
+				d2.open(globals.user_dir + "content/char")
 				d2.list_dir_begin(true)
 				var fn2 = d2.get_next()
 				while fn2 != "":
 					if d2.current_is_dir():
-						arr.push_back([fn2, get_all_files_in("user://content/char/" + fn2)])
+						arr.push_back([fn2, get_all_files_in(globals.user_dir + "content/char/" + fn2)])
 					fn2 = d2.get_next()
 				d2.list_dir_end()
 				if !arr.empty():
@@ -143,7 +351,7 @@ func get_all_content_files():
 			elif fn == "script":
 				var arr = []
 				var d2 = Directory.new()
-				d2.open("user://content/script")
+				d2.open(globals.user_dir + "content/script")
 				d2.list_dir_begin(true)
 				var fn2 = d2.get_next()
 				while fn2 != "":
@@ -182,7 +390,7 @@ func _export_ok(path):
 	#var files = {}
 	#var inf = File.new()
 	var d = Directory.new()
-	if d.open("user://content") == OK:
+	if d.open(globals.user_dir + "content") == OK:
 		exported_bytes = 0
 		$BlackScreen.visible = true
 		$BlackScreen/Label.text = "Exporting"
@@ -191,7 +399,7 @@ func _export_ok(path):
 		outf.open_compressed(path, File.WRITE, File.COMPRESSION_ZSTD)
 		outf.store_string("ALBA")
 		outf.store_32(0)
-		add_to_file(outf, files, "user://content/")
+		add_to_file(outf, files, globals.user_dir + "content/")
 		outf.close()
 		$BlackScreen/Label.text = "Exported"
 		yield(get_tree().create_timer(1.0), "timeout")
@@ -207,6 +415,6 @@ func _export_ok(path):
 
 func _open_folder():
 	var d = Directory.new()
-	if d.open("user://content") != OK:
-		d.make_dir("user://content")
-	OS.shell_open(ProjectSettings.globalize_path("user://content"))
+	if d.open(globals.user_dir + "content") != OK:
+		d.make_dir(globals.user_dir + "content")
+	OS.shell_open(ProjectSettings.globalize_path(globals.user_dir + "content"))

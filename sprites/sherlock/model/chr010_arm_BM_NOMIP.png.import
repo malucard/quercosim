@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/chr010_arm_BM_NOMIP.png-8a3c12714e9406b56283dc9a79fec7b6.s3tc.stex"
 path.etc="res://.import/chr010_arm_BM_NOMIP.png-8a3c12714e9406b56283dc9a79fec7b6.etc.stex"
+path.pvrtc="res://.import/chr010_arm_BM_NOMIP.png-8a3c12714e9406b56283dc9a79fec7b6.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprites/sherlock/model/chr010_arm_BM_NOMIP.png"
-dest_files=[ "res://.import/chr010_arm_BM_NOMIP.png-8a3c12714e9406b56283dc9a79fec7b6.s3tc.stex", "res://.import/chr010_arm_BM_NOMIP.png-8a3c12714e9406b56283dc9a79fec7b6.etc.stex" ]
+dest_files=[ "res://.import/chr010_arm_BM_NOMIP.png-8a3c12714e9406b56283dc9a79fec7b6.s3tc.stex", "res://.import/chr010_arm_BM_NOMIP.png-8a3c12714e9406b56283dc9a79fec7b6.etc.stex", "res://.import/chr010_arm_BM_NOMIP.png-8a3c12714e9406b56283dc9a79fec7b6.pvrtc.stex" ]
 
 [params]
 

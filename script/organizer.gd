@@ -19,6 +19,9 @@ func _open():
 		$AnimationPlayer.play("show")
 		$Back.visible = true
 		$VBoxContainer/NinePatchRect/GridContainer/TextureButton1.grab_focus()
+		var prev_detail = detail
+		_select(0)
+		detail = prev_detail
 
 func _open_present():
 	if !parser.stopped_talking or state.has_tag("choice"):
@@ -26,8 +29,11 @@ func _open_present():
 		parser.stop_talking()
 		globals.play_sfx("organizer")
 		$AnimationPlayer.play("show")
-		$Back.visible = state.has_tag("confrontation")
+		$Back.visible = state.has_tag("confrontation") or !$Present.visible
 		$VBoxContainer/NinePatchRect/GridContainer/TextureButton1.grab_focus()
+		var prev_detail = detail
+		_select(0)
+		detail = prev_detail
 
 func _present_pressed():
 	if selected:
@@ -58,16 +64,48 @@ func _process(_delta: float):
 			$VBoxContainer/NinePatchRect/GridContainer.get_node("TextureButton" + str(i + 1)).texture_normal = globals.all_evidence[state.evidence[i + page * 8].id]
 		for i in range(count, 8):
 			$VBoxContainer/NinePatchRect/GridContainer.get_node("TextureButton" + str(i + 1)).texture_normal = preload("res://gui/organizer/empty.png")
-	if visible and (Input.is_action_just_pressed("organizer") or Input.is_action_just_pressed("ui_cancel")):
-		_back()
+	if visible:
+		if (Input.is_action_just_pressed("organizer") or Input.is_action_just_pressed("ui_cancel")):
+			_back()
+		elif Input.is_action_just_pressed("ui_left"):
+			if detail:
+				_left()
+			elif selected_i > 0:
+				if selected_i % 4 == 0:
+					if page > 0:
+						selected_i -= 5
+						page -= 1
+						selected = state.evidence[selected_i]
+						globals.play_sfx("click")
+				else:
+					selected_i -= 1
+					selected = state.evidence[selected_i]
+					globals.play_sfx("click")
+		elif Input.is_action_just_pressed("ui_right"):
+			if detail:
+				_right()
+			elif selected_i % 4 == 3:
+				if selected_i + 5 < len(state.evidence):
+					selected_i += 5
+					page += 1
+					selected = state.evidence[selected_i]
+					globals.play_sfx("click")
+			elif selected_i + 1 < len(state.evidence):
+				selected_i -= 1
+				selected = state.evidence[selected_i]
+				globals.play_sfx("click")
+
+func close():
+	$AnimationPlayer.play("hide")
+	parser.resume_talking()
 
 func _back():
 	if detail:
 		detail = false
+		$Back.visible = state.has_tag("confrontation") or !$Present.visible
 		globals.play_sfx("back")
-	elif !$Present.visible or ($Present.visible and state.has_tag("confrontation")):
-		$AnimationPlayer.play("hide")
-		parser.resume_talking()
+	elif !$Present.visible or state.has_tag("confrontation"):
+		close()
 		globals.play_sfx("back")
 
 func _select(which: int):
@@ -75,20 +113,27 @@ func _select(which: int):
 		selected_i = which + page * 8
 		selected = state.evidence[selected_i]
 		detail = true
+		$Back.visible = true
 		globals.play_sfx("click")
 
 func _right():
 	if detail:
-		selected_i += 1
-		selected = state.evidence[selected_i]
-	else:
+		if selected_i + 1 < len(state.evidence):
+			selected_i += 1
+			if selected_i == 0:
+				page += 1
+			selected = state.evidence[selected_i]
+			globals.play_sfx("click")
+	elif page <= len(state.evidence) / 8:
 		page += 1
-	globals.play_sfx("click")
+		globals.play_sfx("click")
 
 func _left():
 	if detail:
-		selected_i -= 1
-		selected = state.evidence[selected_i]
-	else:
+		if selected_i > 0:
+			selected_i -= 1
+			selected = state.evidence[selected_i]
+			globals.play_sfx("click")
+	elif page > 0:
 		page -= 1
-	globals.play_sfx("click")
+		globals.play_sfx("click")

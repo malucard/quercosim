@@ -19,7 +19,7 @@ var gscript = null
 
 func load_conf():
 	var s
-	var p2 = "user://content/script/conf.txt"
+	var p2 = globals.user_dir + "content/script/conf.txt"
 	var f = File.new()
 	if f.file_exists(p2):
 		s = load_text_file(p2)
@@ -32,7 +32,7 @@ func load_conf():
 
 func load_script(which: String = "script"):
 	script_id = which
-	var p2 = "user://content/script/" + which + ".txt"
+	var p2 = globals.user_dir + "content/script/" + which + ".txt"
 	var f = File.new()
 	if f.file_exists(p2):
 		script_path = p2
@@ -468,7 +468,7 @@ func _process(delta: float):
 				$"../../Organizer"._open_present()
 			else:
 				$"../../Organizer"._open()
-		elif Input.is_action_just_pressed("save") and !$"../../SaveMenu".visible:
+		elif Input.is_action_just_pressed("save") and !$"../../SaveMenu".visible and (!$"../../Organizer".detail if $"../../Organizer".visible else true):
 			$"../../SaveMenu"._open()
 		elif !stopped_talking and !running:
 			if (Input.is_action_just_pressed("back") or $"../Back/Button".pressed

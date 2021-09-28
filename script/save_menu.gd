@@ -15,12 +15,16 @@ const tex = preload("res://gui/save_icon.tres")
 
 func get_save(n: int):
 	var f = File.new()
-	if f.file_exists("user://save" + str(n) + ".json"):
+	if f.file_exists(globals.user_dir + "save" + str(n) + ".json"):
+		f.open(globals.user_dir + "save" + str(n) + ".json", File.READ)
+	# backwards compatibility with 0.2.0~0.2.2
+	elif OS.get_name() == "Android" and f.file_exists("user://save" + str(n) + ".json"):
 		f.open("user://save" + str(n) + ".json", File.READ)
-		var data = parse_json(f.get_as_text())
-		f.close()
-		return data
-	return null
+	else:
+		return null
+	var data = parse_json(f.get_as_text())
+	f.close()
+	return data
 
 func update_icons():
 	for i in range(4):
@@ -32,7 +36,6 @@ func update_icons():
 			icons[i].get_node("Time").text = "%04d/%02d/%02d %02d:%02d:%02d" % [time.year, time.month, time.day, time.hour, time.minute, time.second]
 		else:
 			icons[i].texture_normal = empty_tex
-			icons[i].texture_hover = tex
 			icons[i].get_node("Line").text = ""
 			icons[i].get_node("Time").text = ""
 	$VBoxContainer/TextureRect/PageLabel.text = "Page " + str(page + 1)
@@ -131,7 +134,7 @@ func create_save():
 
 func do_save(n: int):
 	var f = File.new()
-	f.open("user://save" + str(n) + ".json", File.WRITE)
+	f.open(globals.user_dir + "save" + str(n) + ".json", File.WRITE)
 	f.store_string(to_json(create_save()))
 	f.close()
 	update_icons()
@@ -166,5 +169,25 @@ func _to_title():
 	get_tree().change_scene("res://title_screen.tscn")
 
 func _process(_delta):
-	if visible and (Input.is_action_just_pressed("save") or Input.is_action_just_pressed("ui_cancel")):
-		_back()
+	if globals.controller:
+		$Xbox.visible = true
+		if Input.is_action_just_pressed("download_update"):
+			_to_title()
+	else:
+		$Xbox.visible = false
+	if visible:
+		if (Input.is_action_just_pressed("save") or Input.is_action_just_pressed("ui_cancel")):
+			_back()
+		elif !$VBoxContainer/TextureRect/VBoxContainer/SaveIcon.has_focus() \
+			and !$VBoxContainer/TextureRect/VBoxContainer/SaveIcon2.has_focus() \
+			and !$VBoxContainer/TextureRect/VBoxContainer/SaveIcon3.has_focus() \
+			and !$VBoxContainer/TextureRect/VBoxContainer/SaveIcon4.has_focus():
+			if Input.is_action_just_pressed("ui_down"):
+				$VBoxContainer/TextureRect/VBoxContainer/SaveIcon.grab_focus()
+			elif Input.is_action_just_pressed("ui_up"):
+				$VBoxContainer/TextureRect/VBoxContainer/SaveIcon4.grab_focus()
+		else:
+			if Input.is_action_just_pressed("ui_left"):
+				_prev_page()
+			elif Input.is_action_just_pressed("ui_right"):
+				_next_page()

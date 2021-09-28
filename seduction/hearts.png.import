@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/hearts.png-653e65e29493b44bcd05b993110d5a5c.s3tc.stex"
 path.etc="res://.import/hearts.png-653e65e29493b44bcd05b993110d5a5c.etc.stex"
+path.pvrtc="res://.import/hearts.png-653e65e29493b44bcd05b993110d5a5c.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://seduction/hearts.png"
-dest_files=[ "res://.import/hearts.png-653e65e29493b44bcd05b993110d5a5c.s3tc.stex", "res://.import/hearts.png-653e65e29493b44bcd05b993110d5a5c.etc.stex" ]
+dest_files=[ "res://.import/hearts.png-653e65e29493b44bcd05b993110d5a5c.s3tc.stex", "res://.import/hearts.png-653e65e29493b44bcd05b993110d5a5c.etc.stex", "res://.import/hearts.png-653e65e29493b44bcd05b993110d5a5c.pvrtc.stex" ]
 
 [params]
 

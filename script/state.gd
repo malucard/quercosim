@@ -487,12 +487,12 @@ func run_command(text: String):
 				$BGVideoPlayer.visible = true
 				var f = File.new()
 				var stream
-				if f.file_exists("user://content/videos/" + parts[1] + ".ogv"):
+				if f.file_exists(globals.user_dir + "content/videos/" + parts[1] + ".ogv"):
 					stream = VideoStreamTheora.new()
-					stream.set_file("user://content/videos/" + parts[1] + ".ogv")
-				elif f.file_exists("user://content/videos/" + parts[1] + ".webm"):
+					stream.set_file(globals.user_dir + "content/videos/" + parts[1] + ".ogv")
+				elif f.file_exists(globals.user_dir + "content/videos/" + parts[1] + ".webm"):
 					stream = VideoStreamWebm.new()
-					stream.set_file("user://content/videos/" + parts[1] + ".webm")
+					stream.set_file(globals.user_dir + "content/videos/" + parts[1] + ".webm")
 				elif f.file_exists("res://videos/" + parts[1] + ".ogv"):
 					stream = load("res://videos/" + parts[1] + ".ogv")
 				elif f.file_exists("res://videos/" + parts[1] + ".webm"):
@@ -511,12 +511,12 @@ func run_command(text: String):
 				$FGVideoPlayer.visible = true
 				var f = File.new()
 				var stream
-				if f.file_exists("user://content/videos/" + parts[1] + ".ogv"):
+				if f.file_exists(globals.user_dir + "content/videos/" + parts[1] + ".ogv"):
 					stream = VideoStreamTheora.new()
-					stream.set_file("user://content/videos/" + parts[1] + ".ogv")
-				elif f.file_exists("user://content/videos/" + parts[1] + ".webm"):
+					stream.set_file(globals.user_dir + "content/videos/" + parts[1] + ".ogv")
+				elif f.file_exists(globals.user_dir + "content/videos/" + parts[1] + ".webm"):
 					stream = VideoStreamWebm.new()
-					stream.set_file("user://content/videos/" + parts[1] + ".webm")
+					stream.set_file(globals.user_dir + "content/videos/" + parts[1] + ".webm")
 				elif f.file_exists("res://videos/" + parts[1] + ".ogv"):
 					stream = load("res://videos/" + parts[1] + ".ogv")
 				elif f.file_exists("res://videos/" + parts[1] + ".webm"):
@@ -1057,8 +1057,8 @@ func run_command(text: String):
 func conv_inv(id: String):
 	var f = File.new()
 	var p = id + ".json"
-	if f.file_exists("user://content/inv/" + p):
-		p = "user://content/inv/" + p
+	if f.file_exists(globals.user_dir + "content/inv/" + p):
+		p = globals.user_dir + "content/inv/" + p
 	else:
 		p = "res://content/inv/" + p
 	f.open(p, File.READ)
@@ -1081,8 +1081,8 @@ func conv_inv(id: String):
 func load_inv(id: String):
 	var f = File.new()
 	var p = id + ".json"
-	if f.file_exists("user://content/inv/" + p):
-		p = "user://content/inv/" + p
+	if f.file_exists(globals.user_dir + "content/inv/" + p):
+		p = globals.user_dir + "content/inv/" + p
 	else:
 		p = "res://content/inv/" + p
 	f.open(p, File.READ)

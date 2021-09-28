@@ -50,6 +50,14 @@ func show_choices(parts):
 		$TextureButton2.visible = false
 	parser.stop_talking()
 
+func _process(_delta):
+	if !$"../Backlog".visible and !$"../Organizer".visible and !$"../SaveMenu".visible:
+		if !$TextureButton.has_focus() and !$TextureButton2.has_focus() and !$TextureButton3.has_focus() and !$TextureButton4.has_focus() and !$TextureButton5.has_focus():
+			if Input.is_action_just_pressed("ui_down"):
+				$TextureButton.grab_focus()
+			elif Input.is_action_just_pressed("ui_up"):
+				$TextureButton5.grab_focus()
+
 func _pressed(which: int):
 	globals.play_sfx("next")
 	if which != -1:
@@ -63,6 +71,7 @@ func _pressed(which: int):
 	$TextureButton2.visible = false
 	$TextureButton3.visible = false
 	$TextureButton4.visible = false
+	$TextureButton5.visible = false
 	if state.has_tag("show_seduction"):
 		state.state = State.STATE_SEDUCTION_DIALOGUE
 	else:

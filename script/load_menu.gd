@@ -13,24 +13,29 @@ const tex = preload("res://gui/save_icon.tres")
 
 func get_save(n: int):
 	var f = File.new()
-	if f.file_exists("user://save" + str(n) + ".json"):
+	if f.file_exists(globals.user_dir + "save" + str(n) + ".json"):
+		f.open(globals.user_dir + "save" + str(n) + ".json", File.READ)
+	# backwards compatibility with 0.2.0~0.2.2
+	elif OS.get_name() == "Android" and f.file_exists("user://save" + str(n) + ".json"):
 		f.open("user://save" + str(n) + ".json", File.READ)
-		var data = parse_json(f.get_as_text())
-		f.close()
-		return data
-	return null
+	else:
+		return null
+	var data = parse_json(f.get_as_text())
+	f.close()
+	return data
 
 func update_icons():
 	for i in range(4):
 		var save = get_save(i + page * 4)
 		if save:
 			icons[i].texture_normal = tex
+			#icons[i].texture_hover = hover_tex
 			icons[i].get_node("Line").text = save.line
 			var time = OS.get_datetime_from_unix_time(save.time)
 			icons[i].get_node("Time").text = "%04d/%02d/%02d %02d:%02d:%02d" % [time.year, time.month, time.day, time.hour, time.minute, time.second]
 		else:
 			icons[i].texture_normal = empty_tex
-			icons[i].texture_hover = tex
+			#icons[i].texture_hover = tex
 			icons[i].get_node("Line").text = ""
 			icons[i].get_node("Time").text = ""
 	$VBoxContainer/TextureRect/PageLabel.text = "Page " + str(page + 1)

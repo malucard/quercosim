@@ -374,7 +374,7 @@ investigation ch2_deid_2_hallway
 		examinable x 0.775229 y 0.557339 w 0.086238 h 0.120642
 			pr A vent in the hallway. It implies the existence of an air duct system.
 			pr Somehow, it looked like the Professor came out of the one in the foot classroom.
-			gotoif i_stain done
+			gotoif i_vent done
 
 			pr Colias, do people usually come out of vents in this place?
 			char colias grin
@@ -387,7 +387,6 @@ investigation ch2_deid_2_hallway
 			cp Knowing him, maybe it had to do with foot.
 			pr Hmm...
 			char none
-			returnif i_vent
 			evi vent "Hallway Vent" "Ventilation opening in the hallway."
 			g [center]Hallway Vent note written in Organizer.[/center]
 			set i_vent 1

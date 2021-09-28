@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/theatrum.png-15fb77a7401eb5eb08c58e0e88062a20.s3tc.stex"
 path.etc="res://.import/theatrum.png-15fb77a7401eb5eb08c58e0e88062a20.etc.stex"
+path.pvrtc="res://.import/theatrum.png-15fb77a7401eb5eb08c58e0e88062a20.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://bg/theatrum.png"
-dest_files=[ "res://.import/theatrum.png-15fb77a7401eb5eb08c58e0e88062a20.s3tc.stex", "res://.import/theatrum.png-15fb77a7401eb5eb08c58e0e88062a20.etc.stex" ]
+dest_files=[ "res://.import/theatrum.png-15fb77a7401eb5eb08c58e0e88062a20.s3tc.stex", "res://.import/theatrum.png-15fb77a7401eb5eb08c58e0e88062a20.etc.stex", "res://.import/theatrum.png-15fb77a7401eb5eb08c58e0e88062a20.pvrtc.stex" ]
 
 [params]
 

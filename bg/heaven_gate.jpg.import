@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/heaven_gate.jpg-87f1cad8f04aacc9864ac0eeb38037b4.s3tc.stex"
 path.etc="res://.import/heaven_gate.jpg-87f1cad8f04aacc9864ac0eeb38037b4.etc.stex"
+path.pvrtc="res://.import/heaven_gate.jpg-87f1cad8f04aacc9864ac0eeb38037b4.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://bg/heaven_gate.jpg"
-dest_files=[ "res://.import/heaven_gate.jpg-87f1cad8f04aacc9864ac0eeb38037b4.s3tc.stex", "res://.import/heaven_gate.jpg-87f1cad8f04aacc9864ac0eeb38037b4.etc.stex" ]
+dest_files=[ "res://.import/heaven_gate.jpg-87f1cad8f04aacc9864ac0eeb38037b4.s3tc.stex", "res://.import/heaven_gate.jpg-87f1cad8f04aacc9864ac0eeb38037b4.etc.stex", "res://.import/heaven_gate.jpg-87f1cad8f04aacc9864ac0eeb38037b4.pvrtc.stex" ]
 
 [params]
 

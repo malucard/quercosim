@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/outline texture.png-00f2e831f25d64e2f125c099a2d5440a.s3tc.stex"
 path.etc="res://.import/outline texture.png-00f2e831f25d64e2f125c099a2d5440a.etc.stex"
+path.pvrtc="res://.import/outline texture.png-00f2e831f25d64e2f125c099a2d5440a.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://sprites/sherlock/model/outline texture.png"
-dest_files=[ "res://.import/outline texture.png-00f2e831f25d64e2f125c099a2d5440a.s3tc.stex", "res://.import/outline texture.png-00f2e831f25d64e2f125c099a2d5440a.etc.stex" ]
+dest_files=[ "res://.import/outline texture.png-00f2e831f25d64e2f125c099a2d5440a.s3tc.stex", "res://.import/outline texture.png-00f2e831f25d64e2f125c099a2d5440a.etc.stex", "res://.import/outline texture.png-00f2e831f25d64e2f125c099a2d5440a.pvrtc.stex" ]
 
 [params]
 

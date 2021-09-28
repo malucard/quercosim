@@ -202,7 +202,7 @@ func _test():
 		state = preload("res://main.tscn").instance()
 		var parser = state.get_node("TextureRect/RunScript")
 		parser.script_path = cur_script
-		parser.script_id = cur_script.trim_suffix(".txt").trim_prefix("user://content/script/")
+		parser.script_id = cur_script.trim_suffix(".txt").trim_prefix(globals.user_dir + "content/script/")
 		parser.gscript = gscript
 		$HBoxContainer/VBoxContainer/AspectRatioContainer/ViewportContainer/Viewport.add_child(state)
 		parser.connect("reach_cmd", self, "_reach_cmd")

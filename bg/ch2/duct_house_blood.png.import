@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/duct_house_blood.png-2a4c4595e15833c1ce2e342b3bc0c3c0.s3tc.stex"
 path.etc="res://.import/duct_house_blood.png-2a4c4595e15833c1ce2e342b3bc0c3c0.etc.stex"
+path.pvrtc="res://.import/duct_house_blood.png-2a4c4595e15833c1ce2e342b3bc0c3c0.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://bg/ch2/duct_house_blood.png"
-dest_files=[ "res://.import/duct_house_blood.png-2a4c4595e15833c1ce2e342b3bc0c3c0.s3tc.stex", "res://.import/duct_house_blood.png-2a4c4595e15833c1ce2e342b3bc0c3c0.etc.stex" ]
+dest_files=[ "res://.import/duct_house_blood.png-2a4c4595e15833c1ce2e342b3bc0c3c0.s3tc.stex", "res://.import/duct_house_blood.png-2a4c4595e15833c1ce2e342b3bc0c3c0.etc.stex", "res://.import/duct_house_blood.png-2a4c4595e15833c1ce2e342b3bc0c3c0.pvrtc.stex" ]
 
 [params]
 

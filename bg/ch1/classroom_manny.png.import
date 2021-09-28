@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/classroom_manny.png-9928f7108fd2c76a5c5abfb417d5194f.s3tc.stex"
 path.etc="res://.import/classroom_manny.png-9928f7108fd2c76a5c5abfb417d5194f.etc.stex"
+path.pvrtc="res://.import/classroom_manny.png-9928f7108fd2c76a5c5abfb417d5194f.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://bg/ch1/classroom_manny.png"
-dest_files=[ "res://.import/classroom_manny.png-9928f7108fd2c76a5c5abfb417d5194f.s3tc.stex", "res://.import/classroom_manny.png-9928f7108fd2c76a5c5abfb417d5194f.etc.stex" ]
+dest_files=[ "res://.import/classroom_manny.png-9928f7108fd2c76a5c5abfb417d5194f.s3tc.stex", "res://.import/classroom_manny.png-9928f7108fd2c76a5c5abfb417d5194f.etc.stex", "res://.import/classroom_manny.png-9928f7108fd2c76a5c5abfb417d5194f.pvrtc.stex" ]
 
 [params]
 

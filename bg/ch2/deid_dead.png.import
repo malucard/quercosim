@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/deid_dead.png-d2e4bbffa79b1205b641254fc12068ff.s3tc.stex"
 path.etc="res://.import/deid_dead.png-d2e4bbffa79b1205b641254fc12068ff.etc.stex"
+path.pvrtc="res://.import/deid_dead.png-d2e4bbffa79b1205b641254fc12068ff.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://bg/ch2/deid_dead.png"
-dest_files=[ "res://.import/deid_dead.png-d2e4bbffa79b1205b641254fc12068ff.s3tc.stex", "res://.import/deid_dead.png-d2e4bbffa79b1205b641254fc12068ff.etc.stex" ]
+dest_files=[ "res://.import/deid_dead.png-d2e4bbffa79b1205b641254fc12068ff.s3tc.stex", "res://.import/deid_dead.png-d2e4bbffa79b1205b641254fc12068ff.etc.stex", "res://.import/deid_dead.png-d2e4bbffa79b1205b641254fc12068ff.pvrtc.stex" ]
 
 [params]
 

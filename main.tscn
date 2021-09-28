@@ -1,4 +1,4 @@
-[gd_scene load_steps=179 format=2]
+[gd_scene load_steps=181 format=2]
 
 [ext_resource path="res://sounds/blipm.wav" type="AudioStream" id=1]
 [ext_resource path="res://sprites/querco/normal/tex.png" type="Texture" id=2]
@@ -58,6 +58,8 @@
 [ext_resource path="res://gui/emoji_font.ttf" type="DynamicFontData" id=56]
 [ext_resource path="res://bg/theatrum.png" type="Texture" id=57]
 [ext_resource path="res://bg/seduction_complete.png" type="Texture" id=58]
+[ext_resource path="res://gui/xbox_view.png" type="Texture" id=59]
+[ext_resource path="res://gui/save_icon_hover.tres" type="Texture" id=60]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 57 )
@@ -1726,17 +1728,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="AtlasTexture" id=55]
-flags = 4
-atlas = ExtResource( 38 )
-region = Rect2( 0, 264, 104, 88 )
-
-[sub_resource type="AtlasTexture" id=56]
-flags = 4
-atlas = ExtResource( 38 )
-region = Rect2( 104, 264, 104, 88 )
-
-[sub_resource type="Animation" id=57]
+[sub_resource type="Animation" id=55]
 length = 4.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("ChapterEnd:visible")
@@ -1787,7 +1779,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=58]
+[sub_resource type="Animation" id=56]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ChapterEnd:visible")
 tracks/0/interp = 1
@@ -1813,7 +1805,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=59]
+[sub_resource type="Animation" id=57]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("ChapterEnd:visible")
@@ -1852,7 +1844,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=60]
+[sub_resource type="Animation" id=58]
 length = 0.2
 tracks/0/type = "method"
 tracks/0/path = NodePath("TextureRect/RunScript")
@@ -1895,7 +1887,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=61]
+[sub_resource type="Animation" id=59]
 length = 0.2
 tracks/0/type = "method"
 tracks/0/path = NodePath("TextureRect/RunScript")
@@ -1938,7 +1930,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=62]
+[sub_resource type="Animation" id=60]
 length = 0.2
 tracks/0/type = "method"
 tracks/0/path = NodePath("TextureRect/RunScript")
@@ -1981,7 +1973,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=63]
+[sub_resource type="Animation" id=61]
 length = 0.2
 tracks/0/type = "method"
 tracks/0/path = NodePath("TextureRect/RunScript")
@@ -2024,7 +2016,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=64]
+[sub_resource type="Animation" id=62]
 length = 0.2
 tracks/0/type = "method"
 tracks/0/path = NodePath("TextureRect/RunScript")
@@ -2067,7 +2059,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=65]
+[sub_resource type="Animation" id=63]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:modulate")
@@ -2096,7 +2088,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=66]
+[sub_resource type="Animation" id=64]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control:modulate")
@@ -2125,7 +2117,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=67]
+[sub_resource type="Animation" id=65]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Backlog:visible")
@@ -2176,7 +2168,7 @@ tracks/3/keys = {
 "values": [ 0.0, 88.0 ]
 }
 
-[sub_resource type="Animation" id=68]
+[sub_resource type="Animation" id=66]
 length = 0.2
 tracks/0/type = "method"
 tracks/0/path = NodePath("TextureRect/RunScript")
@@ -2219,7 +2211,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=69]
+[sub_resource type="Animation" id=67]
 length = 1.25
 step = 0.05
 tracks/0/type = "value"
@@ -2263,49 +2255,49 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="AtlasTexture" id=70]
+[sub_resource type="AtlasTexture" id=68]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 96, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=71]
+[sub_resource type="AtlasTexture" id=69]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 160, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=72]
+[sub_resource type="AtlasTexture" id=70]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 224, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=73]
+[sub_resource type="AtlasTexture" id=71]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 288, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=74]
+[sub_resource type="AtlasTexture" id=72]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 352, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=75]
+[sub_resource type="AtlasTexture" id=73]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 416, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="AtlasTexture" id=76]
+[sub_resource type="AtlasTexture" id=74]
 flags = 4
 atlas = ExtResource( 39 )
 region = Rect2( 480, 0, 64, 64 )
 filter_clip = true
 
-[sub_resource type="Animation" id=77]
+[sub_resource type="Animation" id=75]
 length = 0.8
 step = 0.05
 tracks/0/type = "value"
@@ -2318,7 +2310,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 8 ) ]
+"values": [ SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 8 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Gauge/Boom:visible")
@@ -2376,7 +2368,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=78]
+[sub_resource type="Animation" id=76]
 resource_name = "penalty_seduction"
 length = 0.8
 step = 0.05
@@ -2390,7 +2382,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 8 ) ]
+"values": [ SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 8 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Control/Seduction/VBoxContainer/Gauge/Boom:visible")
@@ -2436,7 +2428,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=79]
+[sub_resource type="Animation" id=77]
 length = 0.2
 tracks/0/type = "method"
 tracks/0/path = NodePath("TextureRect/RunScript")
@@ -2479,7 +2471,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=80]
+[sub_resource type="Animation" id=78]
 resource_name = "seduction_complete_show"
 length = 3.0
 tracks/0/type = "value"
@@ -2542,7 +2534,7 @@ tracks/4/keys = {
 "values": [ -1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=81]
+[sub_resource type="Animation" id=79]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("TheAceSeduction:visible")
@@ -2593,7 +2585,7 @@ tracks/3/keys = {
 "values": [ 2.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=82]
+[sub_resource type="Animation" id=80]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Backlog:visible")
@@ -2644,7 +2636,7 @@ tracks/3/keys = {
 "values": [ 88.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=83]
+[sub_resource type="Animation" id=81]
 length = 2.5
 step = 0.05
 tracks/0/type = "value"
@@ -2746,68 +2738,78 @@ tracks/7/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="AtlasTexture" id=84]
+[sub_resource type="AtlasTexture" id=82]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 672, 288, 128, 50 )
 
-[sub_resource type="AtlasTexture" id=85]
+[sub_resource type="AtlasTexture" id=83]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 672, 338, 128, 50 )
 
-[sub_resource type="AtlasTexture" id=86]
+[sub_resource type="AtlasTexture" id=84]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 672, 388, 128, 50 )
 
-[sub_resource type="AtlasTexture" id=87]
+[sub_resource type="AtlasTexture" id=85]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 672, 438, 128, 50 )
 
-[sub_resource type="AtlasTexture" id=88]
+[sub_resource type="AtlasTexture" id=86]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 0, 0, 104, 88 )
 
-[sub_resource type="AtlasTexture" id=89]
+[sub_resource type="AtlasTexture" id=87]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 104, 0, 104, 88 )
 
-[sub_resource type="AtlasTexture" id=90]
+[sub_resource type="AtlasTexture" id=88]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 208, 176, 104, 88 )
 
-[sub_resource type="AtlasTexture" id=91]
+[sub_resource type="AtlasTexture" id=89]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 312, 176, 104, 88 )
 
-[sub_resource type="AtlasTexture" id=92]
+[sub_resource type="AtlasTexture" id=90]
 flags = 4
 atlas = ExtResource( 50 )
 region = Rect2( 0, 0, 104, 88 )
 
-[sub_resource type="AtlasTexture" id=93]
+[sub_resource type="AtlasTexture" id=91]
 flags = 4
 atlas = ExtResource( 50 )
 region = Rect2( 104, 0, 104, 88 )
 
-[sub_resource type="AtlasTexture" id=94]
+[sub_resource type="AtlasTexture" id=92]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 0, 88, 104, 88 )
 
-[sub_resource type="AtlasTexture" id=95]
+[sub_resource type="AtlasTexture" id=93]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 104, 88, 104, 88 )
 
-[sub_resource type="StyleBoxFlat" id=96]
+[sub_resource type="StyleBoxFlat" id=94]
 bg_color = Color( 0.1, 0.1, 0.1, 0.74902 )
+
+[sub_resource type="AtlasTexture" id=95]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 542, 94, 64, 100 )
+
+[sub_resource type="AtlasTexture" id=96]
+flags = 4
+atlas = ExtResource( 44 )
+region = Rect2( 606, 94, 64, 100 )
 
 [sub_resource type="AtlasTexture" id=97]
 flags = 4
@@ -2816,25 +2818,15 @@ region = Rect2( 542, 94, 64, 100 )
 
 [sub_resource type="AtlasTexture" id=98]
 flags = 4
-atlas = ExtResource( 44 )
-region = Rect2( 606, 94, 64, 100 )
-
-[sub_resource type="AtlasTexture" id=99]
-flags = 4
-atlas = ExtResource( 44 )
-region = Rect2( 542, 94, 64, 100 )
-
-[sub_resource type="AtlasTexture" id=100]
-flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 416, 96, 194, 96 )
 
-[sub_resource type="AtlasTexture" id=101]
+[sub_resource type="AtlasTexture" id=99]
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 610, 96, 194, 96 )
 
-[sub_resource type="Animation" id=102]
+[sub_resource type="Animation" id=100]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -2885,7 +2877,7 @@ tracks/3/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=103]
+[sub_resource type="Animation" id=101]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -2936,68 +2928,68 @@ tracks/3/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="StreamTexture" id=104]
+[sub_resource type="StreamTexture" id=102]
 flags = 4
 load_path = "res://.import/SaveLoadAtlas.png-58ddf3c58d4e25c248143d4fed3277e5.stex"
 
-[sub_resource type="AtlasTexture" id=105]
+[sub_resource type="AtlasTexture" id=103]
 flags = 4
-atlas = SubResource( 104 )
+atlas = SubResource( 102 )
 region = Rect2( 1648, 1499, 376, 68 )
 
-[sub_resource type="AtlasTexture" id=106]
+[sub_resource type="AtlasTexture" id=104]
 flags = 4
 atlas = ExtResource( 43 )
 region = Rect2( 968, 1572, 968, 472 )
 
-[sub_resource type="AtlasTexture" id=107]
+[sub_resource type="AtlasTexture" id=105]
 flags = 4
 atlas = ExtResource( 44 )
 region = Rect2( 543, 95, 52, 100 )
 
-[sub_resource type="AtlasTexture" id=108]
+[sub_resource type="AtlasTexture" id=106]
 flags = 4
 atlas = ExtResource( 44 )
 region = Rect2( 607, 95, 52, 100 )
 
-[sub_resource type="DynamicFont" id=109]
+[sub_resource type="DynamicFont" id=107]
 size = 24
 font_data = ExtResource( 46 )
 
-[sub_resource type="DynamicFont" id=110]
+[sub_resource type="DynamicFont" id=108]
 font_data = ExtResource( 46 )
 
-[sub_resource type="AtlasTexture" id=111]
+[sub_resource type="AtlasTexture" id=109]
 flags = 4
 atlas = ExtResource( 43 )
 region = Rect2( 0, 1432, 968, 612 )
 
-[sub_resource type="AtlasTexture" id=112]
+[sub_resource type="AtlasTexture" id=110]
 flags = 4
 atlas = ExtResource( 43 )
 region = Rect2( 820, 1284, 860, 48 )
 
-[sub_resource type="AtlasTexture" id=113]
+[sub_resource type="AtlasTexture" id=111]
 flags = 4
 atlas = ExtResource( 43 )
 region = Rect2( 788, 1056, 252, 84 )
 
-[sub_resource type="AtlasTexture" id=114]
+[sub_resource type="AtlasTexture" id=112]
 flags = 4
 atlas = ExtResource( 43 )
 region = Rect2( 1046, 1056, 252, 84 )
 
-[sub_resource type="AtlasTexture" id=115]
+[sub_resource type="AtlasTexture" id=113]
 flags = 4
 atlas = ExtResource( 43 )
 region = Rect2( 380, 28, 264, 80 )
 
-[sub_resource type="AtlasTexture" id=116]
+[sub_resource type="AtlasTexture" id=114]
 flags = 4
 atlas = ExtResource( 43 )
 region = Rect2( 380, 116, 264, 80 )
 
-[sub_resource type="Animation" id=117]
+[sub_resource type="Animation" id=115]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -3048,7 +3040,7 @@ tracks/3/keys = {
 "values": [ 0.5, 1.5 ]
 }
 
-[sub_resource type="Animation" id=118]
+[sub_resource type="Animation" id=116]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -3098,6 +3090,16 @@ tracks/3/keys = {
 "update": 0,
 "values": [ 1.5, 0.5 ]
 }
+
+[sub_resource type="AtlasTexture" id=117]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 0, 264, 104, 88 )
+
+[sub_resource type="AtlasTexture" id=118]
+flags = 4
+atlas = ExtResource( 38 )
+region = Rect2( 104, 264, 104, 88 )
 
 [sub_resource type="StyleBoxFlat" id=119]
 bg_color = Color( 0, 0, 0, 1 )
@@ -3778,6 +3780,7 @@ __meta__ = {
 }
 
 [node name="Choices" type="VBoxContainer" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -4135,45 +4138,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0.74902 )
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -212.0
-margin_bottom = 88.0
-grow_horizontal = 0
-rect_pivot_offset = Vector2( 106, 44 )
-alignment = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OrganizerButton" type="TextureButton" parent="HBoxContainer"]
-margin_right = 104.0
-margin_bottom = 88.0
-grow_horizontal = 0
-focus_mode = 0
-enabled_focus_mode = 0
-texture_normal = ExtResource( 21 )
-texture_hover = ExtResource( 22 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveButton" type="TextureButton" parent="HBoxContainer"]
-margin_left = 108.0
-margin_right = 212.0
-margin_bottom = 88.0
-grow_horizontal = 0
-focus_mode = 0
-enabled_focus_mode = 0
-texture_normal = SubResource( 55 )
-texture_hover = SubResource( 56 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Panel" type="Panel" parent="."]
 visible = false
 anchor_left = 0.5
@@ -4194,26 +4158,26 @@ margin_bottom = 28.0
 text = "Seduction +25%"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/chapter_transition = SubResource( 57 )
-anims/chapter_transition_hide = SubResource( 58 )
-anims/chapter_transition_show = SubResource( 59 )
-anims/echar0fadeout = SubResource( 60 )
-anims/echar1fadeout = SubResource( 61 )
-anims/echar2fadeout = SubResource( 62 )
-anims/echar3fadeout = SubResource( 63 )
-anims/echar4fadeout = SubResource( 64 )
-anims/fadein = SubResource( 65 )
-anims/fadeout = SubResource( 66 )
-anims/hide_backlog = SubResource( 67 )
-anims/lcharfadeout = SubResource( 68 )
-anims/objection = SubResource( 69 )
-anims/penalty = SubResource( 77 )
-anims/penalty_seduction = SubResource( 78 )
-anims/rcharfadeout = SubResource( 79 )
-anims/seduction_complete_show = SubResource( 80 )
-anims/seduction_show = SubResource( 81 )
-anims/show_backlog = SubResource( 82 )
-anims/vs = SubResource( 83 )
+anims/chapter_transition = SubResource( 55 )
+anims/chapter_transition_hide = SubResource( 56 )
+anims/chapter_transition_show = SubResource( 57 )
+anims/echar0fadeout = SubResource( 58 )
+anims/echar1fadeout = SubResource( 59 )
+anims/echar2fadeout = SubResource( 60 )
+anims/echar3fadeout = SubResource( 61 )
+anims/echar4fadeout = SubResource( 62 )
+anims/fadein = SubResource( 63 )
+anims/fadeout = SubResource( 64 )
+anims/hide_backlog = SubResource( 65 )
+anims/lcharfadeout = SubResource( 66 )
+anims/objection = SubResource( 67 )
+anims/penalty = SubResource( 75 )
+anims/penalty_seduction = SubResource( 76 )
+anims/rcharfadeout = SubResource( 77 )
+anims/seduction_complete_show = SubResource( 78 )
+anims/seduction_show = SubResource( 79 )
+anims/show_backlog = SubResource( 80 )
+anims/vs = SubResource( 81 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
@@ -4305,8 +4269,8 @@ anchor_bottom = 1.0
 margin_left = -64.0
 margin_top = -48.0
 margin_right = 64.0
-texture_normal = SubResource( 84 )
-texture_hover = SubResource( 85 )
+texture_normal = SubResource( 82 )
+texture_hover = SubResource( 83 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4321,8 +4285,8 @@ anchor_bottom = 1.0
 margin_left = -64.0
 margin_top = -48.0
 margin_right = 64.0
-texture_normal = SubResource( 86 )
-texture_hover = SubResource( 87 )
+texture_normal = SubResource( 84 )
+texture_hover = SubResource( 85 )
 
 [node name="Buttons" type="HBoxContainer" parent="Investigation"]
 anchor_left = 0.5
@@ -4343,24 +4307,24 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0.74902 )
 margin_right = 104.0
 margin_bottom = 88.0
-texture_normal = SubResource( 88 )
-texture_hover = SubResource( 89 )
+texture_normal = SubResource( 86 )
+texture_hover = SubResource( 87 )
 
 [node name="Talk" type="TextureButton" parent="Investigation/Buttons"]
 modulate = Color( 1, 1, 1, 0.74902 )
 margin_left = 168.0
 margin_right = 272.0
 margin_bottom = 88.0
-texture_normal = SubResource( 90 )
-texture_hover = SubResource( 91 )
+texture_normal = SubResource( 88 )
+texture_hover = SubResource( 89 )
 
 [node name="Move" type="TextureButton" parent="Investigation/Buttons"]
 modulate = Color( 1, 1, 1, 0.74902 )
 margin_left = 336.0
 margin_right = 440.0
 margin_bottom = 88.0
-texture_normal = SubResource( 92 )
-texture_hover = SubResource( 93 )
+texture_normal = SubResource( 90 )
+texture_hover = SubResource( 91 )
 
 [node name="Back" type="TextureButton" parent="Investigation"]
 modulate = Color( 1, 1, 1, 0.74902 )
@@ -4369,8 +4333,8 @@ anchor_bottom = 1.0
 margin_top = -88.0
 margin_right = 104.0
 grow_vertical = 0
-texture_normal = SubResource( 94 )
-texture_hover = SubResource( 95 )
+texture_normal = SubResource( 92 )
+texture_hover = SubResource( 93 )
 
 [node name="Places" type="VBoxContainer" parent="Investigation"]
 visible = false
@@ -4401,7 +4365,7 @@ visible = false
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 96 )
+custom_styles/panel = SubResource( 94 )
 script = ExtResource( 55 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -4467,8 +4431,8 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 margin_bottom = 88.0
 grow_vertical = 0
-texture_normal = SubResource( 94 )
-texture_hover = SubResource( 95 )
+texture_normal = SubResource( 92 )
+texture_hover = SubResource( 93 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4698,8 +4662,8 @@ margin_left = -376.0
 margin_right = -376.0
 grow_vertical = 2
 rect_scale = Vector2( -1, 1 )
-texture_normal = SubResource( 97 )
-texture_hover = SubResource( 98 )
+texture_normal = SubResource( 95 )
+texture_hover = SubResource( 96 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4713,8 +4677,8 @@ margin_left = 376.0
 margin_top = -50.0
 margin_bottom = 50.0
 grow_vertical = 2
-texture_normal = SubResource( 99 )
-texture_hover = SubResource( 98 )
+texture_normal = SubResource( 97 )
+texture_hover = SubResource( 96 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4739,12 +4703,12 @@ visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
-texture_normal = SubResource( 100 )
-texture_pressed = SubResource( 101 )
+texture_normal = SubResource( 98 )
+texture_pressed = SubResource( 99 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Organizer"]
-anims/hide = SubResource( 102 )
-anims/show = SubResource( 103 )
+anims/hide = SubResource( 100 )
+anims/show = SubResource( 101 )
 
 [node name="SaveMenu" type="Control" parent="."]
 visible = false
@@ -4771,7 +4735,7 @@ __meta__ = {
 margin_right = 376.0
 margin_bottom = 68.0
 size_flags_horizontal = 0
-texture = SubResource( 105 )
+texture = SubResource( 103 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4782,7 +4746,7 @@ margin_right = 968.0
 margin_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource( 106 )
+texture = SubResource( 104 )
 
 [node name="Prev" type="TextureButton" parent="SaveMenu/VBoxContainer/TextureRect"]
 anchor_top = 0.5
@@ -4793,8 +4757,8 @@ margin_right = 132.0
 margin_bottom = 50.0
 grow_vertical = 2
 rect_scale = Vector2( -1, 1 )
-texture_normal = SubResource( 107 )
-texture_hover = SubResource( 108 )
+texture_normal = SubResource( 105 )
+texture_hover = SubResource( 106 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4807,8 +4771,8 @@ anchor_bottom = 0.5
 margin_right = -40.0
 grow_horizontal = 0
 grow_vertical = 2
-texture_normal = SubResource( 107 )
-texture_hover = SubResource( 108 )
+texture_normal = SubResource( 105 )
+texture_hover = SubResource( 106 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4829,6 +4793,11 @@ margin_right = 555.0
 margin_bottom = 96.0
 grow_horizontal = 2
 rect_min_size = Vector2( 555, 96 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../SaveIcon2")
+texture_hover = ExtResource( 60 )
 expand = true
 
 [node name="Line" type="RichTextLabel" parent="SaveMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon"]
@@ -4836,7 +4805,7 @@ anchor_right = 1.0
 margin_left = 196.0
 margin_top = 4.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 109 )
+custom_fonts/normal_font = SubResource( 107 )
 custom_colors/default_color = Color( 0.466667, 0.133333, 0, 1 )
 fit_content_height = true
 __meta__ = {
@@ -4850,7 +4819,7 @@ anchor_bottom = 1.0
 margin_right = -6.0
 margin_bottom = -4.0
 grow_vertical = 0
-custom_fonts/font = SubResource( 110 )
+custom_fonts/font = SubResource( 108 )
 custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
 align = 2
 __meta__ = {
@@ -4863,6 +4832,11 @@ margin_right = 555.0
 margin_bottom = 196.0
 grow_horizontal = 2
 rect_min_size = Vector2( 555, 96 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath("../SaveIcon")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../SaveIcon3")
+texture_hover = ExtResource( 60 )
 expand = true
 
 [node name="Line" type="RichTextLabel" parent="SaveMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon2"]
@@ -4870,7 +4844,7 @@ anchor_right = 1.0
 margin_left = 196.0
 margin_top = 4.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 109 )
+custom_fonts/normal_font = SubResource( 107 )
 custom_colors/default_color = Color( 0.466667, 0.133333, 0, 1 )
 fit_content_height = true
 __meta__ = {
@@ -4884,7 +4858,7 @@ anchor_bottom = 1.0
 margin_right = -6.0
 margin_bottom = -4.0
 grow_vertical = 0
-custom_fonts/font = SubResource( 110 )
+custom_fonts/font = SubResource( 108 )
 custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
 align = 2
 __meta__ = {
@@ -4897,6 +4871,11 @@ margin_right = 555.0
 margin_bottom = 296.0
 grow_horizontal = 2
 rect_min_size = Vector2( 555, 96 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath("../SaveIcon2")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../SaveIcon4")
+texture_hover = ExtResource( 60 )
 expand = true
 
 [node name="Line" type="RichTextLabel" parent="SaveMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon3"]
@@ -4904,7 +4883,7 @@ anchor_right = 1.0
 margin_left = 196.0
 margin_top = 4.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 109 )
+custom_fonts/normal_font = SubResource( 107 )
 custom_colors/default_color = Color( 0.466667, 0.133333, 0, 1 )
 fit_content_height = true
 __meta__ = {
@@ -4918,7 +4897,7 @@ anchor_bottom = 1.0
 margin_right = -6.0
 margin_bottom = -4.0
 grow_vertical = 0
-custom_fonts/font = SubResource( 110 )
+custom_fonts/font = SubResource( 108 )
 custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
 align = 2
 __meta__ = {
@@ -4931,6 +4910,11 @@ margin_right = 555.0
 margin_bottom = 396.0
 grow_horizontal = 2
 rect_min_size = Vector2( 555, 96 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath("../SaveIcon3")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+texture_hover = ExtResource( 60 )
 expand = true
 
 [node name="Line" type="RichTextLabel" parent="SaveMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon4"]
@@ -4938,7 +4922,7 @@ anchor_right = 1.0
 margin_left = 196.0
 margin_top = 4.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 109 )
+custom_fonts/normal_font = SubResource( 107 )
 custom_colors/default_color = Color( 0.466667, 0.133333, 0, 1 )
 fit_content_height = true
 __meta__ = {
@@ -4952,7 +4936,7 @@ anchor_bottom = 1.0
 margin_right = -6.0
 margin_bottom = -4.0
 grow_vertical = 0
-custom_fonts/font = SubResource( 110 )
+custom_fonts/font = SubResource( 108 )
 custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
 align = 2
 __meta__ = {
@@ -4977,7 +4961,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 rect_min_size = Vector2( 726, 459 )
-texture = SubResource( 111 )
+texture = SubResource( 109 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -4990,7 +4974,7 @@ margin_left = -430.0
 margin_top = 32.0
 margin_right = 430.0
 grow_horizontal = 2
-texture = SubResource( 112 )
+texture = SubResource( 110 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -5012,7 +4996,7 @@ anchor_right = 1.0
 margin_left = 196.0
 margin_top = 4.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 109 )
+custom_fonts/normal_font = SubResource( 107 )
 custom_colors/default_color = Color( 0.466667, 0.133333, 0, 1 )
 fit_content_height = true
 __meta__ = {
@@ -5026,7 +5010,7 @@ anchor_bottom = 1.0
 margin_right = -6.0
 margin_bottom = -4.0
 grow_vertical = 0
-custom_fonts/font = SubResource( 110 )
+custom_fonts/font = SubResource( 108 )
 custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
 align = 2
 __meta__ = {
@@ -5050,7 +5034,7 @@ anchor_right = 1.0
 margin_left = 196.0
 margin_top = 4.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 109 )
+custom_fonts/normal_font = SubResource( 107 )
 custom_colors/default_color = Color( 0.466667, 0.133333, 0, 1 )
 fit_content_height = true
 __meta__ = {
@@ -5064,7 +5048,7 @@ anchor_bottom = 1.0
 margin_right = -6.0
 margin_bottom = -4.0
 grow_vertical = 0
-custom_fonts/font = SubResource( 110 )
+custom_fonts/font = SubResource( 108 )
 custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
 align = 2
 __meta__ = {
@@ -5087,7 +5071,7 @@ __meta__ = {
 [node name="Yes" type="TextureButton" parent="SaveMenu/VBoxContainer/TextureRect/Overwrite/HBoxContainer"]
 margin_right = 252.0
 margin_bottom = 84.0
-texture_normal = SubResource( 113 )
+texture_normal = SubResource( 111 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -5096,7 +5080,7 @@ __meta__ = {
 margin_left = 284.0
 margin_right = 536.0
 margin_bottom = 84.0
-texture_normal = SubResource( 114 )
+texture_normal = SubResource( 112 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -5116,7 +5100,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ToTitle" type="TextureButton" parent="SaveMenu"]
+[node name="Xbox" type="TextureRect" parent="SaveMenu"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -252.0
+margin_top = -54.0
+margin_right = -204.0
+margin_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 48, 48 )
+texture = ExtResource( 59 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToTitle2" type="TextureButton" parent="SaveMenu"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -5125,16 +5128,55 @@ margin_left = -198.0
 grow_horizontal = 0
 grow_vertical = 0
 rect_min_size = Vector2( 198, 60 )
-texture_normal = SubResource( 115 )
-texture_hover = SubResource( 116 )
+texture_normal = SubResource( 113 )
+texture_hover = SubResource( 114 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SaveMenu"]
-anims/hide = SubResource( 117 )
-anims/show = SubResource( 118 )
+anims/hide = SubResource( 115 )
+anims/show = SubResource( 116 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.74902 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -212.0
+margin_bottom = 88.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 106, 44 )
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OrganizerButton" type="TextureButton" parent="HBoxContainer"]
+margin_right = 104.0
+margin_bottom = 88.0
+grow_horizontal = 0
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="TextureButton" parent="HBoxContainer"]
+margin_left = 108.0
+margin_right = 212.0
+margin_bottom = 88.0
+grow_horizontal = 0
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = SubResource( 117 )
+texture_hover = SubResource( 118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ChapterEnd" type="Panel" parent="."]
 visible = false
@@ -5211,8 +5253,6 @@ __meta__ = {
 [connection signal="pressed" from="TextureRect/Organizer" to="Organizer" method="_open"]
 [connection signal="pressed" from="TextureRect/Save" to="SaveMenu" method="_open"]
 [connection signal="pressed" from="Present" to="Organizer" method="_open_present"]
-[connection signal="pressed" from="HBoxContainer/OrganizerButton" to="Organizer" method="_open"]
-[connection signal="pressed" from="HBoxContainer/SaveButton" to="SaveMenu" method="_open"]
 [connection signal="pressed" from="Investigation/SideLeft" to="Control/BG" method="_switch_side"]
 [connection signal="pressed" from="Investigation/SideRight" to="Control/BG" method="_switch_side"]
 [connection signal="pressed" from="Investigation/Buttons/Examine" to="." method="_examine"]
@@ -5242,4 +5282,6 @@ __meta__ = {
 [connection signal="pressed" from="SaveMenu/VBoxContainer/TextureRect/Overwrite/HBoxContainer/Yes" to="SaveMenu" method="_overwrite_yes"]
 [connection signal="pressed" from="SaveMenu/VBoxContainer/TextureRect/Overwrite/HBoxContainer/No" to="SaveMenu" method="_overwrite_no"]
 [connection signal="pressed" from="SaveMenu/Back" to="SaveMenu" method="_back"]
-[connection signal="pressed" from="SaveMenu/ToTitle" to="SaveMenu" method="_to_title"]
+[connection signal="pressed" from="SaveMenu/ToTitle2" to="SaveMenu" method="_to_title"]
+[connection signal="pressed" from="HBoxContainer/OrganizerButton" to="Organizer" method="_open"]
+[connection signal="pressed" from="HBoxContainer/SaveButton" to="SaveMenu" method="_open"]

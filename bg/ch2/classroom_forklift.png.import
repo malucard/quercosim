@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/classroom_forklift.png-86df1a1c2129f3c563d0f74f8b859a91.s3tc.stex"
 path.etc="res://.import/classroom_forklift.png-86df1a1c2129f3c563d0f74f8b859a91.etc.stex"
+path.pvrtc="res://.import/classroom_forklift.png-86df1a1c2129f3c563d0f74f8b859a91.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://bg/ch2/classroom_forklift.png"
-dest_files=[ "res://.import/classroom_forklift.png-86df1a1c2129f3c563d0f74f8b859a91.s3tc.stex", "res://.import/classroom_forklift.png-86df1a1c2129f3c563d0f74f8b859a91.etc.stex" ]
+dest_files=[ "res://.import/classroom_forklift.png-86df1a1c2129f3c563d0f74f8b859a91.s3tc.stex", "res://.import/classroom_forklift.png-86df1a1c2129f3c563d0f74f8b859a91.etc.stex", "res://.import/classroom_forklift.png-86df1a1c2129f3c563d0f74f8b859a91.pvrtc.stex" ]
 
 [params]
 

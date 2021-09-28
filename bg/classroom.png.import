@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/classroom.png-1eeb0316d5c83a7998e4ab1b7d9438d1.s3tc.stex"
 path.etc="res://.import/classroom.png-1eeb0316d5c83a7998e4ab1b7d9438d1.etc.stex"
+path.pvrtc="res://.import/classroom.png-1eeb0316d5c83a7998e4ab1b7d9438d1.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://bg/classroom.png"
-dest_files=[ "res://.import/classroom.png-1eeb0316d5c83a7998e4ab1b7d9438d1.s3tc.stex", "res://.import/classroom.png-1eeb0316d5c83a7998e4ab1b7d9438d1.etc.stex" ]
+dest_files=[ "res://.import/classroom.png-1eeb0316d5c83a7998e4ab1b7d9438d1.s3tc.stex", "res://.import/classroom.png-1eeb0316d5c83a7998e4ab1b7d9438d1.etc.stex", "res://.import/classroom.png-1eeb0316d5c83a7998e4ab1b7d9438d1.pvrtc.stex" ]
 
 [params]
 

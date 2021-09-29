@@ -14,7 +14,7 @@ func push_message(speaker: String, text: String):
 	$ScrollContainer/VBoxContainer.add_child(d)
 
 func _ready():
-	if OS.has_feature("mobile"):
+	if globals.mobile:
 		$"../TextureRect/TextureRect".texture = load("res://gui/textbox_mobile.png")
 		$"../TextureRect/Backlog".visible = false
 		$"../TextureRect/Organizer".visible = false
@@ -60,7 +60,7 @@ func _close_backlog():
 
 func _process(_delta):
 	var btn = $"../TextureRect/BacklogMobile"
-	if OS.has_feature("mobile"):
+	if globals.mobile:
 		btn.visible = true
 		btn.self_modulate.a = 0.9 if btn.is_hovered() else 0.75
 	else:

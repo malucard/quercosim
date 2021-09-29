@@ -1,6 +1,6 @@
 extends Control
 
-const version = "0.2.3-dev"
+const version = "0.2.3"
 
 # future proofing just in case
 const server_links = [
@@ -90,10 +90,10 @@ func next_server(req: HTTPRequest, err = null):
 		if trying_server >= len(server_links) - 1:
 			push_error("error checking version online")
 			return
-		trying_server += 1
 		err = req.request(server_links[trying_server])
 		if err == OK:
 			print(server_links[trying_server])
+		trying_server += 1
 
 func _req_done(res, res_code, headers, body, req):
 	var response = parse_json(body.get_string_from_utf8())
@@ -108,9 +108,9 @@ func _req_done(res, res_code, headers, body, req):
 		var newver = response.latest[os] if os in response.latest else response.latest.all
 		var links = newver.links if "links" in newver else []
 		newver = newver.name
-		$Version/HBoxContainer/Label.bbcode_text = "[right]Latest: v" + newver
 		if cmp_semver(newver, version) != 1:
 			return
+		$Version/HBoxContainer/Label.bbcode_text = "[right]Latest: v" + newver
 		#print(response.headers["User-Agent"])
 		if !links.empty():
 			$Version/HBoxContainer/Label.bbcode_text += " ("

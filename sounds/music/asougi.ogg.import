@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/asougi.ogg-6a02424904bb2661f20342afa91f9901.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/asougi.ogg"
+dest_files=[ "res://.import/asougi.ogg-6a02424904bb2661f20342afa91f9901.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

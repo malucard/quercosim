@@ -1,3 +1,7 @@
+# v0.2.4
+2021/10/2
+a few lines changed in chapter 2, added Import from URL and Delete Installed buttons, some internal changes and fixed the HTML export, moved to itch.io and CircleCI
+
 # v0.2.3
 2021/9/28
 Fixes chapter 2 script error causing potential softlock in investigation, properly fixes custom content support on Android, UI is scaled up to a fixed size on mobile, controller controls improved but still incomplete, online update detector added

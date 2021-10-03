@@ -206,6 +206,7 @@ func _bg_draw():
 			bg_control.draw_rect(Rect2(e.x * s + bg_control.rect_position.x, e.y * s + bg_control.rect_position.y, e.w * s, e.h * s), Color(0x7F7FFF9F), true, 1.0, false)
 			bg_control.draw_rect(Rect2(e.x * s + bg_control.rect_position.x - BORDER / 2, e.y * s + bg_control.rect_position.y - BORDER / 2, e.w * s + BORDER, e.h * s + BORDER), Color(0xFF7F7F9F), false, BORDER, false)
 
+var default_20 = load("res://gui/fonts/default_20.tres")
 func update_talks():
 	var talk = $HBoxContainer/VBoxContainer2/Area/Talk/Box
 	var children = talk.get_children()
@@ -220,7 +221,7 @@ func update_talks():
 		for i in range(talks.size()):
 			var tb = ToolButton.new()
 			tb.text = talks[i]
-			tb.add_font_override("font", preload("res://gui/fonts/default_20.tres"))
+			tb.add_font_override("font", default_20)
 			talk.add_child(tb)
 			tb.connect("pressed", self, "_select_talk", [talks[i]])
 	else:

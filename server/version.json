@@ -1,7 +1,7 @@
 {
 	"latest": {
 		"all": {
-			"name": "0.2.3",
+			"name": "0.2.4",
 			"links": ["download", "changelog"]
 		}
 	},
@@ -10,10 +10,7 @@
 			"all": "https://github.com/malucard/quercosim/blob/main/server/changelog.md"
 		},
 		"download": {
-			"x11": "https://www.mediafire.com/file/vql4j0q8g89sfzm/quercos.x86_64/file",
-			"android": "https://www.mediafire.com/file/42v7fyyo3zgzdbm/quercos.apk/file",
-			"osx": "https://www.mediafire.com/file/0dmv99q8zb7q35m/querco.zip/file",
-			"windows": "https://www.mediafire.com/file/955qorgam3pkb0f/quercos.exe/file"
+			"all": "https://malucart.itch.io/aai0-qads"
 		}
 	}
 }

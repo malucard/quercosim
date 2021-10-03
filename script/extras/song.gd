@@ -114,6 +114,6 @@ func _ready():
 	if "work" in info:
 		bb += "[cell][color=#777]From [/color][/cell]"
 		bb += "[cell][color=#aaa]" + info.work + "[/color][/cell]"
-	$TextureRect.texture = load("res://sounds/music/covers/" + info.cover)
+	$TextureRect.texture = load("res://gui/covers/" + info.cover)
 	$VBoxContainer/Title.bbcode_text = info.title
 	$VBoxContainer/Info.bbcode_text = bb

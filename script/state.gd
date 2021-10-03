@@ -120,12 +120,13 @@ func object(char_name, type):
 		var c = globals.chars[char_name]
 		objec_player.stream = c.load_(c.objection)
 	else:
-		objec_player.stream = preload("res://sounds/objection.wav")
+		objec_player.stream = load("res://sounds/objection.wav")
 	objec_player.volume_db = linear2db(0.75)
 	anim.get_node("../Objection").texture = globals.bubbles[type]
 	anim.play("objection")
 	parser.stop_talking()
 
+var choice_button = load("res://gui/choice_button.tscn")
 var music_start = 0
 var shaking_start = 0
 var last_shake = 0
@@ -169,7 +170,7 @@ func _process(_delta):
 			for i in range(children.size()):
 				children[i].queue_free()
 			for i in range(open_areas.size()):
-				var ins = preload("res://gui/choice_button.tscn").instance()
+				var ins = choice_button.instance()
 				ins.get_node("Label").text = inv.areas[open_areas[i]].name
 				ins.connect("pressed", self, "_move_to", [open_areas[i]])
 				places.add_child(ins)
@@ -195,7 +196,7 @@ func _process(_delta):
 			for i in range(children.size()):
 				children[i].queue_free()
 			for i in range(open_talks.size()):
-				var ins = preload("res://gui/choice_button.tscn").instance()
+				var ins = choice_button.instance()
 				ins.get_node("Label").text = keys[open_talks[i]]
 				ins.connect("pressed", self, "_talk_about", [keys[open_talks[i]]])
 				talks.add_child(ins)

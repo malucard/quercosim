@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 func _ready():
-	var scn = preload("song.tscn")
+	var scn = load("song.tscn")
 	for key in ExtrasSong.infos:
 		var s = scn.instance()
 		s.song = key

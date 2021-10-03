@@ -8,8 +8,8 @@ onready var icons = [
 	$VBoxContainer/TextureRect/VBoxContainer/SaveIcon3,
 	$VBoxContainer/TextureRect/VBoxContainer/SaveIcon4
 ]
-const empty_tex = preload("res://gui/empty_save_icon.tres")
-const tex = preload("res://gui/save_icon.tres")
+var empty_tex = load("res://gui/empty_save_icon.tres")
+var tex = load("res://gui/save_icon.tres")
 
 func get_save(n: int):
 	var f = File.new()
@@ -62,8 +62,9 @@ func _next_page():
 	page += 1
 	update_icons()
 
+var main_scn = load("res://main.tscn")
 func load_save(save):
-	var new_main = preload("res://main.tscn").instance()
+	var new_main = main_scn.instance()
 	var parser = new_main.get_node("TextureRect/RunScript")
 	parser.load_script(save.file)
 	parser.start_advancing = false

@@ -197,9 +197,10 @@ func _add_command():
 	#$AddCmdPopup.add_item("Pose")
 	$AddCmdPopup.popup()
 
+var main_scn = load("res://main.tscn")
 func _test():
 	if !state:
-		state = preload("res://main.tscn").instance()
+		state = main_scn.instance()
 		var parser = state.get_node("TextureRect/RunScript")
 		parser.script_path = cur_script
 		parser.script_id = cur_script.trim_suffix(".txt").trim_prefix(globals.user_dir + "content/script/")

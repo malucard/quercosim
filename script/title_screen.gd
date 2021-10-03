@@ -1,6 +1,6 @@
 extends Control
 
-const version = "0.2.3"
+var version = Parser.load_text_file("res://version.txt").strip_edges()
 
 # future proofing just in case
 const server_links = [
@@ -220,10 +220,11 @@ func _close_shortcut():
 	globals.play_sfx("back")
 	$AnimationPlayer.play("hide_shortcut")
 
+var main_scn = load("res://main.tscn")
 func _play_shortcut(which: int):
 	globals.play_sfx("save_load")
 	if which == -1:
-		var new_main = preload("res://main.tscn").instance()
+		var new_main = main_scn.instance()
 		var parser = new_main.get_node("TextureRect/RunScript")
 		parser.load_script("debug")
 		get_tree().current_scene.queue_free()
@@ -232,7 +233,7 @@ func _play_shortcut(which: int):
 	elif which == 1:
 		get_tree().change_scene("res://main.tscn")
 	else:
-		var new_main = preload("res://main.tscn").instance()
+		var new_main = main_scn.instance()
 		var parser = new_main.get_node("TextureRect/RunScript")
 		parser.load_script("script_ch" + str(which))
 		get_tree().current_scene.queue_free()
@@ -418,3 +419,75 @@ func _open_folder():
 	if d.open(globals.user_dir + "content") != OK:
 		d.make_dir(globals.user_dir + "content")
 	OS.shell_open(ProjectSettings.globalize_path(globals.user_dir + "content"))
+
+func _delete_content():
+	globals.play_sfx("click")
+	$DeleteDialog.popup_centered()
+
+func delete_dir(path: String):
+	var h = Directory.new()
+	print(path)
+	if h.open(path) != OK:
+		return
+	h.list_dir_begin(true)
+	var fn = h.get_next()
+	while fn != "":
+		if h.current_is_dir() and fn != "." and fn != "..":
+			delete_dir(path + "/" + fn)
+		else:
+			h.remove(fn)
+		fn = h.get_next()
+	Directory.new().remove(path)
+
+func _delete_content_ok():
+	delete_dir(globals.user_dir + "content")
+	globals.play_sfx("smash")
+
+func _import_url():
+	$URLDialog.popup_centered()
+	if OS.clipboard != "":
+		$URLDialog/LineEdit.text = OS.clipboard
+
+var done = false
+func _import_url_ok():
+	var req = HTTPRequest.new()
+	add_child(req)
+	req.connect("request_completed", self, "_downloaded", [req])
+	req.download_file = globals.user_dir + "tmp.querco"
+	$BlackScreen.visible = true
+	$BlackScreen/Label.text = "Connecting"
+	done = false
+	var err = req.request($URLDialog/LineEdit.text)
+	if err != OK:
+		$BlackScreen.visible = true
+		$BlackScreen/Label.text = "Error connecting"
+		yield(get_tree().create_timer(2.0), "timeout")
+		$BlackScreen.visible = false
+	else:
+		while !done and is_instance_valid(req):
+			var bs = req.get_body_size()
+			if bs != -1:
+				var fmt = "B"
+				var div = 1
+				if bs > 1024 * 1024:
+					fmt = "MiB"
+					div = 1024 * 1024
+				elif bs > 1024:
+					fmt = "KiB"
+					div = 1024
+				$BlackScreen/Label.text = "Downloaded\n%.3f %s\n/\n%.3f %s" % [float(req.get_downloaded_bytes()) / div, fmt, float(bs) / div, fmt]
+			yield(get_tree(), "idle_frame")
+
+func _downloaded(res, res_code, headers, body, req):
+	done = true
+	if res_code == 200:
+		_import_ok(globals.user_dir + "tmp.querco")
+		Directory.new().remove(globals.user_dir + "tmp.querco")
+		req.queue_free()
+	else:
+		$BlackScreen/Label.text = "Error downloading"
+		if File.new().file_exists(globals.user_dir + "tmp.querco"):
+			Directory.new().remove(globals.user_dir + "tmp.querco")
+		yield(get_tree().create_timer(2.0), "timeout")
+		$BlackScreen.visible = false
+		req.queue_free()

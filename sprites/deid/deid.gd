@@ -2,7 +2,7 @@ extends Character
 
 var poses = {
 	normal = {
-		texture = preload("normal.png")
+		texture = "normal.png"
 	}
 }
 

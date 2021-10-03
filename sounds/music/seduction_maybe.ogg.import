@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/seduction_maybe.ogg-e3f6f4148ad40334d7a4001fb8f6b407.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/seduction_maybe.ogg"
+dest_files=[ "res://.import/seduction_maybe.ogg-e3f6f4148ad40334d7a4001fb8f6b407.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

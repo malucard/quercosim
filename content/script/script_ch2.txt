@@ -684,9 +684,9 @@ char shelock normal
 sh Since this is your first time in the Dance of Seduction, would you fancy a tutorial?
 label repeat
 pose shelock polish
-sh The bar to the top left shows your [h]dominance[/h]. You can increase it by flirting or being smart.
-sh If you fill it, it'll stay full for eternity, and you'll have time to think! But make sure to not let it empty, and to not make a mistake.
-sh Doing nothing isn't hot. Wait enough time without acting, and you might just get overseduced and lose. But don't feel too pressured! There is ample time, as you may realize.
+sh Look to your top left. That bar is your [h]dominance[/h]. You can dominate by flirting or being smart.
+sh Doing nothing isn't hot, as your rapidly decrementing influence may make clear. Be boring enough, and you might just lose everything you've ever wanted. (note: you get to see a bad end)
+sh But fill it, and it will stay for as long as you keep your act together! Give that a go if you need time to think. Don't feel pressured, though, there's ample time to act.
 sh However, this is an [u]ace[/u] seduction. Our goal is to reach the truth.
 sh Do you understand my explanation?
 choice "i literally did this yesterday" no <repeat
@@ -774,14 +774,14 @@ game_over
 	bad_end
 
 endvs
-pr Shelock Holmes-san. This makes no sense!
+pr Shelock Holmes-san. You blind
 lchar shelock shock
 sh wtf
 exit_seduction zvarri
 bgkeep deid_mann_dead
 pr At first, I also thought he got stabbed, and came out of the vents while dying.
 pr Then, Colias entered the classroom, noticed the body, reported it, and called me.
-pr But that doesn't really add up. You're missing a piece of the puzzle.
+pr But that doesn't really add up. Just look at the blood.
 music guilty_love
 rchar protagonist point
 pr There's no way he was stabbed in the ducts! That happened right here, in the classroom!
@@ -951,6 +951,7 @@ cp I... live here.
 cp This is my vent house
 pr Colias... You don't have a house?
 cp No...
+pr Homeless! (image of you)
 bgkeep babahl
 cp Eight years ago, I enrolled for podiatry... in Babahl Academy.
 pr (-!?)

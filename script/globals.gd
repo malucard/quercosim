@@ -1,5 +1,13 @@
 extends Node
 
+func _init():
+	if OS.has_feature("web"):
+		print("loading")
+		print(ProjectSettings.load_resource_pack("res://bg.pck"))
+		print(ProjectSettings.load_resource_pack("res://sounds.pck"))
+		print(ProjectSettings.load_resource_pack("res://sprites.pck"))
+		print(ProjectSettings.load_resource_pack("res://videos.pck"))
+
 var bgs = {
 	theatrum = "res://bg/theatrum.png",
 	querco_office = "res://bg/alba_office.png",
@@ -81,13 +89,13 @@ onready var chars = {
 	mack = char_mack
 }
 
-const music_querco = preload("res://sounds/music/querco.ogg")
-const music_embassy = preload("res://sounds/music/colias.ogg")
-const music_reminiscence_torn = preload("res://sounds/music/reminiscence_torn.ogg")
-const music_reminiscence_academy = preload("res://sounds/music/reminiscence_academy.ogg")
-const music_solution = preload("res://sounds/music/solution.ogg")
-const music_phoenix = preload("res://sounds/music/phoenix.ogg")
-var music = {
+onready var music_querco = load("res://sounds/music/querco.ogg")
+onready var music_embassy = load("res://sounds/music/colias.ogg")
+onready var music_reminiscence_torn = load("res://sounds/music/reminiscence_torn.ogg")
+onready var music_reminiscence_academy = load("res://sounds/music/reminiscence_academy.ogg")
+onready var music_solution = load("res://sounds/music/solution.ogg")
+onready var music_phoenix = load("res://sounds/music/phoenix.ogg")
+onready var music = {
 	querco = music_querco,
 	quercos = music_querco,
 	quercus = music_querco,
@@ -95,45 +103,45 @@ var music = {
 	surpass = music_querco,
 	reminiscence_torn = music_reminiscence_torn,
 	reminiscence_academy = music_reminiscence_academy,
-	bad_end = music_reminiscence_academy, #preload("res://sounds/music/bad_end.ogg"),
-	crazy_colias = preload("res://sounds/music/crazycolias.ogg"),
-	manny = preload("res://sounds/music/manny.ogg"),
-	crisis = preload("res://sounds/music/crisis.mp3"),
+	bad_end = music_reminiscence_academy, #load("res://sounds/music/bad_end.ogg"),
+	crazy_colias = load("res://sounds/music/crazycolias.ogg"),
+	manny = load("res://sounds/music/manny.ogg"),
+	crisis = load("res://sounds/music/crisis.ogg"),
 	deid = music_reminiscence_torn,
 	embassy = music_embassy,
 	colias = music_embassy,
 	obama = music_phoenix,
 	phoenix = music_phoenix,
-	moderato = preload("res://sounds/music/moderato.ogg"),
-	allegro = preload("res://sounds/music/allegro.ogg"),
-	presto = preload("res://sounds/music/presto.ogg"),
+	moderato = load("res://sounds/music/moderato.ogg"),
+	allegro = load("res://sounds/music/allegro.ogg"),
+	presto = load("res://sounds/music/presto.ogg"),
 	solution = music_solution,
-	lbelle = preload("res://sounds/music/lbelle.ogg"),
-	heaven = preload("res://sounds/music/heaven.ogg"),
-	suspense = preload("res://sounds/music/suspense.mp3"),
-	inv = preload("res://sounds/music/investigation_start.ogg"),
-	invmid = preload("res://sounds/music/invmid.ogg"),
-	invepic = preload("res://sounds/music/investigation_epic.ogg"),
-	dgsinv = preload("res://sounds/music/dgsinv.mp3"),
-	panic = preload("res://sounds/music/panic_of_fate.ogg"),
-	walk = preload("res://sounds/music/walk.ogg"),
-	guilty_love = preload("res://sounds/music/guilty_love.ogg"),
-	protagonist = preload("res://sounds/music/protagonist.ogg"),
-	thalassa = preload("res://sounds/music/thalassa.mp3"),
-	shelock = preload("res://sounds/music/shelock.ogg"),
-	rain = preload("res://sounds/music/rain.ogg"),
-	rubble = preload("res://sounds/music/moving_rubble.ogg"),
-	vent = preload("res://sounds/music/vent.ogg"),
-	blaise = preload("res://sounds/music/blaise.mp3"),
-	nate = preload("res://sounds/music/nate.mp3"),
-	gimmick = preload("res://sounds/music/gimmick.ogg"),
-	baroque = preload("res://sounds/music/baroque.ogg"),
-	core = preload("res://sounds/music/core.ogg"),
-	logic_chess = preload("res://sounds/music/logic_chess.mp3"),
-	logic_chess_endgame = preload("res://sounds/music/logic_chess_endgame.mp3"),
-	factory = preload("res://sounds/music/factory.ogg"),
-	truth = preload("res://sounds/music/truth.ogg"),
-	pursuit = preload("res://sounds/music/pursuit.ogg")
+	lbelle = load("res://sounds/music/lbelle.ogg"),
+	heaven = load("res://sounds/music/heaven.ogg"),
+	suspense = load("res://sounds/music/suspense.ogg"),
+	inv = load("res://sounds/music/investigation_start.ogg"),
+	invmid = load("res://sounds/music/invmid.ogg"),
+	invepic = load("res://sounds/music/investigation_epic.ogg"),
+	dgsinv = load("res://sounds/music/dgsinv.ogg"),
+	panic = load("res://sounds/music/panic_of_fate.ogg"),
+	walk = load("res://sounds/music/walk.ogg"),
+	guilty_love = load("res://sounds/music/guilty_love.ogg"),
+	protagonist = load("res://sounds/music/protagonist.ogg"),
+	thalassa = load("res://sounds/music/thalassa.ogg"),
+	shelock = load("res://sounds/music/shelock.ogg"),
+	rain = load("res://sounds/music/rain.ogg"),
+	rubble = load("res://sounds/music/moving_rubble.ogg"),
+	vent = load("res://sounds/music/vent.ogg"),
+	blaise = load("res://sounds/music/blaise.ogg"),
+	nate = load("res://sounds/music/nate.ogg"),
+	gimmick = load("res://sounds/music/gimmick.ogg"),
+	baroque = load("res://sounds/music/baroque.ogg"),
+	core = load("res://sounds/music/core.ogg"),
+	logic_chess = load("res://sounds/music/logic_chess.ogg"),
+	logic_chess_endgame = load("res://sounds/music/logic_chess_endgame.ogg"),
+	factory = load("res://sounds/music/factory.ogg"),
+	truth = load("res://sounds/music/truth.ogg"),
+	pursuit = load("res://sounds/music/pursuit.ogg")
 }
 
 var music_volume = {
@@ -182,10 +190,10 @@ onready var speaker_map = {
 	"mack rell": char_mack,
 }
 
-const bubbles = {
-	objection = preload("res://gui/bubbles/objection.png"),
-	holdit = preload("res://gui/bubbles/holdit.png"),
-	takethat = preload("res://gui/bubbles/takethat.png")
+onready var bubbles = {
+	objection = load("res://gui/bubbles/objection.png"),
+	holdit = load("res://gui/bubbles/holdit.png"),
+	takethat = load("res://gui/bubbles/takethat.png")
 }
 
 func load_all(path, res = {}):
@@ -202,7 +210,7 @@ func load_all(path, res = {}):
 		return res
 
 var mobile = OS.has_feature("mobile")
-var sfx = load_all("res://sounds/sfx", {})
+onready var sfx = load_all("res://sounds/sfx", {})
 onready var all_evidence = load_all(globals.user_dir + "content/evidence", load_all("res://evidence"))
 onready var all_profiles = load_all(globals.user_dir + "content/profiles", load_all("res://profiles"))
 
@@ -337,8 +345,7 @@ func _ready():
 						for n in c.speaker_name:
 							speaker_map[n.to_lower()] = c
 					elif typeof(c.speaker_name) == TYPE_STRING:
-						speaker_map[c.speaker_name] = c
-						print(c.speaker_name)
+						speaker_map[c.speaker_name.to_lower()] = c
 				chars[file] = c
 				print("loaded character " + file)
 			file = dir.get_next()
@@ -394,3 +401,10 @@ func _sfx_done(player: AudioStreamPlayer):
 	sfx_playing -= 1
 	if sfx_playing == 0:
 		emit_signal("sfx_done")
+
+var custom_cursor = null
+
+func set_custom_cursor(c, shape = 0, hot = Vector2()):
+	if custom_cursor != c:
+		custom_cursor = c
+		Input.set_custom_mouse_cursor(c, shape, hot)

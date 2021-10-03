@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/suspense.ogg-f81738389cf467804866ded36c0ca5e4.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/suspense.ogg"
+dest_files=[ "res://.import/suspense.ogg-f81738389cf467804866ded36c0ca5e4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

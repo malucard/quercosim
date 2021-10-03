@@ -43,6 +43,7 @@ func _present_pressed():
 		parser.resume_talking()
 		#$"../TextureRect/RunScript".next()
 
+var org_empty = load("res://gui/organizer/empty.png")
 func _process(_delta: float):
 	if detail:
 		$VBoxContainer/NinePatchRect2/Label.text = selected.name
@@ -63,7 +64,7 @@ func _process(_delta: float):
 		for i in range(count):
 			$VBoxContainer/NinePatchRect/GridContainer.get_node("TextureButton" + str(i + 1)).texture_normal = globals.all_evidence[state.evidence[i + page * 8].id]
 		for i in range(count, 8):
-			$VBoxContainer/NinePatchRect/GridContainer.get_node("TextureButton" + str(i + 1)).texture_normal = preload("res://gui/organizer/empty.png")
+			$VBoxContainer/NinePatchRect/GridContainer.get_node("TextureButton" + str(i + 1)).texture_normal = org_empty
 	if visible:
 		if (Input.is_action_just_pressed("organizer") or Input.is_action_just_pressed("ui_cancel")):
 			_back()

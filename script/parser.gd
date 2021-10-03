@@ -3,7 +3,7 @@ class_name Parser
 
 onready var state = $"../.."
 
-static func load_text_file(path):
+static func load_text_file(path) -> String:
 	var f = File.new()
 	var err = f.open(path, File.READ)
 	if err != OK:
@@ -327,15 +327,18 @@ func is_long_pause(s):
 
 var blipped = false
 var last_blip = 0
+var blipt = load("res://sounds/blipt.wav")
+var blipm = load("res://sounds/blipm.wav")
+var blipf = load("res://sounds/blipf.wav")
 func blip():
 	var now = OS.get_ticks_usec()
-	var st = preload("res://sounds/blipm.wav")
+	var st = blipm
 	if state.speaker_name == "#green":
-		st = preload("res://sounds/blipt.wav")
+		st = blipt
 	elif state.speaker_name in globals.speaker_map:
 		var c = globals.speaker_map[state.speaker_name]
 		if "gender" in c and c.gender == "f":
-			st = preload("res://sounds/blipf.wav")
+			st = blipf
 	if st != $"../../AudioStreamPlayer".stream:
 		$"../../AudioStreamPlayer".stream = st
 	if now >= last_blip + 3000000 / (speed / 3 * 2):

@@ -1,0 +1,108 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+jobs:
+  export:
+    machine:
+      enabled: true
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt-get -y install wget zip unzip
+      - run:
+          name: Download Godot
+          command: |
+            echo 0
+            sudo update-ca-certificates
+            echo 1
+            wget -q --no-check-certificate https://downloads.tuxfamily.org/godotengine/3.4/beta5/Godot_v3.4-beta5_linux_headless.64.zip
+            echo 2
+            unzip Godot_v3.4-beta5_linux_headless.64.zip
+            echo 3
+            mv Godot_v3.4-beta5_linux_headless.64 godot
+            echo 4
+            chmod +x godot
+            echo 5
+            wget -q --no-check-certificate https://downloads.tuxfamily.org/godotengine/3.4/beta5/Godot_v3.4-beta5_export_templates.tpz
+            echo 6
+            mkdir -p ~/.local/share/godot/templates
+            echo 7
+            unzip Godot_v3.4-beta5_export_templates.tpz -d ~/.local/share/godot/templates
+            echo 8
+            mv ~/.local/share/godot/templates/templates ~/.local/share/godot/templates/3.4.beta5
+            echo 9
+      - run:
+          name: Get Butler
+          command: |
+            wget -q --no-check-certificate -O butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+            unzip butler.zip
+            chmod +x butler
+      - run:
+          name: Export Web
+          command: |
+            mkdir -p /tmp/web
+            ./godot --export "HTML5" "/tmp/web/index.html"
+            ./godot --export-pack "HTML5 bg" "/tmp/web/bg.pck"
+            ./godot --export-pack "HTML5 sounds" "/tmp/web/sounds.pck"
+            ./godot --export-pack "HTML5 sprites" "/tmp/web/sprites.pck"
+            ./godot --export-pack "HTML5 videos" "/tmp/web/videos.pck"
+      - run:
+          name: Upload Web
+          command: |
+            if [[ $(git log -1 --oneline) == *"[RELEASE]"* ]]; then ./butler push /tmp/web malucart/qads:web --userversion-file version.txt; fi
+      - run:
+          name: Export Windows
+          command: ./godot --export "Windows Desktop" "/tmp/quercos.exe"
+      - run:
+          name: Upload Windows
+          command: |
+            if [[ $(git log -1 --oneline) == *"[RELEASE]"* ]]; then ./butler push /tmp/quercos.exe malucart/qads:windows --userversion-file version.txt; fi
+      - run:
+          name: Export Linux
+          command: ./godot --export "Linux/X11" "/tmp/quercos.x86_64"
+      - run:
+          name: Upload Linux
+          command: |
+            if [[ $(git log -1 --oneline) == *"[RELEASE]"* ]]; then ./butler push /tmp/quercos.x86_64 malucart/qads:linux --userversion-file version.txt; fi
+      - run:
+          name: Export macOS
+          command: ./godot --export "Mac OSX" "/tmp/quercos.zip"
+      - run:
+          name: Upload macOS
+          command: |
+            if [[ $(git log -1 --oneline) == *"[RELEASE]"* ]]; then ./butler push /tmp/quercos.zip malucart/qads:mac --userversion-file version.txt; fi
+      - run:
+          name: Export Android
+          command: |
+            sudo apt install android-sdk
+            ./godot --export "Android" "/tmp/quercos.apk"
+      - run:
+          name: Upload Android
+          command: |
+            if [[ $(git log -1 --oneline) == *"[RELEASE]"* ]]; then ./butler push /tmp/quercos.apk malucart/qads:android --userversion-file version.txt; fi
+      - store_artifacts:
+          path: /tmp/quercos.x86_64
+          destination: quercos-linux
+      - store_artifacts:
+          path: /tmp/quercos.exe
+          destination: quercos-windows
+      - store_artifacts:
+          path: /tmp/quercos.zip
+          destination: quercos-mac
+      - store_artifacts:
+          path: /tmp/quercos.apk
+          destination: quercos-android
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+workflows:
+  export-workflow:
+    jobs:
+      - export:
+          context:
+            - itch

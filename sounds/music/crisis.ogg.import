@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/crisis.ogg-493716128083efb8693c76606f434a36.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/crisis.ogg"
+dest_files=[ "res://.import/crisis.ogg-493716128083efb8693c76606f434a36.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

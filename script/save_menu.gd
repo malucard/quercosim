@@ -10,8 +10,8 @@ onready var icons = [
 ]
 onready var state = $".."
 onready var parser = $"../TextureRect/RunScript"
-const empty_tex = preload("res://gui/empty_save_icon.tres")
-const tex = preload("res://gui/save_icon.tres")
+var empty_tex = load("res://gui/empty_save_icon.tres")
+var tex = load("res://gui/save_icon.tres")
 
 func get_save(n: int):
 	var f = File.new()

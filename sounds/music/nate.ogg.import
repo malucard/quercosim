@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/nate.ogg-b4b3f9b90311db3950b00aef63789666.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/nate.ogg"
+dest_files=[ "res://.import/nate.ogg-b4b3f9b90311db3950b00aef63789666.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

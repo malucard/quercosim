@@ -1,0 +1,13 @@
+defprof pr pr "Protagonist" 24m Me
+defprof qa qa "Quercus Alba" 62m Ambassador of the Principality of Cohdopia to the United States. God, senpai, ultimate life form.
+defprof cp cp "Colias Palaeno" 27m Pretty friendly guy. Studies foot with me. He's almost too good at foot, actually.
+defprof ob ob "Barack Obama" 48m President of the, uh, United States. I swear to never let him take Alba-san.
+defprof dm dm "Deid Mann" 50m Long time professor of foot at Allebahst Academy. He is wise to the point of incoherence.
+defprof dm2 dm "Deid Mann" 50m Late long time professor of foot at Allebahst Academy. He was wise to the point of incoherence. Passed away on 21 September.
+defprof mc mc "Manny Coachen" 21m Professor of foot at Babahl Academy. Just visiting here.
+defprof bl bl "Blaise Debeste" 58m I have seen him with Alba-san. Maybe he works for him.
+defprof rp jd "Robert Parkman" ?m Apparently knew about foot.
+defprof sh sh "Shelock Holmes" 25m Calls himself THE Ace Detective. British.
+defprof th Yuumi "Thalassa Gramarye" 23f Professor of music at Allebahst Academy. I haven't met her before, but something about her rings a bell.
+defprof sy sy "Sydney" 221f Capital city of New South Wales in Australia. Studying music at Allebahst Academy.
+defprof bi jd "Barbara Izquierdo" ?f Could not say her family. A wife whose friend got to the United States 15 years ago, and she acknowledges that most Cubans make for business reasons, not political things.

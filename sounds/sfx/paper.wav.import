@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/paper.wav-6b1c0f38b1a26826ab06f50d520cc0ce.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/paper.wav"
+dest_files=[ "res://.import/paper.wav-6b1c0f38b1a26826ab06f50d520cc0ce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

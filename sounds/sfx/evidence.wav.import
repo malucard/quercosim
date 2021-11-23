@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/evidence.wav-89cefc3f20ce416f43c7b9d1ad59cfb2.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/evidence.wav"
+dest_files=[ "res://.import/evidence.wav-89cefc3f20ce416f43c7b9d1ad59cfb2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

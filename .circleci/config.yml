@@ -13,10 +13,12 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            sudo apt-get -y install wget zip unzip
+            sudo apt-get -y install wget zip unzip jq
       - run:
           name: Download Godot
           command: |
+            echo -1
+            bash send_webhook.sh
             echo 0
             sudo update-ca-certificates
             echo 1

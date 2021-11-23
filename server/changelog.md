@@ -1,4 +1,23 @@
-# v0.2.4
+# v0.2.5
+2021/11/23
+added character profiles. these will be up to date no matter how you load your game even if they are changed later
+evidence/profiles screen shows 10 per page
+button menus have been redesigned and use the Final Fantasy XV cursor hand
+more controller/keyboard controls
+added a few sound effects
+reworked tutorial text a little and other minor script changes
+added "Compliment!" animation
+added "Try Again/Quit" screen on game over (will not appear if saving during a penalizable section in an older version and loading it now)
+added indicators for when an area has unseen examinables or talks or new areas to visit
+you can pet the cat (mandatory to progress)
+the update checker can now show descriptions for future updates (like "v0.3 - chapter 3 released") that can depend on your current version
+added chapter title cards and new chapter selection screen
+holmes's and colias's themes are updated, shortened Panic of Fate track
+an evidence item was redesigned
+the game is a foot
+very tiny demo of chapter 3 just because i didnt feel like removing it from the files
+
+# v0.2.4 - for Rei
 2021/10/2
 a few lines changed in chapter 2, added Import from URL and Delete Installed buttons, some internal changes and fixed the HTML export, moved to itch.io and CircleCI
 

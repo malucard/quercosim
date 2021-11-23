@@ -5,7 +5,11 @@ onready var parser = $"../TextureRect/RunScript"
 
 func push_message(speaker: String, text: String):
 	var d = $ScrollContainer/VBoxContainer/Message.duplicate()
-	d.get_node("Speaker").bbcode_text = speaker
+	var i = speaker.find("#")
+	if i != -1:
+		d.get_node("Speaker").bbcode_text = speaker.substr(0, i)
+	else:
+		d.get_node("Speaker").bbcode_text = speaker
 	d.get_node("Text").bbcode_text = text
 	d.visible = true
 	var c = $ScrollContainer/VBoxContainer.get_children()

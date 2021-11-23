@@ -1,0 +1,8 @@
+defprof qa qa "Quercus Alba" 62m Ambassador of the Principality of Cohdopia to the United States. God, senpai, ultimate life form.
+defprof ob ob "Barack Obama" 48m President of the, uh, United States. I swear to never let him take Alba-san.
+defprof dm dm "Deid Mann" 50m Professor of foot at Allebahst Academy. He is wise to the point of incoherence.
+defprof cp cp "Colias Palaeno" 27m Pretty friendly guy. Studies foot with me. He's almost too good at foot, actually.
+defprof mc mc "Manny Coachen" 21m Professor of foot at Babahl Academy. Just visiting here.
+defprof bl bl "Blaise Debeste" 58m I have seen him with Alba-san. Maybe he works for him.
+defprof rp jd "Robert Parkman" ?m Apparently knew about foot.
+defprof pr pr "Protagonist" 24m Me

@@ -39,6 +39,9 @@ func find_num(s: String):
 			return [s.substr(0, i), int(s.substr(i))]
 	return [s, 1]
 
+# 1: v1 > v2
+# 0: v1 = v2
+# -1: v1 < v2
 func cmp_semver(v1: String, v2: String):
 	var hi1 = v1.find("-")
 	var h1 = ""
@@ -107,10 +110,31 @@ func _req_done(res, res_code, headers, body, req):
 	else:
 		var newver = response.latest[os] if os in response.latest else response.latest.all
 		var links = newver.links if "links" in newver else []
+		# "cond_suffix": [["<0.3", " - Chapter 3 & 4 released"], ["0.3&<0.4", " - Chapter 4 released"]]
+		var desc = newver.suffix if "suffix" in newver else ""
+		if "cond_suffix" in newver:
+			for cs in newver.cond_suffix:
+				var conds = cs[0].split("&")
+				var passed = true
+				for c in conds:
+					if c[0] == "<":
+						if cmp_semver(version, c.substr(1)) != -1:
+							passed = false
+							break
+					elif c[0] == "=":
+						if cmp_semver(version, c.substr(1)) != 0:
+							passed = false
+							break
+					elif c[0].is_valid_integer():
+						if cmp_semver(version, c) == -1:
+							passed = false
+							break
+				if passed:
+					desc += cs[1]
 		newver = newver.name
 		if cmp_semver(newver, version) != 1:
 			return
-		$Version/HBoxContainer/Label.bbcode_text = "[right]Latest: v" + newver
+		$Version/HBoxContainer/Label.bbcode_text = "[right]Latest: v" + newver + desc
 		#print(response.headers["User-Agent"])
 		if !links.empty():
 			$Version/HBoxContainer/Label.bbcode_text += " ("
@@ -123,6 +147,8 @@ func _req_done(res, res_code, headers, body, req):
 				else:
 					continue
 				var l = LinkButton.new()
+				l.connect("mouse_entered", l, "grab_focus")
+				l.connect("mouse_entered", l, "grab_focus")
 				if link_node:
 					var comma = Label.new()
 					comma.text = ", "
@@ -178,7 +204,7 @@ func _process(delta):
 		and !$Buttons/Continue.has_focus() \
 		and !$Buttons/Shortcut.has_focus() \
 		and !$Buttons/Extras.has_focus() \
-		and !$Version.is_a_parent_of(get_focus_owner()) \
+		and (!is_instance_valid(get_focus_owner()) or !$Version.is_a_parent_of(get_focus_owner())) \
 		and (globals.controller or Input.is_action_just_pressed("ui_down")):
 		$Buttons/NewGame.grab_focus()
 	if $LoadMenu.visible or $Extras.visible or $Shortcut.visible:
@@ -491,3 +517,26 @@ func _downloaded(res, res_code, headers, body, req):
 		yield(get_tree().create_timer(2.0), "timeout")
 		$BlackScreen.visible = false
 		req.queue_free()
+
+var cur_cover = 1
+const chapter_count = 3
+
+func _shortcut_left():
+	if cur_cover > 1:
+		cur_cover -= 1
+		globals.play_sfx("click")
+	$Shortcut/HBoxContainer/Left.modulate.a = 1.0 if cur_cover > 1 else 0.0
+	$Shortcut/HBoxContainer/Right.modulate.a = 1.0 if cur_cover < chapter_count else 0.0
+	$Shortcut/HBoxContainer/Cover.texture_normal = load("res://covers/card" + str(cur_cover) + ".png")
+
+func _shortcut_right():
+	if cur_cover < chapter_count:
+		cur_cover += 1
+		globals.play_sfx("click")
+	$Shortcut/HBoxContainer/Left.modulate.a = 1.0 if cur_cover > 1 else 0.0
+	$Shortcut/HBoxContainer/Right.modulate.a = 1.0 if cur_cover < chapter_count else 0.0
+	$Shortcut/HBoxContainer/Cover.texture_normal = load("res://covers/card" + str(cur_cover) + ".png")
+
+func _shortcut_start():
+	globals.play_sfx("save_load")
+	_play_shortcut(cur_cover)

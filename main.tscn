@@ -1,4 +1,4 @@
-[gd_scene load_steps=181 format=2]
+[gd_scene load_steps=194 format=2]
 
 [ext_resource path="res://sounds/blipm.wav" type="AudioStream" id=1]
 [ext_resource path="res://sprites/querco/normal/tex.png" type="Texture" id=2]
@@ -60,6 +60,14 @@
 [ext_resource path="res://bg/seduction_complete.png" type="Texture" id=58]
 [ext_resource path="res://gui/xbox_view.png" type="Texture" id=59]
 [ext_resource path="res://gui/save_icon_hover.tres" type="Texture" id=60]
+[ext_resource path="res://gui/compliment.png" type="Texture" id=61]
+[ext_resource path="res://gui/buttons/sys06-resources.assets-1920.png" type="Texture" id=62]
+[ext_resource path="res://gui/organizer/profiles.png" type="Texture" id=63]
+[ext_resource path="res://gui/organizer/selector.png" type="Texture" id=64]
+[ext_resource path="res://script/cursor.tscn" type="PackedScene" id=65]
+[ext_resource path="res://gui/choicebox.png" type="Texture" id=66]
+[ext_resource path="res://script/button.gd" type="Script" id=67]
+[ext_resource path="res://script/button_tex.gd" type="Script" id=68]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 57 )
@@ -1616,6 +1624,11 @@ tracks/2/keys = {
 "values": [ 3 ]
 }
 
+[sub_resource type="StyleBoxEmpty" id=124]
+
+[sub_resource type="Theme" id=125]
+Button/styles/focus = SubResource( 124 )
+
 [sub_resource type="Animation" id=51]
 length = 0.4
 loop = true
@@ -1726,6 +1739,45 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=121]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect2:anchor_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect2:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=55]
@@ -1842,6 +1894,60 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
+}
+
+[sub_resource type="Animation" id=122]
+resource_name = "compliment"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect2:anchor_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.5, 1.0, 1.0, 0.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect2:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.5, 0.0, 0.0, 0.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "compliment" ],
+"method": "play_sfx"
+} ]
 }
 
 [sub_resource type="Animation" id=58]
@@ -2767,6 +2873,11 @@ region = Rect2( 0, 0, 104, 88 )
 flags = 4
 atlas = ExtResource( 38 )
 region = Rect2( 104, 0, 104, 88 )
+
+[sub_resource type="AtlasTexture" id=123]
+flags = 4
+atlas = ExtResource( 62 )
+region = Rect2( 256, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=88]
 flags = 4
@@ -3779,6 +3890,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ChoicesBG" type="NinePatchRect" parent="."]
+visible = false
+margin_left = 264.0
+margin_top = 169.5
+margin_right = 920.0
+margin_bottom = 496.5
+texture = ExtResource( 66 )
+patch_margin_left = 128
+patch_margin_top = 16
+patch_margin_right = 128
+patch_margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Choices" type="VBoxContainer" parent="."]
 visible = false
 anchor_left = 0.5
@@ -3797,124 +3923,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="Choices"]
+[node name="Button" type="Button" parent="Choices"]
 margin_right = 592.0
 margin_bottom = 59.0
 rect_min_size = Vector2( 372, 59 )
-texture_normal = ExtResource( 41 )
-texture_hover = ExtResource( 42 )
-expand = true
-
-[node name="Label" type="Label" parent="Choices/TextureButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+theme = SubResource( 125 )
 text = "Choice 1"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+flat = true
+script = ExtResource( 67 )
 
-[node name="TextureButton2" type="TextureButton" parent="Choices"]
+[node name="Button2" type="Button" parent="Choices"]
 margin_top = 63.0
 margin_right = 592.0
 margin_bottom = 122.0
 rect_min_size = Vector2( 372, 59 )
-texture_normal = ExtResource( 41 )
-texture_hover = ExtResource( 42 )
-expand = true
-
-[node name="Label" type="Label" parent="Choices/TextureButton2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+theme = SubResource( 125 )
 text = "Choice 2"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+flat = true
+script = ExtResource( 67 )
 
-[node name="TextureButton3" type="TextureButton" parent="Choices"]
+[node name="Button3" type="Button" parent="Choices"]
 margin_top = 126.0
 margin_right = 592.0
 margin_bottom = 185.0
 rect_min_size = Vector2( 372, 59 )
-texture_normal = ExtResource( 41 )
-texture_hover = ExtResource( 42 )
-expand = true
-
-[node name="Label" type="Label" parent="Choices/TextureButton3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+theme = SubResource( 125 )
 text = "Choice 3"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+flat = true
+script = ExtResource( 67 )
 
-[node name="TextureButton4" type="TextureButton" parent="Choices"]
+[node name="Button4" type="Button" parent="Choices"]
 margin_top = 189.0
 margin_right = 592.0
 margin_bottom = 248.0
 rect_min_size = Vector2( 372, 59 )
-texture_normal = ExtResource( 41 )
-texture_hover = ExtResource( 42 )
-expand = true
-
-[node name="Label" type="Label" parent="Choices/TextureButton4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+theme = SubResource( 125 )
 text = "Choice 4"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+flat = true
+script = ExtResource( 67 )
 
-[node name="TextureButton5" type="TextureButton" parent="Choices"]
+[node name="Button5" type="Button" parent="Choices"]
 margin_top = 252.0
 margin_right = 592.0
 margin_bottom = 311.0
 rect_min_size = Vector2( 372, 59 )
-texture_normal = ExtResource( 41 )
-texture_hover = ExtResource( 42 )
-expand = true
-
-[node name="Label" type="Label" parent="Choices/TextureButton5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+theme = SubResource( 125 )
 text = "Choice 5"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+flat = true
+script = ExtResource( 67 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -3966,6 +4022,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="TextureRect"]
 margin_right = 208.0
 margin_bottom = 52.0
+grow_horizontal = 0
 size_flags_horizontal = 4
 custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
 align = 1
@@ -4088,6 +4145,9 @@ margin_top = 4.0
 margin_right = 252.0
 margin_bottom = 44.0
 focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Organizer" type="TextureButton" parent="TextureRect"]
 margin_left = 252.0
@@ -4158,9 +4218,11 @@ margin_bottom = 28.0
 text = "Seduction +25%"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 121 )
 anims/chapter_transition = SubResource( 55 )
 anims/chapter_transition_hide = SubResource( 56 )
 anims/chapter_transition_show = SubResource( 57 )
+anims/compliment = SubResource( 122 )
 anims/echar0fadeout = SubResource( 58 )
 anims/echar1fadeout = SubResource( 59 )
 anims/echar2fadeout = SubResource( 60 )
@@ -4310,6 +4372,21 @@ margin_bottom = 88.0
 texture_normal = SubResource( 86 )
 texture_hover = SubResource( 87 )
 
+[node name="Indicator" type="TextureRect" parent="Investigation/Buttons/Examine"]
+margin_left = 20.0
+margin_top = -12.0
+margin_right = 52.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 48, 48 )
+rect_scale = Vector2( -1, 1 )
+mouse_filter = 2
+texture = SubResource( 123 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Talk" type="TextureButton" parent="Investigation/Buttons"]
 modulate = Color( 1, 1, 1, 0.74902 )
 margin_left = 168.0
@@ -4318,6 +4395,21 @@ margin_bottom = 88.0
 texture_normal = SubResource( 88 )
 texture_hover = SubResource( 89 )
 
+[node name="Indicator" type="TextureRect" parent="Investigation/Buttons/Talk"]
+margin_left = 20.0
+margin_top = -12.0
+margin_right = 68.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 48, 48 )
+rect_scale = Vector2( -1, 1 )
+mouse_filter = 2
+texture = SubResource( 123 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Move" type="TextureButton" parent="Investigation/Buttons"]
 modulate = Color( 1, 1, 1, 0.74902 )
 margin_left = 336.0
@@ -4325,6 +4417,21 @@ margin_right = 440.0
 margin_bottom = 88.0
 texture_normal = SubResource( 90 )
 texture_hover = SubResource( 91 )
+
+[node name="Indicator" type="TextureRect" parent="Investigation/Buttons/Move"]
+margin_left = 20.0
+margin_top = -12.0
+margin_right = 68.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 48, 48 )
+rect_scale = Vector2( -1, 1 )
+mouse_filter = 2
+texture = SubResource( 123 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Back" type="TextureButton" parent="Investigation"]
 modulate = Color( 1, 1, 1, 0.74902 )
@@ -4335,6 +4442,16 @@ margin_right = 104.0
 grow_vertical = 0
 texture_normal = SubResource( 92 )
 texture_hover = SubResource( 93 )
+
+[node name="MenuBG" type="NinePatchRect" parent="Investigation"]
+visible = false
+margin_right = 256.0
+margin_bottom = 40.0
+texture = ExtResource( 66 )
+patch_margin_left = 128
+patch_margin_top = 16
+patch_margin_right = 128
+patch_margin_bottom = 16
 
 [node name="Places" type="VBoxContainer" parent="Investigation"]
 visible = false
@@ -4438,7 +4555,6 @@ __meta__ = {
 }
 
 [node name="Organizer" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 23 )
@@ -4459,6 +4575,17 @@ margin_right = 1184.0
 margin_bottom = 141.0
 texture = ExtResource( 30 )
 
+[node name="Switch" type="TextureButton" parent="Organizer/VBoxContainer/TextureRect"]
+self_modulate = Color( 0.75, 0.75, 0.75, 1 )
+show_behind_parent = true
+margin_left = 160.0
+margin_top = 4.0
+texture_normal = ExtResource( 63 )
+script = ExtResource( 68 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="NinePatchRect2" type="NinePatchRect" parent="Organizer/VBoxContainer"]
 margin_top = 141.0
 margin_right = 1184.0
@@ -4469,8 +4596,6 @@ patch_margin_left = 140
 patch_margin_top = 18
 patch_margin_right = 140
 patch_margin_bottom = 18
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
 
 [node name="Label" type="Label" parent="Organizer/VBoxContainer/NinePatchRect2"]
 anchor_right = 1.0
@@ -4491,7 +4616,6 @@ patch_margin_left = 120
 patch_margin_top = 64
 patch_margin_right = 120
 patch_margin_bottom = 64
-axis_stretch_vertical = 1
 
 [node name="GridContainer" type="GridContainer" parent="Organizer/VBoxContainer/NinePatchRect"]
 anchor_left = 0.5
@@ -4504,7 +4628,7 @@ margin_bottom = -16.0
 grow_horizontal = 2
 custom_constants/vseparation = 16
 custom_constants/hseparation = 16
-columns = 4
+columns = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4513,8 +4637,7 @@ __meta__ = {
 margin_right = 152.0
 margin_bottom = 152.0
 rect_min_size = Vector2( 152, 152 )
-focus_mode = 0
-enabled_focus_mode = 0
+mouse_filter = 1
 texture_normal = ExtResource( 33 )
 expand = true
 
@@ -4523,8 +4646,7 @@ margin_left = 168.0
 margin_right = 320.0
 margin_bottom = 152.0
 rect_min_size = Vector2( 152, 152 )
-focus_mode = 0
-enabled_focus_mode = 0
+mouse_filter = 1
 texture_normal = ExtResource( 33 )
 expand = true
 
@@ -4533,8 +4655,7 @@ margin_left = 336.0
 margin_right = 488.0
 margin_bottom = 152.0
 rect_min_size = Vector2( 152, 152 )
-focus_mode = 0
-enabled_focus_mode = 0
+mouse_filter = 1
 texture_normal = ExtResource( 33 )
 expand = true
 
@@ -4543,51 +4664,65 @@ margin_left = 504.0
 margin_right = 656.0
 margin_bottom = 152.0
 rect_min_size = Vector2( 152, 152 )
-focus_mode = 0
-enabled_focus_mode = 0
+mouse_filter = 1
 texture_normal = ExtResource( 33 )
 expand = true
 
 [node name="TextureButton5" type="TextureButton" parent="Organizer/VBoxContainer/NinePatchRect/GridContainer"]
-margin_top = 168.0
-margin_right = 152.0
-margin_bottom = 320.0
+margin_left = 672.0
+margin_right = 824.0
+margin_bottom = 152.0
 rect_min_size = Vector2( 152, 152 )
-focus_mode = 0
-enabled_focus_mode = 0
+mouse_filter = 1
 texture_normal = ExtResource( 33 )
 expand = true
 
 [node name="TextureButton6" type="TextureButton" parent="Organizer/VBoxContainer/NinePatchRect/GridContainer"]
+margin_top = 168.0
+margin_right = 152.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 152, 152 )
+mouse_filter = 1
+texture_normal = ExtResource( 33 )
+expand = true
+
+[node name="TextureButton7" type="TextureButton" parent="Organizer/VBoxContainer/NinePatchRect/GridContainer"]
 margin_left = 168.0
 margin_top = 168.0
 margin_right = 320.0
 margin_bottom = 320.0
 rect_min_size = Vector2( 152, 152 )
-focus_mode = 0
-enabled_focus_mode = 0
+mouse_filter = 1
 texture_normal = ExtResource( 33 )
 expand = true
 
-[node name="TextureButton7" type="TextureButton" parent="Organizer/VBoxContainer/NinePatchRect/GridContainer"]
+[node name="TextureButton8" type="TextureButton" parent="Organizer/VBoxContainer/NinePatchRect/GridContainer"]
 margin_left = 336.0
 margin_top = 168.0
 margin_right = 488.0
 margin_bottom = 320.0
 rect_min_size = Vector2( 152, 152 )
-focus_mode = 0
-enabled_focus_mode = 0
+mouse_filter = 1
 texture_normal = ExtResource( 33 )
 expand = true
 
-[node name="TextureButton8" type="TextureButton" parent="Organizer/VBoxContainer/NinePatchRect/GridContainer"]
+[node name="TextureButton9" type="TextureButton" parent="Organizer/VBoxContainer/NinePatchRect/GridContainer"]
 margin_left = 504.0
 margin_top = 168.0
 margin_right = 656.0
 margin_bottom = 320.0
 rect_min_size = Vector2( 152, 152 )
-focus_mode = 0
-enabled_focus_mode = 0
+mouse_filter = 1
+texture_normal = ExtResource( 33 )
+expand = true
+
+[node name="TextureButton10" type="TextureButton" parent="Organizer/VBoxContainer/NinePatchRect/GridContainer"]
+margin_left = 672.0
+margin_top = 168.0
+margin_right = 824.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 152, 152 )
+mouse_filter = 1
 texture_normal = ExtResource( 33 )
 expand = true
 
@@ -4658,10 +4793,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -376.0
+margin_left = -440.0
 margin_right = -376.0
 grow_vertical = 2
 rect_scale = Vector2( -1, 1 )
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = SubResource( 95 )
 texture_hover = SubResource( 96 )
 __meta__ = {
@@ -4673,12 +4810,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 376.0
+margin_left = 440.0
 margin_top = -50.0
 margin_bottom = 50.0
 grow_vertical = 2
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = SubResource( 97 )
 texture_hover = SubResource( 96 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selector" type="TextureRect" parent="Organizer/VBoxContainer/NinePatchRect"]
+self_modulate = Color( 0.188235, 0.188235, 0.376471, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -424.0
+margin_top = 4.0
+margin_right = -248.0
+margin_bottom = 180.0
+mouse_filter = 2
+texture = ExtResource( 64 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -4799,6 +4952,7 @@ focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath("../SaveIcon2")
 texture_hover = ExtResource( 60 )
 expand = true
+script = ExtResource( 68 )
 
 [node name="Line" type="RichTextLabel" parent="SaveMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon"]
 anchor_right = 1.0
@@ -4838,6 +4992,7 @@ focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath("../SaveIcon3")
 texture_hover = ExtResource( 60 )
 expand = true
+script = ExtResource( 68 )
 
 [node name="Line" type="RichTextLabel" parent="SaveMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon2"]
 anchor_right = 1.0
@@ -4877,6 +5032,7 @@ focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath("../SaveIcon4")
 texture_hover = ExtResource( 60 )
 expand = true
+script = ExtResource( 68 )
 
 [node name="Line" type="RichTextLabel" parent="SaveMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon3"]
 anchor_right = 1.0
@@ -4916,6 +5072,7 @@ focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath(".")
 texture_hover = ExtResource( 60 )
 expand = true
+script = ExtResource( 68 )
 
 [node name="Line" type="RichTextLabel" parent="SaveMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon4"]
 anchor_right = 1.0
@@ -4987,6 +5144,7 @@ grow_horizontal = 2
 rect_min_size = Vector2( 555, 96 )
 texture_normal = ExtResource( 48 )
 expand = true
+script = ExtResource( 68 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -5025,6 +5183,7 @@ grow_horizontal = 2
 rect_min_size = Vector2( 555, 96 )
 texture_normal = ExtResource( 47 )
 expand = true
+script = ExtResource( 68 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -5072,6 +5231,7 @@ __meta__ = {
 margin_right = 252.0
 margin_bottom = 84.0
 texture_normal = SubResource( 111 )
+script = ExtResource( 68 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -5081,6 +5241,7 @@ margin_left = 284.0
 margin_right = 536.0
 margin_bottom = 84.0
 texture_normal = SubResource( 112 )
+script = ExtResource( 68 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -5180,7 +5341,6 @@ __meta__ = {
 
 [node name="ChapterEnd" type="Panel" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 119 )
@@ -5237,16 +5397,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+texture = ExtResource( 61 )
+expand = true
+
+[node name="Cursor" parent="." instance=ExtResource( 65 )]
+
 [connection signal="pressed" from="Control/Seduction/VBoxContainer3/TextureButton" to="Choices" method="_pressed" binds= [ -1 ]]
 [connection signal="pressed" from="Control/Seduction/VBoxContainer3/TextureButton2" to="Choices" method="_pressed" binds= [ -1 ]]
 [connection signal="pressed" from="Control/Seduction/VBoxContainer3/TextureButton3" to="Choices" method="_pressed" binds= [ -1 ]]
 [connection signal="pressed" from="Control/Seduction/VBoxContainer3/TextureButton4" to="Choices" method="_pressed" binds= [ -1 ]]
 [connection signal="timeout" from="Control/Seduction/Timer" to="." method="_seduction_deplete"]
-[connection signal="pressed" from="Choices/TextureButton" to="Choices" method="_pressed" binds= [ -1 ]]
-[connection signal="pressed" from="Choices/TextureButton2" to="Choices" method="_pressed" binds= [ 0 ]]
-[connection signal="pressed" from="Choices/TextureButton3" to="Choices" method="_pressed" binds= [ 1 ]]
-[connection signal="pressed" from="Choices/TextureButton4" to="Choices" method="_pressed" binds= [ 2 ]]
-[connection signal="pressed" from="Choices/TextureButton5" to="Choices" method="_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="Choices/Button" to="Choices" method="_pressed" binds= [ -1 ]]
+[connection signal="pressed" from="Choices/Button2" to="Choices" method="_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="Choices/Button3" to="Choices" method="_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="Choices/Button4" to="Choices" method="_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="Choices/Button5" to="Choices" method="_pressed" binds= [ 3 ]]
 [connection signal="meta_clicked" from="TextureRect/RunScript" to="TextureRect/RunScript" method="_meta_clicked"]
 [connection signal="pressed" from="TextureRect/BacklogMobile" to="Backlog" method="_open_backlog"]
 [connection signal="pressed" from="TextureRect/Backlog" to="Backlog" method="_open_backlog"]
@@ -5261,6 +5431,7 @@ __meta__ = {
 [connection signal="pressed" from="Investigation/Back" to="." method="_inv_back"]
 [connection signal="meta_clicked" from="Backlog/ScrollContainer/VBoxContainer/Message/Text" to="TextureRect/RunScript" method="_meta_clicked"]
 [connection signal="pressed" from="CloseBacklog" to="Backlog" method="_close_backlog"]
+[connection signal="pressed" from="Organizer/VBoxContainer/TextureRect/Switch" to="Organizer" method="_switch_mode"]
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton1" to="Organizer" method="_select" binds= [ 0 ]]
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton2" to="Organizer" method="_select" binds= [ 1 ]]
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton3" to="Organizer" method="_select" binds= [ 2 ]]
@@ -5269,6 +5440,8 @@ __meta__ = {
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton6" to="Organizer" method="_select" binds= [ 5 ]]
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton7" to="Organizer" method="_select" binds= [ 6 ]]
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton8" to="Organizer" method="_select" binds= [ 7 ]]
+[connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton9" to="Organizer" method="_select" binds= [ 8 ]]
+[connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/GridContainer/TextureButton10" to="Organizer" method="_select" binds= [ 9 ]]
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/Left" to="Organizer" method="_left"]
 [connection signal="pressed" from="Organizer/VBoxContainer/NinePatchRect/Right" to="Organizer" method="_right"]
 [connection signal="pressed" from="Organizer/Back" to="Organizer" method="_back"]

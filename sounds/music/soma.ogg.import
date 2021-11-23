@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/soma.ogg-f3c9c6fac34f5d274ecf155cdb492c00.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/soma.ogg"
+dest_files=[ "res://.import/soma.ogg-f3c9c6fac34f5d274ecf155cdb492c00.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

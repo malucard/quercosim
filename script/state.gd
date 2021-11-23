@@ -58,6 +58,7 @@ var seductiometer = 500
 var state_stack = []
 var state = STATE_DIALOGUE
 var inv = {}
+var vs_save = null
 
 func has_tag(t):
 	return state_tags[state].has(t)
@@ -107,12 +108,11 @@ func reset():
 		bgm.stop()
 
 func get_speaker():
-	if globals.speaker_map.get(speaker_name.to_lower()) == null:
-		print(speaker_name.to_lower())
-		print(str(speaker_name.to_lower() == "protagonist"))
-		print(str(globals.speaker_map.get("protagonist") == null))
-		print(str(globals.speaker_map.protagonist == null))
-	return globals.speaker_map.get(speaker_name.to_lower())
+	var spk = speaker_name
+	var i = spk.find("#")
+	if i != -1:
+		spk = spk.substr(i + 1)
+	return globals.speaker_map.get(spk.to_lower())
 
 func object(char_name, type):
 	shaking_start = OS.get_ticks_usec()
@@ -136,29 +136,78 @@ func _process(_delta):
 	$Investigation/Hand.visible = globals.mobile and has_tag("investigation_examine")
 	if has_tag("investigation_idle"):
 		$Control/RSprite.visible = false
+		if !$Investigation/Buttons.is_a_parent_of(get_focus_owner()):
+			if Input.is_action_just_pressed("ui_right"):
+				if $Investigation/Buttons/Move.visible:
+					$Investigation/Buttons/Move.grab_focus()
+				elif $Investigation/Buttons/Talk.visible:
+					$Investigation/Buttons/Talk.grab_focus()
+				#elif $Investigation/Buttons/Gift.visible:
+				#	$Investigation/Buttons/Gift.grab_focus()
+				else:
+					$Investigation/Buttons/Examine.grab_focus()
+			elif Input.is_action_just_pressed("ui_left"):
+				$Investigation/Buttons/Examine.grab_focus()
 	$Investigation/Buttons.visible = has_tag("investigation_idle")
 	$Investigation/Back.visible = has_tag("investigation_back")
 	if has_tag("investigation"):
 		$Investigation.visible = true
-		$Investigation/Buttons/Examine.visible = !inv.areas[inv.area].examinables.empty()
+		if !inv.areas[inv.area].examinables.empty():
+			$Investigation/Buttons/Examine.visible = true
+			$Investigation/Buttons/Examine/Indicator.visible = false
+			var es = inv.areas[inv.area].examinables
+			for i in range(es.size()):
+				var e = es[i]
+				if !inv.examined.has(str(inv.area) + ":" + str(i)):
+					$Investigation/Buttons/Examine/Indicator.visible = true
+					break
+		else:
+			$Investigation/Buttons/Examine.visible = false
 		var vis = false
 		for i in range(inv.open_move.size()):
 			if inv.open_move[i].begins_with(str(inv.area) + ":"):
 				vis = true
 				break
-		if vis != $Investigation/Buttons/Move.visible:
-			$Investigation/Buttons/Move.visible = vis
+		if vis:
+			$Investigation/Buttons/Move.visible = true
+			$Investigation/Buttons/Move/Indicator.visible = false
+			for j in range(inv.open_move.size()):
+				var open = inv.open_move[j]
+				var cur = str(inv.area)
+				if open.begins_with(cur + ":"):
+					var area = open.substr(len(cur) + 1)
+					var es = inv.areas[int(area)].examinables
+					for i in range(es.size()):
+						var e = es[i]
+						if !inv.examined.has(area + ":" + str(i)):
+							$Investigation/Buttons/Move/Indicator.visible = true
+							break
+					if $Investigation/Buttons/Move/Indicator.visible: break
+		else:
+			$Investigation/Buttons/Move.visible = false
 		vis = false
 		for i in range(inv.open_talk.size()):
 			if inv.open_talk[i].begins_with(str(inv.area) + ":"):
 				vis = true
 				break
-		if vis != $Investigation/Buttons/Talk.visible:
-			$Investigation/Buttons/Talk.visible = vis
+		if vis:
+			$Investigation/Buttons/Talk.visible = true
+			$Investigation/Buttons/Talk/Indicator.visible = false
+			for i in range(inv.open_talk.size()):
+				if !inv.talked.has(str(inv.area) + ":" + inv.areas[inv.area].talks.keys()[i]):
+					$Investigation/Buttons/Talk/Indicator.visible = true
+					break
+		else:
+			$Investigation/Buttons/Talk.visible = false
 	else:
 		$Investigation.visible = false
+	$Investigation/MenuBG.visible = false
 	if has_tag("investigation_move"):
 		var places = $Investigation/Places
+		$Investigation/MenuBG.visible = true
+		var s = places.get_minimum_size()
+		$Investigation/MenuBG.rect_position = places.rect_position + places.rect_size / 2 - s / 2 - Vector2(32, 8)
+		$Investigation/MenuBG.rect_size = s + Vector2(64, 16)
 		places.visible = true
 		var upd = false
 		var children = places.get_children()
@@ -171,19 +220,37 @@ func _process(_delta):
 				children[i].queue_free()
 			for i in range(open_areas.size()):
 				var ins = choice_button.instance()
-				ins.get_node("Label").text = inv.areas[open_areas[i]].name
+				ins.text = inv.areas[open_areas[i]].name
 				ins.connect("pressed", self, "_move_to", [open_areas[i]])
 				places.add_child(ins)
 		else:
 			for i in range(children.size()):
 				var c = children[i]
-				c.get_node("Label").text = inv.areas[open_areas[i]].name
+				c.text = inv.areas[open_areas[i]].name
 				c.disconnect("pressed", self, "_move_to")
 				c.connect("pressed", self, "_move_to", [open_areas[i]])
+		children = places.get_children()
+		var found
+		for i in range(len(children)):
+			if children[i].has_focus():
+				found = true
+				break
+		if !found and !children.empty():
+			if Input.is_action_just_pressed("ui_down"):
+				print("yeahs")
+				children[0].grab_focus()
+			elif Input.is_action_just_pressed("ui_up"):
+				children[len(children) - 1].grab_focus()
+		if Input.is_action_just_pressed("ui_cancel"):
+			_inv_back()
 	else:
 		$Investigation/Places.visible = false
 	if has_tag("investigation_talk"):
 		var talks = $Investigation/Talks
+		$Investigation/MenuBG.visible = true
+		var s = talks.get_minimum_size()
+		$Investigation/MenuBG.rect_position = talks.rect_position + talks.rect_size / 2 - s / 2 - Vector2(32, 8)
+		$Investigation/MenuBG.rect_size = s + Vector2(64, 16)
 		talks.visible = true
 		var upd = false
 		var children = talks.get_children()
@@ -197,13 +264,12 @@ func _process(_delta):
 				children[i].queue_free()
 			for i in range(open_talks.size()):
 				var ins = choice_button.instance()
-				ins.get_node("Label").text = keys[open_talks[i]]
+				ins.text = keys[open_talks[i]]
 				ins.connect("pressed", self, "_talk_about", [keys[open_talks[i]]])
 				talks.add_child(ins)
 				if inv.talked.has(str(inv.area) + ":" + keys[open_talks[i]]):
-					ins.get_node("Label").margin_left = 0
-					ins.get_node("Label").margin_right = 0
-					ins.get_node("Check").rect_position.x = ins.rect_size.x / 2 + ins.get_node("Label").rect_size.x / 2 + 2
+					var ts = ins.get_font("Font").get_string_size(ins.text)
+					ins.get_node("Check").rect_position.x = ins.rect_size.x / 2 + ts.x / 2 + 2
 					ins.get_node("Check").rect_position.y = 10
 					ins.get_node("Check").visible = true
 				else:
@@ -211,17 +277,30 @@ func _process(_delta):
 		else:
 			for i in range(children.size()):
 				var c = children[i]
-				c.get_node("Label").text = keys[open_talks[i]]
+				c.text = keys[open_talks[i]]
 				c.disconnect("pressed", self, "_talk_about")
 				c.connect("pressed", self, "_talk_about", [keys[open_talks[i]]])
 				if inv.talked.has(str(inv.area) + ":" + keys[open_talks[i]]):
-					c.get_node("Label").margin_left = 0
-					c.get_node("Label").margin_right = 0
-					c.get_node("Check").rect_position.x = c.rect_size.x / 2 + c.get_node("Label").rect_size.x / 2 + 2
+					var ts = c.get_font("Font").get_string_size(c.text)
+					c.get_node("Check").rect_position.x = c.rect_size.x / 2 + ts.x / 2 + 2
 					c.get_node("Check").rect_position.y = 10
 					c.get_node("Check").visible = true
 				else:
 					c.get_node("Check").visible = false
+		children = talks.get_children()
+		var found
+		for i in range(len(children)):
+			if children[i].has_focus():
+				found = true
+				break
+		if !found and !children.empty():
+			if Input.is_action_just_pressed("ui_down"):
+				print("yeahs")
+				children[0].grab_focus()
+			elif Input.is_action_just_pressed("ui_up"):
+				children[len(children) - 1].grab_focus()
+		if Input.is_action_just_pressed("ui_cancel"):
+			_inv_back()
 	else:
 		$Investigation/Talks.visible = false
 	if has_tag("investigation_idle"):
@@ -286,9 +365,11 @@ func command_at(pos: int) -> PoolStringArray:
 				quote = p.substr(1)
 		else:
 			parts.append(p)
+	if parts[0].begins_with("!"):
+		parts[0] = parts[0].substr(1)
 	return parts
 
-func find_command_behind(text: String, where: int = parser.pos) -> int:
+func find_command_behind(text, where: int = parser.pos) -> int:
 	var i = parser.gscript.rfind("\n", where - 1)
 	if i >= where:
 		return -1
@@ -297,24 +378,66 @@ func find_command_behind(text: String, where: int = parser.pos) -> int:
 		if j == -1:
 			j = 0
 		var cmd = parser.gscript.substr(j, i - j).strip_edges()
-		if cmd.begins_with(text):
-			return j if j < where else -1
+		if cmd.begins_with("!"):
+			cmd = cmd.substr(1)
+		if typeof(text) == TYPE_ARRAY:
+			for t in text:
+				if t == "" or cmd.begins_with(t + " ") or cmd == t:
+					return i
+		else:
+			if text == "" or cmd.begins_with(text + " ") or cmd == text:
+				return j if j < where else -1
 		i = j
 	return -1
 
-func find_command_ahead(text: String, where: int = parser.pos) -> int:
+func find_command_ahead(text, where: int = parser.pos) -> int:
 	var i = parser.gscript.find("\n", where + 1)
 	while i < parser.gscript.length():
 		var j = parser.gscript.find("\n", i + 1)
 		if j == -1:
 			j = parser.gscript.length()
 		var cmd = parser.gscript.substr(i, j - i).strip_edges()
-		if text == "" or cmd.begins_with(text + " ") or cmd == text:
-			return i
+		if cmd.begins_with("!"):
+			cmd = cmd.substr(1)
+		if typeof(text) == TYPE_ARRAY:
+			for t in text:
+				if t == "" or cmd.begins_with(t + " ") or cmd == t:
+					return i
+		else:
+			if text == "" or cmd.begins_with(text + " ") or cmd == text:
+				return i
 		i = j
 	return -1
 
-func run_command(text: String):
+var cur_profile_source = ""
+func update_profiles():
+	profiles.clear()
+	var profile_source = find_command_behind("profile_source")
+	if profile_source != -1:
+		var src = command_at(profile_source)[1]
+		if src != cur_profile_source:
+			globals.profile_data.clear()
+			parser.load_conf(src)
+			cur_profile_source = src
+		var last_profile = find_command_ahead(["profile", "profile_rm", "profile_clear"], 0)
+		while last_profile != -1 and last_profile < parser.pos:
+			var parts = command_at(last_profile)
+			if parts[0] == "profile_rm":
+				for i in range(len(profiles)):
+					if profiles[i].id == parts[1]:
+						profiles.remove(i)
+						break
+			elif parts[0] == "profile_clear":
+				profiles.clear()
+			else:
+				profiles.push_back({id = parts[1]})
+			last_profile = find_command_ahead(["profile", "profile_rm", "profile_clear"], last_profile)
+
+func run_command(text: String, conf: bool = false):
+	if text.begins_with("!"):
+		text = text.substr(1)
+	if !conf:
+		update_profiles()
 	print("got " + text)
 	vars._msecs = OS.get_ticks_msec()
 	var parts_ = text.split(" ", false)
@@ -338,6 +461,37 @@ func run_command(text: String):
 	if parts.size() != 0:
 		parts[0] = parts[0].to_lower()
 		match parts[0]:
+			"defprof":
+				var ag: String = parts[4]
+				var age
+				var gender = ""
+				if ag.begins_with("?"):
+					age = "?"
+					gender = ag.substr(1)
+				elif ag.substr(len(ag) - 1).is_valid_integer():
+					age = ag
+				else:
+					age = ag.substr(0, len(ag) - 1)
+					gender = ag.substr(len(ag) - 1)
+				if gender == "m":
+					gender = "Male"
+				if gender == "f":
+					gender = "Female"
+				elif gender == "t" or gender == "":
+					gender = "Typewriter"
+				var desc = ""
+				for i in range(5, len(parts)):
+					if i != 5:
+						desc += " "
+					desc += parts[i]
+				globals.profile_data[parts[1]] = {
+					id = parts[1],
+					icon = parts[2],
+					name = parts[3],
+					age = age,
+					gender = gender,
+					desc = desc
+				}
 			"lcharfadeout":
 				parser.stop_talking()
 				if anim.is_playing():
@@ -668,7 +822,11 @@ func run_command(text: String):
 			"endvs":
 				run_command("destroy c_*")
 				run_command("music none")
+			"vs_save":
+				vs_save = $SaveMenu.create_save()
+				vs_save.vs_save = vs_save
 			"vs":
+				run_command("vs_save")
 				var c = globals.chars.get(parts[1])
 				anim.get_node("../Control/Battleface/Sprite").texture = c.load_(c.get("battleface")) if parts.size() > 1 else null
 				parser.stop_talking()
@@ -785,6 +943,7 @@ func run_command(text: String):
 						else:
 							state = STATE_DIALOGUE
 			"request_present":
+				run_command("vs_save")
 				if has_tag("show_seduction"):
 					state = STATE_SEDUCTION_PRESENT
 				else:
@@ -871,7 +1030,7 @@ func run_command(text: String):
 						e.name = parts[2]
 						e.desc = parts[3]
 						return
-				evidence.append({
+				evidence.push_back({
 					id = parts[1],
 					name = parts[2],
 					desc = parts[3]
@@ -884,30 +1043,17 @@ func run_command(text: String):
 						evidence.remove(i)
 						break
 			"has_evidence", "has_evi":
-				var evi = globals.all_evidence[parts[1]]
+				var evi = parts[1]
 				var found = 0
 				for e in evidence:
-					if globals.all_evidence[e.id] == evi:
+					if e.id == parts[1]:
 						found = 1
 						break
 				vars[parts[2] if parts.size() > 2 else "_"] = found
-			"profile", "prof":
-				var prof = globals.all_profiles[parts[1]]
-				for p in profiles:
-					if globals.all_profiles[p.id] == prof:
-						p.name = parts[2]
-						p.desc = parts[3]
-						return
-				profiles.append({
-					id = parts[1],
-					name = parts[2],
-					desc = parts[3]
-				})
 			"has_profile", "has_prof":
-				var prof = globals.all_profiles[parts[1]]
 				var found = 0
 				for p in profiles:
-					if globals.all_profiles[p.id] == prof:
+					if p.id == parts[1]:
 						found = 1
 						break
 				vars[parts[2] if parts.size() > 2 else "_"] = found
@@ -954,7 +1100,28 @@ func run_command(text: String):
 					yield(anim, "animation_finished")
 				anim.play("fadeout")
 				yield(anim, "animation_finished")
-				get_tree().change_scene("res://title_screen.tscn")
+				if vs_save:
+					print("vs_save valid")
+					print(vs_save)
+					state = STATE_CHOICE
+					$Choices.show_choices(["choice", "Try Again", "Quit", "title_screen"])
+				else:
+					print("vs_save invalid")
+					print(vs_save)
+					get_tree().change_scene("res://title_screen.tscn")
+			"restart_vs":
+				if vs_save:
+					var lm = LoadMenu.new()
+					add_child(lm)
+					lm.load_save(vs_save)
+				else:
+					get_tree().change_scene("res://title_screen.tscn")
+			"choice":
+				if has_tag("show_seduction"):
+					state = STATE_SEDUCTION_CHOICE
+				else:
+					state = STATE_CHOICE
+				$Choices.show_choices(parts)
 			"title_screen":
 				get_tree().change_scene("res://title_screen.tscn")
 			"restore_health":
@@ -964,7 +1131,14 @@ func run_command(text: String):
 				seductiometer = 500
 			"restore_seduction":
 				if seductiometer < 1000:
-					seductiometer = min(seductiometer + (int(parts[1]) if parts.size() > 1 else 250), 1000)
+					var sm = seductiometer
+					if anim.is_playing():
+						yield(anim, "animation_finished")
+					anim.play("compliment")
+					while anim.is_playing():
+						yield(get_tree(), "idle_frame")
+						seductiometer = min(sm + (int(parts[1]) if parts.size() > 1 else 250) * anim.current_animation_position / anim.current_animation_length, 1000)
+					seductiometer = min(sm + (int(parts[1]) if parts.size() > 1 else 250), 1000)
 					if seductiometer == 1000:
 						parser.go_to(find_command_ahead(""))
 						push_call_stack()
@@ -1182,6 +1356,7 @@ func _move_to(i):
 
 func _talk():
 	state = STATE_INVESTIGATION_TALK
+	push_call_stack()
 	globals.play_sfx("click")
 
 func _talk_about(topic: String):
@@ -1207,3 +1382,6 @@ func _seduction_deplete():
 		state = STATE_DIALOGUE
 		parser.next()
 		$Choices.visible = false
+
+func play_sfx(s):
+	globals.play_sfx(s)

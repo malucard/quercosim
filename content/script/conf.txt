@@ -1,6 +1,5 @@
 aliasbg theatrum theatrum_neutralis
 aliasbg garden rose_garden
-eviclone lbelle coupon
 eviclone coupon2 coupon
 eviclone song paper
 eviclone essay paper
@@ -13,6 +12,7 @@ speaker dm "Deid Mann"
 speaker dh "Dhar Mann"
 speaker ob "Barack Obama"
 speaker ml "malucart"
+speaker ?ml "???#malucart"
 speaker nt "Nate"
 speaker rp "Robert Parkman"
 speaker bl "Blaise Debeste"
@@ -22,3 +22,5 @@ speaker mc "Manny"
 speaker th "Thalassa"
 speaker bl "Blaise Debeste"
 speaker pi "pichuis"
+speaker mv "mvdy"
+speaker soma "Soma Cruz from Castlevania"

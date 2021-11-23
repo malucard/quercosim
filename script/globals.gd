@@ -56,7 +56,10 @@ var bgs = {
 	earth_federal_hall = "res://bg/ch2/earth_federal_hall.png",
 	earth_cohdopia = "res://bg/ch2/earth_cohdopia.png",
 	shelock_holmes = "res://bg/ch2/shelock_holmes.png",
-	mysterious_dead = "res://bg/ch2/mysterious_dead.png"
+	mysterious_dead = "res://bg/ch2/mysterious_dead.png",
+	reagan = "res://bg/ch3/reagan.jpg",
+	colias_mirror = "res://bg/ch3/colias_mirror.png",
+	dorm = "res://bg/dorm.png"
 }
 
 onready var chars = {
@@ -86,7 +89,8 @@ onready var chars = {
 	pichuis = char_pichuis,
 	blaise = char_blaise,
 	dhar = char_dhar,
-	mack = char_mack
+	mack = char_mack,
+	soma = char_soma
 }
 
 onready var music_querco = load("res://sounds/music/querco.ogg")
@@ -141,18 +145,23 @@ onready var music = {
 	logic_chess_endgame = load("res://sounds/music/logic_chess_endgame.ogg"),
 	factory = load("res://sounds/music/factory.ogg"),
 	truth = load("res://sounds/music/truth.ogg"),
-	pursuit = load("res://sounds/music/pursuit.ogg")
+	pursuit = load("res://sounds/music/pursuit.ogg"),
+	twilight_sad = load("res://sounds/music/twilight_sad.ogg"),
+	secrets = load("res://sounds/music/secrets.ogg"),
+	soma = load("res://sounds/music/soma.ogg")
 }
 
 var music_volume = {
 	guilty_love = 0.375,
 	protagonist = 0.25,
 	colias = 0.75,
-	#shelock = 0.75,
+	shelock = 1.25,
 	manny = 0.75,
 	gimmick = 0.75,
 	baroque = 0.75,
-	core = 0.75
+	core = 0.75,
+	inv = 2.0,
+	invmid = 2.0
 }
 
 onready var speaker_map = {
@@ -188,6 +197,9 @@ onready var speaker_map = {
 	"pichuis": char_pichuis,
 	"dhar mann": char_dhar,
 	"mack rell": char_mack,
+	"sydney": char_sydney,
+	"soma cruz": char_soma,
+	"soma cruz from castlevania": char_soma
 }
 
 onready var bubbles = {
@@ -213,10 +225,17 @@ var mobile = OS.has_feature("mobile")
 onready var sfx = load_all("res://sounds/sfx", {})
 onready var all_evidence = load_all(globals.user_dir + "content/evidence", load_all("res://evidence"))
 onready var all_profiles = load_all(globals.user_dir + "content/profiles", load_all("res://profiles"))
+var profile_data = {}
 
 var sfx_volumes = {
-	seduction = 2.0,
-	flashback = 5.0
+	seduction = 4,
+	flashback = 8,
+	eat = 3,
+	door = 4,
+	paper = 4,
+	evidence = 2,
+	cursor_ffviii = 4,
+	compliment = 2
 }
 
 var preferences = {
@@ -392,7 +411,7 @@ func play_sfx(sfx_name: String):
 	player.stream = globals.sfx[sfx_name]
 	$"/root".add_child(player)
 	sfx_playing += 1
-	player.volume_db = linear2db(sfx_volumes[sfx_name] if sfx_name in sfx_volumes else 0.25)
+	player.volume_db = linear2db((sfx_volumes[sfx_name] if sfx_name in sfx_volumes else 1.0) * 0.25)
 	player.connect("finished", self, "_sfx_done", [player])
 	player.play()
 

@@ -1,3 +1,12 @@
+profile_source profiles_ch2
+profile pr
+profile cp
+profile qa
+profile ob
+profile dm
+profile mc
+profile bl
+profile rp
 chapter 2 "Lost Footing"
 amogus
 
@@ -143,12 +152,13 @@ bg piano_protagonist_colias_2
 cp Cracked
 pr (That's good, actually. I'll write it down.)
 evi song "Song" "The song I improvised before music class."
-g [center]Song transcribed in Organizer.[/center]
+g {sfx evidence}[center]Song transcribed in Organizer.[/center]
 ? Protagonist, right? That was impressive.
 pr Oh, are you the professor?
 bg art_room
 music thalassa
 lchar thalassa normal
+profile th
 th Yeah. I'm Thalassa Gramarye, nice to meet you.
 rchar protagonist normal
 pr Ah, you too, Professor.
@@ -170,6 +180,7 @@ th Pull harder. We're going to get them down today, don't you worry about it. Fi
 pr (Professor Gramarye starts with a voice, then hands it off to Sydney, who sings a little opera with the monkey.)
 th You've gotta be good to be a good monkey.
 rchar sydney normal
+profile sy
 "Sydney: What? Like this?"
 th Who wants to be the banana?
 lchar sydney normal
@@ -228,6 +239,7 @@ sh {s}Ahaha! Well now, I've been found out!
 sh Without further ado, let me fulfil what should be the first duty of any gentleman... ...and introduce myself.
 music shelock
 char shelock normal
+profile sh
 sh The name is Holmes... {s}Shelock Holmes! ...THE Ace Detective.
 sh However, it appears I have been caught on my side job... as a forklift operator. I am here to repair a wall.
 pr What the fuck
@@ -239,7 +251,7 @@ pr Elevates*
 pr Don't do this.
 sh Hrhgrh...
 evi forklift "Fork Elevator" "This machine was being used by Shelock Holmes in the foot classroom, for the repair of the wall."
-g [center]Fork Elevator added in Organizer.[/center]
+g {sfx evidence}[center]Fork Elevator added in Organizer.[/center]
 pr You're literally british. I'm leaving
 bg hallway_rain
 music rain
@@ -323,6 +335,8 @@ wait 5
 pr (What...?)
 sh What!?
 pr (Oh- Holmes!)
+profile_rm dm
+profile dm2
 sh ...He's dead.
 char shelock sweat
 sh Gentlemen, out of the room. Leave this to me and the off-screen "people"
@@ -388,11 +402,12 @@ investigation ch2_deid_2_hallway
 			pr Hmm...
 			char none
 			evi vent "Hallway Vent" "Ventilation opening in the hallway."
-			g [center]Hallway Vent note written in Organizer.[/center]
+			g {sfx evidence}[center]Hallway Vent note written in Organizer.[/center]
 			set i_vent 1
 			label done
 			returnif !i_stain
 			returnif !i_incinerator
+			!returnif !i_cat
 			exit_investigation
 		examinable x 0.894495 y 0.392202 w 0.22156 h 0.214679
 			pr A door I haven't gone through yet.
@@ -414,7 +429,7 @@ investigation ch2_deid_2_hallway
 			gotoif i_stain done
 
 			evi rainbow_stain "Colorful Stain" "Some weird substance found in the Maintenance Area."
-			g [center]Colorful Stain pictured in Organizer.[/center]
+			g {sfx evidence}[center]Colorful Stain pictured in Organizer.[/center]
 			set i_stain 1
 			bg maintenance_area_stained
 			char obama
@@ -434,6 +449,7 @@ investigation ch2_deid_2_hallway
 			bg maintenance_area_stained
 			returnif !i_vent
 			returnif !i_incinerator
+			!returnif !i_cat
 			exit_investigation
 		examinable x 1.386628 y 0.295893 w 0.152245 h 0.452149
 			pr That's an incinerator.
@@ -445,13 +461,28 @@ investigation ch2_deid_2_hallway
 			pr Well, it's used to destroy things, right? It's possible that it was used to destroy evidence.
 			pr We should note it down just in case.
 			evi incinerator "Incinerator" "The incinerator in Allebahst Academy. Looks like it was used around the time of the incident, but it could just be normal trash."
-			g [center]Incinerator organized in Organizer.[/center]
+			g {sfx evidence}[center]Incinerator organized in Organizer.[/center]
 			cp You always say that.
 			char none
 			set i_incinerator 1
 			label done
 			returnif !i_vent
 			returnif !i_stain
+			!returnif !i_cat
+			exit_investigation
+		examinable x 1.668376 y 0.104274 w 0.2 h 0.2
+			cp caaaat
+			"Cat: meow"
+			gotoif i_cat done
+			cp ahh isnt he cute
+			pr (cloias has clearly lost his composure i think i have too)
+			pr i fucking hate c*ts STOP petting it
+			char colias serious
+			cp you have problems
+			char none
+			returnif !i_vent
+			returnif !i_stain
+			!returnif !i_incinerator
 			exit_investigation
 endinv
 bg hallway
@@ -483,6 +514,7 @@ game_over
 	pr (Goodbye, Alba-san... This is it for me. The end.)
 	pr (I've lost everything...)
 	bad_end
+	restart_vs
 endrq
 cp The... vent?
 pr Yeah. The professor seemed like he came out of the vent in the foot classroom, right?
@@ -584,7 +616,7 @@ investigation ch2_deid_1_body
 			pr A vent opening. Looks like he came out of here somehow.
 			returnif i_vent
 			evi bloody_vent "Bloody Vent" "Ventilation opening. It seems Professor Mann came out of it. Indicative of a ventilation system."
-			g [center]Bloody Vent noted in Organizer.[/center]
+			g {sfx evidence}[center]Bloody Vent noted in Organizer.[/center]
 			pr There's a blood trail connecting it and the Professor. Clearly, he crawled out of the vent, while bleeding out.
 			char shelock normal
 			sh True! Died, too!
@@ -598,13 +630,13 @@ investigation ch2_deid_1_body
 			pr Professor Deid Mann. He's dead
 			returnif i_wound
 			evi deid_wound "Gunshot Wound" "Bullet wound on Professor Mann. It appears he was shot in the chest."
-			g [center]Gunshot Wound noted in Organizer.[/center]
+			g {sfx evidence}[center]Gunshot Wound noted in Organizer.[/center]
 			char shelock sweat
 			sh You stupid
 			sh That's a stab wound, there wasn't even any gunshot
 			pr Well *sorry* I didn't want to stare directly into a fatal wound.
 			evi deid_wound "Stab Wound" "Blade wound on Professor Mann. It appears he was stabbed from the back."
-			g [center]Stab Wound corrected in Organizer. goodbye Gunshot Wound 😔[/center]
+			g {sfx evidence}[center]Stab Wound corrected in Organizer. goodbye Gunshot Wound 😔[/center]
 			sh Unfortunately, in criminal investigative work, you just have to have a strong stomach sometimes.
 			pr You guys are just built different or something
 			pr Anyway, this means he was killed with a blade. Didn't see any pointy objects though
@@ -619,7 +651,7 @@ investigation ch2_deid_1_body
 			pr He's... missing his right foot.
 			returnif i_foot
 			evi missing_foot "Missing Foot" "Professor Mann is missing his right foot. How did this happen?"
-			g [center]Missing Foot noted in Organizer.[/center]
+			g {sfx evidence}[center]Missing Foot noted in Organizer.[/center]
 			pr Colias, do people usually go footless around here?
 			char colias nervous
 			cp Of all people, I don't think Professor Mann would go around without a foot by choice...
@@ -636,17 +668,29 @@ investigation ch2_deid_1_body
 		examinable x 1.140342 y 0.872785 w 0.13159 h 0.101186
 			pr There's pieces of paper near his hand. He was probably holding this before he died.
 			evi essay "Foot Essay" "Professor Mann's latest essay on foot. It seems like he had finished it:\nWell the first spot anyone gets is what foot is to decide which walk is going to take the `` greatest '' walk. And the major bottom is the bottom that is strapped onto the panel while the other walk is permitted to go freely. This reason why one foot is not strapped onto this panel is because it permits you to stay able to push/kick yourself in thin surfaces. When somebody utilizes their left-hand foot as their lead walk, it is named `` normal s'', and if somebody utilizes their good foot as their lead walk, it is called `` goofy ''. Then how do you decide if you are regular or silly? Well there are really a two methods of defining the idea.\nFirstly, strap or tie up the wakeboard bindings then they suit you snugly and make sure you are comfortable with whichever walk you’re putting forth. Standing with the right foot forward is a normal attitude, while holding the left foot ahead is called a silly attitude. If you are uncomfortable with this position that bindings are putting you in, unfasten and adjust them before proceeding. Place yourself in some point from the boat, but not up to now that the circle is already drawn directly. Let the wakeboard lie sideways, half submerged under water, and go into the squat position with your knees just about the chest. Rest the arms flat before you on either side of the knees and grip the hold of the tow circle.\nIn Havana, this response to man obama’s gambit is mixed. Cuba’s administration, which saw the wet walk, dry foot policy as an insult and the case of the destructive brain drain, is happy. Some common people believe that difference is warranted. Wet walk, dry walk was only 'another way to use the blockade', told a well-dressed woman who could not say her family. Barbara Izquierdo, a wife whose friend got to the United States 15 years ago, acknowledges that most Cubans make for business reasons, not political things.  (the Economist., Jan. 2017)"
-			g [center]Essay copied in Organizer.[/center]
+			g {sfx evidence}[center]Essay copied in Organizer.[/center]
+			!sfx paper
 			g Foot paper by Professor Deid Mann
+			!sfx paper
 			g Well the first spot anyone gets is what foot is to decide which walk is going to take the `` greatest '' walk. And the major bottom is the bottom that is strapped onto the panel while the other walk is permitted to go freely.
+			!sfx paper
 			g This reason why one foot is not strapped onto this panel is because it permits you to stay able to push/kick yourself in thin surfaces.
+			!sfx paper
 			g When somebody utilizes their left-hand foot as their lead walk, it is named `` normal s'', and if somebody utilizes their good foot as their lead walk, it is called `` goofy ''. Then how do you decide if you are regular or silly?
+			!sfx paper
 			g Well there are really a two methods of defining the idea. Firstly, strap or tie up the wakeboard bindings then they suit you snugly and make sure you are comfortable with whichever walk you’re putting forth.
+			!sfx paper
 			g Standing with the right foot forward is a normal attitude, while holding the left foot ahead is called a silly attitude. If you are uncomfortable with this position that bindings are putting you in, unfasten and adjust them before proceeding.
+			!sfx paper
 			g Place yourself in some point from the boat, but not up to now that the circle is already drawn directly. Let the wakeboard lie sideways, half submerged under water, and go into squat position with your knees just about the chest.
+			!sfx paper
 			g Rest the arms flat before you on either side of the knees and grip the hold of the tow circle.
+			!sfx paper
 			g In Havana, this response to man obama’s gambit is mixed. Cuba’s administration, which saw the wet walk, dry foot policy as an insult and the case of the destructive brain drain, is happy.
+			!sfx paper
 			g Some common people believe that difference is warranted. Wet walk, dry walk was only 'another way to use the blockade', told a well-dressed woman who could not say her family.
+			!sfx paper
+			profile bi
 			g Barbara Izquierdo, a wife whose friend got to the United States 15 years ago, acknowledges that most Cubans make for business reasons, not political things.  (the Economist., Jan. 2017)
 			char querco think
 			qa Well said, Professor... though...
@@ -684,9 +728,9 @@ char shelock normal
 sh Since this is your first time in the Dance of Seduction, would you fancy a tutorial?
 label repeat
 pose shelock polish
-sh Look to your top left. That bar is your [h]dominance[/h]. You can dominate by flirting or being smart.
-sh Doing nothing isn't hot, as your rapidly decrementing influence may make clear. Be boring enough, and you might just lose everything you've ever wanted. (note: you get to see a bad end)
-sh But fill it, and it will stay for as long as you keep your act together! Give that a go if you need time to think. Don't feel pressured, though, there's ample time to act.
+sh Look to your top left. That bar shows your [h]dominance[/h]. You can dominate by flirting or being smart. [h]Press[/h] your target as much as possible to find their weak spot, and take advantage!
+sh Doing nothing isn't hot. Be boring enough, and you might just lose everything.
+sh But fill it, and it will stay there for as long as you keep your act together! Give that a go if you need time to think.
 sh However, this is an [u]ace[/u] seduction. Our goal is to reach the truth.
 sh Do you understand my explanation?
 choice "i literally did this yesterday" no <repeat
@@ -706,7 +750,7 @@ stmt
 stmt
 correct_present deid_wound
 	pose shelock polish
-	sh Then, he met the culprit, and there, his foot was stolen, and to make sure he wouldn't survive, he was stabbed!
+	sh Then, he met the culprit, and it was there in the ducts that he was stabbed! His foot was stolen, too.
 	sh Hold what, exactly? The weapon?
 	pr Uh, well, yeah.
 	pose shelock normal
@@ -772,9 +816,10 @@ game_over
 	pr (I dropped out of college. Moved to hell. Working at Subway. I don't know what else. Nothing matters anymore.)
 	pr (I might as well just... quit.)
 	bad_end
+	restart_vs
 
 endvs
-pr Shelock Holmes-san. You blind
+pr Shelock Holmes-san. This makes no sense!
 lchar shelock shock
 sh wtf
 exit_seduction zvarri
@@ -811,7 +856,7 @@ pose shelock normal
 sh Well, we need to have a look in the {s}ducts! They're clearly important to this.
 sh We went in earlier, but quickly came back out. We need to examine them properly.
 pose colias nervous
-pr Oh true
+pr Oh, that's right.
 fadeout
 pr (We enter through the off-screen second vent opening in the classroom that we came through before.)
 music vent
@@ -951,7 +996,7 @@ cp I... live here.
 cp This is my vent house
 pr Colias... You don't have a house?
 cp No...
-pr Homeless! (image of you)
+pr Homeless! (image of you (unlike ME (image of me)))
 bgkeep babahl
 cp Eight years ago, I enrolled for podiatry... in Babahl Academy.
 pr (-!?)
@@ -962,17 +1007,17 @@ pr (Dr... Palaeno?)
 pr But... you're still studying it.
 bgkeep classroom
 cp Right. Foot is an interesting topic. And the research the professors have been making? It's incredible.
-pr Incredible enough to do four more years of it?
+pr Incredible enough to start the degree over again?
 cp Yeah. They've discovered a whole new area of podiatry. Foot really does have unbounded spiritual power
 pr goddamn
 pr But why are you living in the vents? I don't see the connection.
-cp Eight years ago... in September 2001...
-pr Isn't that a little late to start college?
-cp what? i wouldn't know, this is the first time i started college
-pr (ah yeah. unlike me, colias is still on his first degree, just extended.)
-cp Anyway, there was an incident in Babahl Academy.
+cp Well... I'm not going to pretend it's a good reason.
+cp But, if you need to know.
+cp Eight years ago, in September of 2001... shortly after I started college.
+cp When I was still new there, getting used to everything.
 pose colias dramatic
-cp Scared, I escaped through the vents, and survived. But at the time... I didn't know my way around them well.
+cp There was an incident in Babahl Academy.
+cp It was my only option. I escaped through the vents, and survived. But at the time... I didn't know my way around them well.
 cp I tried to find the exit. I made a map, tried to work out how to leave.
 cp Eventually, I figured out... There is [h]no exit[/h] from the vents to outside the university.
 set has_no_vent 1
@@ -1069,6 +1114,7 @@ game_over
 	pr (Goodbye, Alba-san... This is it for me. The end.)
 	pr (I've lost everything...)
 	bad_end
+	restart_vs
 endrq
 music none
 pr (...)
@@ -1142,7 +1188,7 @@ mc Correct.
 qa Ah, Manny. What brings you here?
 pose manny serious
 mc ...
-mc Professor Mann... was someone important to me.
+mc Deid... was someone important to me.
 #mc His foot was stolen, was it not? I suspect this murder had something related to foot.
 #qa It might have.
 mc Please. Find the killer.
@@ -1216,6 +1262,7 @@ cp Can you think of anything, Protagonist? Was there any way for a fork elevator
 pr how the hell man
 pr this whole thing keeps getting more complicated what the fuck do i even do
 cp We're really grasping at straws here, I know. But it's all we have, and we know there [u]has[/u] to be an answer. Yet again, more likely than not, we can connect [h]things we've already found[/h] to find an answer.
+!vs_save
 pr (I'm really running out of options here. But, as Colias said... I need to come up with something.)
 
 label choice
@@ -1386,7 +1433,7 @@ lchar colias normal
 pr This shit so true.
 fadeout
 pr (We wait as Colias uses his phone to measure and calculate the exact direction.)
-bg earth_embassy
+bg earth_embassy left
 fadein
 cp Right... So, this is where we are. If we define a line in that direction... it looks like this.
 pr (Well, this may be a slight problem.)
@@ -1525,8 +1572,10 @@ fadeout
 wait 1
 music none
 chapter_end 2 "Lost Footing"
+file script_ch3
 title_screen
 
+profile_clear
 game_over
 label game_over_2
 	music bad_end
@@ -1555,3 +1604,4 @@ label game_over_2
 	pr (I dropped out of college. Moved to hell. Working at Subway. I didn't come close to anyone ever again. I don't know what else. Nothing matters anymore.)
 	pr (I might as well just... quit.)
 	bad_end
+	restart_vs

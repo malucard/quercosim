@@ -17,18 +17,18 @@ var script_path
 var script_id
 var gscript = null
 
-func load_conf():
+func load_conf(file, super = false):
 	var s
-	var p2 = globals.user_dir + "content/script/conf.txt"
+	var p2 = globals.user_dir + "content/script/" + file + ".txt"
 	var f = File.new()
-	if f.file_exists(p2):
+	if !super and f.file_exists(p2):
 		s = load_text_file(p2)
 	else:
-		s = load_text_file("res://content/script/conf.txt")
+		s = load_text_file("res://content/script/" + file + ".txt")
 	s = s.replace('“', '"').replace('”', '"').replace('‘', '\'').replace('’', '\'').replace("…", "...")
 	var lines = s.split("\n")
 	for l in lines:
-		state.run_command(l.strip_edges())
+		state.run_command(l.strip_edges(), true)
 
 func load_script(which: String = "script"):
 	script_id = which
@@ -57,7 +57,7 @@ func _ready():
 	state.objec_player = $"../../ObjectionPlayer"
 	state.bgm = $"../../BGM"
 	$"../../Gauge".visible = false
-	load_conf()
+	load_conf("conf")
 	if gscript == null:
 		load_script()
 	globals.play_sfx("next")
@@ -87,7 +87,8 @@ func next():
 				var idx = speech.find(":")
 				var speaker = speech.substr(0, idx if idx != -1 else 0).trim_prefix(" ")
 				state.speaker_name = speaker
-				$"../Label".text = speaker if !speaker.begins_with("#") else ""
+				var i = speaker.find("#")
+				$"../Label".text = speaker.substr(0, i) if i != -1 else speaker
 				bbcode_text = ""
 				cur_text = ""
 				all_text = speech.substr(speech.find(":") + 1).trim_prefix(" ")
@@ -118,7 +119,8 @@ func next():
 					emit_signal("reach_cmd")
 					var speech = speaker + ": " + cmd.substr(cmd.find(" "))
 					state.speaker_name = speaker
-					$"../Label".text = speaker if !speaker.begins_with("#") else ""
+					var i = speaker.find("#")
+					$"../Label".text = speaker.substr(0, i) if i != -1 else speaker
 					bbcode_text = ""
 					cur_text = ""
 					all_text = speech.substr(speech.find(":") + 1).strip_edges()
@@ -221,7 +223,7 @@ func get_save_pos():
 			elif trimmed.begins_with("wrong_present"):
 				marker = "vs " + cur + " wrong_present"
 				i = 0
-			elif trimmed[0] != '#':
+			elif trimmed[0] != '#' and !trimmed.begins_with("vs_save") and !trimmed.begins_with("profile") and trimmed[0] != "!":
 				i += 1
 		spos = npos + 1
 	print(str(i))
@@ -297,9 +299,9 @@ func go_to_save_pos(to: int, target_marker: String):
 				elif trimmed.begins_with("wrong_present"):
 					marker = "vs " + cur + " wrong_present"
 					i = 0
-				elif trimmed[0] != '#':
+				elif trimmed[0] != '#' and !trimmed.begins_with("vs_save") and !trimmed.begins_with("profile") and trimmed[0] != "!":
 					i += 1
-			elif trimmed[0] != '#':
+			elif trimmed[0] != '#' and !trimmed.begins_with("vs_save") and !trimmed.begins_with("profile") and trimmed[0] != "!":
 				i += 1
 		pos = npos + 1
 
@@ -333,10 +335,10 @@ var blipf = load("res://sounds/blipf.wav")
 func blip():
 	var now = OS.get_ticks_usec()
 	var st = blipm
-	if state.speaker_name == "#green":
+	if state.speaker_name.ends_with("#green"):
 		st = blipt
-	elif state.speaker_name in globals.speaker_map:
-		var c = globals.speaker_map[state.speaker_name]
+	elif state.get_speaker():
+		var c = state.get_speaker()
 		if "gender" in c and c.gender == "f":
 			st = blipf
 	if st != $"../../AudioStreamPlayer".stream:

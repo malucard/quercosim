@@ -1,3 +1,4 @@
+profile_source profiles_ch1
 chapter 1 "Prologue"
 
 evi badge “Allebahst Academy Student Badge” “Proof that I study here.”
@@ -14,6 +15,7 @@ fadein
 pr {s}ah! I accidentally hit someone! 👊
 music querco
 ? {s}Bah! You {s}fiend! You dare hit someone as might as me, The {s}ultimate ambassador Quercus {s}Alba!?!
+profile qa
 char querco normal
 pr w-woah… sorry there i was running really fast
 pr (oh my god… he looks so hot)
@@ -49,6 +51,7 @@ side left
 pr (I looked over my shoulder, searching for the source of that mysterious voice, only to feel my heart try and burst out of my chest.)
 lchar obama hand
 music obama
+profile ob
 ob Let me be clear, Mr Alba, you cannot leave these, uhh, school premises without a valid reason.
 qa Bah, a teacher's pet as always, Barack! Fine, I’ll stay in this wretched academy for a little bit longer, but I shall partake in {s}no activities with *protagonist*!
 
@@ -90,6 +93,7 @@ char deid
 music deid
 fadein
 
+profile dm
 dm Welcome to foot class. My name is Deid Mann and welcome to this convenient and informative course on all things Podiatry.
 lchar obama normal
 ob We're really excited to welcome you today, Professor Mann. Please come in now to begin your Podiatric Lesson.
@@ -124,12 +128,13 @@ pr ...I’m sorry, do I know you?
 pr (Something seems off about this guy. Plus he’s not even close to as hot as Alba, so I’d rather get this over with quick)
 music embassy
 pose colias normal
+profile cp
 cp Oh sorry about that bruv. My name’s Colias Palaeno, but I guess people tend to just call me Colias.
 pose colias grin
 cp Again, sorry for not introducing myself sooner. I know, why don’t you take a coupon as an apology?
 pr Oh… thanks?
 evi coupon "Babahl Merchandise Coupon" "Received from Colias Palaeno. It says Babahl merchandise."
-g [center]Babahl Merchandise Coupon stored in Organizer.[/center]
+g {sfx evidence}[center]Babahl Merchandise Coupon stored in Organizer.[/center]
 pr (What is this even a coupon for? It says Babahl merchandise… {s}isn’t that a rival school?)
 pose colias normal
 pr Hey, dumb question but are you a student here? These are for the Babahl school store...
@@ -144,7 +149,7 @@ pose colias normal
 cp Yes, well, off to class!
 char none
 music none
-pr (Kind of odd, but I really need to get going.)
+pr (Very strange, but I have to meet my senpai.)
 
 
 pr (Huh, that weirdo didn’t go for the door… Whatever.)
@@ -174,8 +179,8 @@ pr I already said what I want: to {s}FUCK YOU!
 
 enter_seduction
 pr (This isn't working. If I want Alba-san to take me seriously, I'll need to [h]seduce[/h] him.)
-pr (Sometimes, [h]pressing[/h] can give me the answer, sometimes I need to [h]present evidence[/h] as well, or even both.)
-pr (I can stall for time by pressing him on things, but if I take too long, he won't care about me. I have to be confident and {s}fight!)
+pr (I can buy time and look for his weak spot by [h]pressing[/h] as much as I can. Sometimes, pressing can give me the answer, sometimes I need to [h]present evidence[/h] as well, or I might even need both.)
+pr (If I take too long to act, he won't care about me. I have to be confident and {s}fight!)
 vs querco extraterritorial_rights
 g [center]-- Extraterritorial Rights --[/center]
 music logic_chess
@@ -242,6 +247,7 @@ game_over
 	pr (This is it for me… The end. I’ve lost everything I’ve ever wanted…)
 	pr (I’ve lost everything…)
 	bad_end
+	restart_vs
 
 endvs
 
@@ -276,6 +282,7 @@ music deid
 dm Ah, hello Ambassador Alba and Protagonist, yes, I am the Foot Professor Deid Mann.
 pose querco normal
 qa Ah, fine afternoon, Professor Mann. In fact, we have here a manuscript from the late Robert Parkman. It's very interesting.
+profile rp
 dm Hmm. Is it?
 pose querco think
 qa I'll read it to you. ‘According to the Encyclopedia Britannica, the foot is the longest, strongest part of the human body.’
@@ -315,7 +322,7 @@ fl For only $10500 per bottle, 'Couleur Vous L'Belle!' hair dye is the only way 
 fl But for you... I have a gift for you. How about it?
 g [center]Coupon - 99.8% discount on any Vous êtes L'Belle beauty product[/center]
 evi lbelle “Vous êtes L'Belle Coupon” “Received from Florent L'Belle. It says '99.8% discount on any Vous êtes L'Belle beauty product'.”
-g [center]Vous êtes L'Belle Coupon filed in Organizer.[/center]
+g {sfx evidence}[center]Vous êtes L'Belle Coupon filed in Organizer.[/center]
 objection querco
 pose querco hand
 qa Silence, insolent {s}mortal! You have no authority to boss other students around!
@@ -344,7 +351,7 @@ pr Hey… It’s you.
 cp Yep. Ah, I noticed you left your stuff in the classroom, so I kept it safe. {s}Here!
 pr Oh… More Babahl coupons, too… Thanks.
 evi coupon2 "Another Babahl Merchandise Coupon" "Received from Colias Palaeno. It says Babahl merchandise."
-g [center]Another Babahl Merchandise Coupon inserted in Organizer.[/center]
+g {sfx evidence}[center]Another Babahl Merchandise Coupon inserted in Organizer.[/center]
 pose colias unused
 cp You’re welcome!
 pose colias serious
@@ -409,6 +416,7 @@ mc It's Manny Coachen. I'm a professor in Babahl Academy, just visiting here. Yo
 
 label end
 destroy asked_colias
+profile mc
 pr My name is Protagonist. It's, nice to meet you.
 pr And [fade length=13]this is my...[/fade]
 pr (...Colias...? He was here just now. Where did he go?)
@@ -503,6 +511,7 @@ investigation ch1_after_class
 
 			returnif i_got_home
 			set i_got_home 1
+			!sfx door
 			pr Here I am... Home.
 			pr (What a long day, really... And with such a depressing conclusion. I feel... lost...)
 			pr Kinda hungry...
@@ -512,12 +521,14 @@ investigation ch1_after_class
 			gotoif i_ate ate
 
 			set i_ate 1
+			!sfx eat
 			pr chm crch glup slzrp
 			return
 
 			label ate
 			set i_ate_twice 1
 			pr again? aight sure im not too full
+			!sfx eat
 			pr shrt cxurt rup xrulb
 			return
 
@@ -554,6 +565,7 @@ investigation ch1_after_class
 			ob Let me be clear, Mr. Alba. Any time you could have had extraterritorial rights, you gave them up by going out.
 			ob And you can't get out of it without going into the United States, so really, you need my permission, Mr. Alba!
 			objection protagonist
+			profile pr
 			rchar protagonist point_frustrated
 			pr Obama-san is right, Alba-san! You can't leave! {s}Please!!!!!!
 			pr (I can't believe it. I'm on Obama-san's side, even though he's my arch-nemesis...)

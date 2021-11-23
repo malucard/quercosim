@@ -26,6 +26,7 @@ var poses = {
 
 const flip = true
 var pose = poses.normal
+var gender = "f"
 
 func get_pose():
 	return pose

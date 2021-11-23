@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://gui/buttons/choice.png" type="Texture" id=1]
 [ext_resource path="res://script/title_screen.gd" type="Script" id=2]
@@ -16,19 +16,19 @@
 [ext_resource path="res://gui/save_icon_hover.tres" type="Texture" id=14]
 [ext_resource path="res://gui/xbox_view.png" type="Texture" id=15]
 [ext_resource path="res://gui/fonts/default_20.tres" type="DynamicFont" id=16]
+[ext_resource path="res://covers/card1.png" type="Texture" id=17]
+[ext_resource path="res://script/cursor.tscn" type="PackedScene" id=18]
+[ext_resource path="res://script/button_tex.gd" type="Script" id=19]
+[ext_resource path="res://gui/choicebox.png" type="Texture" id=20]
+[ext_resource path="res://script/button.gd" type="Script" id=21]
+
+[sub_resource type="StyleBoxEmpty" id=124]
+
+[sub_resource type="Theme" id=125]
+Button/styles/focus = SubResource( 124 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 8 )
-region = Rect2( -2, 134, 376, 68 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 8 )
-region = Rect2( 968, 1572, 968, 472 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
@@ -39,6 +39,16 @@ region = Rect2( 543, 95, 52, 100 )
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 607, 95, 52, 100 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( -2, 134, 376, 68 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 968, 1572, 968, 472 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 24
@@ -429,155 +439,97 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="GridContainer" parent="."]
+[node name="Buttons" type="NinePatchRect" parent="."]
 anchor_left = 0.25
 anchor_top = 1.0
 anchor_right = 0.25
 anchor_bottom = 1.0
 margin_top = -110.0
+margin_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
-rect_min_size = Vector2( 372, 0 )
-size_flags_horizontal = 0
-size_flags_vertical = 3
-custom_constants/vseparation = -8
+rect_min_size = Vector2( 460, 117 )
+texture = ExtResource( 20 )
+patch_margin_left = 128
+patch_margin_top = 32
+patch_margin_right = 128
+patch_margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="Buttons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 8.0
+margin_right = -16.0
+margin_bottom = -8.0
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NewGame" type="TextureButton" parent="Buttons"]
+[node name="NewGame" type="Button" parent="Buttons"]
+margin_left = 32.0
+margin_top = 12.0
 margin_right = 228.0
-margin_bottom = 59.0
-rect_min_size = Vector2( 228, 59 )
-focus_neighbour_left = NodePath(".")
-focus_neighbour_top = NodePath(".")
-focus_neighbour_right = NodePath("../Continue")
-focus_neighbour_bottom = NodePath("../Shortcut")
-focus_next = NodePath("../Continue")
-focus_previous = NodePath("../Extras")
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Buttons/NewGame"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+margin_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 125 )
 text = "New Game"
-align = 1
-valign = 1
+flat = true
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue" type="TextureButton" parent="Buttons"]
+[node name="Continue" type="Button" parent="Buttons"]
 margin_left = 232.0
-margin_right = 460.0
-margin_bottom = 59.0
-rect_min_size = Vector2( 228, 59 )
-focus_neighbour_left = NodePath("../NewGame")
-focus_neighbour_top = NodePath(".")
+margin_top = 12.0
+margin_right = 428.0
+margin_bottom = 56.0
 focus_neighbour_bottom = NodePath("../Extras")
-focus_next = NodePath("../Shortcut")
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Buttons/Continue"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 125 )
 text = "Continue"
-align = 1
-valign = 1
+flat = true
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="Buttons"]
-margin_top = 51.0
+[node name="Shortcut" type="Button" parent="Buttons"]
+margin_left = 32.0
+margin_top = 60.0
 margin_right = 228.0
-margin_bottom = 63.0
-rect_min_size = Vector2( 0, 12 )
-
-[node name="Control4" type="Control" parent="Buttons"]
-margin_left = 232.0
-margin_top = 51.0
-margin_right = 460.0
-margin_bottom = 63.0
-rect_min_size = Vector2( 0, 12 )
-
-[node name="Shortcut" type="TextureButton" parent="Buttons"]
-margin_top = 55.0
-margin_right = 228.0
-margin_bottom = 114.0
-rect_min_size = Vector2( 228, 59 )
-focus_neighbour_left = NodePath(".")
-focus_neighbour_top = NodePath("../NewGame")
-focus_neighbour_right = NodePath("../Extras")
-focus_neighbour_bottom = NodePath(".")
-focus_next = NodePath("../Extras")
-focus_previous = NodePath("../Continue")
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Buttons/Shortcut"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 125 )
 text = "Shortcut"
-align = 1
-valign = 1
+flat = true
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Extras" type="TextureButton" parent="Buttons"]
+[node name="Extras" type="Button" parent="Buttons"]
 margin_left = 232.0
-margin_top = 55.0
-margin_right = 460.0
-margin_bottom = 114.0
-rect_min_size = Vector2( 228, 59 )
-focus_neighbour_left = NodePath("../Shortcut")
-focus_neighbour_top = NodePath("../Continue")
-focus_neighbour_bottom = NodePath(".")
-focus_next = NodePath("../NewGame")
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Buttons/Extras"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+margin_top = 60.0
+margin_right = 428.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 125 )
 text = "Extras"
-align = 1
-valign = 1
+flat = true
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Control2" type="Control" parent="Buttons"]
-margin_top = 106.0
-margin_right = 228.0
-margin_bottom = 165.0
-rect_min_size = Vector2( 0, 59 )
-
-[node name="Control3" type="Control" parent="Buttons"]
-margin_left = 232.0
-margin_top = 106.0
-margin_right = 460.0
-margin_bottom = 165.0
-rect_min_size = Vector2( 0, 59 )
 
 [node name="Extras" type="Panel" parent="."]
 visible = false
@@ -620,25 +572,12 @@ margin_top = 32.0
 margin_right = 460.0
 margin_bottom = 91.0
 
-[node name="Amogus" type="TextureButton" parent="Extras/VBoxContainer/Nightmare/GridContainer"]
+[node name="Amogus" type="Button" parent="Extras/VBoxContainer/Nightmare/GridContainer"]
 margin_right = 228.0
 margin_bottom = 59.0
 rect_min_size = Vector2( 228, 59 )
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Extras/VBoxContainer/Nightmare/GridContainer/Amogus"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
 text = "Amogus"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+flat = true
 
 [node name="HSeparator" type="HSeparator" parent="Extras/VBoxContainer/Nightmare"]
 margin_top = 95.0
@@ -649,8 +588,8 @@ __meta__ = {
 }
 
 [node name="Content" type="VBoxContainer" parent="Extras/VBoxContainer"]
-margin_right = 460.0
-margin_bottom = 280.0
+margin_right = 524.0
+margin_bottom = 316.0
 
 [node name="Label" type="Label" parent="Extras/VBoxContainer/Content"]
 visible = false
@@ -658,37 +597,131 @@ margin_right = 460.0
 margin_bottom = 28.0
 text = "No actual extras to be seen"
 
-[node name="Label2" type="Label" parent="Extras/VBoxContainer/Content"]
-margin_right = 460.0
+[node name="MarginContainer" type="MarginContainer" parent="Extras/VBoxContainer/Content"]
+margin_right = 524.0
+margin_bottom = 28.0
+custom_constants/margin_right = -32
+custom_constants/margin_left = 32
+
+[node name="Label2" type="Label" parent="Extras/VBoxContainer/Content/MarginContainer"]
+margin_left = 32.0
+margin_right = 556.0
 margin_bottom = 28.0
 text = "Custom Content"
-
-[node name="Import" type="TextureButton" parent="Extras/VBoxContainer/Content"]
-margin_top = 32.0
-margin_right = 460.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 228, 59 )
-hint_tooltip = "Warning: This will overwrite any existing custom content."
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Extras/VBoxContainer/Content/Import"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
-text = "Import Content From File"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="Extras/VBoxContainer/Content"]
-margin_top = 95.0
-margin_right = 460.0
-margin_bottom = 280.0
+[node name="NinePatchRect" type="NinePatchRect" parent="Extras/VBoxContainer/Content"]
+margin_top = 32.0
+margin_right = 524.0
+margin_bottom = 312.0
+rect_min_size = Vector2( 524, 280 )
+texture = ExtResource( 20 )
+patch_margin_left = 128
+patch_margin_top = 16
+patch_margin_right = 128
+patch_margin_bottom = 16
+
+[node name="Import" type="Button" parent="Extras/VBoxContainer/Content/NinePatchRect"]
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 492.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 228, 59 )
+hint_tooltip = "Warning: This will overwrite any existing custom content."
+focus_neighbour_bottom = NodePath("../ImportURL")
+theme = SubResource( 125 )
+text = "Import Content From File"
+flat = true
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImportURL" type="Button" parent="Extras/VBoxContainer/Content/NinePatchRect"]
+margin_left = 32.0
+margin_top = 79.0
+margin_right = 260.0
+margin_bottom = 138.0
+rect_min_size = Vector2( 228, 59 )
+hint_tooltip = "Warning: This will overwrite any existing custom content."
+focus_neighbour_bottom = NodePath(".")
+theme = SubResource( 125 )
+text = "From URL"
+flat = true
+script = ExtResource( 21 )
+
+[node name="Delete" type="Button" parent="Extras/VBoxContainer/Content/NinePatchRect"]
+margin_left = 264.0
+margin_top = 79.0
+margin_right = 492.0
+margin_bottom = 138.0
+rect_min_size = Vector2( 228, 59 )
+hint_tooltip = "Warning: This will overwrite any existing custom content."
+focus_neighbour_bottom = NodePath("../ImportURL")
+theme = SubResource( 125 )
+text = "Delete Installed"
+flat = true
+script = ExtResource( 21 )
+
+[node name="Export" type="Button" parent="Extras/VBoxContainer/Content/NinePatchRect"]
+margin_left = 32.0
+margin_top = 142.0
+margin_right = 260.0
+margin_bottom = 201.0
+rect_min_size = Vector2( 228, 59 )
+focus_neighbour_bottom = NodePath("../ImportURL")
+theme = SubResource( 125 )
+text = "Export Content"
+flat = true
+script = ExtResource( 21 )
+
+[node name="Folder" type="Button" parent="Extras/VBoxContainer/Content/NinePatchRect"]
+margin_left = 264.0
+margin_top = 142.0
+margin_right = 492.0
+margin_bottom = 201.0
+rect_min_size = Vector2( 228, 59 )
+focus_neighbour_bottom = NodePath("../ImportURL")
+theme = SubResource( 125 )
+text = "Content Folder"
+flat = true
+script = ExtResource( 21 )
+
+[node name="Debugger" type="Button" parent="Extras/VBoxContainer/Content/NinePatchRect"]
+margin_left = 32.0
+margin_top = 205.0
+margin_right = 260.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 228, 59 )
+focus_neighbour_bottom = NodePath("../ImportURL")
+theme = SubResource( 125 )
+text = "Debugger"
+flat = true
+script = ExtResource( 21 )
+
+[node name="Editor" type="Button" parent="Extras/VBoxContainer/Content/NinePatchRect"]
+margin_left = 264.0
+margin_top = 205.0
+margin_right = 492.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 228, 59 )
+focus_neighbour_bottom = NodePath("../ImportURL")
+theme = SubResource( 125 )
+text = "Examinable Tool"
+flat = true
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="Extras/VBoxContainer/Content/NinePatchRect"]
+visible = false
+margin_left = 32.0
+margin_top = 79.0
+margin_right = 492.0
+margin_bottom = 264.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 2
@@ -696,139 +729,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ImportURL" type="TextureButton" parent="Extras/VBoxContainer/Content/GridContainer"]
-margin_right = 228.0
-margin_bottom = 59.0
-rect_min_size = Vector2( 228, 59 )
-hint_tooltip = "Warning: This will overwrite any existing custom content."
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Extras/VBoxContainer/Content/GridContainer/ImportURL"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Extras/VBoxContainer/Content/NinePatchRect"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
-text = "From URL"
-align = 1
-valign = 1
+margin_left = 32.0
+margin_top = 16.0
+margin_right = -32.0
+margin_bottom = -16.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Delete" type="TextureButton" parent="Extras/VBoxContainer/Content/GridContainer"]
-margin_left = 232.0
-margin_right = 460.0
-margin_bottom = 59.0
-rect_min_size = Vector2( 228, 59 )
-hint_tooltip = "Warning: This will overwrite any existing custom content."
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Extras/VBoxContainer/Content/GridContainer/Delete"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
-text = "Delete Installed"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Export" type="TextureButton" parent="Extras/VBoxContainer/Content/GridContainer"]
-margin_top = 63.0
-margin_right = 228.0
-margin_bottom = 122.0
-rect_min_size = Vector2( 228, 59 )
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Extras/VBoxContainer/Content/GridContainer/Export"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
-text = "Export Content"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Folder" type="TextureButton" parent="Extras/VBoxContainer/Content/GridContainer"]
-margin_left = 232.0
-margin_top = 63.0
-margin_right = 460.0
-margin_bottom = 122.0
-rect_min_size = Vector2( 228, 59 )
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Extras/VBoxContainer/Content/GridContainer/Folder"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
-text = "Content Folder"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Debugger" type="TextureButton" parent="Extras/VBoxContainer/Content/GridContainer"]
-margin_top = 126.0
-margin_right = 228.0
-margin_bottom = 185.0
-rect_min_size = Vector2( 228, 59 )
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Extras/VBoxContainer/Content/GridContainer/Debugger"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
-text = "Debugger"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Editor" type="TextureButton" parent="Extras/VBoxContainer/Content/GridContainer"]
-margin_left = 232.0
-margin_top = 126.0
-margin_right = 460.0
-margin_bottom = 185.0
-rect_min_size = Vector2( 228, 59 )
-texture_normal = ExtResource( 1 )
-texture_hover = ExtResource( 3 )
-expand = true
-
-[node name="Label" type="Label" parent="Extras/VBoxContainer/Content/GridContainer/Editor"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
-text = "Examinable Tool"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Control" type="Control" parent="Extras/VBoxContainer/Content"]
+margin_top = 316.0
+margin_right = 524.0
+margin_bottom = 316.0
 
 [node name="Label" type="Label" parent="Extras/VBoxContainer"]
-margin_top = 284.0
-margin_right = 460.0
-margin_bottom = 418.0
+margin_top = 320.0
+margin_right = 524.0
+margin_bottom = 454.0
 custom_constants/line_spacing = -1
 custom_fonts/font = ExtResource( 16 )
 text = "game developed by malucart
@@ -856,7 +777,6 @@ __meta__ = {
 
 [node name="Shortcut" type="Panel" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 self_modulate = Color( 1, 1, 1, 0.498039 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -866,6 +786,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Shortcut"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -882,9 +803,9 @@ __meta__ = {
 }
 
 [node name="Chapters" type="VBoxContainer" parent="Shortcut/VBoxContainer"]
-margin_top = 83.0
+margin_top = 20.0
 margin_right = 684.0
-margin_bottom = 237.0
+margin_bottom = 300.0
 
 [node name="Label" type="Label" parent="Shortcut/VBoxContainer/Chapters"]
 margin_right = 684.0
@@ -894,7 +815,7 @@ text = "Chapters"
 [node name="GridContainer" type="GridContainer" parent="Shortcut/VBoxContainer/Chapters"]
 margin_top = 32.0
 margin_right = 684.0
-margin_bottom = 154.0
+margin_bottom = 280.0
 
 [node name="Chapter1" type="TextureButton" parent="Shortcut/VBoxContainer/Chapters/GridContainer"]
 margin_right = 684.0
@@ -938,12 +859,10 @@ __meta__ = {
 }
 
 [node name="Chapter3" type="TextureButton" parent="Shortcut/VBoxContainer/Chapters/GridContainer"]
-modulate = Color( 0.25, 0.25, 0.25, 1 )
 margin_top = 126.0
 margin_right = 684.0
 margin_bottom = 185.0
 rect_min_size = Vector2( 684, 59 )
-disabled = true
 texture_normal = ExtResource( 1 )
 texture_hover = ExtResource( 3 )
 expand = true
@@ -961,11 +880,12 @@ __meta__ = {
 }
 
 [node name="Chapter4" type="TextureButton" parent="Shortcut/VBoxContainer/Chapters/GridContainer"]
-visible = false
+modulate = Color( 0.5, 0.5, 0.5, 1 )
 margin_top = 189.0
 margin_right = 684.0
 margin_bottom = 248.0
 rect_min_size = Vector2( 684, 59 )
+disabled = true
 texture_normal = ExtResource( 1 )
 texture_hover = ExtResource( 3 )
 expand = true
@@ -975,7 +895,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.466667, 0.133333, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
-text = "Chapter 4"
+text = "Chapter 4 - Leaves"
 align = 1
 valign = 1
 __meta__ = {
@@ -1069,6 +989,54 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect2" type="TextureRect" parent="Shortcut"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shortcut"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_right = -32.0
+custom_constants/separation = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TextureButton" parent="Shortcut/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 283.0
+margin_right = 52.0
+margin_bottom = 383.0
+size_flags_vertical = 4
+texture_normal = SubResource( 4 )
+texture_hover = SubResource( 5 )
+flip_h = true
+
+[node name="Cover" type="TextureButton" parent="Shortcut/HBoxContainer"]
+margin_left = 84.0
+margin_right = 1036.0
+margin_bottom = 666.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 17 )
+expand = true
+stretch_mode = 5
+
+[node name="Right" type="TextureButton" parent="Shortcut/HBoxContainer"]
+margin_left = 1068.0
+margin_top = 283.0
+margin_right = 1120.0
+margin_bottom = 383.0
+size_flags_vertical = 4
+texture_normal = SubResource( 4 )
+texture_hover = SubResource( 5 )
 
 [node name="TextureButton" type="TextureButton" parent="Shortcut"]
 anchor_top = 1.0
@@ -1170,6 +1138,7 @@ focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath("../SaveIcon2")
 texture_hover = ExtResource( 14 )
 expand = true
+script = ExtResource( 19 )
 
 [node name="Line" type="RichTextLabel" parent="LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon"]
 anchor_right = 1.0
@@ -1209,6 +1178,7 @@ focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath("../SaveIcon3")
 texture_hover = ExtResource( 14 )
 expand = true
+script = ExtResource( 19 )
 
 [node name="Line" type="RichTextLabel" parent="LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon2"]
 anchor_right = 1.0
@@ -1248,6 +1218,7 @@ focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath("../SaveIcon4")
 texture_hover = ExtResource( 14 )
 expand = true
+script = ExtResource( 19 )
 
 [node name="Line" type="RichTextLabel" parent="LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon3"]
 anchor_right = 1.0
@@ -1287,6 +1258,7 @@ focus_neighbour_right = NodePath(".")
 focus_neighbour_bottom = NodePath(".")
 texture_hover = ExtResource( 14 )
 expand = true
+script = ExtResource( 19 )
 
 [node name="Line" type="RichTextLabel" parent="LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon4"]
 anchor_right = 1.0
@@ -1448,18 +1420,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Cursor" parent="." instance=ExtResource( 18 )]
+
 [connection signal="pressed" from="Buttons/NewGame" to="." method="_new_game"]
 [connection signal="pressed" from="Buttons/Continue" to="LoadMenu" method="_open"]
 [connection signal="pressed" from="Buttons/Shortcut" to="." method="_shortcut"]
 [connection signal="pressed" from="Buttons/Extras" to="." method="_extras"]
 [connection signal="pressed" from="Extras/VBoxContainer/Nightmare/GridContainer/Amogus" to="." method="_editor"]
-[connection signal="pressed" from="Extras/VBoxContainer/Content/Import" to="." method="_import"]
-[connection signal="pressed" from="Extras/VBoxContainer/Content/GridContainer/ImportURL" to="." method="_import_url"]
-[connection signal="pressed" from="Extras/VBoxContainer/Content/GridContainer/Delete" to="." method="_delete_content"]
-[connection signal="pressed" from="Extras/VBoxContainer/Content/GridContainer/Export" to="." method="_export"]
-[connection signal="pressed" from="Extras/VBoxContainer/Content/GridContainer/Folder" to="." method="_open_folder"]
-[connection signal="pressed" from="Extras/VBoxContainer/Content/GridContainer/Debugger" to="." method="_editor"]
-[connection signal="pressed" from="Extras/VBoxContainer/Content/GridContainer/Editor" to="." method="_inv_editor"]
+[connection signal="pressed" from="Extras/VBoxContainer/Content/NinePatchRect/Import" to="." method="_import"]
+[connection signal="pressed" from="Extras/VBoxContainer/Content/NinePatchRect/ImportURL" to="." method="_import_url"]
+[connection signal="pressed" from="Extras/VBoxContainer/Content/NinePatchRect/Delete" to="." method="_delete_content"]
+[connection signal="pressed" from="Extras/VBoxContainer/Content/NinePatchRect/Export" to="." method="_export"]
+[connection signal="pressed" from="Extras/VBoxContainer/Content/NinePatchRect/Folder" to="." method="_open_folder"]
+[connection signal="pressed" from="Extras/VBoxContainer/Content/NinePatchRect/Debugger" to="." method="_editor"]
+[connection signal="pressed" from="Extras/VBoxContainer/Content/NinePatchRect/Editor" to="." method="_inv_editor"]
 [connection signal="pressed" from="Extras/TextureButton" to="." method="_close_extras"]
 [connection signal="pressed" from="Shortcut/VBoxContainer/Chapters/GridContainer/Chapter1" to="." method="_play_shortcut" binds= [ 1 ]]
 [connection signal="pressed" from="Shortcut/VBoxContainer/Chapters/GridContainer/Chapter2" to="." method="_play_shortcut" binds= [ 2 ]]
@@ -1469,6 +1443,9 @@ __meta__ = {
 [connection signal="pressed" from="Shortcut/VBoxContainer/Chapters/GridContainer/Chapter6" to="." method="_play_shortcut" binds= [ 6 ]]
 [connection signal="pressed" from="Shortcut/VBoxContainer/Chapters/GridContainer/Chapter7" to="." method="_play_shortcut" binds= [ 7 ]]
 [connection signal="pressed" from="Shortcut/VBoxContainer/Chapters/GridContainer/Debug" to="." method="_play_shortcut" binds= [ -1 ]]
+[connection signal="pressed" from="Shortcut/HBoxContainer/Left" to="." method="_shortcut_left"]
+[connection signal="pressed" from="Shortcut/HBoxContainer/Cover" to="." method="_shortcut_start"]
+[connection signal="pressed" from="Shortcut/HBoxContainer/Right" to="." method="_shortcut_right"]
 [connection signal="pressed" from="Shortcut/TextureButton" to="." method="_close_shortcut"]
 [connection signal="pressed" from="LoadMenu/VBoxContainer/TextureRect/Prev" to="LoadMenu" method="_prev_page"]
 [connection signal="pressed" from="LoadMenu/VBoxContainer/TextureRect/Next" to="LoadMenu" method="_next_page"]

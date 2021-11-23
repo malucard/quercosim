@@ -1,4 +1,72 @@
+chapter 3 "Shadow"
+#marker dream
+music twilight_sad
 fadein
-char obama
-ob Did you know the White House is uhh, 21 meters tall? It's true.
+#char obama
+#ob Did you know the White House is uhh, 21 meters tall? It's true.
+#fadeout
+char mila normal
+?ml Are you enjoying Quercus Alba Dating Simulator?
+?ml Unless your thoughts are similar to "I don't get to date Quercus Alba", please leave a review!
+pose mila look
+?ml ...
+?ml The introductory arc is over. Just know that.
+music soma
+bg sky
+char soma normal
+soma ...
+? (Wow, is that Soma Cruz from Castlevania Aria of Sorrow)
+soma Hi. I'm Soma.
+wait 2
 fadeout
+wait 3
+
+bg none
+#bg dorm
+music rain
+fadein
+#marker start
+
+? {s}...
+? Ah...
+? (What a weird dream...)
+? (I wake up a little startled. I don't feel like sleeping more...)
+? (I look out the window - I can barely see the sun. It's started to come out, but the rainy clouds mask it.)
+? [url]https://www.youtube.com/watch?v=Cc_xFaTxf6g[/url]
+? (Right, we don't have class today. The professor was killed, and the investigation isn't done.)
+? (That's what I'm going to do today. Everyone meets up at the White House, then we go to the airport.)
+? (...For some reason, I get a weird feeling...)
+? (I get up, and walk over to the light switch...)
+? (I flip it, and look in the mirror.)
+bg colias_mirror
+cp ...
+music colias
+!evi badge “Allebahst Academy Student Badge” “Proof that I study here.”
+!evi coupon "Babahl Merchandise Coupons" "These give me stuff in the vending machines at the embassy."
+!evi psp "Playstation Portable" "Gaming"
+cp Nah... this is just me. Colias Palaeno.
+cp (I don't know what I was expecting. Realizing how silly it was to have a 'feeling', I go get ready to go out.)
+bg dorm
+g [center]my room[/center]
+g [center]5:21 am[/center]
+fadeout
+bg none
+char protagonist normal
+lchar querco normal
+fadein
+cp (I can't help but think of what happened yesterday.)
+cp (And... Protagonist...)
+fadeout
+cp (My situation in college is pretty weird. There's no great reason for me to still be here.)
+cp (Thinking back to when I started pretending to be a student, I think the new discoveries in foot might have been more an excuse than a motivation.)
+cp (I got scared of moving forward, I guess.)
+cp (...I wouldn't even be thinking about any of this if Protagonist hadn't shown up, would I?)
+cp (What a fool I am.)
+
+bg none
+music rain
+fadein
+char mila normal
+?ml ...Cut. This is only a demo, and this is the end for now. See you in the final version
+fadeout
+? Bye

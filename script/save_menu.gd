@@ -130,6 +130,8 @@ func create_save():
 		r.inv_talked = state.inv.talked
 		r.inv_open_talk = state.inv.open_talk
 		r.inv_open_move = state.inv.open_move
+	if state.vs_save:
+		r.vs_save = state.vs_save
 	return r
 
 func do_save(n: int):

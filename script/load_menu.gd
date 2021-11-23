@@ -79,13 +79,14 @@ func load_save(save):
 	new_main.profiles = save.profiles
 	new_main.health = save.health
 	new_main.seductiometer = save.seductiometer if "seductiometer" in save else 500
+	new_main.vs_save = save.vs_save if "vs_save" in save else null
 	if "choices" in save:
 		var arr = ["", save.choices[0]]
 		for i in range(1, len(save.choices)):
 			arr.push_back(save.choices[i])
 			arr.push_back(save.choice_jumps[i - 1])
 		new_main.get_node("Choices").show_choices(arr)
-	if save.has("inv_id"):
+	if "inv_id" in save:
 		#new_main.load_inv_new(save.inv_id)
 		new_main.inv = save.inv
 		new_main.inv.area = save.inv_area
@@ -94,11 +95,14 @@ func load_save(save):
 		new_main.inv.open_talk = save.inv_open_talk
 		new_main.inv.open_move = save.inv_open_move
 	parser.cur_text = save.line
-	if !save.speaker_name.begins_with("#"):
-		parser.get_node("../Label").text = save.speaker_name
+	var spk = save.speaker_name
+	var i = spk.find("#")
+	if i != -1:
+		spk = spk.substr(0, i)
+	parser.get_node("../Label").text = spk
 	if save.line[0] == "(" and save.line.ends_with(")"):
 		parser.self_modulate = Color(0.5, 0.5, 1)
-	elif new_main.has_tag("confrontation") or save.speaker_name == "#green":
+	elif new_main.has_tag("confrontation") or save.speaker_name.ends_with("#green"):
 		parser.self_modulate = Color(0.5, 1, 0.5)
 	else:
 		parser.self_modulate = Color(1, 1, 1)
@@ -133,6 +137,7 @@ func load_save(save):
 	if save.modulate:
 		var parts = save.modulate.split(",")
 		new_main.get_node("Control").modulate = Color(float(parts[0]), float(parts[1]), float(parts[2]), float(parts[3]))
+	new_main.update_profiles()
 
 func _load_from(n: int):
 	var save = get_save(n + page * 4)

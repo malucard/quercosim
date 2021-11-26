@@ -1,3 +1,13 @@
+# v0.2.6
+2021/11/26
+Pursuit ~ Lying Coldly 2021, Investigation ~ Start, Investigation ~ Into It, and Panic of Fate have been totally remixed
+fix bug where the cat is amnesiac so you had to pet it last thing to progress
+redesigned update checker
+backlog visual fix
+present and return to title screen button fix
+tried to fix automatic android build so it comes out at the same time as the rest
+update from godot 3.4-beta5 to 3.4-stable
+
 # v0.2.5
 2021/11/23
 added character profiles. these will be up to date no matter how you load your game even if they are changed later

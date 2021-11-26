@@ -400,11 +400,11 @@ investigation ch2_deid_2_hallway
 			pose colias grin
 			cp Knowing him, maybe it had to do with foot.
 			pr Hmm...
-			char none
 			evi vent "Hallway Vent" "Ventilation opening in the hallway."
 			g {sfx evidence}[center]Hallway Vent note written in Organizer.[/center]
 			set i_vent 1
 			label done
+			char none
 			returnif !i_stain
 			returnif !i_incinerator
 			!returnif !i_cat
@@ -444,8 +444,8 @@ investigation ch2_deid_2_hallway
 			cp How would I know
 			pr isn't he here kinda all the time?
 			cp Ah, uh, I guess he is... Anyway.
-			char none
 			label done
+			char none
 			bg maintenance_area_stained
 			returnif !i_vent
 			returnif !i_incinerator
@@ -463,9 +463,9 @@ investigation ch2_deid_2_hallway
 			evi incinerator "Incinerator" "The incinerator in Allebahst Academy. Looks like it was used around the time of the incident, but it could just be normal trash."
 			g {sfx evidence}[center]Incinerator organized in Organizer.[/center]
 			cp You always say that.
-			char none
 			set i_incinerator 1
 			label done
+			char none
 			returnif !i_vent
 			returnif !i_stain
 			!returnif !i_cat
@@ -479,6 +479,8 @@ investigation ch2_deid_2_hallway
 			pr i fucking hate c*ts STOP petting it
 			char colias serious
 			cp you have problems
+			set i_cat 1
+			label done
 			char none
 			returnif !i_vent
 			returnif !i_stain

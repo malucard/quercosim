@@ -160,8 +160,7 @@ var music_volume = {
 	gimmick = 0.75,
 	baroque = 0.75,
 	core = 0.75,
-	inv = 2.0,
-	invmid = 2.0
+	inv = 1.25
 }
 
 onready var speaker_map = {

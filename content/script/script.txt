@@ -634,7 +634,7 @@ investigation ch1_after_class
 			ob I mean, come on, it's, uhh... a college institution situated in an embassy, and it's owned by Allebahst. And we, uh, also have Babahl Academy over there, owned by Babahl. And all of that is in, uh, the United States of America.
 			ob You know what that means, right?
 			pr It means... Alba-san is here sometimes.
-			ob It's not, uh, a regular college at all. The three countries use the building to keep, uh, diplomatic relations between each other.
+			ob It's not, uh, a regular college at all. The two countries use the building to keep, uh, diplomatic relations between each other.
 			ob In fact, I oversaw the construction of this place myself.
 			ob I had, uhh, official meetings here, and so did Mr. Alba.
 			ob However, as I am the President, I have to stay here, uh, for much longer. I am needed for many occasions.

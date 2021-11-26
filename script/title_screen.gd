@@ -134,10 +134,8 @@ func _req_done(res, res_code, headers, body, req):
 		newver = newver.name
 		if cmp_semver(newver, version) != 1:
 			return
-		$Version/HBoxContainer/Label.bbcode_text = "[right]Latest: v" + newver + desc
-		#print(response.headers["User-Agent"])
+		$Version/Update/Bg/VBoxContainer/Label.bbcode_text = "Latest: v" + newver + desc
 		if !links.empty():
-			$Version/HBoxContainer/Label.bbcode_text += " ("
 			for title in links:
 				var link = response.links[title]
 				if os in link:
@@ -148,11 +146,11 @@ func _req_done(res, res_code, headers, body, req):
 					continue
 				var l = LinkButton.new()
 				l.connect("mouse_entered", l, "grab_focus")
-				l.connect("mouse_entered", l, "grab_focus")
+				l.mouse_default_cursor_shape = CURSOR_POINTING_HAND
 				if link_node:
 					var comma = Label.new()
 					comma.text = ", "
-					$Version/HBoxContainer.add_child(comma)
+					$Version/Update/Bg/VBoxContainer/HBoxContainer.add_child(comma)
 				else:
 					link_node = l
 				var i = title.find("#")
@@ -162,13 +160,7 @@ func _req_done(res, res_code, headers, body, req):
 					l.text = title
 				l.focus_mode = FOCUS_ALL
 				l.connect("pressed", OS, "shell_open", [link])
-				$Version/HBoxContainer.add_child(l)
-				#links_str += "[url=" + link + "]" + title + "[/url]"
-			if link_node:
-				var l = Label.new()
-				l.text = ")"
-				$Version/HBoxContainer.add_child(l)
-		#$HTTPRequest.queue_free()
+				$Version/Update/Bg/VBoxContainer/HBoxContainer.add_child(l)
 
 func _process(delta):
 	if globals.mobile:
@@ -185,7 +177,12 @@ func _process(delta):
 		$ExportDialog.rect_scale = Vector2(1, 1)
 		$ExportDialog.anchor_right = 1.0
 		$ExportDialog.anchor_bottom = 1.0
-	$Version/HBoxContainer/Xbox.visible = globals.controller and $Version/HBoxContainer.get_child_count() > 2
+	if link_node:
+		var min_size = $Version/Update/Bg/VBoxContainer.get_minimum_size() + Vector2(128, 64)
+		$Version/Update.rect_min_size = min_size
+		$Version/Update/Bg.rect_min_size = min_size
+		$Version/Update.visible = true
+	$Version/Update/Bg/VBoxContainer/HBoxContainer/Xbox.visible = globals.controller and $Version/Update/Bg/VBoxContainer/HBoxContainer.get_child_count() > 1
 	if $LoadMenu.visible:
 		if !$LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon.has_focus() \
 			and !$LoadMenu/VBoxContainer/TextureRect/VBoxContainer/SaveIcon2.has_focus() \
@@ -221,7 +218,7 @@ func _process(delta):
 				_close_shortcut()
 	else:
 		if link_node and Input.is_action_just_pressed("download_update"):
-			if $Version/HBoxContainer.is_a_parent_of(get_focus_owner()):
+			if $Version/Update.is_a_parent_of(get_focus_owner()):
 				$Buttons/NewGame.grab_focus()
 			else:
 				link_node.grab_focus()

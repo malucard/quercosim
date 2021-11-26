@@ -10,4 +10,4 @@ defprof rp jd "Robert Parkman" ?m Apparently knew about foot.
 defprof sh sh "Shelock Holmes" 25m Calls himself THE Ace Detective. British.
 defprof th Yuumi "Thalassa Gramarye" 23f Professor of music at Allebahst Academy. I haven't met her before, but something about her rings a bell.
 defprof sy sy "Sydney" 221f Capital city of New South Wales in Australia. Studying music at Allebahst Academy.
-defprof bi jd "Barbara Izquierdo" ?f Could not say her family. A wife whose friend got to the United States 15 years ago, and she acknowledges that most Cubans make for business reasons, not political things.
+defprof bi jd "Barbara Izquierdo" ?f Could not say her family. A wife whose friend got to the United States 15 years ago, she acknowledges that most Cubans make for business reasons, not political things.

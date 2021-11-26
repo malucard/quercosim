@@ -13,6 +13,7 @@ func _ready():
 	visible = false
 	for c in $VBoxContainer/NinePatchRect/GridContainer.get_children():
 		c.connect("mouse_entered", self, "_hover_item", [c])
+		c.mouse_default_cursor_shape = CURSOR_POINTING_HAND
 
 func _hover_item(c):
 	if page * 10 + int(c.name.substr(13)) - 1 < len(state.evidence if mode == 0 else state.profiles):

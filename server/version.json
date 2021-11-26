@@ -1,7 +1,8 @@
 {
 	"latest": {
 		"all": {
-			"name": "0.2.5",
+			"name": "0.2.6",
+			"suffix": ": bug fixes, remixed songs",
 			"links": ["download", "changelog"]
 		}
 	},
@@ -10,7 +11,7 @@
 			"all": "https://github.com/malucard/quercosim/blob/main/server/changelog.md"
 		},
 		"download": {
-			"all": "https://malucart.itch.io/aai0-qads"
+			"all": "https://malucart.itch.io/qads"
 		}
 	}
 }

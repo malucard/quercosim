@@ -384,39 +384,81 @@ __meta__ = {
 }
 
 [node name="Version" type="VBoxContainer" parent="."]
-anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1184.0
 margin_top = -58.0
+margin_right = -16.0
+margin_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
+custom_constants/separation = 16
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Update" type="Control" parent="Version"]
+visible = false
+margin_top = 21.0
+margin_right = 1168.0
+margin_bottom = 21.0
+
+[node name="Bg" type="NinePatchRect" parent="Version/Update"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -256.0
+margin_bottom = 32.0
+grow_horizontal = 0
+texture = ExtResource( 20 )
+patch_margin_left = 128
+patch_margin_top = 32
+patch_margin_right = 128
+patch_margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Version/Update/Bg"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -14.5
+margin_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 16
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="Version/Update/Bg/VBoxContainer"]
+margin_bottom = 29.0
+grow_horizontal = 0
+rect_min_size = Vector2( 0, 29 )
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Version/Update/Bg/VBoxContainer"]
+margin_top = 45.0
+margin_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 0, 29 )
+size_flags_horizontal = 4
 custom_constants/separation = 0
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Version"]
-margin_right = 1184.0
-margin_bottom = 29.0
-custom_constants/separation = 0
-alignment = 2
-
-[node name="Label" type="RichTextLabel" parent="Version/HBoxContainer"]
-margin_right = 1184.0
-margin_bottom = 29.0
-grow_horizontal = 0
-size_flags_horizontal = 3
-bbcode_enabled = true
-fit_content_height = true
-scroll_active = false
-
-[node name="Xbox" type="TextureRect" parent="Version/HBoxContainer"]
+[node name="Xbox" type="TextureRect" parent="Version/Update/Bg/VBoxContainer/HBoxContainer"]
 visible = false
-margin_left = 1155.0
-margin_right = 1184.0
+margin_right = 29.0
 margin_bottom = 29.0
 rect_min_size = Vector2( 29, 29 )
 texture = ExtResource( 15 )
@@ -424,9 +466,9 @@ expand = true
 stretch_mode = 5
 
 [node name="Label" type="RichTextLabel" parent="Version"]
-margin_top = 29.0
-margin_right = 1184.0
-margin_bottom = 58.0
+margin_top = 21.0
+margin_right = 1168.0
+margin_bottom = 50.0
 grow_horizontal = 0
 grow_vertical = 0
 focus_mode = 2

@@ -115,15 +115,15 @@ pr (............)
 
 music none
 char colias normal
-? Hello…? Are you awake?
+?cp Hello…? Are you awake?
 pr (........what? Who is that….?)
 pr (Whatever……)
-? Yo bruv, {s}wake up!
+?cp Yo bruv, {s}wake up!
 pr (...W-{s}aah!)
 fadein
 pr (...Who is this? Another student?)
 pose colias happy
-? You were out pretty good, huh? Glad I noticed, wouldn’t want you snoozing through to the professor’s class!
+?cp You were out pretty good, huh? Glad I noticed, wouldn’t want you snoozing through to the professor’s class!
 pr ...I’m sorry, do I know you?
 pr (Something seems off about this guy. Plus he’s not even close to as hot as Alba, so I’d rather get this over with quick)
 music embassy

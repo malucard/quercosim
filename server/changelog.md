@@ -1,3 +1,7 @@
+# v0.2.6.1
+2022/1/8
+update to godot 3.4.2
+
 # v0.2.6
 2021/11/26
 Pursuit ~ Lying Coldly 2021, Investigation ~ Start, Investigation ~ Into It, and Panic of Fate have been totally remixed

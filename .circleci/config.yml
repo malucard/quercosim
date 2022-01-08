@@ -19,14 +19,14 @@ jobs:
           command: |
             bash send_webhook.sh
             sudo update-ca-certificates
-            wget -q --no-check-certificate https://downloads.tuxfamily.org/godotengine/3.4/Godot_v3.4-stable_linux_headless.64.zip
-            unzip Godot_v3.4-stable_linux_headless.64.zip
-            mv Godot_v3.4-stable_linux_headless.64 godot
+            wget -q --no-check-certificate https://downloads.tuxfamily.org/godotengine/3.4.2/Godot_v3.4.2-stable_linux_headless.64.zip
+            unzip Godot_v3.4.2-stable_linux_headless.64.zip
+            mv Godot_v3.4.2-stable_linux_headless.64 godot
             chmod +x godot
-            wget -q --no-check-certificate https://downloads.tuxfamily.org/godotengine/3.4/Godot_v3.4-stable_export_templates.tpz
+            wget -q --no-check-certificate https://downloads.tuxfamily.org/godotengine/3.4.2/Godot_v3.4.2-stable_export_templates.tpz
             mkdir -p ~/.local/share/godot/templates
-            unzip Godot_v3.4-stable_export_templates.tpz -d ~/.local/share/godot/templates
-            mv ~/.local/share/godot/templates/templates ~/.local/share/godot/templates/3.4.stable
+            unzip Godot_v3.4.2-stable_export_templates.tpz -d ~/.local/share/godot/templates
+            mv ~/.local/share/godot/templates/templates ~/.local/share/godot/templates/3.4.2.stable
       - run:
           name: Get Butler
           command: |
@@ -72,7 +72,7 @@ jobs:
           command: |
             wget https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip
             unzip commandlinetools-linux-7583922_latest.zip
-            rm sdk-tools-linux-4333796.zip
+            rm -f commandlinetools-linux-7583922_latest.zip
             sudo mkdir -p /usr/lib/android-sdk/cmdline-tools
             sudo mv cmdline-tools /usr/lib/android-sdk/cmdline-tools/latest
             export ANDROID_HOME=/usr/lib/android-sdk

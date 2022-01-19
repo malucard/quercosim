@@ -1,7 +1,7 @@
 {
 	"latest": {
 		"all": {
-			"name": "0.2.6.1",
+			"name": "0.2.6",
 			"suffix": ": bug fixes, remixed songs",
 			"links": ["download", "changelog"]
 		}

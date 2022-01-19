@@ -80,6 +80,7 @@
 		}
 
 		#status-indeterminate {
+			height: 42px;
 			visibility: visible;
 			position: relative;
 		}
@@ -139,7 +140,7 @@ $GODOT_HEAD_INCLUDE
 		const GODOT_CONFIG = $GODOT_CONFIG;
 		var engine = new Engine(GODOT_CONFIG);
 
-		(async function() {
+		(function() {
 			const INDETERMINATE_STATUS_STEP_MS = 100;
 			var statusProgress = document.getElementById('status-progress');
 			var statusProgressInner = document.getElementById('status-progress-inner');

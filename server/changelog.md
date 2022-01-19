@@ -1,6 +1,7 @@
-# v0.2.6.1
+# v0.2.6 (but on godot 3.4.2)
 2022/1/8
 update to godot 3.4.2
+not fix bug where 3D doesnt work on web
 
 # v0.2.6
 2021/11/26

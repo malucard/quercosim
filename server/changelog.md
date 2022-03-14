@@ -1,3 +1,7 @@
+# v0.2.7
+2022/3/14
+cut down on how many lines are lower case for no reason
+
 # v0.2.6 (but on godot 3.4.2)
 2022/1/8
 update to godot 3.4.2

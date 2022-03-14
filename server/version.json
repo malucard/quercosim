@@ -1,8 +1,8 @@
 {
 	"latest": {
 		"all": {
-			"name": "0.2.6",
-			"suffix": ": bug fixes, remixed songs",
+			"name": "0.2.7",
+			"suffix": ": cut down on how many lines are lowercase for no reason",
 			"links": ["download", "changelog"]
 		}
 	},

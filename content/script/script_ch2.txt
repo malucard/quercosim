@@ -26,24 +26,24 @@ bg protagonist left
 music none
 pr GAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHH
 pr WHAT THE HELL
-pr ...just... a nightmare again. ugh
+pr ...Just... a nightmare again. Ugh...
 pr (And so, I start a day like any other.)
 pr [url]https://www.youtube.com/watch?v=I8ZIClNqCt0[/url]
 fadein
 g [center]my house[/center]
 g [center]4:21 am[/center]
 pr :preview:
-pr (my alarm hasn't even rung yet. it's early... but not enough to sleep more... and i'd like to forget that just now... i should go get ready for school.)
+pr (My alarm hasn't even rung yet. It's early... but not enough to sleep more... and I'd like to forget that just now... I should go get ready for school.)
 investigation ch2_start
 	area "Home" bg protagonist
 			music protagonist
 			open_move 2
 		examinable x 0.86042 y 0.261058 w 0.519134 h 0.233517
-			pr my bed. the embedded keyboard is pretty fire
+			pr My bed. The embedded keyboard is pretty fire.
 		examinable x 0 y 0.403742 w 0.675319 h 0.425034
-			pr thank god i live in the middle of nowhere so I can blast these {s}humongous {s}hungolomghononoloughongous speakers.
+			pr Thank god I live in the middle of nowhere so I can blast these {s}humongous {s}hungolomghononoloughongous speakers.
 		examinable x 1.561148 y 0 w 0.438852 h 0.573917
-			pr a collection of my favorite instrument. guitars are just so cool to be honest. i hope i don't find a hater.
+			pr A collection of my favorite instrument. Guitars are just so cool to be honest. I hope I don't find a hater.
 	area "Allebahst Academy" bg hallway_forklift
 			music deid
 			char none
@@ -55,29 +55,29 @@ investigation ch2_start
 endinv
 pr (school... quercus won't be here, though... that's really stripped all the energy and confidence from me today.)
 pr (no, if I keep thinking about that, i won't be able to make it through the day.)
-pr (on the bright side, today i have music class. according to my bedroom, i love music.)
+pr (On the bright side, today I have music class. According to my bedroom, I love music.)
 char lbelle normal
 music lbelle
 fl Ah ha ha ha ha! It is you, little foot student!
-pr ...what's with you?
+pr ...What's with you?
 fl I am simply getting an education. Perhaps my unbounded grace is making my every step sound even MORE grandiose?
-pr what do you study here, anyway
+pr What do you study here, anyway?
 fl Well, it should be obvious!
 pose lbelle note
 fl I study BEAUTY. It's not something many could hope to understand.
 fl ...Though. you... you have quite a handle on it already, I can't lie...
-pr (great. so i don't have to see him in class nearly ever.)
-pr you're sure you study beauty?
+pr (Great. So I don't have to see him in class nearly ever.)
+pr You're sure you study beauty?
 fl Of course! It is the CORE of all high-class riddles! It is the SCIENCE of beauty!
-pr ok, so you know you're stupid, yeah?
+pr Ok, so you know you're stupid, yeah?
 fl It is enough to be a student here. In my little corner, there is NOTHING else to think about. There are no peers to taunt me, there is no mother to shame me... NOTHING! All I have is my studies.
 fl I am not forced to die of starvation, nor is my body forced to cave in. All I have is the knowledge that I am more beautiful than everyone around me, and that is enough.
-pr fucking boring, i didnt ask for your tragic life story anyway
+pr Fucking boring, I didn't ask for your tragic life story anyway
 fl Nothing is boring when you consider it in the WORST of conditions. I can recite your vocabulary backwards, and recite my feelings for you forward. The flower of a flower is boring to the gardener. The bee that collects nectar from it is boring to the beekeeper. But to the flower, this boring existence is the BEST LIFE on earth!
-pr i'm off
+pr I'm off.
 pose lbelle normal
 fl W-Wait! Don't LEAVE!
-pr i have class jfc leave me alone
+pr I have class jfc leave me alone
 fl Well, it's just, uh... ah, uh... um... em... aah... oh, uhm, mm, ahhhh..... uhh.... umm, uhh... h, ahh...
 pr (weirdo)
 fadeout
@@ -87,31 +87,31 @@ char colias
 pose colias happy
 fadein
 cp Hey bro what's good
-pr hey colias, this is the room for music class right?
+pr Hey colias, this is the room for music class right?
 pose colias grin
 cp Yeah. You're here a bit early though. We're the only ones here.
-pr yeah, i kinda had a nightmare and decided to come early...
+pr Yeah, I kinda had a nightmare and decided to come early...
 pose colias serious
 cp Dude, you're early by two hours
-pr y yeah uh it was uh a really bad nightmare.
+pr Y-Yeah uh it was uh a really bad nightmare.
 pose colias normal
-pr so... this room is kind of a mess, huh
+pr So... this room is kind of a mess, huh.
 cp Yeah, the professor's class is pretty practical.
-pr (i wonder who it is. i guess the manufactured suspense means i'll find out soon.)
-pr aren't there any guitars? come on...
+pr (I wonder who it is. I guess the manufactured suspense means i'll find out soon.)
+pr Aren't there any guitars? Come on...
 music suspense
 pose colias serious
 cp Did you just say gu*tars
-pr yeah but with an i instead of the *
+pr Yeah but with an i instead of the *
 cp BRO we hate those here sorry
-pr ? guitars are literally cool
+pr ? Guitars are literally cool
 cp No the strings are stuupid
-pr literally don't talk here
-pr i think you should just change your opinion
+pr Literally don't talk here
+pr I think you should just change your opinion
 pose colias normal
 cp We can disagree, this isn't the internet (web version players dni)
-pr no, your stupid until you have the exact same opinion as mine
-pr (i was thinking about being friendly to this guy?)
+pr No, your stupid until you have the exact same opinion as mine
+pr (I was thinking about being friendly to this guy?)
 music none
 pose colias normal
 cp ...Tell you what, they are pretty cool...
@@ -121,19 +121,19 @@ pr 💪
 pr but how can we convince the world guitars arent stuupid?
 cp Maybe you should have a concert since you like guitars so much.
 cp I'd go
-pr ja... guitars are just. so coool. maybe i will...
+pr Ja... Guitars are just. So coool. Maybe i will...
 pose colias grin
 cp Did you just say 'ja'?
-pr ja... sorry i just cant help it when im near a klavier, i become german little by ltitle, and it's been a bit
+pr Ja... Sorry I just can't help it when im near a klavier, I become german little by ltitle, and it's been a bit
 pose colias normal
 cp So, it seems music is a hobby of yours... but what about foot?
-pr foot is kind of boring, i told you
+pr Foot is kind of boring, I told you.
 cp But... You're going to college for it.
-pr (well, maybe foot will become what my life revolves around, in the end. i don't know.)
-pr well, uh...
-pr (but my real goal, since the start, was to meet cute boys. foot was just a cover.)
-pr that's not why I'm here...
-pr (but after meeting Alba-san, i'm not really interested in anyone else. did i forget to consider something...?)
+pr (Well, maybe foot will become what my life revolves around, in the end. I don't know.)
+pr Well, uh...
+pr (But my real goal, since the start, was to meet cute boys. Foot was just a cover.)
+pr That's not why I'm here...
+pr (But after meeting Alba-san, I'm not really interested in anyone else. Did I forget to consider something...?)
 cp You had another reason?
 pr (But, I still want to stay here. I can't quite put my finger on it, but, just... something about this...)
 cp What's that, then?
@@ -166,7 +166,7 @@ th Well, this is surprising. Usually only Colias is already here.
 th In fact, I've never *not* seen Colias here... He must be very good at avoiding the weather.
 th CALCULATE NUMBER OF STORMS|COUNTSTORM; CALCULATE NUMBER OF SUNS IN THE SKY|SUN; CALCULATE NUMBER OF STARS IN THE SKY|SUN; Something like that.
 pr I can see that he's dedicated.
-pr (the notes on foot he showed me yesterday were kind of insane. it's like a fax store, just for the subject of yesterday. colias may be a new baseline for foot wisdom)
+pr (The notes on foot he showed me yesterday were kind of insane. It's like a fax store, just for the subject of yesterday. Colias may be a new baseline for foot wisdom.)
 fadeout
 rchar none
 pr (Soon, other students arrive, as the time paints near.)
@@ -318,7 +318,7 @@ cp {s}Duude! Where's Shelock Holmes??
 pr wh-
 pr (Colias bursts out of the foot classroom. I look around for Holmes-san, but he's not here.)
 cp Aah...
-pr what happened man just be clear? i'll do what i can
+pr What happened man just be clear? I'll do what I can
 pr (Colias looks like he's been spooked by a ghost. he's probably roleplaying the the sims 2 (psp) protagonist.)
 #pr this is what was on your report card every year. you ragequit fnaf 6
 cp ...Come here.
@@ -339,14 +339,14 @@ profile_rm dm
 profile dm2
 sh ...He's dead.
 char shelock sweat
-sh Gentlemen, out of the room. Leave this to me and the off-screen "people"
+sh Gentlemen, out of the room. Leave this to me and the off-screen "people".
 cp Ok
 music crisis
 bg hallway
 char colias serious
 pr I can't believe Professor Deid Mann is dead
 cp Yeah...
-pr (i'm never going to pass foot at this rate)
+pr (I'm never going to pass foot at this rate)
 bg speaker
 g Please evacuate the building immediately. Please ev-
 pr I'm gonna pretend I didn't hear that
@@ -378,9 +378,9 @@ char colias serious
 music inv
 fadein
 cp ...
-pr o-oh, right...
-pr (that may have been a bit much,,,i have to actually investigate...)
-pr (well, i will have to truly do my best.)
+pr O-oh, right...
+pr (That may have been a bit much,,,I have to actually investigate...)
+pr (Well, I will have to truly do my best.)
 investigation ch2_deid_2_hallway
 	area "Hallway" bg hallway
 			music inv
@@ -424,8 +424,8 @@ investigation ch2_deid_2_hallway
 			bg forklift_stain
 			pr What even is this?
 			char colias serious
-			cp What? Gross
-			cp Leave it to, like, forensics bro
+			cp What? Gross.
+			cp Leave it to, like, forensics bro.
 			gotoif i_stain done
 
 			evi rainbow_stain "Colorful Stain" "Some weird substance found in the Maintenance Area."
@@ -441,8 +441,8 @@ investigation ch2_deid_2_hallway
 			pr Obama-san has been weird today, hasn't he, Colias?
 			pr (I hope he's not plotting something.)
 			char colias nervous
-			cp How would I know
-			pr isn't he here kinda all the time?
+			cp How would I know?
+			pr Isn't he here kinda all the time?
 			cp Ah, uh, I guess he is... Anyway.
 			label done
 			char none
@@ -735,10 +735,10 @@ sh Doing nothing isn't hot. Be boring enough, and you might just lose everything
 sh But fill it, and it will stay there for as long as you keep your act together! Give that a go if you need time to think.
 sh However, this is an [u]ace[/u] seduction. Our goal is to reach the truth.
 sh Do you understand my explanation?
-choice "i literally did this yesterday" no <repeat
+choice "I literally did this yesterday" No <repeat
 pose shelock normal
 sh Excellent!
-pr stop acting like you invented it :/ real apple shit
+pr Stop acting like you invented it :/ real apple shit
 music none
 vs shelock shelock_initial_truth
 g [center]-- What Happened to Sir Foot --[/center]
@@ -1244,7 +1244,7 @@ sh What...?
 pr Where is it, Holmes-san?
 sh ...
 sh I left it here. Where did it go...?
-pr wha
+pr Wha-
 lchar colias normal
 cp He could be lying.
 music gimmick
@@ -1261,8 +1261,8 @@ pr Mmm. How could they have left?
 char protagonist serious
 lchar colias normal
 cp Can you think of anything, Protagonist? Was there any way for a fork elevator to be ejected from the school grounds?
-pr how the hell man
-pr this whole thing keeps getting more complicated what the fuck do i even do
+pr How the hell man
+pr This whole thing keeps getting more complicated what the fuck do I even do
 cp We're really grasping at straws here, I know. But it's all we have, and we know there [u]has[/u] to be an answer. Yet again, more likely than not, we can connect [h]things we've already found[/h] to find an answer.
 !vs_save
 pr (I'm really running out of options here. But, as Colias said... I need to come up with something.)
@@ -1535,9 +1535,9 @@ lchar querco hand
 qa Unfortunately, we cannot allow someone to live in our ventilation system.
 qa However, you can live in the dorms. I will personally arrange a room for you. Free
 pose colias happy
-cp oomygod thankyou somuch Ambassador Quercus Alba.
+cp Oh my god thank you so much Ambassador Quercus Alba.
 qa You could have reached out sooner to someone.
-cp i don't know... it would be embarrassing.
+cp I don't know... It would be embarrassing.
 pr (I'm so glad for Colias.)
 rchar none
 pr Alba-san is always so kind and cool...
@@ -1553,9 +1553,9 @@ pr Hey, Colias. You're my assistant now, so what about you work with me? I have 
 pr I could maliciously reduce your salary and exploit you despite your hard work until you can't afford a healthy meal each day, but I promise I won't.
 pr You're over 21, and I believe foot has all the necessary qualifications.
 pose colias normal
-cp really...? that's-
-cp that's kind of you...
-cp Hm... myabe... we can try.
+cp Really...? That's-
+cp That's kind of you...
+cp Hm... maybe... we can try.
 lchar querco hand
 qa Colias Palaeno. Let's go.
 cp Right. Sir.

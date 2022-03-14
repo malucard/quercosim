@@ -678,6 +678,6 @@ fadeout
 pr (And as such, my hopes and dreams have been cut short. With my life's only source of light overseas for a section of a day, I don't know how I will lead my life...)
 pr (I don't have any other plans. I will just have to power through the day, and... live through whatever happens until he's back.)
 music none
-pr yawn...
+pr Yawn...
 chapter_end 1 "Prologue"
 file script_ch2

@@ -118,10 +118,10 @@ cp ...Tell you what, they are pretty cool...
 cp We should start a revolution so people start liking guitars
 music protagonist
 pr 💪
-pr but how can we convince the world guitars arent stuupid?
+pr But how can we convince the world guitars arent stuupid?
 cp Maybe you should have a concert since you like guitars so much.
 cp I'd go
-pr Ja... Guitars are just. So coool. Maybe i will...
+pr Ja... Guitars are just. So coool. Maybe I will...
 pose colias grin
 cp Did you just say 'ja'?
 pr Ja... Sorry I just can't help it when im near a klavier, I become german little by ltitle, and it's been a bit
@@ -319,7 +319,7 @@ pr wh-
 pr (Colias bursts out of the foot classroom. I look around for Holmes-san, but he's not here.)
 cp Aah...
 pr What happened man just be clear? I'll do what I can
-pr (Colias looks like he's been spooked by a ghost. he's probably roleplaying the the sims 2 (psp) protagonist.)
+pr (Colias looks like he's been spooked by a ghost. He's probably roleplaying the the sims 2 (psp) protagonist.)
 #pr this is what was on your report card every year. you ragequit fnaf 6
 cp ...Come here.
 bg classroom_forklift
@@ -733,7 +733,7 @@ pose shelock polish
 sh Look to your top left. That bar shows your [h]dominance[/h]. You can dominate by flirting or being smart. [h]Press[/h] your target as much as possible to find their weak spot, and take advantage!
 sh Doing nothing isn't hot. Be boring enough, and you might just lose everything.
 sh But fill it, and it will stay there for as long as you keep your act together! Give that a go if you need time to think.
-sh However, this is an [u]ace[/u] seduction. Our goal is to reach the truth.
+sh However, this is my own brand of seduction. Our goal is to reach the truth.
 sh Do you understand my explanation?
 choice "I literally did this yesterday" No <repeat
 pose shelock normal

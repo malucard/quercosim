@@ -7,7 +7,7 @@ version: 2.1
 jobs:
   export:
     machine:
-      enabled: true
+      image: ubuntu-2004:202201-02
     steps:
       - checkout
       - run:
@@ -17,16 +17,16 @@ jobs:
       - run:
           name: Download Godot
           command: |
-            bash send_webhook.sh
+            #bash send_webhook.sh
             sudo update-ca-certificates
-            wget -q --no-check-certificate https://downloads.tuxfamily.org/godotengine/3.4.2/Godot_v3.4.2-stable_linux_headless.64.zip
-            unzip Godot_v3.4.2-stable_linux_headless.64.zip
-            mv Godot_v3.4.2-stable_linux_headless.64 godot
+            wget -q --no-check-certificate https://downloads.tuxfamily.org/godotengine/3.4.3/Godot_v3.4.3-stable_linux_headless.64.zip
+            unzip Godot_v3.4.3-stable_linux_headless.64.zip
+            mv Godot_v3.4.3-stable_linux_headless.64 godot
             chmod +x godot
-            wget -q --no-check-certificate https://downloads.tuxfamily.org/godotengine/3.4.2/Godot_v3.4.2-stable_export_templates.tpz
+            wget -q --no-check-certificate https://downloads.tuxfamily.org/godotengine/3.4.3/Godot_v3.4.3-stable_export_templates.tpz
             mkdir -p ~/.local/share/godot/templates
-            unzip Godot_v3.4.2-stable_export_templates.tpz -d ~/.local/share/godot/templates
-            mv ~/.local/share/godot/templates/templates ~/.local/share/godot/templates/3.4.2.stable
+            unzip Godot_v3.4.3-stable_export_templates.tpz -d ~/.local/share/godot/templates
+            mv ~/.local/share/godot/templates/templates ~/.local/share/godot/templates/3.4.3.stable
       - run:
           name: Get Butler
           command: |
@@ -75,8 +75,8 @@ jobs:
             rm -f commandlinetools-linux-7583922_latest.zip
             sudo mkdir -p /usr/lib/android-sdk/cmdline-tools
             sudo mv cmdline-tools /usr/lib/android-sdk/cmdline-tools/latest
-            sudo /usr/lib/android-sdk/cmdline-tools/latest/bin/sdkmanager --install platforms\;android-30
-            sudo /usr/lib/android-sdk/cmdline-tools/latest/bin/sdkmanager --install build-tools\;30.0.3
+            (yes || true) | sudo /usr/lib/android-sdk/cmdline-tools/latest/bin/sdkmanager --install platforms\;android-30
+            (yes || true) | sudo /usr/lib/android-sdk/cmdline-tools/latest/bin/sdkmanager --install build-tools\;30.0.3
             sed -i 's/android_sdk_path = ""/android_sdk_path = "\/usr\/lib\/android-sdk"/g' ~/.config/godot/editor_settings-3.tres
             ./godot --export "Android" "/tmp/quercos.apk"
       - run:
